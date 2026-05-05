@@ -1,0 +1,148 @@
+# Runs the automated builds refresh pipeline and, in live_cron, updates rolling
+# proposal PRs in hearn1/bazaar_tracker.
+#
+# Required secrets:
+# - TRACKER_PR_TOKEN: fine-grained PAT scoped to hearn1/bazaar_tracker with
+#   Contents: Read & Write and Pull requests: Read & Write.
+# - CLAUDE_API_KEY: Anthropic API key for the LLM classifier.
+
+name: Automated builds refresh
+
+on:
+  schedule:
+    - cron: "0 6 * * 0"
+  workflow_dispatch:
+    inputs:
+      hero:
+        description: "Hero to refresh"
+        required: true
+        type: choice
+        options:
+          - Karnok
+          - Mak
+          - Dooley
+          - Vanessa
+          - Pygmalien
+          - Jules
+          - Stelle
+      phase_override:
+        description: "Optional one-run phase override: implementation, local_dry_run, shadow_cron, or live_cron"
+        required: false
+        type: string
+
+concurrency:
+  group: pipeline-${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        hero: [Karnok, Mak, Dooley, Vanessa, Pygmalien, Jules, Stelle]
+
+    steps:
+      - name: Check selected hero
+        id: selected
+        run: |
+          if [[ "${{ github.event_name }}" != "workflow_dispatch" || "${{ inputs.hero }}" == "${{ matrix.hero }}" ]]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out bazaar-builds
+        if: steps.selected.outputs.run == 'true'
+        uses: actions/checkout@v4
+
+      - name: Check out bazaar_tracker
+        if: steps.selected.outputs.run == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: hearn1/bazaar_tracker
+          path: bazaar_tracker
+          token: ${{ secrets.TRACKER_PR_TOKEN }}
+
+      - name: Set up Python
+        if: steps.selected.outputs.run == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        if: steps.selected.outputs.run == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright browsers
+        if: steps.selected.outputs.run == 'true'
+        run: python -m playwright install chromium
+
+      - name: Prepare run state
+        if: steps.selected.outputs.run == 'true'
+        id: state
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          source = Path("pipeline_state.json")
+          if source.exists():
+              state = json.loads(source.read_text(encoding="utf-8"))
+          else:
+              state = {
+                  "schema_version": 1,
+                  "phase": "implementation",
+                  "dry_run": True,
+                  "patch_label": None,
+                  "expected_bazaardb_patch_label": None,
+                  "freeze_removals_until": None,
+                  "hero_freezes": {},
+              }
+
+          override = "${{ inputs.phase_override }}"
+          if override:
+              allowed = {"implementation", "local_dry_run", "shadow_cron", "live_cron"}
+              if override not in allowed:
+                  raise SystemExit(f"phase_override must be one of {sorted(allowed)}")
+              state["phase"] = override
+              state["dry_run"] = override != "live_cron"
+
+          target = Path(os.environ["RUNNER_TEMP"]) / "pipeline_state.json"
+          target.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as handle:
+              handle.write(f"state_file={target}\n")
+              handle.write(f"phase={state['phase']}\n")
+              handle.write(f"dry_run={str(state['dry_run']).lower()}\n")
+          PY
+
+      - name: Configure tracker git identity
+        if: steps.selected.outputs.run == 'true' && steps.state.outputs.phase == 'live_cron'
+        working-directory: bazaar_tracker
+        run: |
+          git config user.name "bazaar-builds-bot"
+          git config user.email "bazaar-builds-bot@users.noreply.github.com"
+
+      - name: Run pipeline
+        if: steps.selected.outputs.run == 'true'
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+          GH_TOKEN: ${{ secrets.TRACKER_PR_TOKEN }}
+        run: |
+          python -m automated_builds_pipeline.pipeline run \
+            --hero "${{ matrix.hero }}" \
+            --state-file "${{ steps.state.outputs.state_file }}" \
+            --tracker-repo "$GITHUB_WORKSPACE/bazaar_tracker" \
+            --stats-dir "$GITHUB_WORKSPACE/stats" \
+            --output-dir "$GITHUB_WORKSPACE/artifacts" \
+            --api-key-env CLAUDE_API_KEY \
+            --bazaardb-retries 2
+
+      - name: Upload shadow artifacts
+        if: steps.selected.outputs.run == 'true' && (steps.state.outputs.phase != 'live_cron' || steps.state.outputs.dry_run == 'true')
+        uses: actions/upload-artifact@v4
+        with:
+          name: automated-builds-${{ matrix.hero }}-${{ github.run_id }}
+          path: artifacts/
+          if-no-files-found: ignore

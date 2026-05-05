@@ -1,0 +1,66 @@
+name: Validate catalog schema
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install jsonschema
+        run: pip install jsonschema
+
+      - name: Validate *_builds.json against tracker schema
+        run: |
+          python - <<'EOF'
+          import json
+          import sys
+          import urllib.request
+          from pathlib import Path
+
+          SCHEMA_URL = "https://raw.githubusercontent.com/hearn1/bazaar_tracker/main/builds_schema.json"
+
+          try:
+              import jsonschema
+          except ImportError:
+              print("jsonschema not installed", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"Fetching schema from {SCHEMA_URL}")
+          with urllib.request.urlopen(SCHEMA_URL) as resp:
+              schema = json.loads(resp.read())
+
+          catalogs = list(Path(".").glob("*_builds.json"))
+          if not catalogs:
+              print("No *_builds.json files found — nothing to validate.")
+              sys.exit(0)
+
+          errors = []
+          for path in sorted(catalogs):
+              print(f"Validating {path} ...", end=" ")
+              try:
+                  data = json.loads(path.read_text(encoding="utf-8"))
+                  jsonschema.validate(instance=data, schema=schema)
+                  print("OK")
+              except jsonschema.ValidationError as exc:
+                  print(f"FAIL: {exc.message}")
+                  errors.append((path, exc.message))
+              except json.JSONDecodeError as exc:
+                  print(f"FAIL: invalid JSON: {exc}")
+                  errors.append((path, str(exc)))
+
+          if errors:
+              print(f"\n{len(errors)} validation error(s):", file=sys.stderr)
+              for path, msg in errors:
+                  print(f"  {path}: {msg}", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"\nAll {len(catalogs)} catalog(s) valid.")
+          EOF

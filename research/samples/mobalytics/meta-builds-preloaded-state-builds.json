@@ -1,0 +1,238 @@
+{
+  "build_blocks": [
+    {
+      "title": "Runic Blade (Mak)",
+      "items": [
+        "Icicle",
+        "Runic Potion",
+        "Basilisk Fang",
+        "Runic Great Axe",
+        "Runic Daggers",
+        "Runic Blade"
+      ]
+    },
+    {
+      "title": "Tortuga (Vanessa)",
+      "items": [
+        "Tortuga",
+        "Zoarcid",
+        "Pesky Pete",
+        "Narwhal",
+        "Vampire Squid",
+        "Piranha",
+        "Sharkray"
+      ]
+    },
+    {
+      "title": "Private Hot Springs (Pygmalien)",
+      "items": [
+        "Booby Trap",
+        "Ice Luge",
+        "Cold Room",
+        "Private Hot Springs",
+        "Gramophone"
+      ]
+    },
+    {
+      "title": "Poppy Field (Mak)",
+      "items": [
+        "Runic Potion",
+        "Hourglass",
+        "Goop Flail",
+        "Smelling Salts",
+        "Soulstone",
+        "Poppy Field"
+      ]
+    },
+    {
+      "title": "Launcher Core (Dooley)",
+      "items": [
+        "Fiber Optics",
+        "Cooling Fan",
+        "Metronome",
+        "Ice 9000",
+        "Coolant",
+        "Beta Ray",
+        "Launcher Core",
+        "Thrusters"
+      ]
+    },
+    {
+      "title": "Ballista (Vanessa)",
+      "items": [
+        "Ballista",
+        "Nesting Doll",
+        "Pop Snappers",
+        "Dive Weights",
+        "Zoarcid",
+        "Harpoon",
+        "Holsters"
+      ]
+    },
+    {
+      "title": "Money Furnace (Pygmalien)",
+      "items": [
+        "Billboard",
+        "Abacus",
+        "Money Furnace",
+        "Gramophone",
+        "Belt"
+      ]
+    },
+    {
+      "title": "Weaponized Core (Dooley)",
+      "items": [
+        "Nitro",
+        "Cool LEDs",
+        "GPU",
+        "Antimatter Chamber",
+        "Lightbulb",
+        "Capacitor",
+        "Weaponized Core"
+      ]
+    },
+    {
+      "title": "Potions (Mak)",
+      "items": [
+        "Potion Distillery",
+        "Flying Potion",
+        "Caustic Solvent",
+        "Boiling Flask",
+        "Fire Potion",
+        "Atmospheric Sampler"
+      ]
+    },
+    {
+      "title": "Square (Pygmalien)",
+      "items": [
+        "Lion Cane",
+        "Regal Blade",
+        "Cash Cannon",
+        "Booby Trap",
+        "Belt"
+      ]
+    },
+    {
+      "title": "Slumbering Primordial (Vanessa)",
+      "items": [
+        "Slumbering Primordial",
+        "Pop Snappers",
+        "Nesting Doll",
+        "Zoarcid",
+        "Dive Weights",
+        "Incendiary Rounds",
+        "Clamera",
+        "Holsters"
+      ]
+    },
+    {
+      "title": "Space Laser (Stelle)",
+      "items": [
+        "Ornithopter",
+        "Sirens",
+        "Observatory",
+        "Space Laser",
+        "Headset"
+      ]
+    },
+    {
+      "title": "Pillbuggy (Stelle)",
+      "items": [
+        "Goggles",
+        "Pillbuggy",
+        "Cloud Tanker",
+        "Weather Machine",
+        "Headset"
+      ]
+    },
+    {
+      "title": "Dooltron (Dooley)",
+      "items": [
+        "Dooltron",
+        "Z-Shield",
+        "Monitor Lizard",
+        "Bunker"
+      ]
+    },
+    {
+      "title": "Sky Anchor (Stelle)",
+      "items": [
+        "Box Cutter",
+        "Goggles",
+        "Sky Anchor",
+        "Tugboat",
+        "Sirens",
+        "Stelle's Workshop"
+      ]
+    },
+    {
+      "title": "Spice Rack (Jules)",
+      "items": [
+        "Pantry",
+        "Instant Noodles",
+        "Spice Rack",
+        "Pizza",
+        "Meat Tenderizer",
+        "Zarlic"
+      ]
+    },
+    {
+      "title": "Freezer (Jules)",
+      "items": [
+        "Sorbet",
+        "Strawberries",
+        "Walk-In Freezer",
+        "Ice Cubes",
+        "Blender",
+        "Black Pepper",
+        "Sorbet"
+      ]
+    },
+    {
+      "title": "Farmer's Market (Jules)",
+      "items": [
+        "Zarlic",
+        "Strawberries",
+        "Farmer's Market",
+        "Pasta",
+        "Bread Knife",
+        "Oven"
+      ]
+    },
+    {
+      "title": "Self-Slow (Karnok)",
+      "items": [
+        "Flying Squirrel",
+        "Chains",
+        "Healing Draught",
+        "Ghillie Suit",
+        "Worry Wart",
+        "Bear Trap",
+        "Tent"
+      ]
+    },
+    {
+      "title": "Pacifist (Karnok)",
+      "items": [
+        "Flying Squirrel",
+        "Stretch Pants",
+        "Waterskin",
+        "Warding Glyphs",
+        "Furs",
+        "Karst"
+      ]
+    },
+    {
+      "title": "Anaconda (Karnok)",
+      "items": [
+        "Flying Squirrel",
+        "Anaconda",
+        "Waterskin",
+        "Messenger Sparrow",
+        "Flare",
+        "Karst"
+      ]
+    }
+  ],
+  "total": 21
+}

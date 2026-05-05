@@ -331,7 +331,8 @@ def extract_category_records(category_url: str, html: str, hero: Optional[str], 
         if len(records) >= limit:
             break
 
-    dates = [iso_date(value) for value in parser.dates]
+    text_dates = re.findall(r"\b(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\s+\d{1,2},\s+\d{4}\b", parser.text)
+    dates = [iso_date(value) for value in parser.dates + text_dates]
     dates = [value for value in dates if value]
     for index, record in enumerate(records):
         if index < len(dates):
@@ -391,6 +392,7 @@ def enrich_post(record: BuildRecord, known_items: set[str], timeout: int) -> Bui
 
     parser = parse_html(html)
     json_ld_records = extract_json_ld_records(html, record.url, record.hero, known_items)
+    record.date = record.date or next((row.date for row in json_ld_records if row.date), None)
     rich = next((row for row in json_ld_records if row.items), None)
     if rich:
         record.items = merge_unique(record.items, rich.items)

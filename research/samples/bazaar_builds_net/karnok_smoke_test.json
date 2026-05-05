@@ -1,0 +1,574 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-05T10:51:54.390194+00:00",
+  "source": {
+    "category_url": "https://bazaar-builds.net/category/builds/karnok-builds/",
+    "site": "bazaar-builds.net"
+  },
+  "filters": {
+    "hero": "Karnok",
+    "days": 30,
+    "since": "2026-04-05"
+  },
+  "known_item_count": 415,
+  "record_count": 17,
+  "warnings": [],
+  "groups": [
+    {
+      "tag": "Build",
+      "sample_count": 3,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/category/builds/karnok-builds/#content",
+          "title": "Skip to content",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Skip to content",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/category/builds/karnok-builds/#",
+          "title": "Socials",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Socials",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/category/builds/karnok-builds/",
+          "title": "The Bazaar - 10 Win Karnok Builds | Updated Daily!",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Build",
+          "items": [],
+          "source": "json_ld",
+          "snippet": "On this Page, you can find all 10 Win Builds played with Karnok in the Bazaar - Can you get 10 Wins with it? Builds by Legend Players, Streamers & More",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "Self-Slow Build",
+      "sample_count": 3,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Self-Slow Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/self-slow-karnok-10-0-build-33186-legend-mike001eiei/",
+          "title": "Self-Slow Karnok 10-0 Build #33186 Legend – Mike001eiei",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Self-Slow Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Self-Slow Karnok 10-0 Build #33186 Legend – Mike001eiei",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/self-slow-karnok-10-5-build-21535-legend-kingpindfx/",
+          "title": "Self-Slow Karnok 10-5 Build #21535 Legend – KingpinDFX",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Self-Slow Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Self-Slow Karnok 10-5 Build #21535 Legend – KingpinDFX",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/self-slow-karnok-10-5-build-25624-legend-kingpindfx/",
+          "title": "Self-Slow Karnok 10-5 Build #25624 Legend – KingpinDFX",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Self-Slow Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Self-Slow Karnok 10-5 Build #25624 Legend – KingpinDFX",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "Uncategorized",
+      "sample_count": 3,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Uncategorized: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/category/builds/",
+          "title": "Builds",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Uncategorized",
+          "items": [],
+          "source": "category",
+          "snippet": "Builds",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/build-finder/",
+          "title": "Build Finder: Pick Items, Get Matching Builds",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Uncategorized",
+          "items": [],
+          "source": "category",
+          "snippet": "Build Finder: Pick Items, Get Matching Builds",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/",
+          "title": "bazaar-builds.net",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Uncategorized",
+          "items": [],
+          "source": "json_ld",
+          "snippet": "Bazaar Builds, News &amp; More",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "Trapvine Build",
+      "sample_count": 2,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Trapvine Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/trapvine-karnok-10-win-build-19190-legend-anneo/",
+          "title": "Trapvine Karnok 10 Win Build #19190 Legend – Anneo",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Trapvine Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Trapvine Karnok 10 Win Build #19190 Legend – Anneo",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/trapvine-karnok-10-2-build-19274-legend-rc13/",
+          "title": "Trapvine Karnok 10-2 Build #19274 Legend – RC13",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Trapvine Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Trapvine Karnok 10-2 Build #19274 Legend – RC13",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "Anaconda Build",
+      "sample_count": 1,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Anaconda Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/anaconda-karnok-10-5-build-22704-legend-maplemushy/",
+          "title": "Anaconda Karnok 10-5 Build #22704 Legend – MapleMushy",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Anaconda Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Anaconda Karnok 10-5 Build #22704 Legend – MapleMushy",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "Frog Hollow Build",
+      "sample_count": 1,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Frog Hollow Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/frog-hollow-karnok-10-3-build-8363-legend-banastronaut/",
+          "title": "Frog Hollow Karnok 10-3 Build #8363 Legend – banastronaut",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Frog Hollow Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Frog Hollow Karnok 10-3 Build #8363 Legend – banastronaut",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "Max Health Burn Build",
+      "sample_count": 1,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Max Health Burn Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/max-health-burn-karnok-10-2-build-30416-legend-kardigan/",
+          "title": "Max Health Burn Karnok 10-2 Build #30416 Legend – KardigaN",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Max Health Burn Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Max Health Burn Karnok 10-2 Build #30416 Legend – KardigaN",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "Wild Boar Build",
+      "sample_count": 1,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Wild Boar Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/wild-boar-karnok-10-win-build-15294-legend-anneo/",
+          "title": "Wild Boar Karnok 10 Win Build #15294 Legend – Anneo",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Wild Boar Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Wild Boar Karnok 10 Win Build #15294 Legend – Anneo",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "jules Build",
+      "sample_count": 1,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "jules Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/category/builds/jules-builds/",
+          "title": "Jules",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "jules Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Jules",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "stelle Build",
+      "sample_count": 1,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [],
+      "candidate_core_items": [],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "stelle Build: not enough repeated item evidence yet; add manual paste records or fetch more samples.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/category/builds/stelle-builds/",
+          "title": "Stelle",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "stelle Build",
+          "items": [],
+          "source": "category",
+          "snippet": "Stelle",
+          "fetch_status": "not_attempted",
+          "fetch_error": null
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "url": "https://bazaar-builds.net/category/builds/karnok-builds/#content",
+      "title": "Skip to content",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Skip to content",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/category/builds/",
+      "title": "Builds",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Uncategorized",
+      "items": [],
+      "source": "category",
+      "snippet": "Builds",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/category/builds/stelle-builds/",
+      "title": "Stelle",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "stelle Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Stelle",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/category/builds/jules-builds/",
+      "title": "Jules",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "jules Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Jules",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/category/builds/karnok-builds/#",
+      "title": "Socials",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Socials",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/build-finder/",
+      "title": "Build Finder: Pick Items, Get Matching Builds",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Uncategorized",
+      "items": [],
+      "source": "category",
+      "snippet": "Build Finder: Pick Items, Get Matching Builds",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/anaconda-karnok-10-5-build-22704-legend-maplemushy/",
+      "title": "Anaconda Karnok 10-5 Build #22704 Legend – MapleMushy",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Anaconda Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Anaconda Karnok 10-5 Build #22704 Legend – MapleMushy",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/frog-hollow-karnok-10-3-build-8363-legend-banastronaut/",
+      "title": "Frog Hollow Karnok 10-3 Build #8363 Legend – banastronaut",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Frog Hollow Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Frog Hollow Karnok 10-3 Build #8363 Legend – banastronaut",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/trapvine-karnok-10-win-build-19190-legend-anneo/",
+      "title": "Trapvine Karnok 10 Win Build #19190 Legend – Anneo",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Trapvine Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Trapvine Karnok 10 Win Build #19190 Legend – Anneo",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/wild-boar-karnok-10-win-build-15294-legend-anneo/",
+      "title": "Wild Boar Karnok 10 Win Build #15294 Legend – Anneo",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Wild Boar Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Wild Boar Karnok 10 Win Build #15294 Legend – Anneo",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/self-slow-karnok-10-0-build-33186-legend-mike001eiei/",
+      "title": "Self-Slow Karnok 10-0 Build #33186 Legend – Mike001eiei",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Self-Slow Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Self-Slow Karnok 10-0 Build #33186 Legend – Mike001eiei",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/self-slow-karnok-10-5-build-21535-legend-kingpindfx/",
+      "title": "Self-Slow Karnok 10-5 Build #21535 Legend – KingpinDFX",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Self-Slow Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Self-Slow Karnok 10-5 Build #21535 Legend – KingpinDFX",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/trapvine-karnok-10-2-build-19274-legend-rc13/",
+      "title": "Trapvine Karnok 10-2 Build #19274 Legend – RC13",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Trapvine Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Trapvine Karnok 10-2 Build #19274 Legend – RC13",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/self-slow-karnok-10-5-build-25624-legend-kingpindfx/",
+      "title": "Self-Slow Karnok 10-5 Build #25624 Legend – KingpinDFX",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Self-Slow Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Self-Slow Karnok 10-5 Build #25624 Legend – KingpinDFX",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/max-health-burn-karnok-10-2-build-30416-legend-kardigan/",
+      "title": "Max Health Burn Karnok 10-2 Build #30416 Legend – KardigaN",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Max Health Burn Build",
+      "items": [],
+      "source": "category",
+      "snippet": "Max Health Burn Karnok 10-2 Build #30416 Legend – KardigaN",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/category/builds/karnok-builds/",
+      "title": "The Bazaar - 10 Win Karnok Builds | Updated Daily!",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Build",
+      "items": [],
+      "source": "json_ld",
+      "snippet": "On this Page, you can find all 10 Win Builds played with Karnok in the Bazaar - Can you get 10 Wins with it? Builds by Legend Players, Streamers & More",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/",
+      "title": "bazaar-builds.net",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Uncategorized",
+      "items": [],
+      "source": "json_ld",
+      "snippet": "Bazaar Builds, News &amp; More",
+      "fetch_status": "not_attempted",
+      "fetch_error": null
+    }
+  ],
+  "review_guidance": [
+    "This artifact is evidence for a human review pass; it does not update any *_builds.json file.",
+    "Compare candidate_core_items and candidate_support_items against the matching hero catalog archetype.",
+    "Prefer repeated items from dated/manual-confirmed builds over one-off direct-page scrape matches.",
+    "Use records with empty items as placeholders for manual paste fallback."
+  ]
+}

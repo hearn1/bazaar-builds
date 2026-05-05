@@ -1,0 +1,146 @@
+{
+  "slug": "tortuga-vanessa-kripp",
+  "doc_type": "builds",
+  "grids": [
+    {
+      "section_title": "Example Early Game Path",
+      "items": [
+        {
+          "title": "Sharkray",
+          "slug": "sharkray",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Piranha",
+          "slug": "piranha",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Narwhal",
+          "slug": "narwhal",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Flying Fish",
+          "slug": "flying-fish",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Jellyfish",
+          "slug": "jellyfish",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Beach Ball",
+          "slug": "beach-ball",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Sharkclaws",
+          "slug": "sharkclaws",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Switchblade",
+          "slug": "switchblade",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Honing Steel",
+          "slug": "honing-steel",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Chum",
+          "slug": "chum",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Fishing Net",
+          "slug": "fishing-net",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Fishing Rod",
+          "slug": "fishing-rod",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Ambergris",
+          "slug": "ambergris",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Star Chart",
+          "slug": "star-chart",
+          "hero": "Vanessa"
+        }
+      ]
+    },
+    {
+      "section_title": "Example Mid Game Additions",
+      "items": [
+        {
+          "title": "Figurehead",
+          "slug": "figurehead",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Seashadow",
+          "slug": "seashadow",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Piranha",
+          "slug": "piranha",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Pufferfish",
+          "slug": "pufferfish",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Wanted Poster",
+          "slug": "wanted-poster",
+          "hero": "Vanessa"
+        }
+      ]
+    },
+    {
+      "section_title": "End Game Build Breakdown",
+      "items": [
+        {
+          "title": "Tortuga",
+          "slug": "tortuga",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Piano",
+          "slug": "piano",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Dive Weights",
+          "slug": "dive-weights",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Shipwreck",
+          "slug": "shipwreck",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Sharkray",
+          "slug": "sharkray",
+          "hero": "Vanessa"
+        },
+        {
+          "title": "Piranha",
+          "slug": "piranha",
+          "hero": "Vanessa"
+        }
+      ]
+    }
+  ]
+}

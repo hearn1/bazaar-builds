@@ -1,0 +1,115 @@
+{
+  "url": "https://bazaardb.gg/run/meta",
+  "probed_at": "2026-05-05",
+  "fetch_method": "browser (Cloudflare managed challenge blocks curl)",
+  "framework": "Next.js App Router",
+  "total_runs_shown": 20099,
+  "avg_wins_shown": 9.05,
+  "patch_label": "Apr 29",
+  "note": "No __NEXT_DATA__. CSS classes hashed. Data in SSR HTML only. Hero filter is client-side state (no URL param). No time window filter.",
+  "archetype_sample": [
+    {
+      "hero": "inferred_Mak_or_shared_potions",
+      "core_items": [
+        "Flying Potion",
+        "Boiling Flask",
+        "Atmospheric Sampler"
+      ],
+      "runs": 510,
+      "avg_wins": 9.7,
+      "supporting_flex_small": [
+        {
+          "item": "Caustic Solvent",
+          "runs": 176,
+          "pct": "35%"
+        },
+        {
+          "item": "Vitality Potion",
+          "runs": 106,
+          "pct": "21%"
+        },
+        {
+          "item": "Broken Bottle",
+          "runs": 85,
+          "pct": "17%"
+        },
+        {
+          "item": "Frost Potion",
+          "runs": 53,
+          "pct": "10%"
+        },
+        {
+          "item": "Excavation Tools",
+          "runs": 34,
+          "pct": "7%"
+        },
+        {
+          "item": "Rainbow Potion",
+          "runs": 33,
+          "pct": "6%"
+        }
+      ],
+      "supporting_flex_large": [
+        {
+          "item": "Potion Distillery",
+          "runs": 150,
+          "pct": "29%"
+        },
+        {
+          "item": "Library",
+          "runs": 48,
+          "pct": "9%"
+        },
+        {
+          "item": "Athanor",
+          "runs": 44,
+          "pct": "9%"
+        },
+        {
+          "item": "Vat of Acid",
+          "runs": 23,
+          "pct": "5%"
+        }
+      ]
+    },
+    {
+      "hero": "inferred_Pygmalien",
+      "core_items": [
+        "Zarlic",
+        "Spice Rack",
+        "Instant Noodles"
+      ],
+      "runs": 221,
+      "avg_wins": 9.6,
+      "supporting_flex_medium": [
+        {
+          "item": "Serving Platter",
+          "runs": 100,
+          "pct": "45%"
+        },
+        {
+          "item": "Pizza",
+          "runs": 25,
+          "pct": "11%"
+        },
+        {
+          "item": "Azakan Stew",
+          "runs": 19,
+          "pct": "9%"
+        }
+      ]
+    }
+  ],
+  "hero_filter_options": [
+    "Common",
+    "Vanessa",
+    "Pygmalien",
+    "Dooley",
+    "Mak",
+    "Stelle",
+    "Jules",
+    "Karnok"
+  ],
+  "hero_filter_url_param": null,
+  "hero_filter_mechanism": "client-side state only (no URL change on filter click)"
+}

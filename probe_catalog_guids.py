@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Probe Addressables catalog GUIDs for missing Bazaar card art bundles."""
+"""Probe Addressables catalog GUIDs for missing Bazaar card art bundles.
+
+Use --cards-file and --manifest-file to point at tracker cache files.
+"""
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 from pathlib import Path
 from typing import Iterable
-
-import app_paths
-from extract_bazaar_bundle_pngs import _normalize_card_name, _parse_card_texture_name
-from web.card_images import NAME_ALIASES
 
 CATALOG_PATH = Path(
     r"C:\Program Files (x86)\Steam\steamapps\common\The Bazaar"
@@ -23,23 +23,97 @@ STANDALONE_DIR = Path(
 GUID_RE = re.compile(r"(?<![0-9a-f])[0-9a-f]{32}(?![0-9a-f])")
 READABLE_RE = re.compile(rb"[ -~]{8,}")
 BUNDLE_RE = re.compile(r"[A-Za-z0-9_./\\-]+\.bundle", re.IGNORECASE)
+CARD_NAME_RE = re.compile(
+    r"^CF_[A-Z]+_[A-Za-z]{2,5}_(.+?)(?:_D\d?|_D\s+|)\s*$"
+)
+CARD_D_SUFFIX_RE = re.compile(r"_D(?:\d|\s*)\s*$")
+
+SIBLING_TRACKER_DIR = Path(__file__).resolve().parent.parent / "bazaar_tracker"
+DEFAULT_CARDS_FILE = SIBLING_TRACKER_DIR / "static_cache" / "cards.json"
+DEFAULT_MANIFEST_FILE = SIBLING_TRACKER_DIR / "static_cache" / "images" / "manifest.json"
+
+# Synced from bazaar_tracker/web/card_images.py; re-sync if the tracker's alias list updates.
+NAME_ALIASES: dict[str, str] = {
+    # Plural / singular mismatches
+    "bagpipes": "bagpipe",
+    "busybee": "busybees",
+    "cinders": "cinder",
+    "fang": "fangs",
+    "golfclubs": "golfclub",
+    "nanobot": "nanobots",
+    "schematics": "schematic",
+    "strawberries": "strawberry",
+    # Typos / misspellings in Unity asset folder names
+    "ballista": "balista",
+    "beasttooth": "beaststooth",
+    "businesscard": "buisnesscard",
+    "colander": "collander",
+    "inertialdampener": "inertiadampener",
+    "jabaliandagger": "jaballiandagger",
+    "jabaliandrum": "jaballiandrum",
+    "ouroborosstatue": "ouroborusstatue",
+    "pillbuggy": "pilbuggy",
+    "sapphire": "saphire",
+    # "Sat-Comm" -> "satcomm" (dash stripped); asset has double-t
+    "satcomm": "sattcomm",
+    # Cyrillic C in asset name strips away, leaving "seafoodracker"
+    "seafoodcracker": "seafoodracker",
+    # Cyrillic C at the start of "Cleaver" strips away in the asset name
+    "cleaver": "leaver",
+    # Game renamed these items after the Unity assets were built
+    "bluenanas": "bluebananas",
+    "dooltron": "dootron",
+    "dooltronmainframe": "dootronmainframe",
+    "dragontooth": "dragonstooth",
+    "frozenflame": "frozenfire",
+    "harkuvianlauncher": "hakurvanlauncher",
+    "runicblade": "runeblade",
+    "tommoogun": "tommygun",
+    "trollosaur": "trollolor",
+    "weaselpede": "iceweaselpede",
+    # Word-form differences
+    "banuleaves": "banuleaf",
+    # "Mortar & Pestle" -> "mortarpestle"; asset spells out "and"
+    "mortarpestle": "mortarandpestle",
+    "recyclingbin": "recyclebin",
+}
 
 
-def _load_latest_cards() -> list[dict]:
-    cards_path = app_paths.static_cache_dir() / "cards.json"
-    data = json.loads(cards_path.read_text(encoding="utf-8"))
+def _normalize_card_name(value: str) -> str:
+    """Lowercase + strip non-alphanumerics. Used to build manifest keys."""
+    return re.sub(r"[^a-z0-9]", "", str(value or "").lower())
+
+
+def _parse_card_texture_name(name: str) -> str | None:
+    """Return the card folder name if ``name`` looks like card art, else None."""
+    if not name:
+        return None
+    match = CARD_NAME_RE.match(name)
+    if match is None:
+        return None
+    card_folder = match.group(1)
+    if not _card_texture_has_d_suffix(name):
+        card_folder = re.sub(r"\d+$", "", card_folder)
+    return card_folder or None
+
+
+def _card_texture_has_d_suffix(name: str) -> bool:
+    return bool(CARD_D_SUFFIX_RE.search(name or ""))
+
+
+def _load_latest_cards(cards_file: Path) -> list[dict]:
+    data = json.loads(cards_file.read_text(encoding="utf-8"))
     if isinstance(data, dict):
         latest = list(data.values())[-1]
     else:
         latest = data
     if not isinstance(latest, list):
-        raise ValueError(f"Unexpected cards.json shape in {cards_path}")
+        raise ValueError(f"Unexpected cards.json shape in {cards_file}")
     return latest
 
 
-def _load_manifest_keys() -> set[str]:
-    manifest_path = app_paths.image_cache_dir() / "manifest.json"
-    data = json.loads(manifest_path.read_text(encoding="utf-8"))
+def _load_manifest_keys(manifest_file: Path) -> set[str]:
+    data = json.loads(manifest_file.read_text(encoding="utf-8"))
     keys = set((data.get("by_card_key") or {}).keys())
     keys.update(alias for alias in NAME_ALIASES if NAME_ALIASES[alias] in keys)
     return keys
@@ -64,10 +138,10 @@ def _card_art_guids(card: dict) -> set[str]:
     return guids
 
 
-def _missing_item_guid_cards() -> dict[str, list[dict]]:
-    manifest_keys = _load_manifest_keys()
+def _missing_item_guid_cards(cards_file: Path, manifest_file: Path) -> dict[str, list[dict]]:
+    manifest_keys = _load_manifest_keys(manifest_file)
     by_guid: dict[str, list[dict]] = {}
-    for card in _load_latest_cards():
+    for card in _load_latest_cards(cards_file):
         if card.get("Type") != "Item":
             continue
         internal_name = card.get("InternalName") or ""
@@ -131,12 +205,39 @@ def _inspect_bundle(path: Path) -> tuple[int, list[str]]:
     return len(names), names[:10]
 
 
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Probe Addressables catalog GUIDs for missing Bazaar card art bundles.",
+    )
+    parser.add_argument(
+        "--cards-file",
+        type=Path,
+        default=DEFAULT_CARDS_FILE,
+        help=f"Path to tracker static_cache/cards.json (default: {DEFAULT_CARDS_FILE})",
+    )
+    parser.add_argument(
+        "--manifest-file",
+        type=Path,
+        default=DEFAULT_MANIFEST_FILE,
+        help=f"Path to tracker image manifest.json (default: {DEFAULT_MANIFEST_FILE})",
+    )
+    return parser.parse_args()
+
+
+def _resolve_input_path(path: Path) -> Path:
+    return path.expanduser().resolve()
+
+
 def main() -> int:
+    args = _parse_args()
+    cards_file = _resolve_input_path(args.cards_file)
+    manifest_file = _resolve_input_path(args.manifest_file)
+
     if not CATALOG_PATH.is_file():
         print(f"catalog.bin not found: {CATALOG_PATH}")
         return 2
 
-    by_guid = _missing_item_guid_cards()
+    by_guid = _missing_item_guid_cards(cards_file, manifest_file)
     wanted_guids = set(by_guid)
     print(f"Missing Item cards with GUID ArtKeys: {sum(len(v) for v in by_guid.values())}")
     print(f"Unique missing GUID ArtKeys: {len(wanted_guids)}")

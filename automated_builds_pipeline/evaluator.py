@@ -14,6 +14,7 @@ from automated_builds_pipeline.state import CuratorState, load_state
 from automated_builds_pipeline.stats import (
     HeroStats,
     ItemWindowEvidence,
+    SUPPORTED_SOURCES,
     SourceWindowSummary,
     WindowItemStats,
     WindowObservation,
@@ -31,6 +32,20 @@ ADD_BAZAAR_BUILDS_NET_MIN_SEEN = 2
 ADD_BAZAAR_BUILDS_NET_WINDOW_COUNT = 3
 REMOVE_BAZAARDB_ABSENT_PATCHES = 4
 REMOVE_MIN_ABSENT_DAYS = 21
+REASON_MAP = {
+    "bazaardb_2_of_3": "bazaardb_present_2_of_3_patches",
+    "mobalytics_current": "mobalytics_current_build",
+    "bazaar_builds_net_2_of_3": "bazaar_builds_net_2_of_3_windows",
+    "mixed_current_sources": "mobalytics_current_build",
+    "bazaardb_absent_4_patches_21_days_secondaries_clear": "bazaardb_absent_4_patches_21_days",
+    "secondary_present": "secondary_present_bazaardb_absent",
+    "primary_absent_secondary_present_preserve_existing_classification": "secondary_present_bazaardb_absent",
+    "insufficient_history": "not_enough_windows",
+    "freeze_active": "none",
+    "archetype_change_unresolved": "none",
+    "below_add_threshold": "none",
+    "thresholds_not_met": "none",
+}
 
 
 @dataclass
@@ -65,6 +80,14 @@ class SourceDisagreement:
             "rationale": self.rationale,
         }
 
+    @property
+    def label(self) -> str:
+        if self.rationale in {"secondary_present_primary_absent", "secondary_present_primary_unknown"}:
+            return "secondary_present_bazaardb_absent"
+        if self.rationale == "primary_present" and (self.mobalytics is False or self.bazaar_builds_net is False):
+            return "bazaardb_present_secondary_absent"
+        return "none"
+
 
 @dataclass
 class ThresholdDecision:
@@ -79,37 +102,63 @@ class ThresholdDecision:
     unresolved: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
-        data: dict[str, Any] = {
+        return {
             "item": self.item,
-            "action": self.action,
-            "reason": self.reason,
+            "threshold_result": self.threshold_result,
+            "threshold_reason": self.threshold_reason,
             "classification_ceiling": self.classification_ceiling,
-            "evidence_refs": list(self.evidence_refs),
-            "unresolved": list(self.unresolved),
+            "evidence_refs": _evidence_ref_objects(self.evidence_refs),
+            "removal_blocked_by": self.removal_blocked_by,
+            "disagreement": self.disagreement.label if self.disagreement else "none",
         }
-        if self.phase is not None:
-            data["phase"] = self.phase
-        if self.archetype is not None:
-            data["archetype"] = self.archetype
-        if self.disagreement is not None:
-            data["disagreement"] = self.disagreement.to_dict()
-        return data
+
+    @property
+    def threshold_result(self) -> str:
+        if self.reason == "freeze_active":
+            return "blocked"
+        if self.reason == "insufficient_history":
+            return "insufficient_history"
+        return self.action
+
+    @property
+    def threshold_reason(self) -> str:
+        return REASON_MAP.get(self.reason, "none")
+
+    @property
+    def removal_blocked_by(self) -> list[str]:
+        blocked_by = []
+        if self.reason == "freeze_active":
+            blocked_by.append("freeze_removals")
+        if self.reason in {
+            "secondary_present",
+            "primary_absent_secondary_present_preserve_existing_classification",
+        }:
+            blocked_by.extend(MOBALYTICS_SOURCES)
+            blocked_by.append("bazaar_builds_net")
+        return blocked_by
 
 
 @dataclass
 class EvaluationResult:
     hero: str
     freeze_active: bool
+    generated_at: str
+    run_id: str
+    bazaardb_patch: Optional[dict[str, Any]] = None
+    source_health: list[dict[str, Any]] = field(default_factory=list)
+    rows: list[dict[str, Any]] = field(default_factory=list)
     decisions: list[ThresholdDecision] = field(default_factory=list)
     unresolved: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "schema_version": 1,
+            "generated_at": self.generated_at,
+            "run_id": self.run_id,
             "hero": self.hero,
-            "freeze_active": self.freeze_active,
-            "decisions": [decision.to_dict() for decision in self.decisions],
-            "unresolved": list(self.unresolved),
+            "bazaardb_patch": self.bazaardb_patch,
+            "source_health": list(self.source_health),
+            "rows": list(self.rows),
         }
 
 
@@ -123,6 +172,7 @@ def evaluate_hero(
     now: Optional[datetime] = None,
 ) -> EvaluationResult:
     state = state or CuratorState()
+    generated_at = _format_utc(now or datetime.now(timezone.utc))
     current = _current_index(source_results)
     catalog = _catalog_index(catalog_items)
     freeze = state.freeze_status(hero, now)
@@ -136,6 +186,7 @@ def evaluate_hero(
         all_items.update(item.item for item in source_result.observation.items if item.present)
 
     decisions: list[ThresholdDecision] = []
+    rows: list[dict[str, Any]] = []
     for item in sorted(all_items):
         disagreement = classify_source_disagreement(item, current)
         existing = catalog.get(item)
@@ -144,8 +195,19 @@ def evaluate_hero(
         else:
             decision = _evaluate_existing(item, existing, stats, current, disagreement, freeze_active)
         decisions.append(decision)
+        rows.append(_row_dict(hero, decision, existing, current))
 
-    return EvaluationResult(hero=hero, freeze_active=freeze_active, decisions=decisions, unresolved=unresolved)
+    return EvaluationResult(
+        hero=hero,
+        freeze_active=freeze_active,
+        generated_at=generated_at,
+        run_id=_run_id(generated_at),
+        bazaardb_patch=_bazaardb_patch(current.get(PRIMARY_SOURCE), state),
+        source_health=_source_health(current),
+        rows=rows,
+        decisions=decisions,
+        unresolved=unresolved,
+    )
 
 
 def classify_source_disagreement(
@@ -161,14 +223,14 @@ def classify_source_disagreement(
     bazaar_builds_net = _current_presence(item, current_results.get("bazaar_builds_net"))
 
     if bazaardb is True:
-        return SourceDisagreement(bazaardb, mobalytics, bazaar_builds_net, "core_or_carry", "primary_present")
+        return SourceDisagreement(bazaardb, mobalytics, bazaar_builds_net, "carry_core_support", "primary_present")
     if bazaardb is False and (mobalytics is True or bazaar_builds_net is True):
         return SourceDisagreement(bazaardb, mobalytics, bazaar_builds_net, "support_only", "secondary_present_primary_absent")
     if bazaardb is False:
-        return SourceDisagreement(bazaardb, mobalytics, bazaar_builds_net, "remove_eligible", "all_available_sources_clear")
+        return SourceDisagreement(bazaardb, mobalytics, bazaar_builds_net, "not_applicable", "all_available_sources_clear")
     if mobalytics is True or bazaar_builds_net is True:
         return SourceDisagreement(bazaardb, mobalytics, bazaar_builds_net, "support_only", "secondary_present_primary_unknown")
-    return SourceDisagreement(bazaardb, mobalytics, bazaar_builds_net, "no_change", "primary_unknown")
+    return SourceDisagreement(bazaardb, mobalytics, bazaar_builds_net, "not_applicable", "primary_unknown")
 
 
 def hydrate_source_fetch_result(data: dict[str, Any]) -> SourceFetchResult:
@@ -421,6 +483,130 @@ def _evidence_refs(item: str, current: dict[str, SourceFetchResult]) -> list[str
                 if result.observation.artifact_ref:
                     refs.append(result.observation.artifact_ref)
     return sorted(set(refs))
+
+
+def _row_dict(
+    hero: str,
+    decision: ThresholdDecision,
+    existing: Optional[CatalogItem],
+    current: dict[str, SourceFetchResult],
+) -> dict[str, Any]:
+    source_presence = _source_presence(decision.item, current)
+    return {
+        "hero": hero,
+        "phase": decision.phase,
+        "archetype": decision.archetype or _observed_archetype(decision.item, current),
+        "archetype_status": _archetype_status(decision, existing),
+        "item": decision.item,
+        "catalog_membership": "present" if existing else "missing",
+        "source_presence": source_presence,
+        "canonical_presence": _canonical_presence(decision, source_presence),
+        "classification_ceiling": decision.classification_ceiling,
+        "threshold_result": decision.threshold_result,
+        "threshold_reason": decision.threshold_reason,
+        "removal_blocked_by": decision.removal_blocked_by,
+        "disagreement": decision.disagreement.label if decision.disagreement else "none",
+        "llm_input_required": (
+            decision.threshold_result == "add_candidate"
+            and decision.classification_ceiling in {"carry_core_support", "support_only"}
+        ),
+        "evidence_refs": _evidence_ref_objects(decision.evidence_refs),
+    }
+
+
+def _archetype_status(decision: ThresholdDecision, existing: Optional[CatalogItem]) -> str:
+    if existing:
+        return "existing"
+    if decision.threshold_result == "add_candidate":
+        return "candidate_new"
+    return "unknown"
+
+
+def _source_presence(item: str, current: dict[str, SourceFetchResult]) -> dict[str, str]:
+    presence = {}
+    for source in sorted(SUPPORTED_SOURCES):
+        result = current.get(source)
+        if result is None:
+            presence[source] = "skipped"
+        elif result.status != HEALTHY:
+            presence[source] = result.status
+        else:
+            presence[source] = "present" if _current_presence(item, result) is True else "absent"
+    return presence
+
+
+def _canonical_presence(decision: ThresholdDecision, source_presence: dict[str, str]) -> str:
+    if source_presence[PRIMARY_SOURCE] == "present" or decision.threshold_result == "add_candidate":
+        return "present"
+    if decision.threshold_result == "remove_candidate":
+        return "absent"
+    if decision.disagreement and decision.disagreement.label != "none":
+        return "disputed_present"
+    if any(presence == "present" for presence in source_presence.values()):
+        return "present"
+    if any(presence in {"unknown", "unhealthy"} for presence in source_presence.values()):
+        return "unknown"
+    return "unknown"
+
+
+def _observed_archetype(item: str, current: dict[str, SourceFetchResult]) -> Optional[str]:
+    for result in current.values():
+        if result.status != HEALTHY:
+            continue
+        for row in result.observation.items:
+            if row.item == item and row.archetype:
+                return row.archetype
+    return None
+
+
+def _source_health(current: dict[str, SourceFetchResult]) -> list[dict[str, Any]]:
+    return [
+        {
+            "source": source,
+            "status": result.status,
+            "window_id": result.observation.window_id,
+            "checked_at": result.observation.observed_at,
+            "details": list(result.details or result.observation.details),
+        }
+        for source, result in sorted(current.items())
+    ]
+
+
+def _bazaardb_patch(result: Optional[SourceFetchResult], state: CuratorState) -> Optional[dict[str, Any]]:
+    if result is None:
+        return None
+    expected = state.expected_bazaardb_patch_label
+    return {
+        "label": result.patch_label,
+        "patch_notes_url": None,
+        "expected_label": expected,
+        "matched_expected": expected is None or result.patch_label == expected,
+    }
+
+
+def _evidence_ref_objects(refs: list[str]) -> list[dict[str, Optional[str]]]:
+    objects = []
+    for ref in refs:
+        source = _source_from_ref(ref)
+        objects.append({"source": source, "artifact_ref": ref, "summary": ref})
+    return objects
+
+
+def _source_from_ref(ref: str) -> str:
+    for source in sorted(SUPPORTED_SOURCES):
+        if ref.startswith(source) or f"/{source}" in ref or f"\\{source}" in ref:
+            return source
+    return "in_house_tracker"
+
+
+def _format_utc(value: datetime) -> str:
+    if value.tzinfo is None:
+        value = value.replace(tzinfo=timezone.utc)
+    return value.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def _run_id(generated_at: str) -> str:
+    return generated_at.replace("-", "").replace(":", "")
 
 
 def _existing_core_or_carry(item: CatalogItem) -> bool:

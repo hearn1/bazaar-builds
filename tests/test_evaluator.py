@@ -36,17 +36,21 @@ def decision_for(evaluation, item):
     return next(decision for decision in evaluation.decisions if decision.item == item)
 
 
+def row_for(evaluation, item):
+    return next(row for row in evaluation.rows if row["item"] == item)
+
+
 @pytest.mark.parametrize(
     ("bazaardb", "mobalytics", "bazaar_builds_net", "ceiling", "rationale"),
     [
-        (True, True, True, "core_or_carry", "primary_present"),
-        (True, True, False, "core_or_carry", "primary_present"),
-        (True, False, True, "core_or_carry", "primary_present"),
-        (True, False, False, "core_or_carry", "primary_present"),
+        (True, True, True, "carry_core_support", "primary_present"),
+        (True, True, False, "carry_core_support", "primary_present"),
+        (True, False, True, "carry_core_support", "primary_present"),
+        (True, False, False, "carry_core_support", "primary_present"),
         (False, True, True, "support_only", "secondary_present_primary_absent"),
         (False, True, False, "support_only", "secondary_present_primary_absent"),
         (False, False, True, "support_only", "secondary_present_primary_absent"),
-        (False, False, False, "remove_eligible", "all_available_sources_clear"),
+        (False, False, False, "not_applicable", "all_available_sources_clear"),
     ],
 )
 def test_source_disagreement_precedence_table(bazaardb, mobalytics, bazaar_builds_net, ceiling, rationale):
@@ -68,17 +72,17 @@ def test_add_candidate_from_bazaardb_two_of_three():
 
     evaluation = evaluate_hero("Karnok", [], stats, [result("bazaardb", ["Pufferfish"])])
 
-    decision = decision_for(evaluation, "Pufferfish")
-    assert decision.action == "add_candidate"
-    assert decision.reason == "bazaardb_2_of_3"
+    row = row_for(evaluation, "Pufferfish")
+    assert row["threshold_result"] == "add_candidate"
+    assert row["threshold_reason"] == "bazaardb_present_2_of_3_patches"
 
 
 def test_add_candidate_from_mobalytics_current():
     evaluation = evaluate_hero("Karnok", [], HeroStats(hero="Karnok"), [result("mobalytics_meta_builds", ["Pufferfish"])])
 
-    decision = decision_for(evaluation, "Pufferfish")
-    assert decision.action == "add_candidate"
-    assert decision.reason == "mobalytics_current"
+    row = row_for(evaluation, "Pufferfish")
+    assert row["threshold_result"] == "add_candidate"
+    assert row["threshold_reason"] == "mobalytics_current_build"
 
 
 def test_add_candidate_from_bazaar_builds_net_two_of_three():
@@ -86,9 +90,9 @@ def test_add_candidate_from_bazaar_builds_net_two_of_three():
 
     evaluation = evaluate_hero("Karnok", [], stats, [result("bazaar_builds_net", ["Pufferfish"])])
 
-    decision = decision_for(evaluation, "Pufferfish")
-    assert decision.action == "add_candidate"
-    assert decision.reason == "bazaar_builds_net_2_of_3"
+    row = row_for(evaluation, "Pufferfish")
+    assert row["threshold_result"] == "add_candidate"
+    assert row["threshold_reason"] == "bazaar_builds_net_2_of_3_windows"
 
 
 def test_add_candidate_from_mixed_current_sources():
@@ -99,9 +103,9 @@ def test_add_candidate_from_mixed_current_sources():
         [result("bazaardb", ["Pufferfish"]), result("bazaar_builds_net", ["Pufferfish"])],
     )
 
-    decision = decision_for(evaluation, "Pufferfish")
-    assert decision.action == "add_candidate"
-    assert decision.reason == "mixed_current_sources"
+    row = row_for(evaluation, "Pufferfish")
+    assert row["threshold_result"] == "add_candidate"
+    assert row["threshold_reason"] == "mobalytics_current_build"
 
 
 def test_remove_candidate_when_bazaardb_absent_four_patches_and_secondaries_clear():
@@ -109,9 +113,9 @@ def test_remove_candidate_when_bazaardb_absent_four_patches_and_secondaries_clea
 
     evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
 
-    decision = decision_for(evaluation, "Old Core")
-    assert decision.action == "remove_candidate"
-    assert decision.reason == "bazaardb_absent_4_patches_21_days_secondaries_clear"
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "bazaardb_absent_4_patches_21_days"
 
 
 def test_remove_blocked_when_secondary_present():
@@ -124,9 +128,9 @@ def test_remove_blocked_when_secondary_present():
         [result("mobalytics_meta_builds", ["Old Core"])],
     )
 
-    decision = decision_for(evaluation, "Old Core")
-    assert decision.action == "no_change"
-    assert decision.reason == "secondary_present"
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "no_change"
+    assert row["threshold_reason"] == "secondary_present_bazaardb_absent"
 
 
 def test_remove_blocked_when_freeze_active():
@@ -142,9 +146,10 @@ def test_remove_blocked_when_freeze_active():
         now=datetime(2026, 5, 5, 12, tzinfo=timezone.utc),
     )
 
-    decision = decision_for(evaluation, "Old Core")
-    assert decision.action == "no_change"
-    assert decision.reason == "freeze_active"
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "blocked"
+    assert row["threshold_reason"] == "none"
+    assert row["removal_blocked_by"] == ["freeze_removals"]
 
 
 def test_unhealthy_bazaardb_window_does_not_count_toward_absence_streak():
@@ -163,8 +168,9 @@ def test_unhealthy_bazaardb_window_does_not_count_toward_absence_streak():
 
     evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
 
-    decision = decision_for(evaluation, "Old Core")
-    assert decision.reason == "insufficient_history"
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "insufficient_history"
+    assert row["threshold_reason"] == "not_enough_windows"
 
 
 def test_insufficient_history_returns_insufficient_history_not_no_change():
@@ -172,9 +178,9 @@ def test_insufficient_history_returns_insufficient_history_not_no_change():
 
     evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
 
-    decision = decision_for(evaluation, "Old Core")
-    assert decision.action == "no_change"
-    assert decision.reason == "insufficient_history"
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "insufficient_history"
+    assert row["threshold_reason"] == "not_enough_windows"
 
 
 def test_source_quality_gate_sets_support_only_when_bazaardb_absent_and_mobalytics_present():
@@ -185,9 +191,9 @@ def test_source_quality_gate_sets_support_only_when_bazaardb_absent_and_mobalyti
         [result("bazaardb", []), result("mobalytics_meta_builds", ["Pufferfish"])],
     )
 
-    decision = decision_for(evaluation, "Pufferfish")
-    assert decision.classification_ceiling == "support_only"
-    assert decision.disagreement.rationale == "secondary_present_primary_absent"
+    row = row_for(evaluation, "Pufferfish")
+    assert row["classification_ceiling"] == "support_only"
+    assert row["disagreement"] == "secondary_present_bazaardb_absent"
 
 
 @pytest.mark.parametrize("phase", ["core", "carry"])
@@ -199,10 +205,42 @@ def test_existing_core_and_carry_items_preserved_when_primary_absent_and_seconda
         [result("bazaardb", []), result("mobalytics_meta_builds", ["Established Item"])],
     )
 
-    decision = decision_for(evaluation, "Established Item")
-    assert decision.action == "no_change"
-    assert decision.reason == "primary_absent_secondary_present_preserve_existing_classification"
-    assert decision.disagreement.rationale == "secondary_present_primary_absent"
+    row = row_for(evaluation, "Established Item")
+    assert row["threshold_result"] == "no_change"
+    assert row["threshold_reason"] == "secondary_present_bazaardb_absent"
+    assert row["disagreement"] == "secondary_present_bazaardb_absent"
+
+
+def test_evaluation_output_uses_spec_top_level_shape():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", ["Pufferfish"])],
+        CuratorState(expected_bazaardb_patch_label=None),
+        now=datetime(2026, 5, 5, 12, tzinfo=timezone.utc),
+    )
+
+    payload = evaluation.to_dict()
+
+    assert set(payload) == {
+        "schema_version",
+        "generated_at",
+        "run_id",
+        "hero",
+        "bazaardb_patch",
+        "source_health",
+        "rows",
+    }
+    assert "decisions" not in payload
+    assert payload["generated_at"] == "2026-05-05T12:00:00Z"
+    assert payload["run_id"] == "20260505T120000Z"
+    assert payload["bazaardb_patch"] == {
+        "label": None,
+        "patch_notes_url": None,
+        "expected_label": None,
+        "matched_expected": True,
+    }
 
 
 def test_source_artifact_hydration_accepts_prefetched_output_shape():

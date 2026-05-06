@@ -310,8 +310,7 @@ def extract_category_records(category_url: str, html: str, hero: Optional[str], 
         if not href or not text:
             continue
         absolute = urljoin(category_url, href)
-        path = urlparse(absolute).path
-        if "/build" not in path.casefold() and "build" not in text.casefold():
+        if not is_build_post_link(absolute, text):
             continue
         if absolute.rstrip("/") == category_url.rstrip("/"):
             continue
@@ -340,6 +339,23 @@ def extract_category_records(category_url: str, html: str, hero: Optional[str], 
     return records
 
 
+def is_build_post_link(url: str, text: str) -> bool:
+    parsed = urlparse(url)
+    path = parsed.path.casefold().rstrip("/")
+    text_lower = clean_space(text).casefold()
+    if parsed.fragment or not path or path == "/":
+        return False
+    if path.startswith("/category/") or path.startswith("/tag/") or path.startswith("/author/"):
+        return False
+    if path in {"/build-finder", "/discord"}:
+        return False
+    if text_lower in {"builds", "all builds"} or text_lower in KNOWN_HEROES:
+        return False
+    if any(phrase in text_lower for phrase in GENERIC_TAG_PHRASES):
+        return False
+    return "build" in path or "build" in text_lower
+
+
 def extract_json_ld_records(html: str, base_url: str, hero: Optional[str], known_items: set[str]) -> list[BuildRecord]:
     parser = parse_html(html)
     records: list[BuildRecord] = []
@@ -350,6 +366,8 @@ def extract_json_ld_records(html: str, base_url: str, hero: Optional[str], known
             continue
         for node in flatten_json_ld(data):
             if not isinstance(node, dict):
+                continue
+            if not is_article_json_ld(node):
                 continue
             title = node.get("headline") or node.get("name")
             url = node.get("url") or base_url
@@ -368,6 +386,16 @@ def extract_json_ld_records(html: str, base_url: str, hero: Optional[str], known
                     snippet=clean_space(node.get("description")),
                 ))
     return records
+
+
+def is_article_json_ld(node: dict) -> bool:
+    raw_types = node.get("@type") or []
+    if isinstance(raw_types, str):
+        raw_types = [raw_types]
+    if not isinstance(raw_types, list):
+        return False
+    article_types = {"article", "blogposting", "newsarticle"}
+    return any(str(value).casefold() in article_types for value in raw_types)
 
 
 def flatten_json_ld(data):
@@ -900,6 +928,7 @@ def run(args) -> dict:
 
     if args.fetch_posts:
         records = [enrich_post(record, known_items, args.timeout) for record in records]
+        records = filter_records(records, since, hero=args.hero)
 
     summary = build_summary(
         records,

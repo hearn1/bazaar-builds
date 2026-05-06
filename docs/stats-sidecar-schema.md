@@ -17,6 +17,10 @@ One file per hero:
 `hero_slug` is the hero display name case-folded with non-alphanumeric runs
 replaced by `_` (`Karnok` -> `karnok_stats.json`).
 
+For the live pipeline, the canonical storage location is the repo-root
+`stats/` directory in `bazaar-builds`; cron writes
+`stats/<hero_slug>_stats.json` there and commits the updated sidecar.
+
 The file is pipeline state. It is never embedded in or used to mutate
 `<hero>_builds.json`.
 

@@ -74,6 +74,10 @@ automated-builds-<hero>-<run_id>
 
 Each artifact contains `<hero>_diff.json` and `<hero>_build_update_proposal.md` from that run.
 
+Stats sidecars are persisted in the bazaar-builds repo under `stats/` as
+`stats/<hero>_stats.json`. These commits are bot-written provenance for the
+threshold evaluator, not human-review catalog changes.
+
 ## PAT Rotation
 
 `TRACKER_PR_TOKEN` is a fine-grained PAT scoped only to `hearn1/bazaar_tracker` with:
@@ -95,4 +99,6 @@ Empty diffs short-circuit and do not push. The pipeline never auto-merges; curat
 
 ## Current Unresolveds
 
-Stats sidecars are written by the pipeline to the configured `--stats-dir`. The current workflow keeps them in the run workspace; a later operations decision should pin whether those bot-written stats are committed back to bazaar-builds directly or preserved only through workflow artifacts.
+Stats sidecars are committed back to bazaar-builds by the workflow after each
+successful pipeline run, so multi-window thresholds accumulate across cron
+runs.

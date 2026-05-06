@@ -8,6 +8,9 @@
 
 name: Automated builds refresh
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: "0 6 * * 0"
@@ -23,8 +26,8 @@ on:
           - Dooley
           - Vanessa
           - Pygmalien
-          - Jules
-          - Stelle
+          # Jules/Stelle are on hold per ROADMAP; add them when their
+          # catalog files land in the tracker repo.
       phase_override:
         description: "Optional one-run phase override: implementation, local_dry_run, shadow_cron, or live_cron"
         required: false
@@ -40,7 +43,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        hero: [Karnok, Mak, Dooley, Vanessa, Pygmalien, Jules, Stelle]
+        # Jules/Stelle are on hold per ROADMAP; add them to the matrix when
+        # their catalog files land in the tracker repo.
+        hero: [Karnok, Mak, Dooley, Vanessa, Pygmalien]
 
     steps:
       - name: Check selected hero
@@ -138,6 +143,39 @@ jobs:
             --output-dir "$GITHUB_WORKSPACE/artifacts" \
             --api-key-env CLAUDE_API_KEY \
             --bazaardb-retries 2
+
+      - name: Persist stats
+        if: steps.selected.outputs.run == 'true' && github.ref_name == 'main'
+        run: |
+          set -euo pipefail
+
+          git config user.name "bazaar-builds-bot"
+          git config user.email "bazaar-builds-bot@users.noreply.github.com"
+
+          stats_file="stats/$(echo "${{ matrix.hero }}" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_//; s/_$//')_stats.json"
+          if [[ ! -f "$stats_file" ]]; then
+            echo "No stats file was written for ${{ matrix.hero }}"
+            exit 0
+          fi
+
+          git add "$stats_file"
+          if git diff --cached --quiet -- "$stats_file"; then
+            echo "No stats changes for ${{ matrix.hero }}"
+            exit 0
+          fi
+
+          git commit -m "automated: persist ${{ matrix.hero }} stats"
+
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin main
+            if git push origin main; then
+              exit 0
+            fi
+            echo "Stats push attempt ${attempt} failed"
+          done
+
+          echo "Failed to persist stats after 3 attempts"
+          exit 1
 
       - name: Upload shadow artifacts
         if: steps.selected.outputs.run == 'true' && (steps.state.outputs.phase != 'live_cron' || steps.state.outputs.dry_run == 'true')

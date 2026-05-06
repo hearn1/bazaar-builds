@@ -6,7 +6,14 @@ import pytest
 from automated_builds_pipeline import pipeline
 from automated_builds_pipeline.evaluator import EvaluationResult
 from automated_builds_pipeline.sources.base import SourceFetchResult
-from automated_builds_pipeline.stats import ItemWindowEvidence, WindowObservation, stats_path
+from automated_builds_pipeline.stats import (
+    ItemWindowEvidence,
+    WindowObservation,
+    append_window,
+    load_stats,
+    save_stats,
+    stats_path,
+)
 
 
 OBSERVED_AT = "2026-05-05T12:00:00Z"
@@ -242,6 +249,41 @@ def test_sidecar_not_touched_when_evaluator_raises(monkeypatch, tmp_path):
         )
 
     assert not stats_path("Karnok", stats_dir).exists()
+
+
+def test_run_merges_existing_stats_with_current_fetch_output(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    stats_dir = tmp_path / "stats"
+    prior_stats = load_stats("Karnok", stats_dir)
+    append_window(
+        prior_stats,
+        "bazaardb",
+        WindowObservation(
+            window_id="bazaardb:prior",
+            observed_at="2026-04-29T12:00:00Z",
+            items=[ItemWindowEvidence("Pufferfish", appearances=2, sample_count=5)],
+        ),
+    )
+    save_stats(prior_stats, stats_dir)
+
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=stats_dir,
+        output_dir=tmp_path / "artifacts",
+    )
+
+    stats = load_stats("Karnok", stats_dir)
+    history = stats.item_history("Pufferfish", "bazaardb")
+    assert [row.window_id for row in history] == ["bazaardb:prior", "bazaardb:window"]
 
 
 def test_live_empty_diff_short_circuits_pr(monkeypatch, tmp_path):

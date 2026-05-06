@@ -242,12 +242,30 @@ def _surface_for(classification: str, confidence: str) -> str:
 
 def _catalog_item_names(catalog: dict[str, Any]) -> set[str]:
     names: set[str] = set()
+
+    game_phases = catalog.get("game_phases")
+    if isinstance(game_phases, dict):
+        for phase_data in game_phases.values():
+            if not isinstance(phase_data, dict):
+                continue
+            for archetype in phase_data.get("archetypes", []) or []:
+                if not isinstance(archetype, dict):
+                    continue
+                for bucket in ("carry_items", "core_items", "support_items", "condition_items"):
+                    raw_bucket = archetype.get(bucket, [])
+                    if isinstance(raw_bucket, list):
+                        names.update(str(item) for item in raw_bucket if item)
+            for bucket in ("universal_utility_items", "economy_items"):
+                raw_bucket = phase_data.get(bucket, [])
+                if isinstance(raw_bucket, list):
+                    names.update(str(item) for item in raw_bucket if item)
+
     raw_items = catalog.get("items", [])
     if isinstance(raw_items, list):
         for item in raw_items:
             if isinstance(item, dict) and isinstance(item.get("item"), str):
                 names.add(item["item"])
-    for entry in catalog.get("archetypes", []):
+    for entry in catalog.get("archetypes", []) or []:
         if not isinstance(entry, dict):
             continue
         for bucket in ("carry_items", "core_items", "support_items", "condition_items"):

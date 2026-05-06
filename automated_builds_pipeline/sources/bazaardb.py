@@ -67,7 +67,19 @@ def fetch_meta(hero: str, options: Optional[FetchOptions] = None) -> SourceFetch
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True)
             page = browser.new_page()
-            page.goto(options.source_url or META_URL, wait_until="networkidle", timeout=options.timeout_seconds * 1000)
+            page.goto(options.source_url or META_URL, wait_until="domcontentloaded", timeout=options.timeout_seconds * 1000)
+            landmark_timeout_ms = options.timeout_seconds * 1000
+            try:
+                page.wait_for_selector("text=CORE ITEMS", timeout=landmark_timeout_ms)
+            except PlaywrightTimeoutError:
+                text = ""
+                try:
+                    text = page.locator("body").inner_text(timeout=5000)
+                except Exception:
+                    text = ""
+                browser.close()
+                detail = "cloudflare_challenge_not_cleared" if _is_challenge(text) else "content_landmark_missing"
+                return _result("bazaardb:unknown", options, "unhealthy", [detail])
             text = page.locator("body").inner_text(timeout=5000)
             if _is_challenge(text):
                 browser.close()

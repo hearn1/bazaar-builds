@@ -270,10 +270,48 @@ def load_source_artifacts(source_artifacts: Path) -> list[SourceFetchResult]:
 
 def load_catalog_items(path: Path) -> list[CatalogItem]:
     data = json.loads(path.read_text(encoding="utf-8"))
-    raw_items = data.get("items", data) if isinstance(data, dict) else data
-    if not isinstance(raw_items, list):
-        raise ValueError("catalog items must be a list or an object with an items list")
-    return [CatalogItem.from_dict(item) for item in raw_items]
+    if isinstance(data, list):
+        return [CatalogItem.from_dict(item) for item in data]
+    if not isinstance(data, dict):
+        raise ValueError("catalog items must be a list or an object")
+    return list(iter_catalog_items(data))
+
+
+def iter_catalog_items(catalog: dict[str, Any]) -> Iterable[CatalogItem]:
+    """Walk a tracker catalog (game_phases shape) plus back-compat fixture shapes."""
+    game_phases = catalog.get("game_phases")
+    if isinstance(game_phases, dict):
+        for phase_name, phase_data in game_phases.items():
+            if not isinstance(phase_data, dict):
+                continue
+            for archetype in phase_data.get("archetypes", []) or []:
+                if not isinstance(archetype, dict):
+                    continue
+                arch_name = archetype.get("name")
+                for bucket in ("carry_items", "core_items", "support_items", "condition_items"):
+                    for item in archetype.get(bucket, []) or []:
+                        if item:
+                            yield CatalogItem(item=str(item), phase=phase_name, archetype=arch_name)
+            for bucket in ("universal_utility_items", "economy_items"):
+                for item in phase_data.get(bucket, []) or []:
+                    if item:
+                        yield CatalogItem(item=str(item), phase=phase_name, archetype=None)
+
+    raw_items = catalog.get("items")
+    if isinstance(raw_items, list):
+        for item in raw_items:
+            if isinstance(item, dict) and item.get("item"):
+                yield CatalogItem.from_dict(item)
+
+    for archetype in catalog.get("archetypes", []) or []:
+        if not isinstance(archetype, dict):
+            continue
+        phase = archetype.get("phase")
+        arch_name = archetype.get("archetype") or archetype.get("tag") or archetype.get("name")
+        for bucket in ("carry_items", "core_items", "support_items", "condition_items"):
+            for item in archetype.get(bucket, []) or []:
+                if item:
+                    yield CatalogItem(item=str(item), phase=phase, archetype=arch_name)
 
 
 def build_arg_parser() -> argparse.ArgumentParser:

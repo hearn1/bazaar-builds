@@ -175,13 +175,39 @@ def _group_llm_rows(rows: list[dict[str, Any]]) -> dict[tuple[Optional[str], Opt
 
 def _catalog_index(catalog: dict[str, Any]) -> dict[tuple[Optional[str], Optional[str]], dict[str, list[str]]]:
     indexed: dict[tuple[Optional[str], Optional[str]], dict[str, list[str]]] = {}
+
+    game_phases = catalog.get("game_phases")
+    if isinstance(game_phases, dict):
+        for phase_name, phase_data in game_phases.items():
+            if not isinstance(phase_data, dict):
+                continue
+            for archetype in phase_data.get("archetypes", []) or []:
+                if not isinstance(archetype, dict):
+                    continue
+                key = (phase_name, archetype.get("name"))
+                indexed[key] = {
+                    "carry_items": _str_list(archetype.get("carry_items", [])),
+                    "core_items": _str_list(archetype.get("core_items", [])),
+                    "support_items": _str_list(archetype.get("support_items", [])),
+                    "condition_items": _str_list(archetype.get("condition_items", [])),
+                }
+            phase_supports: list[str] = []
+            for bucket in ("universal_utility_items", "economy_items"):
+                items = phase_data.get(bucket)
+                if isinstance(items, list):
+                    phase_supports.extend(str(i) for i in items if i)
+            if phase_supports:
+                key = (phase_name, None)
+                buckets = indexed.setdefault(key, _empty_buckets())
+                buckets["support_items"].extend(phase_supports)
+
     if isinstance(catalog.get("items"), list):
         for item in catalog["items"]:
             if not isinstance(item, dict):
                 continue
             key = (item.get("phase"), item.get("archetype"))
             indexed.setdefault(key, _empty_buckets())["support_items"].append(str(item.get("item")))
-    for archetype in catalog.get("archetypes", []):
+    for archetype in catalog.get("archetypes", []) or []:
         if not isinstance(archetype, dict):
             continue
         key = (archetype.get("phase"), archetype.get("archetype") or archetype.get("tag"))

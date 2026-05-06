@@ -10,6 +10,8 @@ from automated_builds_pipeline.evaluator import (
     classify_source_disagreement,
     evaluate_hero,
     hydrate_source_fetch_result,
+    iter_catalog_items,
+    load_catalog_items,
 )
 from automated_builds_pipeline.sources.base import SourceFetchResult
 from automated_builds_pipeline.state import CuratorState, FreezeWindow
@@ -277,3 +279,87 @@ def history_with_windows(hero: str, source: str, item: str, present_values: list
 
 def observed_at_days(days: int) -> str:
     return (datetime(2026, 4, 1, 12, tzinfo=timezone.utc) + timedelta(days=days)).isoformat().replace("+00:00", "Z")
+
+
+def test_catalog_walker_handles_real_tracker_shape(tmp_path):
+    catalog = {
+        "schema_version": 1,
+        "hero": "Karnok",
+        "game_phases": {
+            "early": {
+                "day_range": "Day 1-4",
+                "universal_utility_items": ["Flying Squirrel", "Waterskin"],
+                "economy_items": ["Hunter's Journal"],
+            },
+            "early_mid": {
+                "day_range": "Day 4-7",
+                "archetypes": [
+                    {
+                        "name": "Axe",
+                        "phase": "early_mid",
+                        "carry_items": ["Battle Axe", "Sawpike"],
+                        "support_items": ["Bagpipes"],
+                    }
+                ],
+            },
+            "late": {
+                "archetypes": [
+                    {
+                        "name": "Slow - Ammo",
+                        "phase": "late",
+                        "condition_items": ["Chains", "Tent"],
+                        "core_items": ["Chains", "Tent"],
+                        "carry_items": ["Shotgun"],
+                        "support_items": [],
+                    }
+                ],
+            },
+        },
+    }
+
+    items = list(iter_catalog_items(catalog))
+
+    by_phase = {}
+    for item in items:
+        by_phase.setdefault(item.phase, []).append((item.archetype, item.item))
+
+    assert (None, "Flying Squirrel") in by_phase["early"]
+    assert (None, "Hunter's Journal") in by_phase["early"]
+    assert ("Axe", "Battle Axe") in by_phase["early_mid"]
+    assert ("Slow - Ammo", "Chains") in by_phase["late"]
+    assert ("Slow - Ammo", "Shotgun") in by_phase["late"]
+
+
+def test_catalog_walker_handles_legacy_items_list_shape():
+    catalog = {"items": [{"item": "Pufferfish", "phase": "early", "archetype": "Axe"}]}
+
+    items = list(iter_catalog_items(catalog))
+
+    assert len(items) == 1
+    assert items[0].item == "Pufferfish"
+    assert items[0].phase == "early"
+    assert items[0].archetype == "Axe"
+
+
+def test_load_catalog_items_walks_tracker_shape(tmp_path):
+    path = tmp_path / "karnok_builds.json"
+    path.write_text(
+        json.dumps(
+            {
+                "game_phases": {
+                    "early_mid": {
+                        "archetypes": [
+                            {"name": "Axe", "carry_items": ["Battle Axe"], "support_items": ["Bagpipes"]}
+                        ]
+                    }
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    items = load_catalog_items(path)
+
+    assert {item.item for item in items} == {"Battle Axe", "Bagpipes"}
+    assert all(item.phase == "early_mid" for item in items)
+    assert all(item.archetype == "Axe" for item in items)

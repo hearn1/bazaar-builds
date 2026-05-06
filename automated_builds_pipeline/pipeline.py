@@ -7,6 +7,7 @@ import json
 import logging
 import re
 import subprocess
+import tempfile
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -15,11 +16,12 @@ from typing import Any, Callable, Optional
 from automated_builds_pipeline import diff
 from automated_builds_pipeline.evaluator import load_catalog_items, evaluate_hero
 from automated_builds_pipeline.llm import DEFAULT_MODEL, LLMClassifier
+from automated_builds_pipeline.pr_comment import render_pr_comment
 from automated_builds_pipeline.proposal import render_proposal
 from automated_builds_pipeline.sources import bazaar_builds_net, bazaardb, mobalytics
 from automated_builds_pipeline.sources.base import HEALTHY, SKIPPED, FetchOptions, SourceFetchResult
 from automated_builds_pipeline.state import CuratorState, load_state
-from automated_builds_pipeline.stats import WindowObservation, append_window, load_stats, save_stats
+from automated_builds_pipeline.stats import HeroStats, WindowObservation, append_window, load_stats, save_stats
 
 LOGGER = logging.getLogger(__name__)
 SOURCE_BAZAARDB = "bazaardb"
@@ -38,7 +40,7 @@ class PipelineResult:
     empty_diff: bool = False
 
 
-PrAction = Callable[[str, Path, Path, dict[str, Any], Path], None]
+PrAction = Callable[[str, Path, Path, dict[str, Any], Path, HeroStats], None]
 
 
 def run(
@@ -97,7 +99,7 @@ def run(
             LOGGER.info("empty diff")
             return PipelineResult(state.phase, diff_path, proposal_path, empty_diff=True)
         action = pr_action or update_tracker_pr
-        action(hero, tracker_repo, proposal_path, diff_json, diff_path)
+        action(hero, tracker_repo, proposal_path, diff_json, diff_path, stats)
         return PipelineResult(state.phase, diff_path, proposal_path, pr_invoked=True)
 
     raise ValueError(f"unsupported phase: {state.phase}")
@@ -109,6 +111,7 @@ def update_tracker_pr(
     proposal_path: Path,
     diff_json: dict[str, Any],
     diff_path: Path,
+    stats: HeroStats,
 ) -> None:
     branch = f"pipeline/{hero}"
     proposal_dir = tracker_repo / "automated_builds_proposals"
@@ -140,12 +143,40 @@ def update_tracker_pr(
             cwd=tracker_repo,
             check=True,
         )
-        return
-    subprocess.run(
-        ["gh", "pr", "create", "--head", branch, "--title", title, "--body-file", str(target_proposal)],
-        cwd=tracker_repo,
-        check=True,
-    )
+    else:
+        subprocess.run(
+            ["gh", "pr", "create", "--head", branch, "--title", title, "--body-file", str(target_proposal)],
+            cwd=tracker_repo,
+            check=True,
+        )
+    _post_pr_comment(hero, tracker_repo, diff_json, stats, branch)
+
+
+def _post_pr_comment(
+    hero: str,
+    tracker_repo: Path,
+    diff_json: dict[str, Any],
+    stats: HeroStats,
+    branch: str,
+) -> None:
+    body = render_pr_comment(diff_json, stats)
+    with tempfile.TemporaryDirectory(prefix=f"{_hero_slug(hero)}-pr-comment-") as tmp_dir:
+        body_file = Path(tmp_dir) / "supporting-evidence.md"
+        body_file.write_text(body, encoding="utf-8")
+        edited = subprocess.run(
+            ["gh", "pr", "comment", branch, "--edit-last", "--body-file", str(body_file)],
+            cwd=tracker_repo,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        if edited.returncode == 0:
+            return
+        subprocess.run(
+            ["gh", "pr", "comment", branch, "--body-file", str(body_file)],
+            cwd=tracker_repo,
+            check=True,
+        )
 
 
 def build_arg_parser() -> argparse.ArgumentParser:

@@ -97,6 +97,8 @@ In `live_cron`, each non-empty hero diff force-pushes `pipeline/<hero>` in `baza
 
 Empty diffs short-circuit and do not push. The pipeline never auto-merges; curator review remains the final gate.
 
+After the PR body is created or edited, `live_cron` also posts a supporting-evidence comment rendered from the just-saved stats sidecar and the run's diff JSON. The comment shows recent per-window item history for each proposed add/remove and updates in place by trying `gh pr comment --edit-last` before falling back to a new `gh pr comment` on the first run.
+
 ## Current Unresolveds
 
 Stats sidecars are committed back to bazaar-builds by the workflow after each

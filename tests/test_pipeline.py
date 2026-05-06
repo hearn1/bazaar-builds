@@ -314,6 +314,8 @@ def test_live_empty_diff_short_circuits_pr(monkeypatch, tmp_path):
         },
     )
     pr_calls = []
+    comment_calls = []
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
 
     result = pipeline.run(
         hero="Karnok",
@@ -326,6 +328,53 @@ def test_live_empty_diff_short_circuits_pr(monkeypatch, tmp_path):
 
     assert result.empty_diff is True
     assert pr_calls == []
+    assert comment_calls == []
+
+
+def test_live_cron_posts_supporting_evidence_comment(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch)
+    git_calls = []
+
+    def fake_git(repo, *args, check=True):
+        git_calls.append(args)
+        return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
+
+    def fake_run(args, **kwargs):
+        if args[:3] == ["gh", "pr", "view"]:
+            return subprocess_result(returncode=0)
+        return subprocess_result(returncode=0)
+
+    comment_calls = []
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
+
+    result = pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert result.pr_invoked is True
+    assert len(comment_calls) == 1
+    hero, repo, diff_json, stats, branch = comment_calls[0]
+    assert hero == "Karnok"
+    assert repo == tracker
+    assert diff_json["window_id"] == "w1"
+    assert stats.hero == "Karnok"
+    assert branch == "pipeline/Karnok"
+
+
+def subprocess_result(*, returncode: int):
+    return pipeline.subprocess.CompletedProcess(args=[], returncode=returncode, stdout="", stderr="")
 
 
 def test_live_cron_dry_run_suppresses_pr(monkeypatch, tmp_path):

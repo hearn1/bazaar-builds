@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-05T10:54:30.393062+00:00",
+  "source": {
+    "category_url": "https://bazaar-builds.net/category/builds/karnok-builds/",
+    "site": "bazaar-builds.net"
+  },
+  "filters": {
+    "hero": "Karnok",
+    "days": 30,
+    "since": "2026-04-05"
+  },
+  "known_item_count": 415,
+  "record_count": 4,
+  "warnings": [],
+  "groups": [
+    {
+      "tag": "Build",
+      "sample_count": 2,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [
+        {
+          "item": "Wild Boar",
+          "count": 2,
+          "frequency": 1.0
+        },
+        {
+          "item": "Anaconda",
+          "count": 2,
+          "frequency": 1.0
+        },
+        {
+          "item": "Trapvine",
+          "count": 2,
+          "frequency": 1.0
+        },
+        {
+          "item": "Frog Hollow",
+          "count": 2,
+          "frequency": 1.0
+        }
+      ],
+      "candidate_core_items": [
+        "Wild Boar",
+        "Anaconda",
+        "Trapvine",
+        "Frog Hollow"
+      ],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Build: 2 sample(s). Repeated core candidates: Wild Boar, Anaconda, Trapvine, Frog Hollow.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/category/builds/karnok-builds/#content",
+          "title": "Skip to content",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Build",
+          "items": [
+            "Wild Boar",
+            "Anaconda",
+            "Trapvine",
+            "Frog Hollow"
+          ],
+          "source": "category",
+          "snippet": "Skip to content",
+          "fetch_status": "http_200",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/category/builds/karnok-builds/",
+          "title": "The Bazaar - 10 Win Karnok Builds | Updated Daily!",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Build",
+          "items": [
+            "Wild Boar",
+            "Anaconda",
+            "Trapvine",
+            "Frog Hollow"
+          ],
+          "source": "json_ld",
+          "snippet": "On this Page, you can find all 10 Win Builds played with Karnok in the Bazaar - Can you get 10 Wins with it? Builds by Legend Players, Streamers & More",
+          "fetch_status": "http_200",
+          "fetch_error": null
+        }
+      ]
+    },
+    {
+      "tag": "Uncategorized",
+      "sample_count": 2,
+      "date_range": {
+        "start": null,
+        "end": null
+      },
+      "item_frequencies": [
+        {
+          "item": "Atlas Stone",
+          "count": 2,
+          "frequency": 1.0
+        },
+        {
+          "item": "Torch",
+          "count": 2,
+          "frequency": 1.0
+        },
+        {
+          "item": "Money Furnace",
+          "count": 2,
+          "frequency": 1.0
+        },
+        {
+          "item": "Anaconda",
+          "count": 2,
+          "frequency": 1.0
+        },
+        {
+          "item": "Retort",
+          "count": 1,
+          "frequency": 0.5
+        }
+      ],
+      "candidate_core_items": [
+        "Atlas Stone",
+        "Torch",
+        "Money Furnace",
+        "Anaconda"
+      ],
+      "candidate_support_items": [],
+      "likely_archetype_notes": "Uncategorized: 2 sample(s). Repeated core candidates: Atlas Stone, Torch, Money Furnace, Anaconda.",
+      "builds": [
+        {
+          "url": "https://bazaar-builds.net/category/builds/",
+          "title": "Builds",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Uncategorized",
+          "items": [
+            "Atlas Stone",
+            "Torch",
+            "Money Furnace",
+            "Anaconda"
+          ],
+          "source": "category",
+          "snippet": "Builds",
+          "fetch_status": "http_200",
+          "fetch_error": null
+        },
+        {
+          "url": "https://bazaar-builds.net/",
+          "title": "bazaar-builds.net",
+          "date": null,
+          "hero": "Karnok",
+          "tag": "Uncategorized",
+          "items": [
+            "Atlas Stone",
+            "Torch",
+            "Money Furnace",
+            "Anaconda",
+            "Retort"
+          ],
+          "source": "json_ld",
+          "snippet": "Bazaar Builds, News &amp; More",
+          "fetch_status": "http_200",
+          "fetch_error": null
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "url": "https://bazaar-builds.net/category/builds/karnok-builds/#content",
+      "title": "Skip to content",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Build",
+      "items": [
+        "Wild Boar",
+        "Anaconda",
+        "Trapvine",
+        "Frog Hollow"
+      ],
+      "source": "category",
+      "snippet": "Skip to content",
+      "fetch_status": "http_200",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/category/builds/",
+      "title": "Builds",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Uncategorized",
+      "items": [
+        "Atlas Stone",
+        "Torch",
+        "Money Furnace",
+        "Anaconda"
+      ],
+      "source": "category",
+      "snippet": "Builds",
+      "fetch_status": "http_200",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/category/builds/karnok-builds/",
+      "title": "The Bazaar - 10 Win Karnok Builds | Updated Daily!",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Build",
+      "items": [
+        "Wild Boar",
+        "Anaconda",
+        "Trapvine",
+        "Frog Hollow"
+      ],
+      "source": "json_ld",
+      "snippet": "On this Page, you can find all 10 Win Builds played with Karnok in the Bazaar - Can you get 10 Wins with it? Builds by Legend Players, Streamers & More",
+      "fetch_status": "http_200",
+      "fetch_error": null
+    },
+    {
+      "url": "https://bazaar-builds.net/",
+      "title": "bazaar-builds.net",
+      "date": null,
+      "hero": "Karnok",
+      "tag": "Uncategorized",
+      "items": [
+        "Atlas Stone",
+        "Torch",
+        "Money Furnace",
+        "Anaconda",
+        "Retort"
+      ],
+      "source": "json_ld",
+      "snippet": "Bazaar Builds, News &amp; More",
+      "fetch_status": "http_200",
+      "fetch_error": null
+    }
+  ],
+  "review_guidance": [
+    "This artifact is evidence for a human review pass; it does not update any *_builds.json file.",
+    "Compare candidate_core_items and candidate_support_items against the matching hero catalog archetype.",
+    "Prefer repeated items from dated/manual-confirmed builds over one-off direct-page scrape matches.",
+    "Use records with empty items as placeholders for manual paste fallback."
+  ]
+}

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from argparse import Namespace
 from datetime import date
 
 import bazaar_build_enricher as enricher
@@ -87,6 +88,74 @@ def test_json_ld_date_is_propagated_when_json_ld_has_no_items(monkeypatch):
 
     assert enriched.date == "2026-05-05"
     assert {"Anaconda", "Karst"} <= set(enriched.items)
+
+
+def test_category_json_ld_webpage_is_not_treated_as_build_record():
+    html = """
+    <script type="application/ld+json">
+    {
+      "@graph": [{
+        "@type": "WebPage",
+        "name": "The Bazaar - 10 Win Karnok Builds | Updated Daily!",
+        "url": "https://bazaar-builds.net/category/builds/karnok-builds/",
+        "description": "Recent builds mention Anaconda, Trapvine, Frog Hollow, and Wild Boar."
+      }]
+    }
+    </script>
+    """
+
+    records = enricher.extract_json_ld_records(
+        html,
+        "https://bazaar-builds.net/category/builds/karnok-builds/",
+        "Karnok",
+        {"Anaconda", "Trapvine", "Frog Hollow", "Wild Boar"},
+    )
+
+    assert records == []
+
+
+def test_post_enrichment_dates_are_filtered_again(monkeypatch):
+    category_html = """
+    <article><a href="/old-karnok-10-0-build/">Old Karnok 10-0 Build</a></article>
+    """
+    post_html = """
+    <script type="application/ld+json">
+    {
+      "@graph": [{
+        "@type": "Article",
+        "headline": "Old Karnok 10-0 Build",
+        "datePublished": "2026-03-15T09:13:45+00:00",
+        "url": "https://bazaar-builds.net/old-karnok-10-0-build/",
+        "articleBody": "Anaconda, Karst"
+      }]
+    }
+    </script>
+    <body>Anaconda, Karst</body>
+    """
+
+    def fake_fetch(url, timeout):
+        if url.endswith("/category/builds/karnok-builds/"):
+            return category_html, "http_200", None
+        return post_html, "http_200", None
+
+    monkeypatch.setattr(enricher, "fetch_url", fake_fetch)
+    args = Namespace(
+        category_url="https://bazaar-builds.net/category/builds/karnok-builds/",
+        hero="Karnok",
+        days=None,
+        since="2026-04-06",
+        limit=30,
+        manual=[],
+        fetch_posts=True,
+        timeout=5,
+        output=None,
+        catalog_dir=Namespace(glob=lambda pattern: []),
+        names_file=Namespace(is_file=lambda: False),
+    )
+
+    summary = enricher.run(args)
+
+    assert summary["records"] == []
 
 
 def test_bazaar_builds_net_round_trips_into_stats_sidecar(tmp_path):

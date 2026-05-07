@@ -63,6 +63,13 @@ class CatalogItem:
         )
 
 
+@dataclass(frozen=True)
+class CatalogContext:
+    hero: str
+    items: frozenset[str]
+    archetypes: frozenset[str]
+
+
 @dataclass
 class SourceDisagreement:
     bazaardb: Optional[bool]
@@ -175,13 +182,15 @@ def evaluate_hero(
     generated_at = _format_utc(now or datetime.now(timezone.utc))
     current = _current_index(source_results)
     catalog = _catalog_index(catalog_items)
+    context = _catalog_context(hero, catalog.values())
+    current = _hero_scoped_current(current, context)
     freeze = state.freeze_status(hero, now)
     freeze_active = freeze.active
     unresolved: list[str] = []
     if freeze_active:
         unresolved.append(f"freeze_active:{freeze.scope}:{freeze.until}")
 
-    all_items = set(catalog) | set(stats.items)
+    all_items = set(catalog) | _stats_items_for_context(stats, context)
     for source_result in current.values():
         all_items.update(item.item for item in source_result.observation.items if item.present)
 
@@ -191,7 +200,7 @@ def evaluate_hero(
         disagreement = classify_source_disagreement(item, current)
         existing = catalog.get(item)
         if existing is None:
-            decision = _evaluate_add(item, stats, current, disagreement)
+            decision = _evaluate_add(item, stats, current, disagreement, context)
         else:
             decision = _evaluate_existing(item, existing, stats, current, disagreement, freeze_active)
         decisions.append(decision)
@@ -342,9 +351,18 @@ def _evaluate_add(
     stats: HeroStats,
     current: dict[str, SourceFetchResult],
     disagreement: SourceDisagreement,
+    context: CatalogContext,
 ) -> ThresholdDecision:
     evidence_refs = _evidence_refs(item, current)
-    if _healthy_seen_count(stats, current, item, PRIMARY_SOURCE, ADD_BAZAARDB_WINDOW_COUNT) >= ADD_BAZAARDB_MIN_SEEN:
+    if _healthy_seen_count(
+        stats,
+        current,
+        item,
+        PRIMARY_SOURCE,
+        ADD_BAZAARDB_WINDOW_COUNT,
+        context=context,
+        require_scoped_history=True,
+    ) >= ADD_BAZAARDB_MIN_SEEN:
         return ThresholdDecision(item, "add_candidate", "bazaardb_2_of_3", classification_ceiling=disagreement.classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
     if any(_current_presence(item, current.get(source)) is True for source in MOBALYTICS_SOURCES):
         return ThresholdDecision(item, "add_candidate", "mobalytics_current", classification_ceiling=disagreement.classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
@@ -406,8 +424,13 @@ def _healthy_seen_count(
     item: str,
     source: str,
     limit: int,
+    *,
+    context: Optional[CatalogContext] = None,
+    require_scoped_history: bool = False,
 ) -> int:
     rows = _healthy_rows_with_current(stats, current, item, source)
+    if require_scoped_history and context is not None:
+        rows = [row for row in rows if _history_row_matches_context(item, row, source, context)]
     return sum(1 for row in rows[-limit:] if row.present)
 
 
@@ -483,6 +506,106 @@ def _catalog_index(catalog_items: Iterable[CatalogItem | dict[str, Any]]) -> dic
         row = CatalogItem.from_dict(item) if isinstance(item, dict) else item
         indexed[row.item] = row
     return indexed
+
+
+def _catalog_context(hero: str, catalog_items: Iterable[CatalogItem]) -> CatalogContext:
+    return CatalogContext(
+        hero=hero,
+        items=frozenset(item.item for item in catalog_items if item.item),
+        archetypes=frozenset(item.archetype for item in catalog_items if item.archetype),
+    )
+
+
+def _hero_scoped_current(
+    current: dict[str, SourceFetchResult],
+    context: CatalogContext,
+) -> dict[str, SourceFetchResult]:
+    scoped = {}
+    for source, result in current.items():
+        items = [
+            row
+            for row in result.observation.items
+            if _current_row_matches_context(row, source, context)
+        ]
+        observation = WindowObservation(
+            window_id=result.observation.window_id,
+            observed_at=result.observation.observed_at,
+            items=items,
+            artifact_ref=result.observation.artifact_ref,
+            health_status=result.observation.health_status,
+            details=list(result.observation.details),
+        )
+        scoped[source] = SourceFetchResult(
+            observation=observation,
+            status=result.status,
+            details=list(result.details),
+            patch_label=result.patch_label,
+        )
+    return scoped
+
+
+def _stats_items_for_context(stats: HeroStats, context: CatalogContext) -> set[str]:
+    items: set[str] = set()
+    for item, history in stats.items.items():
+        for source, source_history in history.per_source.items():
+            if source != PRIMARY_SOURCE:
+                items.add(item)
+                continue
+            if any(_history_row_matches_context(item, row, source, context) for row in source_history.per_window):
+                items.add(item)
+                break
+    return items
+
+
+def _current_row_matches_context(row: ItemWindowEvidence, source: str, context: CatalogContext) -> bool:
+    metadata_hero = _metadata_hero(row.metadata)
+    if metadata_hero and metadata_hero.casefold() != context.hero.casefold():
+        return False
+    if source != PRIMARY_SOURCE:
+        return True
+    return _evidence_matches_catalog_context(row.item, row.archetype, row.archetypes_seen, context)
+
+
+def _history_row_matches_context(
+    item: str,
+    row: WindowItemStats,
+    source: str,
+    context: CatalogContext,
+) -> bool:
+    if not row.present:
+        return True
+    metadata_hero = _metadata_hero(row.metadata)
+    if metadata_hero and metadata_hero.casefold() != context.hero.casefold():
+        return False
+    if source != PRIMARY_SOURCE:
+        return True
+    return _evidence_matches_catalog_context(item, row.archetype, row.archetypes_seen, context)
+
+
+def _evidence_matches_catalog_context(
+    item: str,
+    archetype: Optional[str],
+    archetypes_seen: Iterable[str],
+    context: CatalogContext,
+) -> bool:
+    if item in context.items:
+        return True
+    archetype_values = [value for value in [archetype, *list(archetypes_seen)] if value]
+    for value in archetype_values:
+        if value in context.archetypes:
+            return True
+        if any(part in context.items for part in _archetype_parts(value)):
+            return True
+    return False
+
+
+def _archetype_parts(value: str) -> list[str]:
+    return [part.strip() for part in value.replace(",", "/").split("/") if part.strip()]
+
+
+def _metadata_hero(metadata: dict[str, Any]) -> Optional[str]:
+    value = metadata.get("hero")
+    return str(value) if value else None
 
 
 def _current_presence(item: str, result: Optional[SourceFetchResult]) -> Optional[bool]:

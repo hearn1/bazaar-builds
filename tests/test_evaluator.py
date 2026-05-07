@@ -34,6 +34,25 @@ def result(source: str, items: list[str], *, status: str = "healthy", observed_a
     )
 
 
+def result_with_evidence(
+    source: str,
+    items: list[ItemWindowEvidence],
+    *,
+    status: str = "healthy",
+    observed_at: str = OBSERVED_AT,
+) -> SourceFetchResult:
+    return SourceFetchResult(
+        observation=WindowObservation(
+            window_id=f"{source}:current",
+            observed_at=observed_at,
+            artifact_ref=f"artifacts/{source}.json",
+            items=items,
+        ),
+        status=status,
+        details=[],
+    )
+
+
 def decision_for(evaluation, item):
     return next(decision for decision in evaluation.decisions if decision.item == item)
 
@@ -70,9 +89,19 @@ def test_source_disagreement_precedence_table(bazaardb, mobalytics, bazaar_build
 
 
 def test_add_candidate_from_bazaardb_two_of_three():
-    stats = history_with_windows("Karnok", "bazaardb", "Pufferfish", [True, False])
+    stats = history_with_archetype("Karnok", "bazaardb", "Pufferfish", [True, False], archetype="Anaconda")
 
-    evaluation = evaluate_hero("Karnok", [], stats, [result("bazaardb", ["Pufferfish"])])
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Anaconda", phase="late", archetype="Anaconda")],
+        stats,
+        [
+            result_with_evidence(
+                "bazaardb",
+                [ItemWindowEvidence(item="Pufferfish", archetype="Anaconda", archetypes_seen=["Anaconda"])],
+            )
+        ],
+    )
 
     row = row_for(evaluation, "Pufferfish")
     assert row["threshold_result"] == "add_candidate"
@@ -100,9 +129,15 @@ def test_add_candidate_from_bazaar_builds_net_two_of_three():
 def test_add_candidate_from_mixed_current_sources():
     evaluation = evaluate_hero(
         "Karnok",
-        [],
+        [CatalogItem("Anaconda", phase="late", archetype="Anaconda")],
         HeroStats(hero="Karnok"),
-        [result("bazaardb", ["Pufferfish"]), result("bazaar_builds_net", ["Pufferfish"])],
+        [
+            result_with_evidence(
+                "bazaardb",
+                [ItemWindowEvidence(item="Pufferfish", archetype="Anaconda", archetypes_seen=["Anaconda"])],
+            ),
+            result("bazaar_builds_net", ["Pufferfish"]),
+        ],
     )
 
     row = row_for(evaluation, "Pufferfish")
@@ -198,6 +233,124 @@ def test_source_quality_gate_sets_support_only_when_bazaardb_absent_and_mobalyti
     assert row["disagreement"] == "secondary_present_bazaardb_absent"
 
 
+def test_mak_does_not_get_karnok_only_bazaardb_observed_items():
+    karnok_archetype = "Karst / Waterskin / Stretch Pants / Wild Boar"
+    stats = history_with_archetype(
+        "Mak",
+        "bazaardb",
+        "Karst",
+        [True],
+        archetype=karnok_archetype,
+    )
+    evaluation = evaluate_hero(
+        "Mak",
+        [CatalogItem("Athanor", phase="late", archetype="Athanor")],
+        stats,
+        [
+            result_with_evidence(
+                "bazaardb",
+                [
+                    ItemWindowEvidence(
+                        item="Karst",
+                        archetype=karnok_archetype,
+                        archetypes_seen=[karnok_archetype],
+                    ),
+                    ItemWindowEvidence(
+                        item="Waterskin",
+                        archetype=karnok_archetype,
+                        archetypes_seen=[karnok_archetype],
+                    ),
+                    ItemWindowEvidence(
+                        item="Stretch Pants",
+                        archetype=karnok_archetype,
+                        archetypes_seen=[karnok_archetype],
+                    ),
+                    ItemWindowEvidence(
+                        item="Wild Boar",
+                        archetype=karnok_archetype,
+                        archetypes_seen=[karnok_archetype],
+                    ),
+                ],
+            )
+        ],
+    )
+
+    assert {"Karst", "Waterskin", "Stretch Pants", "Wild Boar"}.isdisjoint({row["item"] for row in evaluation.rows})
+
+
+def test_dooley_does_not_get_vanessa_only_observed_items():
+    evaluation = evaluate_hero(
+        "Dooley",
+        [CatalogItem("Companion Core", phase="late", archetype="Companion Core")],
+        HeroStats(hero="Dooley"),
+        [
+            result_with_evidence(
+                "mobalytics_build_articles",
+                [
+                    ItemWindowEvidence(item="Piranha", archetype="tortuga-vanessa", metadata={"hero": "Vanessa"}),
+                    ItemWindowEvidence(item="Pufferfish", archetype="tortuga-vanessa", metadata={"hero": "Vanessa"}),
+                    ItemWindowEvidence(item="Jellyfish", archetype="tortuga-vanessa", metadata={"hero": "Vanessa"}),
+                    ItemWindowEvidence(item="Tortuga", archetype="tortuga-vanessa", metadata={"hero": "Vanessa"}),
+                ],
+            )
+        ],
+    )
+
+    assert {"Piranha", "Pufferfish", "Jellyfish", "Tortuga"}.isdisjoint({row["item"] for row in evaluation.rows})
+
+
+def test_global_bazaardb_observations_require_catalog_context_for_add_candidates():
+    matching_archetype = "Known Core / Engine"
+    foreign_archetype = "Foreign Core / Other Engine"
+    stats = HeroStats(hero="Karnok")
+    append_window(
+        stats,
+        "bazaardb",
+        WindowObservation(
+            window_id="bazaardb:prior",
+            observed_at=observed_at_days(7),
+            items=[
+                ItemWindowEvidence(
+                    item="Safe Support",
+                    archetype=matching_archetype,
+                    archetypes_seen=[matching_archetype],
+                ),
+                ItemWindowEvidence(
+                    item="Foreign Support",
+                    archetype=foreign_archetype,
+                    archetypes_seen=[foreign_archetype],
+                ),
+            ],
+        ),
+    )
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Known Core", phase="late", archetype="Known Build")],
+        stats,
+        [
+            result_with_evidence(
+                "bazaardb",
+                [
+                    ItemWindowEvidence(
+                        item="Safe Support",
+                        archetype=matching_archetype,
+                        archetypes_seen=[matching_archetype],
+                    ),
+                    ItemWindowEvidence(
+                        item="Foreign Support",
+                        archetype=foreign_archetype,
+                        archetypes_seen=[foreign_archetype],
+                    ),
+                ],
+            )
+        ],
+    )
+
+    assert row_for(evaluation, "Safe Support")["threshold_result"] == "add_candidate"
+    assert "Foreign Support" not in {row["item"] for row in evaluation.rows}
+
+
 @pytest.mark.parametrize("phase", ["core", "carry"])
 def test_existing_core_and_carry_items_preserved_when_primary_absent_and_secondary_present(phase):
     evaluation = evaluate_hero(
@@ -263,6 +416,17 @@ def test_source_artifact_hydration_accepts_prefetched_output_shape():
 
 
 def history_with_windows(hero: str, source: str, item: str, present_values: list[bool]) -> HeroStats:
+    return history_with_archetype(hero, source, item, present_values, archetype="Observed Archetype")
+
+
+def history_with_archetype(
+    hero: str,
+    source: str,
+    item: str,
+    present_values: list[bool],
+    *,
+    archetype: str,
+) -> HeroStats:
     stats = HeroStats(hero=hero)
     for index, present in enumerate(present_values, start=1):
         append_window(
@@ -271,7 +435,14 @@ def history_with_windows(hero: str, source: str, item: str, present_values: list
             WindowObservation(
                 window_id=f"{source}:p{index}",
                 observed_at=observed_at_days(index * 7),
-                items=[ItemWindowEvidence(item=item, present=present)],
+                items=[
+                    ItemWindowEvidence(
+                        item=item,
+                        present=present,
+                        archetype=archetype,
+                        archetypes_seen=[archetype],
+                    )
+                ],
             ),
         )
     return stats

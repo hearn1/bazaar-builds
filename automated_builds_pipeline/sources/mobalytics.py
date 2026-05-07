@@ -62,7 +62,7 @@ def parse_meta_builds_state(state: dict[str, Any], hero: str, options: Optional[
         cards = _dedupe(_clean(card.get("name")) for card in data.get("cards", []) if isinstance(card, dict))
         if not title or not cards:
             continue
-        retained.append({"title": title, "cards": cards, "description": data.get("descriptionTheBazaarBoardCreator")})
+        retained.append({"title": title, "cards": cards, "description": data.get("descriptionTheBazaarBoardCreator"), "hero": build_hero})
 
     if not retained:
         return _result(window_id, options, "unhealthy", ["retained_builds_empty"])
@@ -84,6 +84,7 @@ def parse_meta_builds_state(state: dict[str, Any], hero: str, options: Optional[
                     metadata={
                         "build_title": build["title"],
                         "editorial_description": build["description"],
+                        "hero": build["hero"],
                     },
                 )
             )

@@ -47,6 +47,16 @@ def add_row(item, *, phase="early", archetype="Axe", ceiling="carry_core_support
     }
 
 
+def deferred_row(item, threshold_result, threshold_reason, *, phase="early", archetype="Axe"):
+    return {
+        "phase": phase,
+        "archetype": archetype,
+        "item": item,
+        "threshold_result": threshold_result,
+        "threshold_reason": threshold_reason,
+    }
+
+
 def test_diff_generator_mock_mode_populates_shape():
     rows = [
         add_row("New Core", existing=True),
@@ -102,6 +112,34 @@ def test_medium_confidence_goes_to_weaker_signals_and_low_to_noise():
 
     assert diff["weaker_signals"][0]["item"] == "Medium Item"
     assert any(row["reason"] == "low_confidence_suppressed" for row in diff["noise"])
+
+
+def test_insufficient_history_rows_are_suppressed_from_noise():
+    rows = [
+        deferred_row("Thin Sample 1", "insufficient_history", "not_enough_windows"),
+        deferred_row("Thin Sample 2", "insufficient_history", "not_enough_windows"),
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["noise"] == []
+
+
+def test_deferred_no_change_and_blocked_rows_roll_up_by_reason():
+    rows = [
+        deferred_row("Blocked 1", "blocked", "freeze_active"),
+        deferred_row("Blocked 2", "blocked", "freeze_active"),
+        deferred_row("No Change 1", "no_change", "secondary_present"),
+        deferred_row("No Change 2", "no_change", "secondary_present"),
+        deferred_row("No Change 3", "no_change", "secondary_present"),
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["noise"] == [
+        {"reason": "freeze_active", "count": 2, "summary": True},
+        {"reason": "secondary_present", "count": 3, "summary": True},
+    ]
 
 
 def test_reshuffle_signal_goes_to_noise_not_reserved_slot():

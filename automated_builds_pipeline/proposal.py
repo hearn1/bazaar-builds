@@ -105,6 +105,9 @@ def _noise(lines: list[str], diff: dict[str, Any]) -> None:
         return
     for row in noise:
         if isinstance(row, dict):
+            if row.get("summary"):
+                lines.append(f"- {row.get('reason', 'noise')}: {row.get('count', 0)} rows")
+                continue
             lines.append(f"- {row.get('reason', 'noise')}: {row.get('item') or row.get('archetype') or row.get('detail') or row}")
         else:
             lines.append(f"- {row}")

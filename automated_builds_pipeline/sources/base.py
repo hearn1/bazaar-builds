@@ -20,6 +20,7 @@ class FetchOptions:
     timeout_seconds: int = 30
     expected_patch_label: Optional[str] = None
     source_url: Optional[str] = None
+    allow_headed_fallback: bool = True
     article_slugs: list[str] = field(default_factory=list)
     days: int = 30
     since: Optional[str] = None

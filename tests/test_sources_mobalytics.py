@@ -8,6 +8,7 @@ from automated_builds_pipeline.sources.mobalytics import (
     parse_build_article_fixture,
     parse_meta_builds_fixture,
     parse_meta_builds_html,
+    parse_meta_builds_state,
 )
 from automated_builds_pipeline.stats import HeroStats, append_window, load_stats, save_stats
 
@@ -25,11 +26,50 @@ def test_mobalytics_meta_fixture_extracts_hero_build_items(sample_dir, load_json
     assert all(item.metadata["build_title"].endswith("(Karnok)") for item in result.observation.items)
 
 
+def test_mobalytics_meta_live_shape_skips_non_document_rows(sample_dir, load_json):
+    state = load_json(sample_dir / "mobalytics" / "meta-builds-preloaded-state-builds-2026-05-06.json")
+
+    result = parse_meta_builds_state(state, "Karnok", FetchOptions(observed_at="2026-05-06T23:00:00Z"))
+
+    assert result.status == "healthy"
+    assert result.observation.window_id == "mobalytics_meta_builds:v540"
+    rows = {(item.archetype, item.item) for item in result.observation.items}
+    assert ("Self-Slow", "Flying Squirrel") in rows
+    assert ("Anaconda", "Karst") in rows
+    assert all(item.metadata["build_title"].endswith("(Karnok)") for item in result.observation.items)
+
+
 def test_mobalytics_missing_preloaded_state_is_unhealthy():
     result = parse_meta_builds_html("<html></html>", "Karnok", FetchOptions(observed_at="2026-05-05T12:00:00Z"))
 
     assert result.status == "unhealthy"
     assert result.details == ["preloaded_state_missing_or_invalid"]
+
+
+def test_mobalytics_missing_document_path_is_unhealthy():
+    state = {
+        "theBazaarState": {
+            "apollo": {
+                "graphqlV2": {
+                    "queries": [
+                        {
+                            "state": {
+                                "data": [
+                                    {"game": {"settings": {"banners": {"takeovers": []}}}},
+                                    None,
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+
+    result = parse_meta_builds_state(state, "Karnok", FetchOptions(observed_at="2026-05-05T12:00:00Z"))
+
+    assert result.status == "unhealthy"
+    assert result.details == ["document_path_missing"]
 
 
 def test_mobalytics_missing_version_is_unhealthy():

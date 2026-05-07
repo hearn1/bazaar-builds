@@ -251,9 +251,64 @@ def test_sidecar_not_touched_when_evaluator_raises(monkeypatch, tmp_path):
     assert not stats_path("Karnok", stats_dir).exists()
 
 
-def test_run_merges_existing_stats_with_current_fetch_output(monkeypatch, tmp_path):
+def test_local_dry_run_writes_artifacts_without_saving_stats(monkeypatch, tmp_path):
     state_file = tmp_path / "pipeline_state.json"
     write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    stats_dir = tmp_path / "stats"
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch)
+    monkeypatch.setattr(pipeline, "save_stats", lambda *args, **kwargs: pytest.fail("should not save stats"))
+
+    result = pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=stats_dir,
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert result.pr_invoked is False
+    assert (tmp_path / "artifacts" / "Karnok_diff.json").exists()
+    assert (tmp_path / "artifacts" / "Karnok_build_update_proposal.md").exists()
+    assert not stats_path("Karnok", stats_dir).exists()
+
+
+def test_implementation_exits_before_fetch_save_or_artifact_work(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "implementation")
+    tracker = make_tracker(tmp_path)
+    monkeypatch.setattr(pipeline, "_fetch_sources", lambda *args, **kwargs: pytest.fail("should not fetch"))
+    monkeypatch.setattr(pipeline, "evaluate_hero", lambda *args, **kwargs: pytest.fail("should not evaluate"))
+    monkeypatch.setattr(pipeline.diff, "generate_diff", lambda *args, **kwargs: pytest.fail("should not diff"))
+    monkeypatch.setattr(pipeline, "save_stats", lambda *args, **kwargs: pytest.fail("should not save stats"))
+
+    result = pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert result.phase == "implementation"
+    assert result.diff_path is None
+    assert not (tmp_path / "artifacts").exists()
+    assert not stats_path("Karnok", tmp_path / "stats").exists()
+
+
+def test_workflow_persists_stats_only_for_shadow_and_live_phases():
+    workflow = Path(__file__).parents[1] / ".github" / "workflows" / "automated-builds-refresh.yml"
+    text = workflow.read_text(encoding="utf-8")
+
+    assert "steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron'" in text
+
+
+def test_run_merges_existing_stats_with_current_fetch_output(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "shadow_cron")
     tracker = make_tracker(tmp_path)
     stats_dir = tmp_path / "stats"
     prior_stats = load_stats("Karnok", stats_dir)

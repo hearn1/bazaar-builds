@@ -69,9 +69,10 @@ def run(
     catalog_items = load_catalog_items(catalog_path)
     evaluation = evaluate_hero(hero, catalog_items, stats, current_run, state)
 
-    for source, result in source_results.items():
-        append_window(stats, source, result.observation)
-    save_stats(stats, stats_dir)
+    if state.phase != "local_dry_run":
+        for source, result in source_results.items():
+            append_window(stats, source, result.observation)
+        save_stats(stats, stats_dir)
 
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
     classifier = LLMClassifier(DEFAULT_MODEL, known_items_path=_names_file(tracker_repo), api_key_env=api_key_env)

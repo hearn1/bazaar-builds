@@ -278,9 +278,16 @@ def _initial_noise(evaluation: EvaluationResult) -> list[Any]:
     noise: list[Any] = []
     for item in evaluation.unresolved:
         noise.append({"reason": "unresolved", "detail": item})
+    summaries: dict[str, int] = {}
     for row in evaluation.rows:
-        if row.get("threshold_result") in {"no_change", "insufficient_history", "blocked"} and row.get("threshold_reason") not in {"none", ""}:
-            noise.append({"reason": row.get("threshold_reason"), "item": row.get("item"), "archetype": row.get("archetype")})
+        if row.get("threshold_result") not in {"no_change", "blocked"}:
+            continue
+        reason = row.get("threshold_reason")
+        if reason in {"none", "", None}:
+            continue
+        summaries[str(reason)] = summaries.get(str(reason), 0) + 1
+    for reason, count in summaries.items():
+        noise.append({"reason": reason, "count": count, "summary": True})
     return noise
 
 

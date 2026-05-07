@@ -20,6 +20,7 @@ META_URL = "https://bazaardb.gg/run/meta"
 SECTION_HEADERS = ("CORE ITEMS", "SUPPORTING ITEMS", "POPULAR SKILLS")
 SECTION_HEADER_MAP = {header.casefold(): header for header in SECTION_HEADERS}
 RUN_TEXT_RE = re.compile(r"(?P<runs>\d[\d,]*)\s+runs?\s*[·\-\u00b7]\s*(?P<pct>\d+(?:\.\d+)?)%?", re.IGNORECASE)
+CORE_RUN_TEXT_RE = re.compile(r"(?P<runs>\d[\d,]*)\s*runs?\s*(?:->|\u2192)?", re.IGNORECASE)
 RELATIVE_FRESHNESS_RE = re.compile(r"^\d+\s*(?:m|min|h|hr|d|day|w|week)s?\s+ago$", re.IGNORECASE)
 
 
@@ -220,6 +221,8 @@ def _extract_items_from_tokens(tokens: list[_Token], artifact_ref: Optional[str]
     current_archetype = "Unknown"
     current_section = ""
     section_rank = 0
+    core_items: list[str] = []
+    core_items_emitted = False
     recent_imgs: list[str] = []
     recent_text: list[str] = []
     for token in tokens:
@@ -230,11 +233,36 @@ def _extract_items_from_tokens(tokens: list[_Token], artifact_ref: Optional[str]
                 section_rank = 0
                 recent_imgs = []
                 recent_text = []
+                if section == "CORE ITEMS":
+                    core_items = []
+                    core_items_emitted = False
                 continue
             recent_text.append(token.value)
             recent_text = recent_text[-5:]
-            match = RUN_TEXT_RE.search(" ".join(recent_text))
-            if match and recent_imgs:
+            text_window = " ".join(recent_text)
+            core_match = CORE_RUN_TEXT_RE.search(text_window)
+            if current_section == "CORE ITEMS" and core_match and core_items and not core_items_emitted:
+                appearances = int(core_match.group("runs").replace(",", ""))
+                current_archetype = " / ".join(core_items)
+                for rank, item in enumerate(core_items, start=1):
+                    items.append(
+                        ItemWindowEvidence(
+                            item=item,
+                            archetype=current_archetype,
+                            appearances=appearances,
+                            sample_count=appearances,
+                            frequency=1.0,
+                            rank=rank,
+                            archetypes_seen=[current_archetype],
+                            evidence_refs=[artifact_ref] if artifact_ref else [],
+                            metadata={"section": current_section, "patch_notes_url": patch_url},
+                        )
+                    )
+                core_items_emitted = True
+                recent_text = []
+                continue
+            match = RUN_TEXT_RE.search(text_window)
+            if match and recent_imgs and current_section != "POPULAR SKILLS":
                 appearances = int(match.group("runs").replace(",", ""))
                 frequency = float(match.group("pct")) / 100.0
                 item = recent_imgs[-1]
@@ -254,8 +282,9 @@ def _extract_items_from_tokens(tokens: list[_Token], artifact_ref: Optional[str]
                 )
         elif token.kind == "img":
             if current_section == "CORE ITEMS":
+                core_items.append(token.value)
                 recent_imgs.append(token.value)
-                current_archetype = " / ".join(recent_imgs[-5:])
+                current_archetype = " / ".join(core_items)
             else:
                 recent_imgs.append(token.value)
             recent_text = []

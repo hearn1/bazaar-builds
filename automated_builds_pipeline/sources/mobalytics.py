@@ -40,9 +40,12 @@ def parse_meta_builds_html(html: str, hero: str, options: Optional[FetchOptions]
 def parse_meta_builds_state(state: dict[str, Any], hero: str, options: Optional[FetchOptions] = None) -> SourceFetchResult:
     options = options or FetchOptions()
     document = _document_data(state)
-    version = document.get("version") if isinstance(document, dict) else None
+    if not document:
+        return _result("mobalytics_meta_builds:unknown", options, "unhealthy", ["document_path_missing"])
+
+    version = document.get("version")
     window_id = f"mobalytics_meta_builds:v{version}" if version not in (None, "") else "mobalytics_meta_builds:unknown"
-    if not isinstance(document, dict) or version in (None, ""):
+    if version in (None, ""):
         return _result(window_id, options, "unhealthy", ["document_version_missing"])
 
     nodes = [node for node in document.get("content", []) if isinstance(node, dict) and node.get("__typename") == BOARD_TYPENAME]
@@ -247,8 +250,14 @@ def _document_data(state: Any) -> dict[str, Any]:
     try:
         queries = state["theBazaarState"]["apollo"]["graphqlV2"]["queries"]
         for query in queries:
+            if not isinstance(query, dict):
+                continue
             data_rows = query.get("state", {}).get("data", [])
+            if not isinstance(data_rows, list):
+                continue
             for row in data_rows:
+                if not isinstance(row, dict):
+                    continue
                 document = row.get("game", {}).get("documents", {}).get("userGeneratedDocumentBySlug", {}).get("data")
                 if isinstance(document, dict):
                     return document

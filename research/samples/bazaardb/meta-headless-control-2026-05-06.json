@@ -1,0 +1,12 @@
+{
+  "wait_result": {
+    "url": "https://www.bazaardb.gg/run/meta",
+    "title": "Just a moment...",
+    "textLen": 263,
+    "textHead": "www.bazaardb.gg\nPerforming security verification\n\nThis website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.\n\nRay ID: 9f7c1b668a76eaf2\nPerformance and Security by Cloudflare\nPrivacy",
+    "hasChallenge": true,
+    "hasCore": false,
+    "hasMeta": false
+  },
+  "text_sample": "www.bazaardb.gg\nPerforming security verification\n\nThis website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.\n\nRay ID: 9f7c1b668a76eaf2\nPerformance and Security by Cloudflare\nPrivacy"
+}

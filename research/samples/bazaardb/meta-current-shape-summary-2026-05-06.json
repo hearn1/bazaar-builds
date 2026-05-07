@@ -1,0 +1,1085 @@
+{
+  "captured_at": "2026-05-06",
+  "requested_url": "https://www.bazaardb.gg/run/meta",
+  "canonical_url": "https://bazaardb.gg/run/meta",
+  "page_title": "Meta Stats - Bazaar DB",
+  "page_stats": {
+    "total_runs": 205,
+    "avg_wins": 9.01,
+    "updated_text": "Updated 22m ago"
+  },
+  "patch_identity": {
+    "top_nav_patch_link": {
+      "text": "4h ago",
+      "href": "/patchnotes"
+    },
+    "footer_database_patch": "14.0 (May 6)"
+  },
+  "landmarks": {
+    "meta_stats_heading": true,
+    "page_copy": "These meta stats are based on data uploaded by the community for the most recent numbered patch. They may not be representative of all runs.",
+    "archetypes_heading": true,
+    "downstream_headings": [
+      "Items",
+      "Skills",
+      "Heroes",
+      "Most Played",
+      "Popular Hero + Item Combos",
+      "Popular Hero + Skill Combos",
+      "Items",
+      "Most Used",
+      "Skills",
+      "Most Used"
+    ],
+    "old_section_concepts_present": [
+      "CORE ITEMS",
+      "SUPPORTING ITEMS",
+      "POPULAR SKILLS"
+    ]
+  },
+  "archetype_count": 7,
+  "archetype_sample": [
+    {
+      "core_items": [
+        "Wolf",
+        "Flying Squirrel",
+        "Spear"
+      ],
+      "runs": 8,
+      "avg_wins": 10,
+      "supporting_sections": [
+        {
+          "label": "Flex (small)",
+          "items": [
+            {
+              "item": "Bat",
+              "runs": 6,
+              "pct": 75
+            },
+            {
+              "item": "Dragon Whelp",
+              "runs": 1,
+              "pct": 13
+            },
+            {
+              "item": "Flare",
+              "runs": 1,
+              "pct": 13
+            },
+            {
+              "item": "Flying Fish",
+              "runs": 1,
+              "pct": 13
+            }
+          ]
+        },
+        {
+          "label": "Flex (medium)",
+          "items": [
+            {
+              "item": "Hunting Hawk",
+              "runs": 5,
+              "pct": 63
+            },
+            {
+              "item": "Boa Constrictor",
+              "runs": 4,
+              "pct": 50
+            },
+            {
+              "item": "Messenger Sparrow",
+              "runs": 5,
+              "pct": 63
+            },
+            {
+              "item": "Wild Bear",
+              "runs": 4,
+              "pct": 50
+            }
+          ]
+        }
+      ],
+      "popular_skills": [
+        {
+          "skill": "Inspired Rage",
+          "runs": 8,
+          "pct": 100
+        },
+        {
+          "skill": "Balanced Friendship",
+          "runs": 3,
+          "pct": 38
+        },
+        {
+          "skill": "Shortened Rage",
+          "runs": 3,
+          "pct": 38
+        },
+        {
+          "skill": "Static Acceleration",
+          "runs": 3,
+          "pct": 38
+        },
+        {
+          "skill": "Strength",
+          "runs": 3,
+          "pct": 38
+        },
+        {
+          "skill": "Adrenaline Rush",
+          "runs": 2,
+          "pct": 25
+        },
+        {
+          "skill": "Left Eye",
+          "runs": 2,
+          "pct": 25
+        },
+        {
+          "skill": "Foreboding Winds",
+          "runs": 2,
+          "pct": 25
+        },
+        {
+          "skill": "Slowed Targets",
+          "runs": 2,
+          "pct": 25
+        },
+        {
+          "skill": "Bloodhound",
+          "runs": 2,
+          "pct": 25
+        }
+      ]
+    },
+    {
+      "core_items": [
+        "Ornithopter",
+        "Headset",
+        "Flycycle"
+      ],
+      "runs": 4,
+      "avg_wins": 8,
+      "supporting_sections": [
+        {
+          "label": "Flex (small)",
+          "items": [
+            {
+              "item": "Tugboat",
+              "runs": 2,
+              "pct": 50
+            },
+            {
+              "item": "Altimeter",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Flying Squirrel",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Jetpack",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Binoculars",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Targeting Drone",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Darts",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Lightning Butterfly",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Lens",
+              "runs": 1,
+              "pct": 25
+            }
+          ]
+        },
+        {
+          "label": "Flex (large)",
+          "items": [
+            {
+              "item": "Skyliner",
+              "runs": 2,
+              "pct": 50
+            },
+            {
+              "item": "Space Laser",
+              "runs": 2,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "label": "Flex (medium)",
+          "items": [
+            {
+              "item": "Sirens",
+              "runs": 2,
+              "pct": 50
+            },
+            {
+              "item": "Sandbags",
+              "runs": 1,
+              "pct": 25
+            }
+          ]
+        }
+      ],
+      "popular_skills": [
+        {
+          "skill": "Flashy Pilot",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Creeping Chill",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Above the Clouds",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Frostfire",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Defense Grid",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Inspired Rage",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Tool Fight",
+          "runs": 1,
+          "pct": 25
+        },
+        {
+          "skill": "Lash Out",
+          "runs": 1,
+          "pct": 25
+        },
+        {
+          "skill": "Desperate Strike",
+          "runs": 1,
+          "pct": 25
+        },
+        {
+          "skill": "Electrified Hull",
+          "runs": 1,
+          "pct": 25
+        }
+      ]
+    },
+    {
+      "core_items": [
+        "Boa Constrictor",
+        "Chains",
+        "Hunter's Boots"
+      ],
+      "runs": 4,
+      "avg_wins": 10,
+      "supporting_sections": [
+        {
+          "label": "Flex (small)",
+          "items": [
+            {
+              "item": "Night Vision",
+              "runs": 2,
+              "pct": 50
+            },
+            {
+              "item": "Fairies",
+              "runs": 2,
+              "pct": 50
+            },
+            {
+              "item": "Ancient Locket",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Bat",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Fogshroom",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Flying Squirrel",
+              "runs": 1,
+              "pct": 25
+            },
+            {
+              "item": "Spices",
+              "runs": 1,
+              "pct": 25
+            }
+          ]
+        },
+        {
+          "label": "Flex (medium)",
+          "items": [
+            {
+              "item": "Enervating Sigil",
+              "runs": 2,
+              "pct": 50
+            },
+            {
+              "item": "Log Trap",
+              "runs": 2,
+              "pct": 50
+            },
+            {
+              "item": "Trapvine",
+              "runs": 1,
+              "pct": 25
+            }
+          ]
+        }
+      ],
+      "popular_skills": [
+        {
+          "skill": "Inspired Rage",
+          "runs": 4,
+          "pct": 100
+        },
+        {
+          "skill": "Shortened Rage",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Hallucinations",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Left Eye",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Fiery",
+          "runs": 2,
+          "pct": 50
+        },
+        {
+          "skill": "Flamedancer",
+          "runs": 1,
+          "pct": 25
+        },
+        {
+          "skill": "Slowed Targets",
+          "runs": 1,
+          "pct": 25
+        },
+        {
+          "skill": "Lash Out",
+          "runs": 1,
+          "pct": 25
+        },
+        {
+          "skill": "Diamond Fangs",
+          "runs": 1,
+          "pct": 25
+        },
+        {
+          "skill": "Final Dose",
+          "runs": 1,
+          "pct": 25
+        }
+      ]
+    },
+    {
+      "core_items": [
+        "Karst",
+        "Waterskin",
+        "Stretch Pants",
+        "Wild Boar"
+      ],
+      "runs": 3,
+      "avg_wins": 10,
+      "supporting_sections": [
+        {
+          "label": "Flex (small)",
+          "items": [
+            {
+              "item": "Flying Squirrel",
+              "runs": 2,
+              "pct": 67
+            },
+            {
+              "item": "Firefly Lantern",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Spark Plug",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Jerky",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Fairies",
+              "runs": 1,
+              "pct": 33
+            }
+          ]
+        }
+      ],
+      "popular_skills": [
+        {
+          "skill": "Inspired Rage",
+          "runs": 3,
+          "pct": 100
+        },
+        {
+          "skill": "Shortened Rage",
+          "runs": 3,
+          "pct": 100
+        },
+        {
+          "skill": "Electrified Hull",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Critical Aid",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Hallucinations",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Left Eye",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Creeping Chill",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Submerged",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Static Acceleration",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Toughness",
+          "runs": 1,
+          "pct": 33
+        }
+      ]
+    },
+    {
+      "core_items": [
+        "Farmer's Market",
+        "Trail Mix",
+        "Bread Knife"
+      ],
+      "runs": 3,
+      "avg_wins": 8,
+      "supporting_sections": [
+        {
+          "label": "Flex (large)",
+          "items": [
+            {
+              "item": "Luau",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Laurel's Fortress",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Giant Sub",
+              "runs": 1,
+              "pct": 33
+            }
+          ]
+        },
+        {
+          "label": "Flex (small)",
+          "items": [
+            {
+              "item": "LauLau",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Ionized Lightning",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Zarlic",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Honeycomb",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Meat Tenderizer",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Eggs",
+              "runs": 1,
+              "pct": 33
+            }
+          ]
+        }
+      ],
+      "popular_skills": [
+        {
+          "skill": "Defense Grid",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Left-Handed",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Keen Eye",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Regenerative",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Captain's Charge",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Passive Power",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Walk-in Clinic",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Critical Protector",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Tools of the Trade",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Flamedancer",
+          "runs": 1,
+          "pct": 33
+        }
+      ]
+    },
+    {
+      "core_items": [
+        "Athanor",
+        "Boiling Flask",
+        "Broken Bottle"
+      ],
+      "runs": 3,
+      "avg_wins": 8.3,
+      "supporting_sections": [
+        {
+          "label": "Flex (small)",
+          "items": [
+            {
+              "item": "Flying Potion",
+              "runs": 2,
+              "pct": 67
+            },
+            {
+              "item": "Lag-bolt",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Energy Potion",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Fire Potion",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Infinite Potion",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Strength Potion",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Sleeping Potion",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Rainbow Potion",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Noxious Potion",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Show Globe",
+              "runs": 1,
+              "pct": 33
+            }
+          ]
+        }
+      ],
+      "popular_skills": [
+        {
+          "skill": "Paralytic Poison",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Exposing Toxins",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Hardly Workin'",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Retaliatory Toxins",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Toughness",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Chemical Fire",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Final Flame",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Oceanic Rush",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Mixed Message",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Jury Rigger",
+          "runs": 1,
+          "pct": 33
+        }
+      ]
+    },
+    {
+      "core_items": [
+        "Zarlic",
+        "Serving Platter",
+        "Instant Noodles"
+      ],
+      "runs": 3,
+      "avg_wins": 8.7,
+      "supporting_sections": [
+        {
+          "label": "Flex (small)",
+          "items": [
+            {
+              "item": "Scorchpepper",
+              "runs": 2,
+              "pct": 67
+            },
+            {
+              "item": "Butter",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Banu Leaves",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Eggs",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Hot Sauce",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Meat Tenderizer",
+              "runs": 1,
+              "pct": 33
+            }
+          ]
+        },
+        {
+          "label": "Flex (medium)",
+          "items": [
+            {
+              "item": "Spice Rack",
+              "runs": 2,
+              "pct": 67
+            },
+            {
+              "item": "Oven Mitts",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Basket",
+              "runs": 1,
+              "pct": 33
+            },
+            {
+              "item": "Grill",
+              "runs": 1,
+              "pct": 33
+            }
+          ]
+        }
+      ],
+      "popular_skills": [
+        {
+          "skill": "Static Acceleration",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Tracer Fire",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Inspirational Cooking",
+          "runs": 2,
+          "pct": 67
+        },
+        {
+          "skill": "Rigged",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "The Right Tool",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Searing Flames",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Critical Protector",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Supply Cache",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Walk-in Clinic",
+          "runs": 1,
+          "pct": 33
+        },
+        {
+          "skill": "Hunker Down",
+          "runs": 1,
+          "pct": 33
+        }
+      ]
+    }
+  ],
+  "run_frequency_shape": {
+    "supporting_items": "item name line followed by `N runs ? X%` link text; href is /run?cards=<core card ids>,<item card id>",
+    "core_group": "core item name lines followed by `NRUNS ->` link text and `X.XAVG WINS` text; href is /run?cards=<core card ids>"
+  },
+  "hero_filter_probe": {
+    "result": "Clicking the hidden global filter option Karnok navigated away to /search?t=t%3Akarnok&c=all rather than filtering /run/meta in place.",
+    "artifact": "meta-karnok-filter-attempt-2026-05-06.json"
+  },
+  "representative_links": [
+    {
+      "text": "4h ago",
+      "href": "/patchnotes"
+    },
+    {
+      "text": "Wolf",
+      "href": "/card/fxdwn84pnk1lwv8k1k4dz4bb4t/Wolf"
+    },
+    {
+      "text": "Flying Squirrel",
+      "href": "/card/nftdnfm815bvz0fv7cyv4kfjs0/Flying-Squirrel"
+    },
+    {
+      "text": "Spear",
+      "href": "/card/vwf6bh9cyz4ysfpqzcnqvlpq79/Spear"
+    },
+    {
+      "text": "8runs →",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79"
+    },
+    {
+      "text": "Bat",
+      "href": "/card/18wgwbfhl8zpks14l0b5t1wyjjw/Bat"
+    },
+    {
+      "text": "6 runs · 75%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,18wgwbfhl8zpks14l0b5t1wyjjw"
+    },
+    {
+      "text": "Dragon Whelp",
+      "href": "/card/50dcy1f5m47wy1jv8vf557d6mk/Dragon-Whelp"
+    },
+    {
+      "text": "1 runs · 13%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,50dcy1f5m47wy1jv8vf557d6mk"
+    },
+    {
+      "text": "Flare",
+      "href": "/card/1741mqb9w22xgw1hlwhn71qzbgg/Flare"
+    },
+    {
+      "text": "1 runs · 13%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,1741mqb9w22xgw1hlwhn71qzbgg"
+    },
+    {
+      "text": "Flying Fish",
+      "href": "/card/d0wycctkdb6z5cnz1gw3xylt9t/Flying-Fish"
+    },
+    {
+      "text": "1 runs · 13%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,d0wycctkdb6z5cnz1gw3xylt9t"
+    },
+    {
+      "text": "Hunting Hawk",
+      "href": "/card/1fk19s3w352fbpbkdl012ccxcf/Hunting-Hawk"
+    },
+    {
+      "text": "5 runs · 63%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,1fk19s3w352fbpbkdl012ccxcf"
+    },
+    {
+      "text": "Boa Constrictor",
+      "href": "/card/m5mq40wjglq971684y4gmpqhyj/Boa-Constrictor"
+    },
+    {
+      "text": "4 runs · 50%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,m5mq40wjglq971684y4gmpqhyj"
+    },
+    {
+      "text": "Messenger Sparrow",
+      "href": "/card/dff083nl4gc5cxt578lmtncl7p/Messenger-Sparrow"
+    },
+    {
+      "text": "5 runs · 63%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,dff083nl4gc5cxt578lmtncl7p"
+    },
+    {
+      "text": "Wild Bear",
+      "href": "/card/tmndydd1db2j71wk4pmqq9x84g/Wild-Bear"
+    },
+    {
+      "text": "4 runs · 50%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,tmndydd1db2j71wk4pmqq9x84g"
+    },
+    {
+      "text": "Inspired Rage",
+      "href": "/card/1w3plj3bblzv9sdv10zb2d4mq8/Inspired-Rage"
+    },
+    {
+      "text": "8 runs · 100%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,1w3plj3bblzv9sdv10zb2d4mq8"
+    },
+    {
+      "text": "Balanced Friendship",
+      "href": "/card/1884d0c1nqpmbpg27011k450dl1/Balanced-Friendship"
+    },
+    {
+      "text": "3 runs · 38%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,1884d0c1nqpmbpg27011k450dl1"
+    },
+    {
+      "text": "Shortened Rage",
+      "href": "/card/44850dvx2l81pn1pgjmjyj81y/Shortened-Rage"
+    },
+    {
+      "text": "3 runs · 38%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,44850dvx2l81pn1pgjmjyj81y"
+    },
+    {
+      "text": "Static Acceleration",
+      "href": "/card/7zhj95dq4lz9f570cx3tkyf8pg/Static-Acceleration"
+    },
+    {
+      "text": "3 runs · 38%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,7zhj95dq4lz9f570cx3tkyf8pg"
+    },
+    {
+      "text": "Strength",
+      "href": "/card/19gtzndjjyb09p434w6vzwxvcbd/Strength"
+    },
+    {
+      "text": "3 runs · 38%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,19gtzndjjyb09p434w6vzwxvcbd"
+    },
+    {
+      "text": "Adrenaline Rush",
+      "href": "/card/11c57573lfbq0yyc6cp5lt6hwtc/Adrenaline-Rush"
+    },
+    {
+      "text": "2 runs · 25%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,11c57573lfbq0yyc6cp5lt6hwtc"
+    },
+    {
+      "text": "Left Eye",
+      "href": "/card/4f8tv63bfgwzvsfm41svz8pb9/Left-Eye"
+    },
+    {
+      "text": "2 runs · 25%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,4f8tv63bfgwzvsfm41svz8pb9"
+    },
+    {
+      "text": "Foreboding Winds",
+      "href": "/card/11mn6km871vqj203lxkxjk4z521/Foreboding-Winds"
+    },
+    {
+      "text": "2 runs · 25%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,11mn6km871vqj203lxkxjk4z521"
+    },
+    {
+      "text": "Slowed Targets",
+      "href": "/card/35g2j4wdv4ctj6ys3pzc4vwz7f/Slowed-Targets"
+    },
+    {
+      "text": "2 runs · 25%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,35g2j4wdv4ctj6ys3pzc4vwz7f"
+    },
+    {
+      "text": "Bloodhound",
+      "href": "/card/326thxm6n8glgxgv0l14wjj41z/Bloodhound"
+    },
+    {
+      "text": "2 runs · 25%",
+      "href": "/run?cards=fxdwn84pnk1lwv8k1k4dz4bb4t,nftdnfm815bvz0fv7cyv4kfjs0,vwf6bh9cyz4ysfpqzcnqvlpq79,326thxm6n8glgxgv0l14wjj41z"
+    },
+    {
+      "text": "Ornithopter",
+      "href": "/card/yjdmx24kbs18mj41kjxtdk7wnl/Ornithopter"
+    },
+    {
+      "text": "Headset",
+      "href": "/card/16hzc84pbmf5m68jvp40lgfzht1/Headset"
+    },
+    {
+      "text": "Flycycle",
+      "href": "/card/1987s5ystsfmg2fpjgmhjvqxtdq/Flycycle"
+    },
+    {
+      "text": "4runs →",
+      "href": "/run?cards=yjdmx24kbs18mj41kjxtdk7wnl,16hzc84pbmf5m68jvp40lgfzht1,1987s5ystsfmg2fpjgmhjvqxtdq"
+    },
+    {
+      "text": "Tugboat",
+      "href": "/card/cft23x298ms1p2vvjyft9w5nhl/Tugboat"
+    },
+    {
+      "text": "2 runs · 50%",
+      "href": "/run?cards=yjdmx24kbs18mj41kjxtdk7wnl,16hzc84pbmf5m68jvp40lgfzht1,1987s5ystsfmg2fpjgmhjvqxtdq,cft23x298ms1p2vvjyft9w5nhl"
+    },
+    {
+      "text": "Altimeter",
+      "href": "/card/n59d7yj98bvh6nc4mckvh9qgg1/Altimeter"
+    },
+    {
+      "text": "1 runs · 25%",
+      "href": "/run?cards=yjdmx24kbs18mj41kjxtdk7wnl,16hzc84pbmf5m68jvp40lgfzht1,1987s5ystsfmg2fpjgmhjvqxtdq,n59d7yj98bvh6nc4mckvh9qgg1"
+    },
+    {
+      "text": "Flying Squirrel",
+      "href": "/card/nftdnfm815bvz0fv7cyv4kfjs0/Flying-Squirrel"
+    }
+  ]
+}

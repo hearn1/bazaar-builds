@@ -1,0 +1,26 @@
+{
+  "before": {
+    "url": "https://bazaardb.gg/run/meta",
+    "text": "Ctrl+K\nFilters\n4h ago\nAll\nItems\nSkills\nMerchants\nTrainers\nMonsters\nEvents\nMeta\nNEW\nBuilds\nNEW\nDoku\nTier Lists\nPlanner\nBot\nMeta Stats\nThis is a work in progress! Feedback is always appreciated.\nREPORT AD\nRemove ads and support us directly\n205\nTOTAL RUNS\n9.01\nAVG WINS\nUpdated 22m ago\n\nThese meta stats are based on data uploaded by the community for the most recent numbered patch. They may not be representative of all runs.\n\nArchetypes\nCORE ITEMS\nWolf\nFlying Squirrel\nSpear\n8RUNS →\n10.0AVG WINS\nSUPP",
+    "total": "205"
+  },
+  "click": {
+    "clicked": true,
+    "count": 1,
+    "className": "FilterEnableOption-module__xAqXXW__option",
+    "text": "Karnok"
+  },
+  "after": {
+    "url": "https://bazaardb.gg/search?t=t%3Akarnok&c=all",
+    "title": "Karnok Cards - 282 Results - Bazaar DB",
+    "clickedLocation": "https://bazaardb.gg/search?t=t%3Akarnok&c=all",
+    "head": "Ctrl+K\nFilters 1\n4h ago\nAll\nItems\nSkills\nMerchants\nTrainers\nMonsters\nEvents\nMeta\nNEW\nBuilds\nNEW\nDoku\nTier Lists\nPlanner\nBot\n282 results\nSort by\nAutomatic\nRecently Changed\nRecently Added\nBase Tier\nName\nCooldown\nSize\nAmmo\n# of Types\nEnchantments\nAuto\nAlways\nGrid\nList\nREPORT AD\nRemove ads and support us directly\nEnervating Sigil\nKAR\nSILVER+\n+3\nWhen you Slow, gain 4 » 6 » 8 Rage\nWhen you Enrage, Slow ALL items \n3 seconds\n13 enchantments\nFairies\nKAR\nSILVER+\nFRIEND\nFAIRY CIRCLE\nD10\n7.0\n»\n6.0\n»\n5.0\nSEC\nHeal \n10 » 20 » 30\nSlow ANY other item \n1 second(s)\nFreeze ANY other item \n1 second(s)\nWhen any other item is used, Charge this \n1 second\n13 enchantments\nLifting Stones\nKAR\nBRONZE+\nTOOL\n3 tags\n6.0\nSEC\nYour items gain \n10 » 20 » 30 » 40\nWhen you Heal, Charge this \n1 second(s)\nWhen you Enrage, increase this item's Charge by \n1 second\n13 enchantments\nAdrenaline Shot\nKAR\nBRONZE+\nPOTION\n+2\n6.0\nSEC\nGain 20 » 30 » 40 » 50 Rage\nAmmo:\n1\nWhen you Crit, Reload this\n13 enchantments\nAnaconda\nKAR\nGOLD+\nFRIEND\nWEAPON\nVEHICLE\nAQUATIC\n+1\nANACONDA\nD9\n6.0\n»\n4.0\nSEC\nDeal Damage equal to double the Rage you have gained this fight\nMulticast: \n2\nWhen you Enrage, this gains +3 Multicast\n13 enchantments\nAncient Locket\nKAR\nSILVER+\nAPPAREL\nRELIC\n1 tag\nWhen you become Enraged, Destroy this and you take no Damage for 2 » 3 » 4 seconds\n13 enchantments\nAssault Sigil\nKAR\nSILVER+\nWEAPON\n+3\nANACONDA\nD9\nOUTLANDS TERROR\nD10\nWhen you use a Weapon, gain 5 Rage\nWhen you Enrage, deal Damage equal to 10% » 15% » 20% of your Max Health\n13 enchantments\nAurora Vista\nKAR\nGOLD+\nPROPERTY\n+1\nFAIRY CIRCLE\nD10\n5.0\n»\n4.0\nSEC\nHeal \n10\nCrit Chance: \n20\n﻿%\nYour items have +Heal equal to this item's Crit Chance\nWhen you Heal, Shield equal to the amount Healed\n13 enchantments\nBagpipes\nKAR\nBRONZE+\nTOOL\n+2\nWILDMAN\nD7\n5.0\nSEC\nHeal \n30 » 60 » 90 » 120\nGain 10 Rage\nWhen you Enrage, reduce this item's Cooldown by half\n13 enchantments\nBandoleer\nKAR\nSILVER+\nAPPAREL\n3 tags\nWhen you use an Ammo item, gain 10 » 15 » 20 Rage\nWhen you Enrage ",
+    "archetypeLines": [],
+    "selectedKarnok": [
+      {
+        "className": "FilterEnableOption-module__xAqXXW__option FilterEnableOption-module__xAqXXW__enabled",
+        "visible": false
+      }
+    ]
+  }
+}

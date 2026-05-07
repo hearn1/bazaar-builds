@@ -1,0 +1,60 @@
+name: Live sources smoke
+
+permissions:
+  contents: read
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: live-sources-smoke
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out bazaar-builds
+        uses: actions/checkout@v4
+
+      - name: Check out bazaar_tracker
+        uses: actions/checkout@v4
+        with:
+          repository: hearn1/bazaar_tracker
+          path: bazaar_tracker
+          token: ${{ secrets.TRACKER_PR_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright Chromium
+        run: python -m playwright install --with-deps chromium
+
+      - name: Run source health smoke
+        id: smoke
+        continue-on-error: true
+        run: |
+          mkdir -p artifacts
+          xvfb-run -a python -m automated_builds_pipeline.smoke \
+            --tracker-repo "$GITHUB_WORKSPACE/bazaar_tracker" \
+            --output "$GITHUB_WORKSPACE/artifacts/source-health.json"
+
+      - name: Upload source health artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-source-health-${{ github.run_id }}
+          path: artifacts/source-health.json
+          if-no-files-found: error
+
+      - name: Fail on required source health failure
+        if: steps.smoke.outcome == 'failure'
+        run: exit 1

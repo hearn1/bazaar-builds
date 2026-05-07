@@ -29,6 +29,7 @@ def generate_diff(
         "archetype_additions": [],
         "archetype_removal_candidates": [],
         "item_removal_candidates": [],
+        # Reserved for future migration modeling; v1 exposes these as reshuffle_deferred noise.
         "archetype_reshuffles": [],
     }
     weaker_signals: list[dict[str, Any]] = []
@@ -270,8 +271,19 @@ def _source_window(evaluation: EvaluationResult) -> dict[str, Any]:
 def _window_id(evaluation: EvaluationResult) -> str:
     if evaluation.bazaardb_patch and evaluation.bazaardb_patch.get("label"):
         return str(evaluation.bazaardb_patch["label"])
-    ids = [row.get("window_id") for row in evaluation.source_health if row.get("window_id")]
+    ids = [
+        row.get("window_id")
+        for row in evaluation.source_health
+        if row.get("status") == "healthy" and _useful_window_id(row.get("window_id"))
+    ]
     return "+".join(ids) if ids else evaluation.run_id
+
+
+def _useful_window_id(window_id: Any) -> bool:
+    if not window_id:
+        return False
+    value = str(window_id)
+    return not value.endswith(":unknown")
 
 
 def _initial_noise(evaluation: EvaluationResult) -> list[Any]:

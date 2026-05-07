@@ -152,6 +152,46 @@ def test_reshuffle_signal_goes_to_noise_not_reserved_slot():
     assert any(row["reason"] == "reshuffle_deferred" for row in diff["noise"])
 
 
+def test_window_id_prefers_bazaardb_patch_label():
+    result = evaluation([])
+    result.source_health = [
+        {"source": "bazaardb", "status": "healthy", "window_id": "bazaardb:2026-W18", "checked_at": "2026-05-05"},
+        {"source": "mobalytics_meta_builds", "status": "healthy", "window_id": "mobalytics_meta_builds:v540", "checked_at": "2026-05-05"},
+    ]
+
+    diff = generate_diff("Karnok", result, {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["window_id"] == "2026-W18"
+
+
+def test_window_id_uses_only_healthy_useful_source_windows_without_patch_label():
+    result = evaluation([])
+    result.bazaardb_patch = None
+    result.source_health = [
+        {"source": "bazaardb", "status": "healthy", "window_id": "bazaardb:2026-W18", "checked_at": "2026-05-05"},
+        {"source": "mobalytics_meta_builds", "status": "unhealthy", "window_id": "mobalytics_meta_builds:unknown", "checked_at": "2026-05-05"},
+        {"source": "bazaar_builds_net", "status": "healthy", "window_id": "bazaar_builds_net:2026-W19", "checked_at": "2026-05-05"},
+    ]
+
+    diff = generate_diff("Karnok", result, {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["window_id"] == "bazaardb:2026-W18+bazaar_builds_net:2026-W19"
+
+
+def test_window_id_falls_back_to_run_id_when_no_healthy_useful_windows_remain():
+    result = evaluation([])
+    result.bazaardb_patch = None
+    result.run_id = "run-fallback"
+    result.source_health = [
+        {"source": "bazaardb", "status": "unhealthy", "window_id": "bazaardb:unknown", "checked_at": "2026-05-05"},
+        {"source": "mobalytics_meta_builds", "status": "healthy", "window_id": "mobalytics_meta_builds:unknown", "checked_at": "2026-05-05"},
+    ]
+
+    diff = generate_diff("Karnok", result, {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["window_id"] == "run-fallback"
+
+
 def test_cli_smoke_mock_writes_diff_and_proposal(tmp_path):
     evaluation_path = tmp_path / "evaluation.json"
     catalog_path = tmp_path / "catalog.json"

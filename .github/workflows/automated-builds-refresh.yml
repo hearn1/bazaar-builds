@@ -145,7 +145,7 @@ jobs:
             --bazaardb-retries 2
 
       - name: Persist stats
-        if: steps.selected.outputs.run == 'true' && github.ref_name == 'main'
+        if: steps.selected.outputs.run == 'true' && github.ref_name == 'main' && (steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron')
         run: |
           set -euo pipefail
 

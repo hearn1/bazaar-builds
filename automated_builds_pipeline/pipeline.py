@@ -53,9 +53,12 @@ def run(
     api_key_env: str = "CLAUDE_API_KEY",
     bazaardb_retries: int = 2,
     no_bazaardb: bool = False,
+    mock_llm: bool = False,
     pr_action: Optional[PrAction] = None,
 ) -> PipelineResult:
     state = load_state(state_file)
+    if mock_llm and not _mock_llm_allowed(state):
+        raise ValueError("--mock-llm is only allowed for dry-run artifact-only pipeline modes")
     if state.phase == "implementation":
         LOGGER.info("workflow not yet enabled")
         return PipelineResult(phase=state.phase)
@@ -75,9 +78,11 @@ def run(
         save_stats(stats, stats_dir)
 
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
-    classifier = LLMClassifier(DEFAULT_MODEL, known_items_path=_names_file(tracker_repo), api_key_env=api_key_env)
-    classifier.known_items.update(diff._all_catalog_names(catalog))
-    diff_json = diff.generate_diff(hero, evaluation, catalog, classifier, mock_mode=False)
+    classifier = None
+    if not mock_llm:
+        classifier = LLMClassifier(DEFAULT_MODEL, known_items_path=_names_file(tracker_repo), api_key_env=api_key_env)
+        classifier.known_items.update(diff._all_catalog_names(catalog))
+    diff_json = diff.generate_diff(hero, evaluation, catalog, classifier, mock_mode=mock_llm)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     diff_path = output_dir / f"{hero}_diff.json"
@@ -192,6 +197,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--api-key-env", default="CLAUDE_API_KEY")
     run_parser.add_argument("--bazaardb-retries", type=int, default=2)
     run_parser.add_argument("--no-bazaardb", action="store_true")
+    run_parser.add_argument("--mock-llm", action="store_true")
     return parser
 
 
@@ -208,6 +214,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             api_key_env=args.api_key_env,
             bazaardb_retries=args.bazaardb_retries,
             no_bazaardb=args.no_bazaardb,
+            mock_llm=args.mock_llm,
         )
         return 0
     return 2
@@ -307,6 +314,10 @@ def _empty_diff(diff_json: dict[str, Any]) -> bool:
     proposed = diff_json.get("proposed_changes", {})
     proposed_empty = all(not value for value in proposed.values()) if isinstance(proposed, dict) else True
     return proposed_empty and not diff_json.get("weaker_signals")
+
+
+def _mock_llm_allowed(state: CuratorState) -> bool:
+    return state.phase == "local_dry_run" or state.dry_run
 
 
 def _window_id(diff_json: dict[str, Any]) -> str:

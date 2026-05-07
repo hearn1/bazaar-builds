@@ -32,6 +32,11 @@ on:
         description: "Optional one-run phase override: implementation, local_dry_run, shadow_cron, or live_cron"
         required: false
         type: string
+      mock_llm:
+        description: "Bypass Claude classification for dry-run artifact validation"
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: pipeline-${{ github.workflow }}
@@ -135,6 +140,11 @@ jobs:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           GH_TOKEN: ${{ secrets.TRACKER_PR_TOKEN }}
         run: |
+          mock_llm_args=()
+          if [[ "${{ inputs.mock_llm }}" == "true" ]]; then
+            mock_llm_args+=(--mock-llm)
+          fi
+
           xvfb-run -a python -m automated_builds_pipeline.pipeline run \
             --hero "${{ matrix.hero }}" \
             --state-file "${{ steps.state.outputs.state_file }}" \
@@ -142,7 +152,8 @@ jobs:
             --stats-dir "$GITHUB_WORKSPACE/stats" \
             --output-dir "$GITHUB_WORKSPACE/artifacts" \
             --api-key-env CLAUDE_API_KEY \
-            --bazaardb-retries 2
+            --bazaardb-retries 2 \
+            "${mock_llm_args[@]}"
 
       - name: Persist stats
         if: steps.selected.outputs.run == 'true' && github.ref_name == 'main' && (steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron')

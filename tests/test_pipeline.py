@@ -114,6 +114,26 @@ def patch_diff(monkeypatch, diff_json: dict | None = None):
     monkeypatch.setattr(pipeline.diff, "generate_diff", lambda *args, **kwargs: payload)
 
 
+def minimal_diff_payload() -> dict:
+    return {
+        "schema_version": 1,
+        "hero": "Karnok",
+        "window_id": "w1",
+        "source_window": {},
+        "freeze_state": {"removals_frozen": False, "patch_label": None},
+        "source_health": [],
+        "proposed_changes": {
+            "archetype_updates": [],
+            "archetype_additions": [],
+            "archetype_removal_candidates": [],
+            "item_removal_candidates": [],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+
 @pytest.mark.parametrize(
     ("phase", "expected_pr", "expected_artifacts"),
     [
@@ -276,6 +296,90 @@ def test_local_dry_run_writes_artifacts_without_saving_stats(monkeypatch, tmp_pa
     assert not stats_path("Karnok", stats_dir).exists()
 
 
+def test_local_dry_run_mock_llm_uses_mock_diff_without_classifier(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    diff_calls = []
+    monkeypatch.setattr(pipeline, "LLMClassifier", lambda *args, **kwargs: pytest.fail("should not create classifier"))
+
+    def fake_generate_diff(hero, evaluation, catalog, classifier, *, mock_mode):
+        diff_calls.append({"classifier": classifier, "mock_mode": mock_mode})
+        return minimal_diff_payload()
+
+    monkeypatch.setattr(pipeline.diff, "generate_diff", fake_generate_diff)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+        mock_llm=True,
+    )
+
+    assert diff_calls == [{"classifier": None, "mock_mode": True}]
+    assert (tmp_path / "artifacts" / "Karnok_diff.json").exists()
+    assert (tmp_path / "artifacts" / "Karnok_build_update_proposal.md").exists()
+
+
+def test_live_cron_without_dry_run_rejects_mock_llm_before_work(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron", dry_run=False)
+    tracker = make_tracker(tmp_path)
+    monkeypatch.setattr(pipeline, "_fetch_sources", lambda *args, **kwargs: pytest.fail("should not fetch"))
+    monkeypatch.setattr(pipeline.diff, "generate_diff", lambda *args, **kwargs: pytest.fail("should not diff"))
+
+    with pytest.raises(ValueError, match="--mock-llm"):
+        pipeline.run(
+            hero="Karnok",
+            state_file=state_file,
+            tracker_repo=tracker,
+            stats_dir=tmp_path / "stats",
+            output_dir=tmp_path / "artifacts",
+            mock_llm=True,
+        )
+
+
+def test_default_llm_mode_creates_classifier_and_uses_real_diff_mode(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    classifier_inits = []
+
+    class FakeClassifier:
+        def __init__(self, model, *, known_items_path, api_key_env):
+            classifier_inits.append((model, known_items_path, api_key_env))
+            self.known_items = set()
+
+    diff_calls = []
+
+    def fake_generate_diff(hero, evaluation, catalog, classifier, *, mock_mode):
+        diff_calls.append({"classifier": classifier, "mock_mode": mock_mode})
+        return minimal_diff_payload()
+
+    monkeypatch.setattr(pipeline, "LLMClassifier", FakeClassifier)
+    monkeypatch.setattr(pipeline.diff, "generate_diff", fake_generate_diff)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert classifier_inits == [(pipeline.DEFAULT_MODEL, tracker / "card_cache_names.txt", "CLAUDE_API_KEY")]
+    assert diff_calls[0]["mock_mode"] is False
+    assert isinstance(diff_calls[0]["classifier"], FakeClassifier)
+
+
 def test_implementation_exits_before_fetch_save_or_artifact_work(monkeypatch, tmp_path):
     state_file = tmp_path / "pipeline_state.json"
     write_state(state_file, "implementation")
@@ -304,6 +408,8 @@ def test_workflow_persists_stats_only_for_shadow_and_live_phases():
     text = workflow.read_text(encoding="utf-8")
 
     assert "steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron'" in text
+    assert "mock_llm:" in text
+    assert "mock_llm_args+=(--mock-llm)" in text
 
 
 def test_run_merges_existing_stats_with_current_fetch_output(monkeypatch, tmp_path):

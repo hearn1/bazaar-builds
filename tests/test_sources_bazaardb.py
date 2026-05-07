@@ -52,7 +52,24 @@ def test_bazaardb_current_rendered_dom_extracts_footer_patch_and_items(sample_di
     assert result.observation.window_id == "bazaardb:14.0 (May 6)"
     assert result.observation.items
     names = {item.item for item in result.observation.items}
-    assert {"Bat", "Hunting Hawk", "Flying Squirrel"} <= names
+    assert {"Wolf", "Flying Squirrel", "Spear", "Bat", "Hunting Hawk"} <= names
+    assert "Inspired Rage" not in names
+    wolf = next(
+        item
+        for item in result.observation.items
+        if item.item == "Wolf" and item.metadata["section"] == "CORE ITEMS"
+    )
+    spear = next(
+        item
+        for item in result.observation.items
+        if item.item == "Spear" and item.metadata["section"] == "CORE ITEMS"
+    )
+    assert wolf.archetype == "Wolf / Flying Squirrel / Spear"
+    assert wolf.appearances == 8
+    assert wolf.sample_count == 8
+    assert wolf.frequency == 1.0
+    assert spear.archetype == wolf.archetype
+    assert spear.appearances == 8
     bat = next(item for item in result.observation.items if item.item == "Bat")
     assert bat.appearances == 6
     assert bat.frequency == 0.75

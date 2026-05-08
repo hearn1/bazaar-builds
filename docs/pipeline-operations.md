@@ -23,11 +23,11 @@ Use this progression:
 2. `shadow_cron`: weekly cron runs do the same artifact work and additionally save and commit `stats/<hero>_stats.json` sidecars in bazaar-builds; tracker PR/catalog mutation remains disabled.
 3. `live_cron`: weekly cron updates one rolling PR per hero when the diff is non-empty.
 
-The pipeline is currently promoted to `local_dry_run` only. Do not move to `shadow_cron` until the entry criteria below are satisfied and the curator explicitly flips `pipeline_state.json`. Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows and at least 60 days of calendar observation. Each flip is manual even after the thresholds are met.
+The pipeline is currently promoted to `local_dry_run` only. Do not move to `shadow_cron` until the entry criteria below are satisfied, the LLM/no-LLM/provider strategy for classifier usage is resolved or explicitly waived, and the curator explicitly flips `pipeline_state.json`. Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows and at least 60 days of calendar observation. Each flip is manual even after the thresholds are met.
 
 `implementation` is the off switch. It is the only phase that makes the scheduled workflow exit successfully inside the pipeline before source fetches, artifact writes, stats writes, or PR actions.
 
-The current `local_dry_run` state was validated from a Python 3.12.10 temporary environment with focused tests passing (`59 passed in 0.39s`). All five supported heroes completed controlled local dry runs with `--mock-llm`, live source fetches, temp-only artifacts, and exit code 0: Dooley, Karnok, Mak, Pygmalien, and Vanessa. Each hero produced diff JSON and proposal markdown, no real LLM/API calls occurred, and no checked-in pipeline state, catalog, stats, or tracker files mutated. Because that validation used `--mock-llm`, real scheduled LLM/classifier behavior remains unvalidated and must be accepted, tested, or explicitly waived before moving to `shadow_cron`.
+The current `local_dry_run` state was validated from a Python 3.12.10 temporary environment with focused tests passing (`59 passed in 0.39s`). All five supported heroes completed controlled local dry runs with `--mock-llm`, live source fetches, temp-only artifacts, and exit code 0: Dooley, Karnok, Mak, Pygmalien, and Vanessa. Each hero produced diff JSON and proposal markdown, no real LLM/API calls occurred, and no checked-in pipeline state, catalog, stats, or tracker files mutated. Because that validation used `--mock-llm`, the LLM/no-LLM/provider strategy for classifier usage remains unresolved and blocks `shadow_cron` promotion unless explicitly waived.
 
 Source health was healthy for these three sources during validation: `bazaar_builds_net:2026-W19`, `bazaardb:14.0 (Hotfix May 7)`, and `mobalytics_meta_builds:v541`. This is three healthy sources, not three temporal windows. Markdown source-health tables are review summaries; the run's diff JSON is the more complete artifact for source-health review when details, skipped-source diagnostics, or per-source observations matter.
 
@@ -41,15 +41,17 @@ Advance from `local_dry_run` to `shadow_cron` only when all of the following are
 - Source-health output clearly represents required fields for each required source, including source name, status, window or patch identifier, and diagnostic details when unhealthy/skipped.
 - The local dry-run evidence shows no checked-in mutation of pipeline state, catalog JSON, tracker files, generated artifacts, or stats sidecars.
 - The curator understands that `shadow_cron` starts persisting `stats/<hero>_stats.json` sidecars in bazaar-builds. Those commits are bot provenance for threshold history, not catalog changes.
-- The curator understands that scheduled workflow runs default to the real Claude-backed classifier because `--mock-llm` is only wired from manual dispatch input and defaults to false. Manual dispatch with mock mode, or an explicit workflow/code change, is required to avoid real LLM/API usage.
+- The LLM/no-LLM/provider strategy for classifier usage is resolved before promotion, or the curator explicitly waives that prerequisite with the risk recorded. Acceptable resolutions include a deterministic/no-LLM path, the existing Claude-backed classifier, an alternate provider such as Gemini or another free/lower-cost provider, or implementing provider abstraction before scheduled runs depend on hosted classification.
+- The curator understands that scheduled workflow runs currently default to the real Claude-backed classifier because `--mock-llm` is only wired from manual dispatch input and defaults to false. Manual dispatch with mock mode, or an explicit workflow/code change, is required to avoid real LLM/API usage under the current workflow.
 - Rollback is clear: set `phase` back to `local_dry_run` with `dry_run: true` for artifact-only operation, or back to `implementation` to stop fetches, artifacts, stats writes, and PR actions.
 
 Before flipping to `shadow_cron`:
 
 - Confirm the existing Actions schedule on `main` is intended to run weekly.
-- Confirm `CLAUDE_API_KEY` secret readiness, API availability, and cost tolerance for scheduled real-LLM classification.
+- Resolve and document the classifier strategy: deterministic/no-LLM, Claude, an alternate provider such as Gemini or another free/lower-cost provider, provider abstraction first, or an explicit operator waiver.
+- If the chosen strategy keeps hosted LLM classification, confirm the required secret readiness, API availability, and cost tolerance for that provider.
 - Confirm bot-authored stats sidecar commits to bazaar-builds are accepted for all scheduled heroes.
-- Perform real-LLM validation from the workflow path, or explicitly waive that validation with the risk recorded.
+- Validate the chosen classifier strategy from the workflow path, or explicitly waive that validation with the risk recorded.
 - Confirm rollback path and operator availability: `local_dry_run` keeps artifact-only scheduled/manual runs, while `implementation` stops fetches, artifacts, stats writes, and PR actions.
 
 ### Temporal Source-Health Windows

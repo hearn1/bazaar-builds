@@ -19,11 +19,35 @@ Use this progression:
 2. `shadow_cron`: weekly cron runs and uploads artifacts to the workflow run; no tracker PRs open.
 3. `live_cron`: weekly cron updates one rolling PR per hero when the diff is non-empty.
 
-The pipeline is currently promoted to `local_dry_run` only. Do not move to `shadow_cron` until local dry-run validation remains clean across the selected heroes and source-health accumulation is ready to begin. Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows and at least 60 days of calendar observation. Each flip is manual even after the thresholds are met.
+The pipeline is currently promoted to `local_dry_run` only. Do not move to `shadow_cron` until the entry criteria below are satisfied and the curator explicitly flips `pipeline_state.json`. Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows and at least 60 days of calendar observation. Each flip is manual even after the thresholds are met.
 
 `implementation` is the off switch. In that phase, the workflow exits successfully with no fetches, artifacts, or PR actions.
 
-The `local_dry_run` promotion was validated from a Python 3.12.10 temporary environment with focused tests passing (`61 passed`), a Karnok `--mock-llm` run exiting 0, and live source fetches reporting healthy windows for bazaar-builds.net (`2026-W19`), bazaardb (`14.0 (Hotfix May 7)`), and Mobalytics (`v541`). The run produced temp-space `Karnok_diff.json` and `Karnok_build_update_proposal.md` artifacts only; it did not create a stats sidecar or mutate checked-in catalog, stats, or tracker files.
+The current `local_dry_run` state was validated from a Python 3.12.10 temporary environment with focused tests passing (`59 passed in 0.39s`). All five supported heroes completed controlled local dry runs with `--mock-llm`, live source fetches, temp-only artifacts, and exit code 0: Dooley, Karnok, Mak, Pygmalien, and Vanessa. Each hero produced diff JSON and proposal markdown, no real LLM/API calls occurred, and no checked-in pipeline state, catalog, stats, or tracker files mutated.
+
+Source health was healthy for these three sources during validation: `bazaar_builds_net:2026-W19`, `bazaardb:14.0 (Hotfix May 7)`, and `mobalytics_meta_builds:v541`. This is three healthy sources, not three temporal windows.
+
+Artifact review found the mock-mode proposals operationally valid: fetch, evaluation, mock classification, diff rendering, and proposal rendering all completed. They are not catalog-acceptance evidence. Mock-mode outputs are support-only, low confidence, duplicate or near-duplicate in places, and do not carry the evidence refs or sample counts expected for catalog acceptance. Duplicate/near-duplicate proposals and support-only classifications are normal curator review items in this mode, not pipeline failures.
+
+### `shadow_cron` Entry Criteria
+
+Advance from `local_dry_run` to `shadow_cron` only when all of the following are true:
+
+- All supported-hero local dry-run artifacts have been reviewed for operational validity.
+- Source-health output clearly represents required fields for each required source, including source name, status, window or patch identifier, and diagnostic details when unhealthy/skipped.
+- The local dry-run evidence shows no checked-in mutation of pipeline state, catalog JSON, tracker files, generated artifacts, or stats sidecars.
+- The curator understands that `shadow_cron` starts persisting `stats/<hero>_stats.json` sidecars in bazaar-builds. Those commits are bot provenance for threshold history, not catalog changes.
+- Rollback is clear: set `phase` back to `local_dry_run` with `dry_run: true` for artifact-only operation, or back to `implementation` to stop fetches, artifacts, stats writes, and PR actions.
+
+### Temporal Source-Health Windows
+
+Do not treat multiple healthy sources in one run as multiple temporal windows. A temporal window is one successful observation period for a given source over time.
+
+- For bazaar-builds.net, a healthy temporal window is a healthy fetch for a dated 30-day/window identifier such as `2026-W19`.
+- For bazaardb, a healthy temporal window is a healthy fetch for a distinct patch label, such as `14.0 (Hotfix May 7)`.
+- For Mobalytics meta builds, a healthy temporal window is a healthy fetch for a distinct document/version identifier such as `v541`.
+
+Later `shadow_cron` and `live_cron` evidence should describe both source count and temporal-window count explicitly. The live gate remains stricter than generic source health: at least 6 healthy bazaardb patch windows and at least 60 calendar days of shadow output are required before enabling rolling tracker PRs.
 
 ## Manual Freeze
 

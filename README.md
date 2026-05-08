@@ -46,7 +46,7 @@ python bazaar_build_enricher.py compare \
 
 ## Automated pipeline status
 
-The automated builds refresh pipeline is documented in [`docs/pipeline-operations.md`](docs/pipeline-operations.md). It is currently held at `local_dry_run` with `dry_run: true`; `shadow_cron` and `live_cron` require the manual phase gates in that runbook and are not enabled by default.
+The automated builds refresh pipeline is documented in [`docs/pipeline-operations.md`](docs/pipeline-operations.md). The GitHub Actions cron schedule already exists, but the repo is currently held at `local_dry_run` with `dry_run: true`: scheduled or manual runs may produce review artifacts, while stats sidecar commits and tracker PR/catalog mutation remain disabled. Moving to `shadow_cron` is a manual phase flip that would add scheduled real-LLM classification by default and bot commits for `stats/<hero>_stats.json`; `live_cron` remains a later manual gate.
 
 ## Schema contract
 

@@ -10,8 +10,10 @@ Curator toolchain for [The Bazaar](https://www.playthebazaar.com/) build catalog
 
 Install dependencies once:
 
-```bash
-pip install -r requirements.txt
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 ```
 
 Fetch evidence for a hero (defaults assume a sibling `bazaar_tracker` checkout at `../bazaar_tracker`):

@@ -19,9 +19,11 @@ Use this progression:
 2. `shadow_cron`: weekly cron runs and uploads artifacts to the workflow run; no tracker PRs open.
 3. `live_cron`: weekly cron updates one rolling PR per hero when the diff is non-empty.
 
-Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows and at least 60 days of calendar observation. The flip is manual even after the thresholds are met.
+The pipeline is currently promoted to `local_dry_run` only. Do not move to `shadow_cron` until local dry-run validation remains clean across the selected heroes and source-health accumulation is ready to begin. Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows and at least 60 days of calendar observation. Each flip is manual even after the thresholds are met.
 
 `implementation` is the off switch. In that phase, the workflow exits successfully with no fetches, artifacts, or PR actions.
+
+The `local_dry_run` promotion was validated from a Python 3.12.10 temporary environment with focused tests passing (`61 passed`), a Karnok `--mock-llm` run exiting 0, and live source fetches reporting healthy windows for bazaar-builds.net (`2026-W19`), bazaardb (`14.0 (Hotfix May 7)`), and Mobalytics (`v541`). The run produced temp-space `Karnok_diff.json` and `Karnok_build_update_proposal.md` artifacts only; it did not create a stats sidecar or mutate checked-in catalog, stats, or tracker files.
 
 ## Manual Freeze
 
@@ -53,6 +55,13 @@ The workflow still runs during a freeze. The evaluator suppresses removal propos
 From the bazaar-builds repo:
 
 ```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m playwright install chromium
+```
+
+```powershell
 python -m automated_builds_pipeline.pipeline run `
   --hero Karnok `
   --state-file pipeline_state.json `
@@ -62,7 +71,14 @@ python -m automated_builds_pipeline.pipeline run `
   --api-key-env CLAUDE_API_KEY
 ```
 
-Use `--no-bazaardb` when you intentionally want to skip bazaardb for a local run. That marks the source as `skipped` with `operator skip`.
+Use `--mock-llm` for dry-run validation without real LLM/API calls. Source fetches are still live unless you also pass source-disabling flags such as `--no-bazaardb`, which marks the source as `skipped` with `operator skip`.
+
+For ad-hoc state files in temp space, write BOM-free JSON. In Windows PowerShell 5.1, prefer the .NET UTF-8 constructor over `Set-Content -Encoding UTF8`, which writes a BOM:
+
+```powershell
+$state = '{"phase":"local_dry_run","dry_run":true,"schema_version":1}'
+[System.IO.File]::WriteAllText($env:TEMP + '\pipeline_state.json', $state, [System.Text.UTF8Encoding]::new($false))
+```
 
 ## Shadow Artifacts
 

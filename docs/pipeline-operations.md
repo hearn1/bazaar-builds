@@ -13,19 +13,23 @@ The workflow reads `pipeline_state.json` from the bazaar-builds repo. To move ph
 }
 ```
 
+The GitHub Actions workflow already has a weekly cron schedule (`0 6 * * 0`
+on Sundays) plus manual dispatch. Phase state controls what a scheduled run is
+allowed to do; it does not create or remove the schedule.
+
 Use this progression:
 
-1. `local_dry_run`: run locally or by manual dispatch; writes artifacts only.
-2. `shadow_cron`: weekly cron runs and uploads artifacts to the workflow run; no tracker PRs open.
+1. `local_dry_run`: scheduled or manual dry runs may fetch sources, evaluate, write diff/proposal artifacts, and upload those artifacts; stats sidecars are not saved or committed.
+2. `shadow_cron`: weekly cron runs do the same artifact work and additionally save and commit `stats/<hero>_stats.json` sidecars in bazaar-builds; tracker PR/catalog mutation remains disabled.
 3. `live_cron`: weekly cron updates one rolling PR per hero when the diff is non-empty.
 
 The pipeline is currently promoted to `local_dry_run` only. Do not move to `shadow_cron` until the entry criteria below are satisfied and the curator explicitly flips `pipeline_state.json`. Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows and at least 60 days of calendar observation. Each flip is manual even after the thresholds are met.
 
-`implementation` is the off switch. In that phase, the workflow exits successfully with no fetches, artifacts, or PR actions.
+`implementation` is the off switch. It is the only phase that makes the scheduled workflow exit successfully inside the pipeline before source fetches, artifact writes, stats writes, or PR actions.
 
-The current `local_dry_run` state was validated from a Python 3.12.10 temporary environment with focused tests passing (`59 passed in 0.39s`). All five supported heroes completed controlled local dry runs with `--mock-llm`, live source fetches, temp-only artifacts, and exit code 0: Dooley, Karnok, Mak, Pygmalien, and Vanessa. Each hero produced diff JSON and proposal markdown, no real LLM/API calls occurred, and no checked-in pipeline state, catalog, stats, or tracker files mutated.
+The current `local_dry_run` state was validated from a Python 3.12.10 temporary environment with focused tests passing (`59 passed in 0.39s`). All five supported heroes completed controlled local dry runs with `--mock-llm`, live source fetches, temp-only artifacts, and exit code 0: Dooley, Karnok, Mak, Pygmalien, and Vanessa. Each hero produced diff JSON and proposal markdown, no real LLM/API calls occurred, and no checked-in pipeline state, catalog, stats, or tracker files mutated. Because that validation used `--mock-llm`, real scheduled LLM/classifier behavior remains unvalidated and must be accepted, tested, or explicitly waived before moving to `shadow_cron`.
 
-Source health was healthy for these three sources during validation: `bazaar_builds_net:2026-W19`, `bazaardb:14.0 (Hotfix May 7)`, and `mobalytics_meta_builds:v541`. This is three healthy sources, not three temporal windows.
+Source health was healthy for these three sources during validation: `bazaar_builds_net:2026-W19`, `bazaardb:14.0 (Hotfix May 7)`, and `mobalytics_meta_builds:v541`. This is three healthy sources, not three temporal windows. Markdown source-health tables are review summaries; the run's diff JSON is the more complete artifact for source-health review when details, skipped-source diagnostics, or per-source observations matter.
 
 Artifact review found the mock-mode proposals operationally valid: fetch, evaluation, mock classification, diff rendering, and proposal rendering all completed. They are not catalog-acceptance evidence. Mock-mode outputs are support-only, low confidence, duplicate or near-duplicate in places, and do not carry the evidence refs or sample counts expected for catalog acceptance. Duplicate/near-duplicate proposals and support-only classifications are normal curator review items in this mode, not pipeline failures.
 
@@ -37,7 +41,16 @@ Advance from `local_dry_run` to `shadow_cron` only when all of the following are
 - Source-health output clearly represents required fields for each required source, including source name, status, window or patch identifier, and diagnostic details when unhealthy/skipped.
 - The local dry-run evidence shows no checked-in mutation of pipeline state, catalog JSON, tracker files, generated artifacts, or stats sidecars.
 - The curator understands that `shadow_cron` starts persisting `stats/<hero>_stats.json` sidecars in bazaar-builds. Those commits are bot provenance for threshold history, not catalog changes.
+- The curator understands that scheduled workflow runs default to the real Claude-backed classifier because `--mock-llm` is only wired from manual dispatch input and defaults to false. Manual dispatch with mock mode, or an explicit workflow/code change, is required to avoid real LLM/API usage.
 - Rollback is clear: set `phase` back to `local_dry_run` with `dry_run: true` for artifact-only operation, or back to `implementation` to stop fetches, artifacts, stats writes, and PR actions.
+
+Before flipping to `shadow_cron`:
+
+- Confirm the existing Actions schedule on `main` is intended to run weekly.
+- Confirm `CLAUDE_API_KEY` secret readiness, API availability, and cost tolerance for scheduled real-LLM classification.
+- Confirm bot-authored stats sidecar commits to bazaar-builds are accepted for all scheduled heroes.
+- Perform real-LLM validation from the workflow path, or explicitly waive that validation with the risk recorded.
+- Confirm rollback path and operator availability: `local_dry_run` keeps artifact-only scheduled/manual runs, while `implementation` stops fetches, artifacts, stats writes, and PR actions.
 
 ### Temporal Source-Health Windows
 
@@ -95,7 +108,7 @@ python -m automated_builds_pipeline.pipeline run `
   --api-key-env CLAUDE_API_KEY
 ```
 
-Use `--mock-llm` for dry-run validation without real LLM/API calls. Source fetches are still live unless you also pass source-disabling flags such as `--no-bazaardb`, which marks the source as `skipped` with `operator skip`.
+Use `--mock-llm` for dry-run validation without real LLM/API calls. Source fetches are still live unless you also pass source-disabling flags such as `--no-bazaardb`, which marks the source as `skipped` with `operator skip`. Scheduled GitHub Actions runs do not set `--mock-llm`; they use the real classifier unless run by manual dispatch with mock mode selected or changed in code/workflow configuration.
 
 For ad-hoc state files in temp space, write BOM-free JSON. In Windows PowerShell 5.1, prefer the .NET UTF-8 constructor over `Set-Content -Encoding UTF8`, which writes a BOM:
 
@@ -116,7 +129,8 @@ Each artifact contains `<hero>_diff.json` and `<hero>_build_update_proposal.md` 
 
 Stats sidecars are persisted in the bazaar-builds repo under `stats/` as
 `stats/<hero>_stats.json`. These commits are bot-written provenance for the
-threshold evaluator, not human-review catalog changes.
+threshold evaluator, not human-review catalog changes. The persist step runs on
+`main` in `shadow_cron` and `live_cron`; it does not run in `local_dry_run`.
 
 ## PAT Rotation
 
@@ -142,5 +156,6 @@ After the PR body is created or edited, `live_cron` also posts a supporting-evid
 ## Current Unresolveds
 
 Stats sidecars are committed back to bazaar-builds by the workflow after each
-successful pipeline run, so multi-window thresholds accumulate across cron
-runs.
+successful `shadow_cron` or `live_cron` pipeline run on `main`, so multi-window
+thresholds accumulate across cron runs. They are intentionally not saved or
+committed in `local_dry_run`.

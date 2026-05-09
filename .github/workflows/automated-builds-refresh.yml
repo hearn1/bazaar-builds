@@ -132,6 +132,15 @@ jobs:
               handle.write(f"dry_run={str(state['dry_run']).lower()}\n")
           PY
 
+      - name: Enforce live_cron readiness gate
+        if: steps.selected.outputs.run == 'true' && steps.state.outputs.phase == 'live_cron'
+        run: |
+          python -m automated_builds_pipeline.readiness \
+            --stats-dir "$GITHUB_WORKSPACE/stats" \
+            --state-file "${{ steps.state.outputs.state_file }}" \
+            --waiver-dir "$GITHUB_WORKSPACE/waivers" \
+            --enforce
+
       - name: Configure tracker git identity
         if: steps.selected.outputs.run == 'true' && steps.state.outputs.phase == 'live_cron'
         working-directory: bazaar_tracker

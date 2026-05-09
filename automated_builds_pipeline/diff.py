@@ -7,21 +7,36 @@ import json
 from dataclasses import fields
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Literal, Optional
 
 from automated_builds_pipeline.evaluator import EvaluationResult
 from automated_builds_pipeline.llm import DEFAULT_MODEL, ItemClassification, LLMClassifier
 from automated_builds_pipeline.proposal import render_proposal
+
+ClassifierMode = Literal["llm", "mock", "no_llm_shadow"]
+NO_LLM_CLASSIFICATION_MODE = "no_llm_shadow"
+NO_LLM_PROVIDER = "none"
+NO_LLM_CLASSIFICATION = "classification_pending"
+NO_LLM_CONFIDENCE = "none"
+NO_LLM_RATIONALE = (
+    "Deterministic shadow observation only; semantic carry/core/support classification is pending LLM or curator review."
+)
 
 
 def generate_diff(
     hero: str,
     evaluation: EvaluationResult,
     catalog: dict[str, Any],
-    classifier: LLMClassifier,
+    classifier: Optional[LLMClassifier],
     *,
     mock_mode: bool = False,
+    classifier_mode: ClassifierMode = "llm",
 ) -> dict[str, Any]:
+    if mock_mode:
+        classifier_mode = "mock"
+    if classifier_mode == "llm" and classifier is None:
+        raise ValueError("classifier is required when classifier_mode is 'llm'")
+
     catalog_index = _catalog_index(catalog)
     rows = list(evaluation.rows)
     proposed_changes = {
@@ -47,11 +62,28 @@ def generate_diff(
     for key, group in _group_llm_rows(rows).items():
         phase, archetype = key
         existing_buckets = catalog_index.get(key, _empty_buckets())
-        classifications = _classify_group(hero, phase, archetype, existing_buckets, group, classifier, mock_mode)
+        classifications = _classify_group(
+            hero,
+            phase,
+            archetype,
+            existing_buckets,
+            group,
+            classifier,
+            classifier_mode,
+        )
         top_line: list[dict[str, Any]] = []
         for classification in classifications:
             if classification.classification == "invalid":
-                noise.append({"reason": "invalid_llm_item", "item": classification.item, "archetype": archetype})
+                if classifier_mode == "no_llm_shadow":
+                    noise.append(
+                        {
+                            "reason": "no_llm_shadow_classification_skipped",
+                            "item": classification.item,
+                            "archetype": archetype,
+                        }
+                    )
+                else:
+                    noise.append({"reason": "invalid_llm_item", "item": classification.item, "archetype": archetype})
                 continue
             row = _row_for_item(group, classification.item)
             emitted = _classification_to_diff(classification, row)
@@ -76,19 +108,27 @@ def generate_diff(
                 }
             )
         else:
+            addition = {
+                "tag": archetype or "unknown",
+                "candidate_phase": phase,
+                "candidate_core": [item for item in top_line if item["llm_classification"] in {"carry", "core"}],
+                "candidate_support": [item for item in top_line if item["llm_classification"] == "support"],
+                "evidence": _addition_evidence(group),
+            }
+            pending = [item for item in top_line if item["llm_classification"] == NO_LLM_CLASSIFICATION]
+            if pending:
+                addition["candidate_pending"] = pending
             proposed_changes["archetype_additions"].append(
-                {
-                    "tag": archetype or "unknown",
-                    "candidate_phase": phase,
-                    "candidate_core": [item for item in top_line if item["llm_classification"] in {"carry", "core"}],
-                    "candidate_support": [item for item in top_line if item["llm_classification"] == "support"],
-                    "evidence": _addition_evidence(group),
-                }
+                addition
             )
 
+    artifact_mode = _artifact_classification_mode(classifier_mode)
     return {
         "schema_version": 1,
         "hero": hero,
+        "classification_mode": artifact_mode,
+        "semantic_classification": artifact_mode == "llm",
+        "llm_provider": "anthropic" if artifact_mode == "llm" else NO_LLM_PROVIDER,
         "generated_at": _now_iso(),
         "window_id": _window_id(evaluation),
         "source_window": _source_window(evaluation),
@@ -122,6 +162,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--names-file", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--mock", action="store_true")
+    parser.add_argument("--classifier-mode", choices=("llm", "mock", "no_llm_shadow"), default="llm")
     parser.add_argument("--api-key-env", default="CLAUDE_API_KEY")
     return parser
 
@@ -130,9 +171,12 @@ def main(argv: Optional[list[str]] = None) -> int:
     args = build_arg_parser().parse_args(argv)
     catalog = json.loads(args.catalog.read_text(encoding="utf-8"))
     evaluation = load_evaluation(args.evaluation)
-    classifier = LLMClassifier(DEFAULT_MODEL, known_items_path=args.names_file, api_key_env=args.api_key_env)
-    classifier.known_items.update(_all_catalog_names(catalog))
-    diff = generate_diff(args.hero, evaluation, catalog, classifier, mock_mode=args.mock)
+    classifier = None
+    classifier_mode = "mock" if args.mock else args.classifier_mode
+    if classifier_mode == "llm":
+        classifier = LLMClassifier(DEFAULT_MODEL, known_items_path=args.names_file, api_key_env=args.api_key_env)
+        classifier.known_items.update(_all_catalog_names(catalog))
+    diff = generate_diff(args.hero, evaluation, catalog, classifier, classifier_mode=classifier_mode)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     diff_path = args.output_dir / f"{args.hero}_diff.json"
     proposal_path = args.output_dir / f"{args.hero}_build_update_proposal.md"
@@ -147,14 +191,21 @@ def _classify_group(
     archetype: Optional[str],
     existing_buckets: dict[str, list[str]],
     rows: list[dict[str, Any]],
-    classifier: LLMClassifier,
-    mock_mode: bool,
+    classifier: Optional[LLMClassifier],
+    classifier_mode: ClassifierMode,
 ) -> list[ItemClassification]:
-    if mock_mode:
+    if classifier_mode == "mock":
         return [
             ItemClassification(str(row["item"]), "support", "low", "mock_mode", "top_line")
             for row in rows
         ]
+    if classifier_mode == "no_llm_shadow":
+        return [
+            _pending_shadow_classification(row)
+            for row in rows
+        ]
+    if classifier is None:
+        raise ValueError("classifier is required when classifier_mode is 'llm'")
     return classifier.classify_archetype(
         hero,
         phase,
@@ -227,11 +278,31 @@ def _classification_to_diff(classification: ItemClassification, row: dict[str, A
         {
             "windows_seen": row.get("windows_seen"),
             "first_seen_window": row.get("first_seen_window"),
+            "classification_ceiling": row.get("classification_ceiling"),
+            "threshold_result": row.get("threshold_result"),
+            "threshold_reason": row.get("threshold_reason"),
+            "source_presence": row.get("source_presence", {}),
             "evidence_by_source": _evidence_by_source(row),
             "evidence_refs": list(row.get("evidence_refs", [])),
         }
     )
     return emitted
+
+
+def _pending_shadow_classification(row: dict[str, Any]) -> ItemClassification:
+    return ItemClassification(
+        str(row["item"]),
+        NO_LLM_CLASSIFICATION,
+        NO_LLM_CONFIDENCE,
+        NO_LLM_RATIONALE,
+        "top_line",
+    )
+
+
+def _artifact_classification_mode(classifier_mode: ClassifierMode) -> str:
+    if classifier_mode == "no_llm_shadow":
+        return NO_LLM_CLASSIFICATION_MODE
+    return classifier_mode
 
 
 def _removal_row(row: dict[str, Any]) -> dict[str, Any]:

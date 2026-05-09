@@ -4,7 +4,7 @@
 # Required secrets:
 # - TRACKER_PR_TOKEN: fine-grained PAT scoped to hearn1/bazaar_tracker with
 #   Contents: Read & Write and Pull requests: Read & Write.
-# - CLAUDE_API_KEY: Anthropic API key for the LLM classifier.
+# - CLAUDE_API_KEY: Anthropic API key for the LLM classifier in live/LLM mode.
 
 name: Automated builds refresh
 
@@ -37,6 +37,11 @@ on:
         required: false
         default: false
         type: boolean
+      classifier_mode:
+        description: "Classifier strategy: llm or no_llm_shadow. Scheduled shadow_cron defaults to no_llm_shadow."
+        required: false
+        default: ""
+        type: string
 
 concurrency:
   group: pipeline-${{ github.workflow }}
@@ -144,6 +149,14 @@ jobs:
           if [[ "${{ inputs.mock_llm }}" == "true" ]]; then
             mock_llm_args+=(--mock-llm)
           fi
+          classifier_mode="${{ inputs.classifier_mode }}"
+          if [[ -z "$classifier_mode" ]]; then
+            if [[ "${{ steps.state.outputs.phase }}" == "shadow_cron" ]]; then
+              classifier_mode="no_llm_shadow"
+            else
+              classifier_mode="llm"
+            fi
+          fi
 
           xvfb-run -a python -m automated_builds_pipeline.pipeline run \
             --hero "${{ matrix.hero }}" \
@@ -152,6 +165,7 @@ jobs:
             --stats-dir "$GITHUB_WORKSPACE/stats" \
             --output-dir "$GITHUB_WORKSPACE/artifacts" \
             --api-key-env CLAUDE_API_KEY \
+            --classifier-mode "$classifier_mode" \
             --bazaardb-retries 2 \
             "${mock_llm_args[@]}"
 

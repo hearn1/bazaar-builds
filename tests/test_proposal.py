@@ -55,3 +55,47 @@ def test_renderer_includes_update_addition_removal_weaker_and_noise():
     assert "Pufferfish" in markdown
     assert "Blocked by: mobalytics_meta_builds" in markdown
     assert "reshuffle_deferred" in markdown
+
+
+def test_renderer_warns_for_no_llm_shadow_and_lists_pending_candidates():
+    item = {
+        "item": "Pufferfish",
+        "llm_classification": "classification_pending",
+        "llm_confidence": "none",
+        "llm_rationale": "Deterministic shadow observation only.",
+        "evidence_refs": [{"summary": "bazaardb:puffer"}],
+    }
+    diff = {
+        "hero": "Karnok",
+        "classification_mode": "no_llm_shadow",
+        "semantic_classification": False,
+        "llm_provider": "none",
+        "source_window": {"start": "2026-05-01", "end": "2026-05-05", "n_windows_history": 3},
+        "freeze_state": {"removals_frozen": False, "patch_label": None},
+        "source_health": [],
+        "proposed_changes": {
+            "archetype_updates": [{"phase": "early", "archetype": "Axe", "missing_items": [item]}],
+            "archetype_additions": [
+                {
+                    "candidate_phase": "late",
+                    "tag": "Wide",
+                    "candidate_core": [],
+                    "candidate_support": [],
+                    "candidate_pending": [item],
+                }
+            ],
+            "archetype_removal_candidates": [],
+            "item_removal_candidates": [],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+    markdown = render_proposal(diff)
+
+    assert "Classification mode: no_llm_shadow" in markdown
+    assert "LLM provider: none" in markdown
+    assert "operational observation evidence only" in markdown
+    assert "Pending semantic classification:" in markdown
+    assert "classification_pending (none)" in markdown

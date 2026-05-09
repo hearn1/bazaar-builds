@@ -68,6 +68,9 @@ def test_diff_generator_mock_mode_populates_shape():
     diff = generate_diff("Karnok", evaluation(rows), catalog, StaticClassifier([]), mock_mode=True)
 
     assert diff["schema_version"] == 1
+    assert diff["classification_mode"] == "mock"
+    assert diff["semantic_classification"] is False
+    assert diff["llm_provider"] == "none"
     assert set(diff["proposed_changes"]) == {
         "archetype_updates",
         "archetype_additions",
@@ -75,8 +78,18 @@ def test_diff_generator_mock_mode_populates_shape():
         "item_removal_candidates",
         "archetype_reshuffles",
     }
-    assert diff["proposed_changes"]["archetype_updates"][0]["missing_items"][0]["item"] == "New Core"
-    assert diff["proposed_changes"]["archetype_additions"][0]["candidate_support"][0]["item"] == "New Archetype Item"
+    update_item = diff["proposed_changes"]["archetype_updates"][0]["missing_items"][0]
+    assert update_item["item"] == "New Core"
+    assert update_item["llm_classification"] == "support"
+    assert update_item["llm_confidence"] == "low"
+    assert update_item["classification_ceiling"] == "carry_core_support"
+    assert update_item["threshold_result"] == "add_candidate"
+    assert update_item["threshold_reason"] == "bazaardb_present_2_of_3_patches"
+    assert update_item["source_presence"] == {"bazaardb": "present"}
+    addition = diff["proposed_changes"]["archetype_additions"][0]
+    assert addition["candidate_core"] == []
+    assert addition["candidate_support"][0]["item"] == "New Archetype Item"
+    assert "candidate_pending" not in addition
     assert diff["proposed_changes"]["item_removal_candidates"][0]["item"] == "Old Core"
 
 
@@ -93,6 +106,32 @@ def test_source_quality_gate_coerces_carry_to_support():
     item = diff["proposed_changes"]["archetype_additions"][0]["candidate_support"][0]
     assert item["llm_classification"] == "support"
     assert "capped" in item["llm_rationale"]
+    assert diff["classification_mode"] == "llm"
+    assert diff["semantic_classification"] is True
+    assert diff["llm_provider"] == "anthropic"
+
+
+def test_no_llm_shadow_mode_emits_pending_candidates_without_classifier_call():
+    classifier = StaticClassifier([ItemClassification("Should Not Call", "core", "high", "unused", "top_line")])
+
+    diff = generate_diff(
+        "Karnok",
+        evaluation([add_row("Observed Item")]),
+        {"items": []},
+        classifier,
+        classifier_mode="no_llm_shadow",
+    )
+
+    addition = diff["proposed_changes"]["archetype_additions"][0]
+    item = addition["candidate_pending"][0]
+    assert classifier.calls == []
+    assert addition["candidate_core"] == []
+    assert addition["candidate_support"] == []
+    assert item["item"] == "Observed Item"
+    assert item["llm_classification"] == "classification_pending"
+    assert item["llm_confidence"] == "none"
+    assert "Deterministic shadow observation" in item["llm_rationale"]
+    assert item["evidence_refs"] == [{"source": "bazaardb", "summary": "bazaardb:Observed Item"}]
 
 
 def test_medium_confidence_goes_to_weaker_signals_and_low_to_noise():
@@ -112,6 +151,36 @@ def test_medium_confidence_goes_to_weaker_signals_and_low_to_noise():
 
     assert diff["weaker_signals"][0]["item"] == "Medium Item"
     assert any(row["reason"] == "low_confidence_suppressed" for row in diff["noise"])
+
+
+def test_no_llm_shadow_keeps_removal_rows_but_no_semantic_labels():
+    rows = [
+        add_row("New Core", existing=True),
+        {
+            "phase": "mid",
+            "archetype": "Old",
+            "item": "Old Core",
+            "threshold_result": "remove_candidate",
+            "threshold_reason": "bazaardb_absent_4_patches_21_days",
+            "evidence_refs": [],
+        },
+    ]
+
+    diff = generate_diff(
+        "Karnok",
+        evaluation(rows),
+        {"items": [{"item": "Existing", "phase": "early", "archetype": "Axe"}]},
+        None,
+        classifier_mode="no_llm_shadow",
+    )
+
+    item = diff["proposed_changes"]["archetype_updates"][0]["missing_items"][0]
+    assert item["llm_classification"] == "classification_pending"
+    assert diff["proposed_changes"]["item_removal_candidates"][0]["item"] == "Old Core"
+    serialized = json.dumps(diff)
+    assert '"llm_classification": "carry"' not in serialized
+    assert '"llm_classification": "core"' not in serialized
+    assert '"llm_classification": "support"' not in serialized
 
 
 def test_insufficient_history_rows_are_suppressed_from_noise():

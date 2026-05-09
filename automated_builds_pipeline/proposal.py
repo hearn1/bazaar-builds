@@ -19,6 +19,7 @@ def render_proposal(diff: dict[str, Any]) -> str:
 def _pipeline_state(lines: list[str], diff: dict[str, Any]) -> None:
     freeze = diff.get("freeze_state", {})
     window = diff.get("source_window", {})
+    semantic_classification = diff.get("semantic_classification")
     lines.extend(
         [
             "## Pipeline State",
@@ -28,6 +29,12 @@ def _pipeline_state(lines: list[str], diff: dict[str, Any]) -> None:
             f"- Patch: {freeze.get('patch_label') or 'none'}",
         ]
     )
+    if semantic_classification is False:
+        lines.append(f"- Classification mode: {diff.get('classification_mode', 'unknown')}")
+        lines.append(f"- LLM provider: {diff.get('llm_provider', 'unknown')}")
+        lines.append(
+            "- Warning: deterministic/no-LLM shadow output is operational observation evidence only; it does not validate semantic catalog acceptance."
+        )
     health = diff.get("source_health", [])
     if health:
         lines.append("")
@@ -62,6 +69,8 @@ def _archetype_additions(lines: list[str], diff: dict[str, Any]) -> None:
         lines.append(f"### {addition.get('candidate_phase') or 'unknown'} / {addition.get('tag') or 'unknown'}")
         _bucket_lines(lines, "Core", addition.get("candidate_core", []))
         _bucket_lines(lines, "Support", addition.get("candidate_support", []))
+        if "candidate_pending" in addition:
+            _bucket_lines(lines, "Pending semantic classification", addition.get("candidate_pending", []))
     lines.append("")
 
 

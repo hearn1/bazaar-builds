@@ -50,6 +50,28 @@ def test_round_trip_write_and_read(tmp_path):
     assert history[0].archetype == "Axe"
 
 
+def test_stats_sidecar_serializes_source_observations_without_semantic_conclusions(tmp_path):
+    stats = HeroStats(hero="Karnok")
+    append_window(
+        stats,
+        "bazaardb",
+        WindowObservation(
+            window_id="bazaardb:2026-W18",
+            observed_at="2026-05-05T12:00:00Z",
+            items=[ItemWindowEvidence(item="Hunting Knife", rank=1, evidence_refs=["artifacts/karnok.json"])],
+        ),
+    )
+
+    save_stats(stats, tmp_path)
+    payload = json.loads(stats_path("Karnok", tmp_path).read_text(encoding="utf-8"))
+    serialized = json.dumps(payload)
+
+    assert "llm_classification" not in serialized
+    assert "semantic_classification" not in serialized
+    assert "classification_mode" not in serialized
+    assert "classification_pending" not in serialized
+
+
 def test_first_run_missing_file_returns_empty_stats(tmp_path):
     stats = load_stats("Karnok", tmp_path)
 

@@ -46,7 +46,17 @@ python bazaar_build_enricher.py compare \
 
 ## Automated pipeline status
 
-The automated builds refresh pipeline is documented in [`docs/pipeline-operations.md`](docs/pipeline-operations.md). The GitHub Actions cron schedule already exists, but the repo is currently held at `local_dry_run` with `dry_run: true`: scheduled or manual runs may produce review artifacts, while stats sidecar commits and tracker PR/catalog mutation remain disabled. Moving to `shadow_cron` remains a manual phase flip after reviewing deterministic/no-LLM shadow routing, accepting scheduled Actions, and accepting bot commits for `stats/<hero>_stats.json`; `live_cron` remains a later manual gate that still requires accumulated healthy shadow history and semantic catalog review.
+The automated builds refresh pipeline is documented in [`docs/pipeline-operations.md`](docs/pipeline-operations.md). The repo is currently in `shadow_cron` with `dry_run: true`: scheduled or manual runs default to deterministic `no_llm_shadow`, may produce review artifacts, and may commit `stats/<hero>_stats.json` sidecars on `main`. Tracker PR/catalog mutation remains disabled until a later manual `live_cron` gate after accumulated healthy shadow history and semantic catalog review.
+
+## Tests
+
+Run the tracked suite explicitly:
+
+```powershell
+python -m pytest -q tests
+```
+
+Current local verification: 119 tests passing. A bare `python -m pytest -q` from the repo root can walk generated `artifacts/` directories and fail during collection; use the `tests` path unless pytest collection is later constrained in config.
 
 ## Schema contract
 

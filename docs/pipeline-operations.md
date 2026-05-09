@@ -23,19 +23,19 @@ Use this progression:
 2. `shadow_cron`: weekly cron runs do the same artifact work and additionally save and commit `stats/<hero>_stats.json` sidecars in bazaar-builds; tracker PR/catalog mutation remains disabled.
 3. `live_cron`: weekly cron updates one rolling PR per hero when the diff is non-empty.
 
-The pipeline is currently promoted to `local_dry_run` only. Do not move to `shadow_cron` until the entry criteria below are satisfied, the deterministic no-LLM shadow strategy has been reviewed from workflow wiring through artifacts, and the curator explicitly flips `pipeline_state.json`. Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows, at least 60 days of calendar observation, and later semantic catalog review. Each flip is manual even after the thresholds are met.
+The pipeline is currently promoted to `shadow_cron` with `dry_run: true`. Scheduled `shadow_cron` defaults to deterministic `no_llm_shadow`, writes review artifacts, and persists stats sidecars in bazaar-builds on `main`; it still does not mutate tracker catalogs or open tracker PRs. Do not move to `live_cron` until shadow output has at least 6 healthy bazaardb patch windows, at least 60 days of calendar observation, and later semantic catalog review. Each flip remains manual even after the thresholds are met.
 
 `implementation` is the off switch. It is the only phase that makes the scheduled workflow exit successfully inside the pipeline before source fetches, artifact writes, stats writes, or PR actions.
 
-The current `local_dry_run` state was validated from a Python 3.12.10 temporary environment with focused tests passing (`59 passed in 0.39s`). All five supported heroes completed controlled local dry runs with `--mock-llm`, live source fetches, temp-only artifacts, and exit code 0: Dooley, Karnok, Mak, Pygmalien, and Vanessa. Each hero produced diff JSON and proposal markdown, no real LLM/API calls occurred, and no checked-in pipeline state, catalog, stats, or tracker files mutated. That validation remains local synthetic validation only; scheduled `shadow_cron` now uses `--classifier-mode no_llm_shadow` unless manually overridden.
+The promotion out of `local_dry_run` was validated from a Python 3.12.10 temporary environment with focused tests passing (`59 passed in 0.39s`). All five supported heroes completed controlled local dry runs with `--mock-llm`, live source fetches, temp-only artifacts, and exit code 0: Dooley, Karnok, Mak, Pygmalien, and Vanessa. Each hero produced diff JSON and proposal markdown, no real LLM/API calls occurred, and no checked-in pipeline state, catalog, stats, or tracker files mutated. That validation remains local synthetic validation only; scheduled `shadow_cron` now uses `--classifier-mode no_llm_shadow` unless manually overridden.
 
 Source health was healthy for these three sources during validation: `bazaar_builds_net:2026-W19`, `bazaardb:14.0 (Hotfix May 7)`, and `mobalytics_meta_builds:v541`. This is three healthy sources, not three temporal windows. Markdown source-health tables are review summaries; the run's diff JSON is the more complete artifact for source-health review when details, skipped-source diagnostics, or per-source observations matter.
 
 Artifact review found the mock-mode proposals operationally valid: fetch, evaluation, mock classification, diff rendering, and proposal rendering all completed. They are not catalog-acceptance evidence. Deterministic no-LLM shadow outputs are marked `classification_mode: no_llm_shadow`, `semantic_classification: false`, and `llm_provider: none`; candidate item labels remain `classification_pending` rather than carry/core/support conclusions. Duplicate/near-duplicate proposals and pending classifications are normal curator review items in no-LLM shadow mode, not pipeline failures.
 
-### `shadow_cron` Entry Criteria
+### `shadow_cron` Promotion Record
 
-Advance from `local_dry_run` to `shadow_cron` only when all of the following are true:
+The following criteria were the manual gate for advancing from `local_dry_run` to `shadow_cron`. Keep them here as the promotion record and as a rollback/re-promotion checklist if the pipeline is returned to `local_dry_run`:
 
 - All supported-hero local dry-run artifacts have been reviewed for operational validity.
 - Source-health output clearly represents required fields for each required source, including source name, status, window or patch identifier, and diagnostic details when unhealthy/skipped.
@@ -46,7 +46,7 @@ Advance from `local_dry_run` to `shadow_cron` only when all of the following are
 - The curator understands that `--mock-llm` remains only local synthetic validation. It is manually selected, emits `classification_mode: mock`, and should not be treated as scheduled shadow evidence or semantic catalog-acceptance evidence.
 - Rollback is clear: set `phase` back to `local_dry_run` with `dry_run: true` for artifact-only operation, or back to `implementation` to stop fetches, artifacts, stats writes, and PR actions.
 
-Before flipping to `shadow_cron`:
+Before re-flipping to `shadow_cron` after a rollback:
 
 - Confirm the existing Actions schedule on `main` is intended to run weekly.
 - Confirm scheduled `shadow_cron` should continue using deterministic/no-LLM classification, or record an explicit operator waiver for a different classifier strategy.
@@ -55,25 +55,25 @@ Before flipping to `shadow_cron`:
 - Validate the chosen classifier strategy from the workflow path, including artifact metadata, pending classification semantics, and the proposal warning.
 - Confirm rollback path and operator availability: `local_dry_run` keeps artifact-only scheduled/manual runs, while `implementation` stops fetches, artifacts, stats writes, and PR actions.
 
-### Post-Merge `shadow_cron` Promotion Gate
+### `live_cron` Promotion Gate
 
-Issue 1 must leave `pipeline_state.json` unchanged. Promoting from
-`local_dry_run` to `shadow_cron` is a separate rollout decision after the Issue
-1 PR merges.
+Promoting from `shadow_cron` to `live_cron` is the next rollout decision. It is separate from the earlier Issue 1/shadow promotion work.
 
-Use this checklist before the promotion PR or manual state flip:
+Use this checklist before the `live_cron` promotion PR or manual state flip:
 
-- Issue 1 PR is merged to `main`.
+- At least 6 distinct healthy bazaardb patch windows have accumulated in shadow output.
+- At least 60 calendar days of shadow output have elapsed.
 - The scheduled workflow has been reviewed, including the weekly cron schedule,
-  manual dispatch inputs, phase override behavior, and stats persistence step.
-- Scheduled `shadow_cron` still defaults to deterministic/no-LLM classification
-  with `--classifier-mode no_llm_shadow`.
-- No hosted provider key is required for the default `shadow_cron` path.
-- Stats sidecar commit behavior is understood: `shadow_cron` can commit
-  `stats/<hero>_stats.json` in bazaar-builds, but tracker catalog mutation and
-  tracker PR creation remain disabled.
+  manual dispatch inputs, phase override behavior, stats persistence step, and
+  rolling tracker PR behavior.
+- Semantic catalog-review strategy is ready: hosted LLM/provider choice,
+  provider abstraction, manual semantic review, or an explicit operator waiver.
+- Any required provider secret/API/cost readiness is confirmed.
+- Stats sidecar commit behavior remains understood: `shadow_cron` commits
+  `stats/<hero>_stats.json` in bazaar-builds; `live_cron` additionally opens or
+  updates tracker proposal PRs when diffs are non-empty.
 
-Monitor the first scheduled `shadow_cron` run for:
+Monitor scheduled `shadow_cron` runs for:
 
 - Source health by provider and temporal window.
 - Stats sidecar diffs and bot commit provenance.
@@ -83,7 +83,7 @@ Monitor the first scheduled `shadow_cron` run for:
 - No mutation of tracker catalog files.
 - No tracker PR creation.
 
-Do not conclude from the first no-LLM shadow run that:
+Do not conclude from no-LLM shadow runs that:
 
 - Carry/core/support semantics are accepted.
 - The live catalog is ready for mutation.
@@ -156,6 +156,14 @@ python -m automated_builds_pipeline.pipeline run `
 
 Use `--mock-llm` for local dry-run validation without real LLM/API calls. Mock mode emits synthetic low-confidence support classifications and is labeled `classification_mode: mock`; it is not scheduled shadow evidence. For deterministic shadow observation without a provider, use `--classifier-mode no_llm_shadow`, which emits `classification_mode: no_llm_shadow`, `semantic_classification: false`, `llm_provider: none`, and `classification_pending` item labels. Scheduled `shadow_cron` runs default to `no_llm_shadow` unless a manual dispatch classifier mode overrides it. Source fetches are still live unless you also pass source-disabling flags such as `--no-bazaardb`, which marks the source as `skipped` with `operator skip`.
 
+For local unit tests, run the tracked suite explicitly:
+
+```powershell
+python -m pytest -q tests
+```
+
+Current local verification: 119 tests passing. A bare repo-root `python -m pytest -q` can try to collect generated files under `artifacts/` and fail before the suite runs.
+
 For ad-hoc state files in temp space, write BOM-free JSON. In Windows PowerShell 5.1, prefer the .NET UTF-8 constructor over `Set-Content -Encoding UTF8`, which writes a BOM:
 
 ```powershell
@@ -163,9 +171,9 @@ $state = '{"phase":"local_dry_run","dry_run":true,"schema_version":1}'
 [System.IO.File]::WriteAllText($env:TEMP + '\pipeline_state.json', $state, [System.Text.UTF8Encoding]::new($false))
 ```
 
-## Shadow Artifacts
+## Review Artifacts
 
-In `shadow_cron`, the workflow uploads artifacts named:
+In `local_dry_run`, `shadow_cron`, and dry-run `live_cron`, the workflow uploads artifacts named:
 
 ```text
 automated-builds-<hero>-<run_id>
@@ -204,6 +212,7 @@ After the PR body is created or edited, `live_cron` also posts a supporting-evid
 Stats sidecars are committed back to bazaar-builds by the workflow after each
 successful `shadow_cron` or `live_cron` pipeline run on `main`, so multi-window
 thresholds accumulate across cron runs. They are intentionally not saved or
-committed in `local_dry_run`. The deterministic/no-LLM shadow classifier path
-does not resolve catalog acceptance semantics; carry/core/support validation
-requires a semantic classifier or manual review in a later phase.
+committed in `local_dry_run`. The remaining unresolved before `live_cron` is
+semantic catalog acceptance: deterministic/no-LLM shadow artifacts do not
+resolve carry/core/support validation, so live catalog proposals require a
+semantic classifier, manual semantic review, or an explicit operator waiver.

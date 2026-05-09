@@ -9,7 +9,7 @@ Status labels:
 
 ## Automated Builds Pipeline - Gate
 
-Current state: `pipeline_state.json` is `phase: shadow_cron` with `dry_run: true`. The weekly GitHub Actions cron schedule exists. Scheduled shadow runs default to deterministic `no_llm_shadow` and may fetch live sources, evaluate thresholds, write diff/proposal artifacts, upload workflow artifacts, and commit `stats/<hero>_stats.json` sidecars in bazaar-builds on `main`.
+Current state: `pipeline_state.json` is `phase: shadow_cron` with `dry_run: true`. The daily GitHub Actions cron schedule exists (`0 6 * * *`). Scheduled shadow runs default to deterministic `no_llm_shadow` and may fetch live sources, evaluate thresholds, write diff/proposal artifacts, upload workflow artifacts, and commit `stats/<hero>_stats.json` sidecars in bazaar-builds on `main`.
 
 Shadow runs must not mutate `bazaar_tracker` catalog files, open tracker PRs, or promote the pipeline phase. `implementation` is the off switch, and `local_dry_run` is the rollback path for artifact-only runs without stats sidecar commits.
 

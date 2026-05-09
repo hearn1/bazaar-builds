@@ -4,6 +4,6 @@
   "freeze_removals_until": null,
   "hero_freezes": {},
   "patch_label": null,
-  "phase": "local_dry_run",
+  "phase": "shadow_cron",
   "schema_version": 1
 }

@@ -46,7 +46,11 @@ python bazaar_build_enricher.py compare \
 
 ## Automated pipeline status
 
-The automated builds refresh pipeline is documented in [`docs/pipeline-operations.md`](docs/pipeline-operations.md). The repo is currently in `shadow_cron` with `dry_run: true`: scheduled or manual runs default to deterministic `no_llm_shadow`, may produce review artifacts, and may commit `stats/<hero>_stats.json` sidecars on `main`. Tracker PR/catalog mutation remains disabled until a later manual `live_cron` gate after accumulated healthy shadow history and semantic catalog review.
+The GitHub Actions cron schedule exists, and `pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to deterministic `no_llm_shadow`: they may fetch sources, evaluate, write diff/proposal artifacts, upload review artifacts, and commit `stats/<hero>_stats.json` sidecars in this repo. They must not mutate tracker catalogs or open tracker PRs.
+
+`live_cron` remains disabled until a later manual gate. Before enabling rolling tracker PRs, require at least 6 healthy bazaardb patch windows, at least 60 calendar days of shadow output, and semantic classifier/provider readiness or an explicit waiver.
+
+See `ROADMAP.md` for active gates and `CLAUDE.md` for operator notes.
 
 ## Tests
 

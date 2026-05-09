@@ -14,7 +14,7 @@ Current state: `pipeline_state.json` is `phase: shadow_cron` with `dry_run: true
 Shadow runs must not mutate `bazaar_tracker` catalog files, open tracker PRs, or promote the pipeline phase. `implementation` is the off switch, and `local_dry_run` is the rollback path for artifact-only runs without stats sidecar commits.
 
 Live cron remains disabled. Do not promote to `live_cron` until all of these are true:
-- At least 6 healthy bazaardb patch windows have accumulated.
+- At least 3 healthy bazaardb patch windows have accumulated.
 - At least 60 calendar days of shadow output have accumulated.
 - Semantic classifier/provider readiness is confirmed, or the operator records an explicit waiver.
 - The curator manually flips `phase`/`dry_run` after reviewing shadow artifacts and rollback behavior.

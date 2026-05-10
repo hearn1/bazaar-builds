@@ -1,9 +1,11 @@
 # Runs the automated builds refresh pipeline and, in live_cron, updates rolling
-# proposal PRs in hearn1/bazaar_tracker.
+# proposal PRs in hearn1/bazaar_coach.
 #
 # Required secrets:
-# - TRACKER_PR_TOKEN: fine-grained PAT scoped to hearn1/bazaar_tracker with
+# - TRACKER_PR_TOKEN: fine-grained PAT scoped to hearn1/bazaar_coach with
 #   Contents: Read & Write and Pull requests: Read & Write.
+#   Note: the secret is still named TRACKER_PR_TOKEN; after the repo rename the
+#   PAT must have been updated (or re-confirmed) to grant access to bazaar_coach.
 # - CLAUDE_API_KEY: Anthropic API key for the LLM classifier in live/LLM mode.
 
 name: Automated builds refresh
@@ -28,7 +30,7 @@ on:
           - Vanessa
           - Pygmalien
           # Jules/Stelle are on hold per ROADMAP; add them when their
-          # catalog files land in the tracker repo.
+          # catalog files land in the coach repo.
       phase_override:
         description: "Optional one-run phase override: implementation, local_dry_run, shadow_cron, or live_cron"
         required: false
@@ -55,7 +57,7 @@ jobs:
       fail-fast: false
       matrix:
         # Jules/Stelle are on hold per ROADMAP; add them to the matrix when
-        # their catalog files land in the tracker repo.
+        # their catalog files land in the coach repo.
         hero: [Karnok, Mak, Dooley, Vanessa, Pygmalien]
 
     steps:
@@ -72,12 +74,12 @@ jobs:
         if: steps.selected.outputs.run == 'true'
         uses: actions/checkout@v4
 
-      - name: Check out bazaar_tracker
+      - name: Check out bazaar_coach
         if: steps.selected.outputs.run == 'true'
         uses: actions/checkout@v4
         with:
-          repository: hearn1/bazaar_tracker
-          path: bazaar_tracker
+          repository: hearn1/bazaar_coach
+          path: bazaar_coach
           token: ${{ secrets.TRACKER_PR_TOKEN }}
 
       - name: Set up Python
@@ -142,9 +144,9 @@ jobs:
             --waiver-dir "$GITHUB_WORKSPACE/waivers" \
             --enforce
 
-      - name: Configure tracker git identity
+      - name: Configure coach git identity
         if: steps.selected.outputs.run == 'true' && steps.state.outputs.phase == 'live_cron'
-        working-directory: bazaar_tracker
+        working-directory: bazaar_coach
         run: |
           git config user.name "bazaar-builds-bot"
           git config user.email "bazaar-builds-bot@users.noreply.github.com"
@@ -171,7 +173,7 @@ jobs:
           xvfb-run -a python -m automated_builds_pipeline.pipeline run \
             --hero "${{ matrix.hero }}" \
             --state-file "${{ steps.state.outputs.state_file }}" \
-            --tracker-repo "$GITHUB_WORKSPACE/bazaar_tracker" \
+            --tracker-repo "$GITHUB_WORKSPACE/bazaar_coach" \
             --stats-dir "$GITHUB_WORKSPACE/stats" \
             --output-dir "$GITHUB_WORKSPACE/artifacts" \
             --api-key-env CLAUDE_API_KEY \

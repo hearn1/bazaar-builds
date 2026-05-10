@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch *)",
+      "Bash(PYTHONPATH=. python -m pytest tests/test_stats.py -q)",
+      "Bash(C:/Users/Matt/Desktop/bazaar_tracker/venv312/Scripts/python.exe -c \"import pytest; print\\(pytest.__version__\\)\")",
+      "Bash(PYTHONPATH=. C:/Users/Matt/Desktop/bazaar_tracker/venv312/Scripts/python.exe -m pytest tests/test_stats.py -q)",
+      "Bash(C:/Users/Matt/Desktop/bazaar_tracker/venv312/Scripts/python.exe -m automated_builds_pipeline.stats inspect Karnok --stats-dir .)",
+      "Bash(git checkout *)",
+      "Bash(git pull *)",
+      "Bash(git reset *)",
+      "Bash(PYTHONPATH=. C:/Users/Matt/Desktop/bazaar_tracker/venv312/Scripts/python.exe -m pytest tests -q)",
+      "Bash(rm -rf artifacts)",
+      "Bash(rm -f stats/karnok_stats.json)",
+      "Bash(ls -la .gitignore)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'fix: handle real tracker catalog shape and bound bazaardb wait *)",
+      "Bash(git push *)",
+      "Bash(gh issue *)",
+      "PowerShell(gh issue list --repo hearn1/bazaar-builds --state open --limit 10 --json number,title,body,url)",
+      "Bash(python -m pytest -q tests)"
+    ]
+  }
+}

@@ -20,11 +20,11 @@ jobs:
       - name: Check out bazaar-builds
         uses: actions/checkout@v4
 
-      - name: Check out bazaar_tracker
+      - name: Check out bazaar_coach
         uses: actions/checkout@v4
         with:
-          repository: hearn1/bazaar_tracker
-          path: bazaar_tracker
+          repository: hearn1/bazaar_coach
+          path: bazaar_coach
           token: ${{ secrets.TRACKER_PR_TOKEN }}
 
       - name: Set up Python
@@ -44,7 +44,7 @@ jobs:
         run: |
           mkdir -p artifacts
           xvfb-run -a python -m automated_builds_pipeline.smoke \
-            --tracker-repo "$GITHUB_WORKSPACE/bazaar_tracker" \
+            --tracker-repo "$GITHUB_WORKSPACE/bazaar_coach" \
             --output "$GITHUB_WORKSPACE/artifacts/source-health.json"
 
       - name: Upload source health artifact

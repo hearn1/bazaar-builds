@@ -11,7 +11,7 @@ Status labels:
 
 Current state: `pipeline_state.json` is `phase: shadow_cron` with `dry_run: true`. The daily GitHub Actions cron schedule exists (`0 6 * * *`). Scheduled shadow runs default to deterministic `no_llm_shadow` and may fetch live sources, evaluate thresholds, write diff/proposal artifacts, upload workflow artifacts, and open/update a rolling `automated/stats-sync-<hero>` PR per hero against `main`. Each scheduled run force-pushes the per-hero branch; the PR is curator-merged or closed at discretion. Direct pushes to `main` are blocked by branch protection.
 
-Shadow runs must not mutate `bazaar_tracker` catalog files, open tracker PRs, or promote the pipeline phase. `implementation` is the off switch, and `local_dry_run` is the rollback path for artifact-only runs without stats sidecar PRs.
+Shadow runs must not mutate `bazaar_coach` catalog files, open coach PRs, or promote the pipeline phase. `implementation` is the off switch, and `local_dry_run` is the rollback path for artifact-only runs without stats sidecar PRs.
 
 Live cron remains disabled. Do not promote to `live_cron` until all of these are true:
 - At least 2 healthy bazaardb patch windows have accumulated.

@@ -17,7 +17,7 @@ jobs:
       - name: Install jsonschema
         run: pip install jsonschema
 
-      - name: Validate *_builds.json against tracker schema
+      - name: Validate *_builds.json against coach schema
         run: |
           python - <<'EOF'
           import json
@@ -25,7 +25,7 @@ jobs:
           import urllib.request
           from pathlib import Path
 
-          SCHEMA_URL = "https://raw.githubusercontent.com/hearn1/bazaar_tracker/main/builds_schema.json"
+          SCHEMA_URL = "https://raw.githubusercontent.com/hearn1/bazaar_coach/main/builds_schema.json"
 
           try:
               import jsonschema

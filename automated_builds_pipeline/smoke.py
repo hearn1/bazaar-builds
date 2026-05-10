@@ -62,7 +62,7 @@ def should_fail(summary: dict[str, object]) -> bool:
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run live source health smoke checks.")
     parser.add_argument("--output", type=Path, required=True, help="Path to write the source health JSON artifact.")
-    parser.add_argument("--tracker-repo", type=Path, required=True, help="Read-only bazaar_tracker checkout.")
+    parser.add_argument("--tracker-repo", type=Path, required=True, help="Read-only bazaar_coach checkout.")
     parser.add_argument("--hero", default="Karnok", help="Representative hero for hero-scoped sources.")
     parser.add_argument("--article-slug", action="append", default=[], help="Mobalytics build article slug to check. Repeatable.")
     parser.add_argument("--expected-bazaardb-patch-label", default=None)

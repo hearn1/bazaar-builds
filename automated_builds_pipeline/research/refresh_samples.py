@@ -71,7 +71,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="Source to refresh. Repeatable. Defaults to all configured live sources.",
     )
     parser.add_argument("--output-root", type=Path, default=Path("research") / "samples")
-    parser.add_argument("--tracker-repo", type=Path, default=Path("../bazaar_tracker"))
+    parser.add_argument("--tracker-repo", type=Path, default=Path("../bazaar_coach"))
     parser.add_argument("--hero", default="Karnok", help="Representative hero for hero-scoped sources.")
     parser.add_argument("--article-slug", action="append", default=[], help="Mobalytics build article slug to sample. Repeatable.")
     parser.add_argument("--timeout-seconds", type=int, default=30)

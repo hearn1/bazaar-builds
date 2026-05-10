@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Probe Addressables catalog GUIDs for missing Bazaar card art bundles.
 
-Use --cards-file and --manifest-file to point at tracker cache files.
+Use --cards-file and --manifest-file to point at coach cache files.
 """
 
 from __future__ import annotations
@@ -28,11 +28,11 @@ CARD_NAME_RE = re.compile(
 )
 CARD_D_SUFFIX_RE = re.compile(r"_D(?:\d|\s*)\s*$")
 
-SIBLING_TRACKER_DIR = Path(__file__).resolve().parent.parent / "bazaar_tracker"
+SIBLING_TRACKER_DIR = Path(__file__).resolve().parent.parent / "bazaar_coach"
 DEFAULT_CARDS_FILE = SIBLING_TRACKER_DIR / "static_cache" / "cards.json"
 DEFAULT_MANIFEST_FILE = SIBLING_TRACKER_DIR / "static_cache" / "images" / "manifest.json"
 
-# Synced from bazaar_tracker/web/card_images.py; re-sync if the tracker's alias list updates.
+# Synced from bazaar_coach/web/card_images.py; re-sync if the coach's alias list updates.
 NAME_ALIASES: dict[str, str] = {
     # Plural / singular mismatches
     "bagpipes": "bagpipe",
@@ -213,13 +213,13 @@ def _parse_args() -> argparse.Namespace:
         "--cards-file",
         type=Path,
         default=DEFAULT_CARDS_FILE,
-        help=f"Path to tracker static_cache/cards.json (default: {DEFAULT_CARDS_FILE})",
+        help=f"Path to coach static_cache/cards.json (default: {DEFAULT_CARDS_FILE})",
     )
     parser.add_argument(
         "--manifest-file",
         type=Path,
         default=DEFAULT_MANIFEST_FILE,
-        help=f"Path to tracker image manifest.json (default: {DEFAULT_MANIFEST_FILE})",
+        help=f"Path to coach image manifest.json (default: {DEFAULT_MANIFEST_FILE})",
     )
     return parser.parse_args()
 

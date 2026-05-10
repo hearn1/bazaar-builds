@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Curator toolchain for The Bazaar build catalogs consumed by `bazaar_tracker`. This repo owns evidence gathering, threshold evaluation, proposal rendering, source-drift checks, stats sidecars, and future rolling tracker PR automation. The tracker repo remains the source of truth for player-facing `<hero>_builds.json` catalogs and `builds_schema.json`.
+Curator toolchain for The Bazaar build catalogs consumed by `bazaar_coach`. This repo owns evidence gathering, threshold evaluation, proposal rendering, source-drift checks, stats sidecars, and future rolling coach PR automation. The coach repo remains the source of truth for player-facing `<hero>_builds.json` catalogs and `builds_schema.json`.
 
 ## Common Commands
 
@@ -22,17 +22,17 @@ Fetch evidence for a hero:
 ```powershell
 python bazaar_build_enricher.py https://bazaar-builds.net/category/builds/karnok-builds/ `
   --hero Karnok --days 30 --fetch-posts `
-  --catalog-dir ..\bazaar_tracker `
-  --names-file ..\bazaar_tracker\card_cache_names.txt `
+  --catalog-dir ..\bazaar_coach `
+  --names-file ..\bazaar_coach\card_cache_names.txt `
   --output artifacts\karnok_bazaar_builds_summary.json
 ```
 
-Compare an artifact against a tracker catalog:
+Compare an artifact against a coach catalog:
 
 ```powershell
 python bazaar_build_enricher.py compare `
   artifacts\karnok_bazaar_builds_summary.json `
-  ..\bazaar_tracker\karnok_builds.json `
+  ..\bazaar_coach\karnok_builds.json `
   --output artifacts\karnok_build_update_proposal.md
 ```
 
@@ -42,7 +42,7 @@ Run the automated pipeline locally:
 python -m automated_builds_pipeline.pipeline run `
   --hero Karnok `
   --state-file pipeline_state.json `
-  --tracker-repo C:\Users\Matt\Desktop\bazaar_tracker `
+  --tracker-repo C:\Users\Matt\Desktop\bazaar_coach `
   --stats-dir .\stats `
   --output-dir .\artifacts `
   --classifier-mode no_llm_shadow
@@ -60,7 +60,7 @@ python -m automated_builds_pipeline.research.refresh_samples --source bazaardb
 
 `pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to deterministic `no_llm_shadow`; they may fetch sources, evaluate, render diff/proposal artifacts, upload workflow artifacts, and open/update a rolling `automated/stats-sync-<hero>` PR per hero in this repo. The PR is force-pushed on each scheduled run; merge or close at curator discretion. Direct pushes to `main` are not used because branch protection requires PRs.
 
-Do not promote to `live_cron` until at least 2 healthy bazaardb patch windows and at least 60 calendar days of shadow output have accumulated, and semantic classifier/provider readiness is confirmed or explicitly waived. Do not mutate tracker catalogs or open tracker PRs while `dry_run` remains true.
+Do not promote to `live_cron` until at least 2 healthy bazaardb patch windows and at least 60 calendar days of shadow output have accumulated, and semantic classifier/provider readiness is confirmed or explicitly waived. Do not mutate coach catalogs or open coach PRs while `dry_run` remains true.
 
 `implementation` is the off switch. `local_dry_run` is the rollback path for artifact-only scheduled/manual runs without stats sidecar PRs.
 
@@ -82,7 +82,7 @@ Sidecar writes use temp-file plus replace semantics. Workflow concurrency is exp
 
 ## Catalog Contract
 
-`bazaar_tracker` owns `<hero>_builds.json` and `builds_schema.json`. This repo validates generated catalogs against the tracker schema but should not vendor tracker catalogs or `card_cache_names.txt`. Always pass `--catalog-dir` and `--names-file` to point at the live tracker checkout.
+`bazaar_coach` owns `<hero>_builds.json` and `builds_schema.json`. This repo validates generated catalogs against the coach schema but should not vendor coach catalogs or `card_cache_names.txt`. Always pass `--catalog-dir` and `--names-file` to point at the live coach checkout.
 
 When manually curating, distinguish no-op workflow validation from evidence-bearing catalog validation. Catalog curation needs fetched post evidence, normally via `--fetch-posts`, or an explicitly evidence-backed empty result after fetch attempts.
 

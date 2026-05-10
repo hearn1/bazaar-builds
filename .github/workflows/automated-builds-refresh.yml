@@ -10,6 +10,7 @@ name: Automated builds refresh
 
 permissions:
   contents: write
+  pull-requests: write
 
 on:
   schedule:
@@ -178,38 +179,52 @@ jobs:
             --bazaardb-retries 2 \
             "${mock_llm_args[@]}"
 
-      - name: Persist stats
+      - name: Persist stats via rolling PR
         if: steps.selected.outputs.run == 'true' && github.ref_name == 'main' && (steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron')
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
 
           git config user.name "bazaar-builds-bot"
           git config user.email "bazaar-builds-bot@users.noreply.github.com"
 
-          stats_file="stats/$(echo "${{ matrix.hero }}" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_//; s/_$//')_stats.json"
+          hero_slug=$(echo "${{ matrix.hero }}" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_//; s/_$//')
+          stats_file="stats/${hero_slug}_stats.json"
+          branch="automated/stats-sync-${hero_slug}"
+
           if [[ ! -f "$stats_file" ]]; then
             echo "No stats file was written for ${{ matrix.hero }}"
             exit 0
           fi
 
+          git fetch origin main
+
+          # Stash freshly-generated stats, reset working tree to main, then re-apply
+          # so the branch contains exactly main + this one-file delta.
+          cp "$stats_file" "$RUNNER_TEMP/${hero_slug}_stats.json"
+          git checkout -B "$branch" origin/main
+          mkdir -p stats
+          cp "$RUNNER_TEMP/${hero_slug}_stats.json" "$stats_file"
           git add "$stats_file"
-          if git diff --cached --quiet -- "$stats_file"; then
-            echo "No stats changes for ${{ matrix.hero }}"
+
+          if git diff --cached --quiet; then
+            echo "No stats changes for ${{ matrix.hero }} vs main"
             exit 0
           fi
 
           git commit -m "automated: persist ${{ matrix.hero }} stats"
+          git push --force-with-lease origin "$branch"
 
-          for attempt in 1 2 3; do
-            git pull --rebase --autostash origin main
-            if git push origin main; then
-              exit 0
-            fi
-            echo "Stats push attempt ${attempt} failed"
-          done
-
-          echo "Failed to persist stats after 3 attempts"
-          exit 1
+          # Open a PR if one isn't already open against this branch (idempotent —
+          # subsequent runs just force-push and the PR auto-updates).
+          if ! gh pr view "$branch" --json state --jq '.state' >/dev/null 2>&1; then
+            gh pr create \
+              --base main \
+              --head "$branch" \
+              --title "automated: persist ${{ matrix.hero }} stats" \
+              --body "Rolling stats sidecar PR opened by the automated builds refresh workflow. The branch is force-pushed each scheduled run; merge or close at curator discretion."
+          fi
 
       - name: Upload shadow artifacts
         if: steps.selected.outputs.run == 'true' && (steps.state.outputs.phase != 'live_cron' || steps.state.outputs.dry_run == 'true')

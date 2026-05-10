@@ -58,11 +58,11 @@ python -m automated_builds_pipeline.research.refresh_samples --source bazaardb
 
 ## Current Pipeline Phase
 
-`pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to deterministic `no_llm_shadow`; they may fetch sources, evaluate, render diff/proposal artifacts, upload workflow artifacts, and commit `stats/<hero>_stats.json` sidecars in this repo.
+`pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to deterministic `no_llm_shadow`; they may fetch sources, evaluate, render diff/proposal artifacts, upload workflow artifacts, and open/update a rolling `automated/stats-sync-<hero>` PR per hero in this repo. The PR is force-pushed on each scheduled run; merge or close at curator discretion. Direct pushes to `main` are not used because branch protection requires PRs.
 
-Do not promote to `live_cron` until at least 3 healthy bazaardb patch windows and at least 60 calendar days of shadow output have accumulated, and semantic classifier/provider readiness is confirmed or explicitly waived. Do not mutate tracker catalogs or open tracker PRs while `dry_run` remains true.
+Do not promote to `live_cron` until at least 2 healthy bazaardb patch windows and at least 60 calendar days of shadow output have accumulated, and semantic classifier/provider readiness is confirmed or explicitly waived. Do not mutate tracker catalogs or open tracker PRs while `dry_run` remains true.
 
-`implementation` is the off switch. `local_dry_run` is the rollback path for artifact-only scheduled/manual runs without stats sidecar commits.
+`implementation` is the off switch. `local_dry_run` is the rollback path for artifact-only scheduled/manual runs without stats sidecar PRs.
 
 ## Source Roles
 

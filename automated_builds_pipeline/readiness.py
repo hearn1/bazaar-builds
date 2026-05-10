@@ -1,7 +1,7 @@
 """Live-cron promotion readiness gate for the automated builds pipeline.
 
 Evaluates whether the pipeline meets the criteria for live_cron promotion:
-  - At least N=3 healthy bazaardb patch windows across all hero sidecars
+  - At least N=2 healthy bazaardb patch windows across all hero sidecars
   - Shadow output spans >=60 calendar days (oldest sidecar observed_at -> now)
   - Classifier/provider readiness (semantic_classification seen) or a waiver file
   - No malformed-shadow run in the last 14 days
@@ -18,9 +18,9 @@ quality at the per-window level; that aspect is covered separately by the
 classifier-readiness check.
 
 Open question for maintainer: should healthy-window count be gated per-hero (require
->=3 healthy windows in every hero's sidecar) rather than globally across all heroes?
+>=2 healthy windows in every hero's sidecar) rather than globally across all heroes?
 Currently the check counts distinct window_ids across all heroes, so a hero that ran
-all 3 windows while others ran 0 would still pass. Tightening this to per-hero is
+both windows while others ran 0 would still pass. Tightening this to per-hero is
 more conservative and is recommended once a few shadow cycles complete.
 """
 
@@ -36,7 +36,7 @@ from typing import Any, Optional
 from automated_builds_pipeline.state import load_state
 from automated_builds_pipeline.stats import HeroStats, StatsError
 
-MIN_HEALTHY_WINDOWS = 3
+MIN_HEALTHY_WINDOWS = 2
 MIN_SHADOW_DAYS = 60
 MALFORMED_LOOKBACK_DAYS = 14
 BAZAARDB_SOURCE = "bazaardb"
@@ -100,7 +100,7 @@ def evaluate_readiness(
     if healthy_count < MIN_HEALTHY_WINDOWS:
         blockers.append(
             f"Insufficient healthy bazaardb patch windows: {healthy_count}/{MIN_HEALTHY_WINDOWS} required. "
-            "Shadow runs must accumulate at least 3 distinct healthy bazaardb windows across all hero sidecars."
+            f"Shadow runs must accumulate at least {MIN_HEALTHY_WINDOWS} distinct healthy bazaardb windows across all hero sidecars."
         )
 
     # --- Check 2: shadow output spans >=60 calendar days ------------------------

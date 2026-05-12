@@ -193,7 +193,8 @@ jobs:
 
           hero_slug=$(echo "${{ matrix.hero }}" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_//; s/_$//')
           stats_file="stats/${hero_slug}_stats.json"
-          branch="automated/stats-sync-${hero_slug}"
+          run_date=$(date -u +%Y%m%d)
+          branch="automated/stats-sync-${hero_slug}-${run_date}"
 
           if [[ ! -f "$stats_file" ]]; then
             echo "No stats file was written for ${{ matrix.hero }}"
@@ -215,18 +216,15 @@ jobs:
             exit 0
           fi
 
-          git commit -m "automated: persist ${{ matrix.hero }} stats"
-          git push --force-with-lease origin "$branch"
+          git commit -m "automated: persist ${{ matrix.hero }} stats ${run_date}"
+          git push origin "$branch"
 
-          # Open a PR if one isn't already open against this branch (idempotent —
-          # subsequent runs just force-push and the PR auto-updates).
-          if ! gh pr view "$branch" --json state --jq '.state' >/dev/null 2>&1; then
-            gh pr create \
-              --base main \
-              --head "$branch" \
-              --title "automated: persist ${{ matrix.hero }} stats" \
-              --body "Rolling stats sidecar PR opened by the automated builds refresh workflow. The branch is force-pushed each scheduled run; merge or close at curator discretion."
-          fi
+          # Each run creates a fresh dated branch, so always open a new PR.
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "automated: persist ${{ matrix.hero }} stats ${run_date}" \
+            --body "Stats sidecar PR for ${run_date}. Opened automatically by the builds refresh workflow; merge or close at curator discretion."
 
       - name: Upload shadow artifacts
         if: steps.selected.outputs.run == 'true' && (steps.state.outputs.phase != 'live_cron' || steps.state.outputs.dry_run == 'true')

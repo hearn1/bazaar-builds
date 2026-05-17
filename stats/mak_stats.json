@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T08:00:25Z",
+  "generated_at": "2026-05-17T08:18:28Z",
   "hero": "Mak",
   "items": {
     "Altimeter": {
@@ -37,7 +37,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:May 14"
@@ -88,7 +88,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -131,7 +131,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:May 14"
@@ -172,12 +172,12 @@
                 "Night Vision / Chains / Fairy Circle"
               ],
               "evidence_refs": [],
-              "frequency": 0.05,
+              "frequency": 0.04,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:May 14"
@@ -257,7 +257,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -306,7 +306,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 31,
+              "appearances": 32,
               "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
               "archetypes_seen": [
                 "Flying Potion / Boiling Flask / Broken Bottle"
@@ -317,7 +317,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:May 14"
@@ -368,9 +368,9 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 6,
+              "rank": 8,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W20"
             }
@@ -449,7 +449,7 @@
                   "start": "2026-04-29"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -498,20 +498,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 4,
+              "appearances": 5,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.11,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 11,
+              "rank": 12,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -667,12 +667,12 @@
                 "Zarlic / Spice Rack / Instant Noodles"
               ],
               "evidence_refs": [],
-              "frequency": 0.07,
+              "frequency": 0.06,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:May 14"
@@ -724,18 +724,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 7,
+              "appearances": 9,
               "archetype": "Zarlic / Spice Rack / Instant Noodles",
               "archetypes_seen": [
                 "Zarlic / Spice Rack / Instant Noodles"
               ],
               "evidence_refs": [],
-              "frequency": 0.09,
+              "frequency": 0.11,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:May 14"
@@ -994,7 +994,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 7,
+              "appearances": 8,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -1005,9 +1005,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 12,
+              "rank": 13,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -1057,25 +1057,54 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 14,
+              "appearances": 17,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
               ],
               "evidence_refs": [],
-              "frequency": 0.16,
+              "frequency": 0.18,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 9,
+              "rank": 8,
               "window_id": "bazaardb:May 14"
             }
           ],
           "windows_observed": 3,
           "windows_seen": 3
+        }
+      }
+    },
+    "Beach Ball": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:May 14",
+          "last_seen_window": "bazaardb:May 14",
+          "per_window": [
+            {
+              "appearances": 4,
+              "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
+              "archetypes_seen": [
+                "Zoarcid / Yeti Crab / Elemental Depth Charge"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-17T08:17:57Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:May 14"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -1131,7 +1160,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:May 14"
@@ -1194,9 +1223,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 12,
+              "rank": 11,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -1311,14 +1340,14 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 6,
+              "rank": 7,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -1565,7 +1594,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -1624,12 +1653,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.14,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:May 14"
@@ -1680,7 +1709,7 @@
                   "start": "2026-05-02"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -1706,9 +1735,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 14,
+              "rank": 15,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -1889,7 +1918,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -1942,7 +1971,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 10,
+              "appearances": 11,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
@@ -1953,7 +1982,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:May 14"
@@ -2004,7 +2033,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -2055,7 +2084,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 72,
+              "appearances": 74,
               "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
               "archetypes_seen": [
                 "Flying Potion / Boiling Flask / Broken Bottle"
@@ -2066,10 +2095,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 72,
+              "sample_count": 74,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -2226,7 +2255,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 64,
+              "appearances": 72,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -2237,10 +2266,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 64,
+              "sample_count": 72,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -2292,7 +2321,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 72,
+              "appearances": 74,
               "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
               "archetypes_seen": [
                 "Flying Potion / Boiling Flask / Broken Bottle"
@@ -2303,10 +2332,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 72,
+              "sample_count": 74,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -2413,7 +2442,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -2506,7 +2535,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:May 14"
@@ -2557,7 +2586,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -2740,18 +2769,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 13,
+              "appearances": 14,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.27,
+              "frequency": 0.25,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:May 14"
@@ -2802,7 +2831,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -2857,7 +2886,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 121,
+              "appearances": 134,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
@@ -2868,10 +2897,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 121,
+              "sample_count": 134,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -2904,20 +2933,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 5,
+              "appearances": 6,
               "archetype": "Narwhal / Piranha / Tortuga",
               "archetypes_seen": [
                 "Narwhal / Piranha / Tortuga"
               ],
               "evidence_refs": [],
-              "frequency": 0.08,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 14,
+              "rank": 13,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -2956,12 +2985,12 @@
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.14,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:May 14"
@@ -2996,7 +3025,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 8,
+              "appearances": 9,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -3007,9 +3036,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 2,
+              "rank": 4,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -3116,7 +3145,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -3158,14 +3187,14 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.08,
+              "frequency": 0.07,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 7,
+              "rank": 8,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -3215,18 +3244,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 20,
+              "appearances": 21,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.41,
+              "frequency": 0.39,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:May 14"
@@ -3278,7 +3307,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 12,
+              "appearances": 13,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
@@ -3289,9 +3318,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 5,
+              "rank": 4,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -3307,20 +3336,20 @@
           "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
-              "appearances": 4,
+              "appearances": 5,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
               ],
               "evidence_refs": [],
-              "frequency": 0.06,
+              "frequency": 0.07,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 13,
+              "rank": 15,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -3405,12 +3434,12 @@
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
               ],
               "evidence_refs": [],
-              "frequency": 0.19,
+              "frequency": 0.18,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:May 14"
@@ -3462,20 +3491,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 8,
+              "appearances": 11,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
               ],
               "evidence_refs": [],
-              "frequency": 0.13,
+              "frequency": 0.15,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 14,
+              "rank": 10,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -3575,7 +3604,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 49,
+              "appearances": 54,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
@@ -3586,10 +3615,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 49,
+              "sample_count": 54,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -3638,7 +3667,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -3698,9 +3727,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 7,
+              "rank": 5,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -3749,7 +3778,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -3781,7 +3810,7 @@
               "window_id": "bazaardb:May 7"
             },
             {
-              "appearances": 42,
+              "appearances": 46,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -3792,10 +3821,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 42,
+              "sample_count": 46,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -3976,7 +4005,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -3995,7 +4024,7 @@
           "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
-              "appearances": 42,
+              "appearances": 46,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -4006,10 +4035,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
-              "sample_count": 42,
+              "sample_count": 46,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -4252,7 +4281,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -4305,7 +4334,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 11,
+              "appearances": 12,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
@@ -4316,7 +4345,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:May 14"
@@ -4370,7 +4399,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 121,
+              "appearances": 134,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
@@ -4381,10 +4410,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 121,
+              "sample_count": 134,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -4436,7 +4465,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 64,
+              "appearances": 72,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -4447,10 +4476,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
-              "sample_count": 64,
+              "sample_count": 72,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -4506,14 +4535,14 @@
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.14,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 8,
+              "rank": 13,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -4703,7 +4732,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-13T08:40:55Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -4849,14 +4878,14 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.19,
+              "frequency": 0.18,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 3,
+              "rank": 4,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -4906,18 +4935,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 17,
+              "appearances": 19,
               "archetype": "Narwhal / Piranha / Tortuga",
               "archetypes_seen": [
                 "Narwhal / Piranha / Tortuga"
               ],
               "evidence_refs": [],
-              "frequency": 0.27,
+              "frequency": 0.29,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:May 14"
@@ -4968,7 +4997,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -5024,12 +5053,12 @@
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.19,
+              "frequency": 0.17,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:May 14"
@@ -5187,7 +5216,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 89,
+              "appearances": 93,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
@@ -5198,10 +5227,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 89,
+              "sample_count": 93,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -5251,18 +5280,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 58,
+              "appearances": 62,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
               ],
               "evidence_refs": [],
-              "frequency": 0.48,
+              "frequency": 0.46,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:May 14"
@@ -5320,12 +5349,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.14,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:May 14"
@@ -5440,9 +5469,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 6,
+              "rank": 7,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -5492,18 +5521,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 19,
+              "appearances": 22,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.39,
+              "frequency": 0.4,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:May 14"
@@ -5554,7 +5583,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -5800,7 +5829,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -5882,7 +5911,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 7,
+              "appearances": 8,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -5893,7 +5922,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:May 14"
@@ -5944,9 +5973,9 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 7,
+              "rank": 10,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W20"
             }
@@ -5997,20 +6026,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 9,
+              "appearances": 11,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.17,
+              "frequency": 0.2,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 4,
+              "rank": 3,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -6431,7 +6460,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -6490,12 +6519,12 @@
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
               ],
               "evidence_refs": [],
-              "frequency": 0.24,
+              "frequency": 0.23,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14"
@@ -6582,12 +6611,12 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.15,
+              "frequency": 0.14,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14"
@@ -6639,7 +6668,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 9,
+              "appearances": 10,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
@@ -6650,7 +6679,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:May 14"
@@ -6742,7 +6771,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:May 14"
@@ -6777,20 +6806,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 7,
+              "appearances": 10,
               "archetype": "Zarlic / Spice Rack / Instant Noodles",
               "archetypes_seen": [
                 "Zarlic / Spice Rack / Instant Noodles"
               ],
               "evidence_refs": [],
-              "frequency": 0.09,
+              "frequency": 0.12,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 4,
+              "rank": 2,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -7211,7 +7240,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -7264,18 +7293,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 62,
+              "appearances": 73,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
               ],
               "evidence_refs": [],
-              "frequency": 0.51,
+              "frequency": 0.54,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:May 14"
@@ -7327,18 +7356,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 6,
+              "appearances": 9,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
               ],
               "evidence_refs": [],
-              "frequency": 0.07,
+              "frequency": 0.1,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:May 14"
@@ -7421,7 +7450,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 89,
+              "appearances": 93,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
@@ -7432,10 +7461,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
-              "sample_count": 89,
+              "sample_count": 93,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -7485,20 +7514,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 11,
+              "appearances": 12,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
               ],
               "evidence_refs": [],
-              "frequency": 0.12,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 11,
+              "rank": 9,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -7547,7 +7576,7 @@
                   "start": "2026-05-02"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -7600,18 +7629,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 4,
+              "appearances": 5,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.08,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:May 14"
@@ -7669,12 +7698,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.29,
+              "frequency": 0.25,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:May 14"
@@ -7732,14 +7761,14 @@
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.12,
+              "frequency": 0.11,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 10,
+              "rank": 11,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -8177,7 +8206,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -8229,7 +8258,7 @@
                   "start": "2026-04-29"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -8282,18 +8311,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 15,
+              "appearances": 16,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.31,
+              "frequency": 0.3,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:May 14"
@@ -8419,7 +8448,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -8468,20 +8497,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 13,
+              "appearances": 14,
               "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
               "archetypes_seen": [
                 "Flying Potion / Boiling Flask / Broken Bottle"
               ],
               "evidence_refs": [],
-              "frequency": 0.18,
+              "frequency": 0.19,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 8,
+              "rank": 7,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -8560,18 +8589,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 19,
+              "appearances": 20,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.39,
+              "frequency": 0.36,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:May 14"
@@ -8623,20 +8652,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 6,
+              "appearances": 8,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.12,
+              "frequency": 0.15,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 14,
+              "rank": 8,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -8825,7 +8854,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:May 14"
@@ -8941,7 +8970,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 7,
+              "appearances": 8,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -8952,9 +8981,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 9,
+              "rank": 7,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -9061,7 +9090,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -9076,7 +9105,7 @@
           "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
-              "appearances": 42,
+              "appearances": 46,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -9087,10 +9116,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 42,
+              "sample_count": 46,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -9271,7 +9300,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -9342,14 +9371,14 @@
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.08,
+              "frequency": 0.07,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 13,
+              "rank": 12,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -9405,12 +9434,12 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.06,
+              "frequency": 0.05,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:May 14"
@@ -9445,7 +9474,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 5,
+              "appearances": 6,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -9456,9 +9485,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 10,
+              "rank": 9,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -9507,7 +9536,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -9532,14 +9561,14 @@
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 9,
+              "rank": 10,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -9637,7 +9666,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 49,
+              "appearances": 55,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
@@ -9648,10 +9677,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 49,
+              "sample_count": 55,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -9753,7 +9782,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 89,
+              "appearances": 93,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
@@ -9764,10 +9793,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 89,
+              "sample_count": 93,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -9796,9 +9825,9 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 8,
+              "rank": 9,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W20"
             }
@@ -9889,7 +9918,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:May 14"
@@ -9947,14 +9976,14 @@
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.14,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 9,
+              "rank": 11,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -10006,7 +10035,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 121,
+              "appearances": 134,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
@@ -10017,10 +10046,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
-              "sample_count": 121,
+              "sample_count": 134,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -10134,12 +10163,12 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.15,
+              "frequency": 0.14,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:May 14"
@@ -10192,7 +10221,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 52,
+              "appearances": 56,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
@@ -10203,10 +10232,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 52,
+              "sample_count": 56,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -10258,7 +10287,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 52,
+              "appearances": 56,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
@@ -10269,10 +10298,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 52,
+              "sample_count": 56,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -10380,20 +10409,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 7,
+              "appearances": 9,
               "archetype": "Zarlic / Spice Rack / Instant Noodles",
               "archetypes_seen": [
                 "Zarlic / Spice Rack / Instant Noodles"
               ],
               "evidence_refs": [],
-              "frequency": 0.09,
+              "frequency": 0.11,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 13,
+              "rank": 12,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -10444,7 +10473,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 64,
+              "appearances": 72,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -10455,10 +10484,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 64,
+              "sample_count": 72,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -10471,7 +10500,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:May 7",
+          "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
               "appearances": 2,
@@ -10489,10 +10518,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:May 7"
+            },
+            {
+              "appearances": 5,
+              "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
+              "archetypes_seen": [
+                "Zoarcid / Yeti Crab / Elemental Depth Charge"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-17T08:17:57Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:May 14"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -10565,7 +10611,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -10580,20 +10626,20 @@
           "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
-              "appearances": 3,
+              "appearances": 4,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.07,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 13,
+              "rank": 14,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -10654,7 +10700,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14"
@@ -10718,18 +10764,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 7,
+              "appearances": 8,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.13,
+              "frequency": 0.14,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:May 14"
@@ -10782,7 +10828,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 64,
+              "appearances": 66,
               "archetype": "Narwhal / Piranha / Tortuga",
               "archetypes_seen": [
                 "Narwhal / Piranha / Tortuga"
@@ -10793,10 +10839,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 64,
+              "sample_count": 66,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -11043,7 +11089,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -11096,18 +11142,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 6,
+              "appearances": 7,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
               ],
               "evidence_refs": [],
-              "frequency": 0.07,
+              "frequency": 0.08,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:May 14"
@@ -11159,18 +11205,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 5,
+              "appearances": 6,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.11,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:May 14"
@@ -11639,7 +11685,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -11691,9 +11737,9 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 9,
+              "rank": 7,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W20"
             }
@@ -11843,9 +11889,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 15,
+              "rank": 14,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -11901,12 +11947,12 @@
                 "Narwhal / Piranha / Tortuga"
               ],
               "evidence_refs": [],
-              "frequency": 0.19,
+              "frequency": 0.18,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:May 14"
@@ -11994,9 +12040,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 5,
+              "rank": 6,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -12045,7 +12091,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -12098,25 +12144,54 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 3,
+              "appearances": 5,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.06,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 8,
+              "rank": 6,
               "window_id": "bazaardb:May 14"
             }
           ],
           "windows_observed": 3,
           "windows_seen": 3
+        }
+      }
+    },
+    "Red Lantern": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:May 14",
+          "last_seen_window": "bazaardb:May 14",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.02,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-17T08:17:57Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:May 14"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -12160,7 +12235,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -12219,12 +12294,12 @@
                 "Flying Potion / Boiling Flask / Broken Bottle"
               ],
               "evidence_refs": [],
-              "frequency": 0.13,
+              "frequency": 0.12,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:May 14"
@@ -12282,14 +12357,14 @@
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.16,
+              "frequency": 0.15,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 6,
+              "rank": 5,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -12546,18 +12621,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 24,
+              "appearances": 26,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
               ],
               "evidence_refs": [],
-              "frequency": 0.27,
+              "frequency": 0.28,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:May 14"
@@ -13022,7 +13097,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -13082,9 +13157,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 7,
+              "rank": 8,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -13501,7 +13576,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -13553,7 +13628,7 @@
                   "start": "2026-04-29"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -13608,12 +13683,12 @@
                 "Flying Potion / Boiling Flask / Broken Bottle"
               ],
               "evidence_refs": [],
-              "frequency": 0.24,
+              "frequency": 0.23,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:May 14"
@@ -13664,7 +13739,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -13685,14 +13760,14 @@
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 12,
+              "rank": 13,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -13777,14 +13852,14 @@
                 "Zarlic / Spice Rack / Instant Noodles"
               ],
               "evidence_refs": [],
-              "frequency": 0.12,
+              "frequency": 0.11,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 12,
+              "rank": 13,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -13840,12 +13915,12 @@
                 "Narwhal / Piranha / Tortuga"
               ],
               "evidence_refs": [],
-              "frequency": 0.19,
+              "frequency": 0.18,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:May 14"
@@ -13906,7 +13981,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (May 12)",
+          "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
               "appearances": 4,
@@ -13941,10 +14016,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (May 12)"
+            },
+            {
+              "appearances": 5,
+              "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
+              "archetypes_seen": [
+                "Flying Potion / Boiling Flask / Broken Bottle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-17T08:17:57Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:May 14"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -13989,18 +14081,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 8,
+              "appearances": 10,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.16,
+              "frequency": 0.18,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:May 14"
@@ -14041,14 +14133,14 @@
                 "Farmer's Market / Bread Knife / Pasta"
               ],
               "evidence_refs": [],
-              "frequency": 0.08,
+              "frequency": 0.07,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 15,
+              "rank": 14,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -14109,7 +14201,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:May 14"
@@ -14167,12 +14259,12 @@
                 "Narwhal / Piranha / Tortuga"
               ],
               "evidence_refs": [],
-              "frequency": 0.22,
+              "frequency": 0.21,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:May 14"
@@ -14190,20 +14282,20 @@
           "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
-              "appearances": 4,
+              "appearances": 5,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.08,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 15,
+              "rank": 14,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -14252,7 +14344,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -14301,18 +14393,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 7,
+              "appearances": 8,
               "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
               "archetypes_seen": [
                 "Flying Potion / Boiling Flask / Broken Bottle"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.11,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14"
@@ -14370,12 +14462,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.06,
+              "frequency": 0.05,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:May 14"
@@ -14429,7 +14521,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 52,
+              "appearances": 56,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
@@ -14440,10 +14532,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
-              "sample_count": 52,
+              "sample_count": 56,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -14470,9 +14562,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 14,
+              "rank": 15,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -14528,14 +14620,14 @@
                 "Flying Potion / Boiling Flask / Broken Bottle"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 11,
+              "rank": 10,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -14585,18 +14677,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 11,
+              "appearances": 13,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.22,
+              "frequency": 0.24,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:May 14"
@@ -14620,12 +14712,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.08,
+              "frequency": 0.07,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:May 14"
@@ -14643,7 +14735,7 @@
           "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
-              "appearances": 14,
+              "appearances": 15,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -14654,7 +14746,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:May 14"
@@ -14947,7 +15039,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -15031,7 +15123,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 49,
+              "appearances": 55,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
@@ -15042,10 +15134,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 49,
+              "sample_count": 55,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -15090,20 +15182,20 @@
           "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
-              "appearances": 9,
+              "appearances": 11,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.21,
+              "frequency": 0.24,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 8,
+              "rank": 9,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -15394,7 +15486,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -15446,9 +15538,9 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 9,
+              "rank": 6,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W20"
             }
@@ -15496,18 +15588,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 32,
+              "appearances": 35,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.62,
+              "frequency": 0.63,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:May 14"
@@ -15559,18 +15651,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 6,
+              "appearances": 7,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.12,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:May 14"
@@ -15622,7 +15714,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 18,
+              "appearances": 19,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
@@ -15633,7 +15725,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:May 14"
@@ -15720,12 +15812,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.37,
+              "frequency": 0.33,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:May 14"
@@ -15817,7 +15909,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:May 14"
@@ -15869,20 +15961,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 5,
+              "appearances": 7,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 11,
+              "rank": 9,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -15938,12 +16030,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.14,
+              "frequency": 0.13,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14"
@@ -15994,7 +16086,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -16049,12 +16141,12 @@
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.17,
+              "frequency": 0.15,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:May 14"
@@ -16119,18 +16211,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 3,
+              "appearances": 4,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.06,
+              "frequency": 0.07,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:May 14"
@@ -16188,12 +16280,12 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.06,
+              "frequency": 0.05,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:May 14"
@@ -16251,12 +16343,12 @@
                 "Night Vision / Chains / Fairy Circle"
               ],
               "evidence_refs": [],
-              "frequency": 0.07,
+              "frequency": 0.06,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:May 14"
@@ -16303,18 +16395,18 @@
           "last_seen_window": "bazaardb:May 14",
           "per_window": [
             {
-              "appearances": 6,
+              "appearances": 7,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.14,
+              "frequency": 0.15,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:May 14"
@@ -16497,7 +16589,7 @@
                 },
                 "hero": "Mak"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -16549,7 +16641,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -16656,7 +16748,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 64,
+              "appearances": 66,
               "archetype": "Narwhal / Piranha / Tortuga",
               "archetypes_seen": [
                 "Narwhal / Piranha / Tortuga"
@@ -16667,10 +16759,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
-              "sample_count": 64,
+              "sample_count": 66,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -16720,7 +16812,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 9,
+              "appearances": 10,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -16731,9 +16823,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 5,
+              "rank": 3,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -16846,7 +16938,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:May 14"
@@ -16967,9 +17059,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 13,
+              "rank": 14,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -17019,20 +17111,20 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 13,
+              "appearances": 14,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
               ],
               "evidence_refs": [],
-              "frequency": 0.2,
+              "frequency": 0.19,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 7,
+              "rank": 6,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -17081,7 +17173,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -17115,6 +17207,35 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (May 12)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Wand": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:May 14",
+          "last_seen_window": "bazaardb:May 14",
+          "per_window": [
+            {
+              "appearances": 3,
+              "archetype": "Excavation Tools / Eternal Torch / Library",
+              "archetypes_seen": [
+                "Excavation Tools / Eternal Torch / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-17T08:17:57Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:May 14"
             }
           ],
           "windows_observed": 1,
@@ -17204,7 +17325,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:May 14"
@@ -17256,18 +17377,18 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 41,
+              "appearances": 42,
               "archetype": "Night Vision / Chains / Fairy Circle",
               "archetypes_seen": [
                 "Night Vision / Chains / Fairy Circle"
               ],
               "evidence_refs": [],
-              "frequency": 0.34,
+              "frequency": 0.31,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14"
@@ -17330,7 +17451,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:May 14"
@@ -17428,12 +17549,12 @@
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
               ],
               "evidence_refs": [],
-              "frequency": 0.07,
+              "frequency": 0.06,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:May 14"
@@ -17485,7 +17606,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 15,
+              "appearances": 16,
               "archetype": "Hunting Hawk / Messenger Sparrow / Flying Squirrel",
               "archetypes_seen": [
                 "Hunting Hawk / Messenger Sparrow / Flying Squirrel"
@@ -17496,9 +17617,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
-              "rank": 8,
+              "rank": 12,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -17596,7 +17717,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 49,
+              "appearances": 54,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
@@ -17607,10 +17728,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 2,
-              "sample_count": 49,
+              "sample_count": 54,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -17692,7 +17813,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 49,
+              "appearances": 55,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
@@ -17703,10 +17824,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
-              "sample_count": 49,
+              "sample_count": 55,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -17758,7 +17879,7 @@
               "window_id": "bazaardb:14.1 (May 12)"
             },
             {
-              "appearances": 49,
+              "appearances": 54,
               "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
               "archetypes_seen": [
                 "Zoarcid / Yeti Crab / Elemental Depth Charge"
@@ -17769,10 +17890,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-16T07:59:46Z",
+              "observed_at": "2026-05-17T08:17:57Z",
               "present": true,
               "rank": 1,
-              "sample_count": 49,
+              "sample_count": 54,
               "window_id": "bazaardb:May 14"
             }
           ],
@@ -17801,7 +17922,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-16T07:59:46Z",
+        "observed_at": "2026-05-17T08:17:57Z",
         "window_id": "bazaar_builds_net:2026-W20"
       }
     ],
@@ -17821,7 +17942,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-16T07:59:46Z",
+        "observed_at": "2026-05-17T08:17:57Z",
         "window_id": "bazaardb:May 14"
       }
     ],
@@ -17831,7 +17952,7 @@
           "no_article_slugs_configured"
         ],
         "health_status": "skipped",
-        "observed_at": "2026-05-16T07:59:46Z",
+        "observed_at": "2026-05-17T08:17:57Z",
         "window_id": "mobalytics_build_articles:skipped"
       }
     ],
@@ -17851,7 +17972,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-16T07:59:46Z",
+        "observed_at": "2026-05-17T08:17:57Z",
         "window_id": "mobalytics_meta_builds:v555"
       }
     ]

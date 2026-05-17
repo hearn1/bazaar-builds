@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import json
 
-from automated_builds_pipeline.diff import generate_diff, main
+from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
+from automated_builds_pipeline.diff import build_arg_parser, generate_diff, main
 from automated_builds_pipeline.evaluator import EvaluationResult
 from automated_builds_pipeline.llm import ItemClassification
 
@@ -259,6 +260,49 @@ def test_window_id_falls_back_to_run_id_when_no_healthy_useful_windows_remain():
     diff = generate_diff("Karnok", result, {"items": []}, StaticClassifier([]), mock_mode=True)
 
     assert diff["window_id"] == "run-fallback"
+
+
+def test_arg_parser_accepts_deterministic_mode():
+    parser = build_arg_parser()
+    ns = parser.parse_args(
+        [
+            "--hero", "Karnok",
+            "--evaluation", "e.json",
+            "--catalog", "c.json",
+            "--names-file", "n.txt",
+            "--output-dir", "out",
+            "--classifier-mode", "deterministic",
+        ]
+    )
+    assert ns.classifier_mode == "deterministic"
+
+
+def test_deterministic_mode_classifies_into_core_and_support():
+    carry_row = add_row("Pylon", archetype="Pylon Build")
+    carry_row["windows_seen"] = 1
+    core_row = add_row("Sidekick", archetype="Pylon Build")
+    core_row["windows_seen"] = 3
+
+    classifier = DeterministicClassifier()
+    classifier.known_items = {"Pylon", "Sidekick"}
+
+    diff = generate_diff(
+        "Karnok",
+        evaluation([carry_row, core_row]),
+        {"items": []},
+        classifier,
+        classifier_mode="deterministic",
+    )
+
+    assert diff["classification_mode"] == "deterministic"
+    assert diff["semantic_classification"] is True
+    assert diff["llm_provider"] == "deterministic"
+
+    addition = diff["proposed_changes"]["archetype_additions"][0]
+    core_items = {item["item"] for item in addition["candidate_core"]}
+    assert core_items == {"Pylon", "Sidekick"}
+    assert addition["candidate_support"] == []
+    assert "candidate_pending" not in addition
 
 
 def test_cli_smoke_mock_writes_diff_and_proposal(tmp_path):

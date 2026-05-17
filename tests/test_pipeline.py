@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 
 from automated_builds_pipeline import pipeline
+from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.evaluator import EvaluationResult
 from automated_builds_pipeline.sources.base import SourceFetchResult
 from automated_builds_pipeline.stats import (
@@ -495,7 +496,7 @@ def test_workflow_persists_stats_only_for_shadow_and_live_phases():
     assert "steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron'" in text
     assert "mock_llm:" in text
     assert "mock_llm_args+=(--mock-llm)" in text
-    assert 'classifier_mode="no_llm_shadow"' in text
+    assert 'classifier_mode="deterministic"' in text
     assert '--classifier-mode "$classifier_mode"' in text
 
 
@@ -647,6 +648,61 @@ def test_live_cron_dry_run_suppresses_pr(monkeypatch, tmp_path):
     assert result.pr_invoked is False
     assert pr_calls == []
     assert (tmp_path / "artifacts" / "Karnok_diff.json").exists()
+
+
+def test_shadow_cron_deterministic_wires_classifier_and_records_started_once(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "shadow_cron")
+    tracker = make_tracker(tmp_path)
+    stats_dir = tmp_path / "stats"
+    patch_fetchers(
+        monkeypatch,
+        bazaardb_results=[source_result("bazaardb"), source_result("bazaardb")],
+    )
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    monkeypatch.setattr(
+        pipeline, "LLMClassifier", lambda *args, **kwargs: pytest.fail("should not create LLM classifier")
+    )
+    diff_calls = []
+
+    def fake_generate_diff(hero, evaluation, catalog, classifier, *, classifier_mode):
+        diff_calls.append({"classifier": classifier, "classifier_mode": classifier_mode})
+        return minimal_diff_payload()
+
+    monkeypatch.setattr(pipeline.diff, "generate_diff", fake_generate_diff)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=stats_dir,
+        output_dir=tmp_path / "artifacts",
+        classifier_mode="deterministic",
+        pr_action=lambda *args: None,
+    )
+
+    assert isinstance(diff_calls[0]["classifier"], DeterministicClassifier)
+    assert diff_calls[0]["classifier_mode"] == "deterministic"
+    stats_after_first = load_stats("Karnok", stats_dir)
+    assert stats_after_first.last_classifier_mode == "deterministic"
+    assert stats_after_first.classifier_started_at is not None
+    first_started = stats_after_first.classifier_started_at
+
+    # A second run must not overwrite classifier_started_at (set once).
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=stats_dir,
+        output_dir=tmp_path / "artifacts",
+        classifier_mode="deterministic",
+        pr_action=lambda *args: None,
+    )
+
+    stats_after_second = load_stats("Karnok", stats_dir)
+    assert stats_after_second.classifier_started_at == first_started
+    assert stats_after_second.last_classifier_mode == "deterministic"
 
 
 def test_freeze_state_is_passed_to_evaluator(monkeypatch, tmp_path):

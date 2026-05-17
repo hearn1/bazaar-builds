@@ -20,8 +20,16 @@ from automated_builds_pipeline.pr_comment import render_pr_comment
 from automated_builds_pipeline.proposal import render_proposal
 from automated_builds_pipeline.sources import bazaar_builds_net, bazaardb, mobalytics
 from automated_builds_pipeline.sources.base import HEALTHY, SKIPPED, FetchOptions, SourceFetchResult
+from automated_builds_pipeline.readiness import REAL_CLASSIFIER_MODES
 from automated_builds_pipeline.state import CuratorState, load_state
-from automated_builds_pipeline.stats import HeroStats, WindowObservation, append_window, load_stats, save_stats
+from automated_builds_pipeline.stats import (
+    HeroStats,
+    WindowObservation,
+    _utc_now,
+    append_window,
+    load_stats,
+    save_stats,
+)
 
 LOGGER = logging.getLogger(__name__)
 SOURCE_BAZAARDB = "bazaardb"
@@ -29,7 +37,7 @@ SOURCE_MOBALYTICS_META = "mobalytics_meta_builds"
 SOURCE_MOBALYTICS_ARTICLES = "mobalytics_build_articles"
 SOURCE_BAZAAR_BUILDS_NET = "bazaar_builds_net"
 LIVE_PHASE = "live_cron"
-ClassifierMode = Literal["llm", "mock", "no_llm_shadow"]
+ClassifierMode = Literal["llm", "mock", "no_llm_shadow", "deterministic"]
 
 
 @dataclass(frozen=True)
@@ -77,6 +85,10 @@ def run(
     catalog_items = load_catalog_items(catalog_path)
     evaluation = evaluate_hero(hero, catalog_items, stats, current_run, state)
 
+    stats.last_classifier_mode = classifier_mode
+    if classifier_mode in REAL_CLASSIFIER_MODES and stats.classifier_started_at is None:
+        stats.classifier_started_at = _utc_now()
+
     if state.phase != "local_dry_run":
         for source, result in source_results.items():
             append_window(stats, source, result.observation)
@@ -86,6 +98,11 @@ def run(
     classifier = None
     if classifier_mode == "llm":
         classifier = LLMClassifier(DEFAULT_MODEL, known_items_path=_names_file(tracker_repo), api_key_env=api_key_env)
+        classifier.known_items.update(diff._all_catalog_names(catalog))
+    elif classifier_mode == "deterministic":
+        from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
+
+        classifier = DeterministicClassifier(known_items_path=_names_file(tracker_repo))
         classifier.known_items.update(diff._all_catalog_names(catalog))
     diff_json = diff.generate_diff(hero, evaluation, catalog, classifier, classifier_mode=classifier_mode)
 
@@ -202,7 +219,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--api-key-env", default="CLAUDE_API_KEY")
     run_parser.add_argument("--bazaardb-retries", type=int, default=2)
     run_parser.add_argument("--no-bazaardb", action="store_true")
-    run_parser.add_argument("--classifier-mode", choices=("llm", "mock", "no_llm_shadow"), default="llm")
+    run_parser.add_argument(
+        "--classifier-mode",
+        choices=("llm", "mock", "no_llm_shadow", "deterministic"),
+        default="llm",
+    )
     run_parser.add_argument("--mock-llm", action="store_true")
     return parser
 

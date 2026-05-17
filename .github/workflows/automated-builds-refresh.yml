@@ -41,7 +41,7 @@ on:
         default: false
         type: boolean
       classifier_mode:
-        description: "Classifier strategy: llm or no_llm_shadow. Scheduled shadow_cron defaults to no_llm_shadow."
+        description: "Classifier strategy: llm, deterministic, or no_llm_shadow. Scheduled shadow_cron defaults to deterministic."
         required: false
         default: ""
         type: string
@@ -164,7 +164,7 @@ jobs:
           classifier_mode="${{ inputs.classifier_mode }}"
           if [[ -z "$classifier_mode" ]]; then
             if [[ "${{ steps.state.outputs.phase }}" == "shadow_cron" ]]; then
-              classifier_mode="no_llm_shadow"
+              classifier_mode="deterministic"
             else
               classifier_mode="llm"
             fi

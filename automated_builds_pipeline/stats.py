@@ -286,6 +286,8 @@ class HeroStats:
     hero: str
     schema_version: int = SCHEMA_VERSION
     generated_at: Optional[str] = None
+    last_classifier_mode: Optional[str] = None
+    classifier_started_at: Optional[str] = None
     retention_windows: dict[str, Optional[int]] = field(
         default_factory=lambda: dict(DEFAULT_RETENTION_WINDOWS)
     )
@@ -309,7 +311,7 @@ class HeroStats:
         return rows[-1].window_id if rows else None
 
     def to_dict(self) -> dict[str, Any]:
-        return {
+        data: dict[str, Any] = {
             "schema_version": self.schema_version,
             "hero": self.hero,
             "generated_at": self.generated_at or _utc_now(),
@@ -327,6 +329,11 @@ class HeroStats:
                 for item, history in sorted(self.items.items())
             },
         }
+        if self.last_classifier_mode is not None:
+            data["last_classifier_mode"] = self.last_classifier_mode
+        if self.classifier_started_at is not None:
+            data["classifier_started_at"] = self.classifier_started_at
+        return data
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "HeroStats":
@@ -369,6 +376,8 @@ class HeroStats:
             hero=hero,
             schema_version=version,
             generated_at=_optional_str(data, "generated_at"),
+            last_classifier_mode=_optional_str(data, "last_classifier_mode"),
+            classifier_started_at=_optional_str(data, "classifier_started_at"),
             retention_windows=retention,
             source_windows=source_windows,
             items=items,

@@ -38,8 +38,11 @@ from automated_builds_pipeline.stats import HeroStats, StatsError
 
 MIN_HEALTHY_WINDOWS = 2
 MIN_SHADOW_DAYS = 60
+MIN_CLASSIFIED_DAYS = 7
 MALFORMED_LOOKBACK_DAYS = 14
 BAZAARDB_SOURCE = "bazaardb"
+# Single shared definition; also imported by pipeline.py.
+REAL_CLASSIFIER_MODES = frozenset({"llm", "deterministic"})
 _UNHEALTHY_STATUSES = frozenset({"unhealthy", "error", "skipped"})
 _BAD_WINDOW_SUFFIXES = (":skipped", ":unknown")
 
@@ -103,31 +106,51 @@ def evaluate_readiness(
             f"Shadow runs must accumulate at least {MIN_HEALTHY_WINDOWS} distinct healthy bazaardb windows across all hero sidecars."
         )
 
-    # --- Check 2: shadow output spans >=60 calendar days ------------------------
+    # --- Classifier readiness (Gate 3) — computed first; Gate 2 depends on it ---
+    classifier_ready, waiver_found = _check_classifier_readiness(sidecars, waiver_dir)
+    classifier_started_at = _min_classifier_started_at(sidecars)
+
+    # --- Check 2: classified-output / shadow-output span ------------------------
     shadow_days: Optional[float] = None
     if oldest_observed_at is not None:
-        delta = now - oldest_observed_at
-        shadow_days = delta.total_seconds() / 86400.0
-        if shadow_days < MIN_SHADOW_DAYS:
-            blockers.append(
-                f"Shadow output spans only {shadow_days:.1f} days; {MIN_SHADOW_DAYS} required. "
-                f"Oldest healthy bazaardb window observed at {oldest_observed_at.isoformat()}."
-            )
+        shadow_days = (now - oldest_observed_at).total_seconds() / 86400.0
     else:
-        # No healthy windows at all — covered by check 1, but add a shadow_days note
+        # No healthy windows at all — covered by check 1, but record a span note.
         shadow_days = 0.0
         if healthy_count >= MIN_HEALTHY_WINDOWS:
             # This shouldn't happen (healthy windows require a valid observed_at),
             # but be defensive.
             warnings.append("Could not determine oldest shadow timestamp despite healthy windows.")
 
+    classified_days: Optional[float] = None
+    if classifier_ready and classifier_started_at is not None:
+        # A real classifier has run: only MIN_CLASSIFIED_DAYS of *classifier-produced*
+        # output is required, measured from the durable classifier_started_at signal.
+        effective_min_shadow_days = MIN_CLASSIFIED_DAYS
+        classified_days = (now - classifier_started_at).total_seconds() / 86400.0
+        if classified_days < MIN_CLASSIFIED_DAYS:
+            blockers.append(
+                f"Classifier-produced output spans only {classified_days:.1f} days; "
+                f"{MIN_CLASSIFIED_DAYS} required. First classified run at "
+                f"{classifier_started_at.isoformat()}."
+            )
+    else:
+        # No real classifier (or a waiver only) — the full 60-day shadow
+        # requirement still applies. A waiver does NOT shorten this gate.
+        effective_min_shadow_days = MIN_SHADOW_DAYS
+        if shadow_days < MIN_SHADOW_DAYS:
+            blockers.append(
+                f"Shadow output spans only {shadow_days:.1f} days; {MIN_SHADOW_DAYS} required "
+                f"(no classifier deployed)."
+            )
+
     # --- Check 3: classifier/provider readiness or explicit waiver ---------------
-    classifier_ready, waiver_found = _check_classifier_readiness(sidecars, waiver_dir)
     if not classifier_ready and not waiver_found:
         blockers.append(
             "Semantic classifier not ready and no classifier waiver found. "
-            "Either confirm semantic_classification=true in a recent diff sidecar, "
-            "or place a waivers/classifier_waiver_*.md file to record the explicit decision."
+            "Either confirm a real classifier ran (last_classifier_mode in a hero "
+            "sidecar), or place a waivers/classifier_waiver_*.md file to record the "
+            "explicit decision."
         )
 
     # --- Check 4: no malformed-shadow run in last 14 days ------------------------
@@ -147,6 +170,11 @@ def evaluate_readiness(
         "phase": current_phase,
         "healthy_bazaardb_windows": healthy_count,
         "shadow_days": round(shadow_days, 1) if shadow_days is not None else None,
+        "effective_min_shadow_days": effective_min_shadow_days,
+        "classified_days": round(classified_days, 1) if classified_days is not None else None,
+        "classifier_started_at": (
+            classifier_started_at.isoformat() if classifier_started_at is not None else None
+        ),
         "classifier_ready": classifier_ready,
         "waiver_found": waiver_found,
         "malformed_recent_count": len(malformed_recent),
@@ -244,24 +272,44 @@ def _check_classifier_readiness(
 ) -> tuple[bool, bool]:
     """Return (classifier_ready, waiver_found).
 
-    classifier_ready is True if any sidecar's source_windows metadata hints at
-    semantic classification having been used.  Because the stats sidecar schema
-    (v1) does not store a top-level semantic_classification flag, we rely on the
-    waiver path as the primary signal in shadow_cron, and treat classifier_ready
-    as False until a future sidecar schema version adds it.
+    classifier_ready is True if any hero sidecar's most recent run used a real
+    classifier (``last_classifier_mode`` in :data:`REAL_CLASSIFIER_MODES`). A
+    later ``no_llm_shadow`` run flips ``last_classifier_mode`` back, correctly
+    re-blocking Gate 3.
 
     waiver_found is True if *waiver_dir* contains at least one
     ``classifier_waiver_*.md`` file.
     """
-    # Stats sidecar v1 has no top-level semantic_classification flag.
-    # classifier_ready remains False until the sidecar schema exposes it.
-    classifier_ready = False
+    classifier_ready = any(
+        s.last_classifier_mode in REAL_CLASSIFIER_MODES for s in sidecars
+    )
 
     waiver_found = False
     if waiver_dir is not None and waiver_dir.is_dir():
         waiver_found = any(waiver_dir.glob("classifier_waiver_*.md"))
 
     return classifier_ready, waiver_found
+
+
+def _min_classifier_started_at(sidecars: list[HeroStats]) -> Optional[datetime]:
+    """Return the earliest ``classifier_started_at`` across sidecars, or None.
+
+    This is the durable classified-span anchor: it is written once on the first
+    real-classifier run and never overwritten, so it survives a later regression
+    to ``no_llm_shadow``.
+    """
+    oldest: Optional[datetime] = None
+    for sidecar in sidecars:
+        raw = sidecar.classifier_started_at
+        if not raw:
+            continue
+        try:
+            ts = _parse_iso(raw)
+        except ValueError:
+            continue
+        if oldest is None or ts < oldest:
+            oldest = ts
+    return oldest
 
 
 def _read_current_phase(state_path: Path) -> Optional[str]:
@@ -356,10 +404,7 @@ def _print_human(report: ReadinessReport) -> None:
             f"Healthy bazaardb windows: {report.summary.get('healthy_bazaardb_windows', 0)}/{MIN_HEALTHY_WINDOWS}",
             report.summary.get("healthy_bazaardb_windows", 0) >= MIN_HEALTHY_WINDOWS,
         ),
-        (
-            f"Shadow output span: {report.summary.get('shadow_days', 0):.1f}/{MIN_SHADOW_DAYS} days",
-            (report.summary.get("shadow_days") or 0) >= MIN_SHADOW_DAYS,
-        ),
+        _span_check(report.summary),
         (
             f"Classifier ready: {report.summary.get('classifier_ready')} | "
             f"Waiver found: {report.summary.get('waiver_found')}",
@@ -389,8 +434,27 @@ def _print_human(report: ReadinessReport) -> None:
     s = report.summary
     print(
         f"Summary: phase={s.get('phase')} windows={s.get('healthy_bazaardb_windows')} "
-        f"shadow_days={s.get('shadow_days')} classifier_ready={s.get('classifier_ready')} "
-        f"waiver={s.get('waiver_found')}"
+        f"shadow_days={s.get('shadow_days')} classified_days={s.get('classified_days')} "
+        f"effective_min_days={s.get('effective_min_shadow_days')} "
+        f"classifier_started_at={s.get('classifier_started_at')} "
+        f"classifier_ready={s.get('classifier_ready')} waiver={s.get('waiver_found')}"
+    )
+
+
+def _span_check(summary: dict[str, Any]) -> tuple[str, bool]:
+    """Render the Gate-2 span check line using the effective threshold."""
+    effective = summary.get("effective_min_shadow_days", MIN_SHADOW_DAYS)
+    classified = summary.get("classified_days")
+    if classified is not None:
+        return (
+            f"Classified output span: {classified:.1f}/{effective} days "
+            f"(classifier active)",
+            classified >= effective,
+        )
+    shadow = summary.get("shadow_days") or 0
+    return (
+        f"Shadow output span: {shadow:.1f}/{effective} days (no classifier)",
+        shadow >= effective,
     )
 
 

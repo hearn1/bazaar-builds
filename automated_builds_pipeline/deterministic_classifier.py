@@ -11,6 +11,7 @@ import re
 from pathlib import Path
 from typing import Any, Optional
 
+from automated_builds_pipeline.known_items import load_known_items_file
 from automated_builds_pipeline.llm import ItemClassification, _surface_for
 
 CARRY_SUFFIX_RE = re.compile(r"\s+(build|builds|run|deck)s?\s*$", re.IGNORECASE)
@@ -23,13 +24,7 @@ class DeterministicClassifier:
     known_items: set[str]
 
     def __init__(self, known_items_path: Optional[Path] = None) -> None:
-        self.known_items = set()
-        if known_items_path and known_items_path.exists():
-            self.known_items = {
-                ln.strip()
-                for ln in known_items_path.read_text(encoding="utf-8").splitlines()
-                if ln.strip()
-            }
+        self.known_items = load_known_items_file(known_items_path)
 
     def classify_archetype(
         self,

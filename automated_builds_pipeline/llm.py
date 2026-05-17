@@ -15,6 +15,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Optional
 
+from automated_builds_pipeline.known_items import catalog_item_names, load_known_items_file
+
 DEFAULT_MODEL = "claude-sonnet-4-6"
 PROMPT_DIR = Path(__file__).resolve().parents[1] / "llm_prompts"
 VALID_CLASSIFICATIONS = {"carry", "core", "support", "invalid"}
@@ -165,11 +167,9 @@ class LLMClassifier:
 
 
 def load_known_items(known_items_path: Path, catalog: Optional[dict[str, Any]] = None) -> set[str]:
-    names: set[str] = set()
-    if known_items_path.exists():
-        names.update(line.strip() for line in known_items_path.read_text(encoding="utf-8").splitlines() if line.strip())
+    names = load_known_items_file(known_items_path)
     if catalog:
-        names.update(_catalog_item_names(catalog))
+        names.update(catalog_item_names(catalog))
     return names
 
 
@@ -238,38 +238,3 @@ def _surface_for(classification: str, confidence: str) -> str:
     if confidence == "medium":
         return "weaker_signal"
     return "top_line"
-
-
-def _catalog_item_names(catalog: dict[str, Any]) -> set[str]:
-    names: set[str] = set()
-
-    game_phases = catalog.get("game_phases")
-    if isinstance(game_phases, dict):
-        for phase_data in game_phases.values():
-            if not isinstance(phase_data, dict):
-                continue
-            for archetype in phase_data.get("archetypes", []) or []:
-                if not isinstance(archetype, dict):
-                    continue
-                for bucket in ("carry_items", "core_items", "support_items", "condition_items"):
-                    raw_bucket = archetype.get(bucket, [])
-                    if isinstance(raw_bucket, list):
-                        names.update(str(item) for item in raw_bucket if item)
-            for bucket in ("universal_utility_items", "economy_items"):
-                raw_bucket = phase_data.get(bucket, [])
-                if isinstance(raw_bucket, list):
-                    names.update(str(item) for item in raw_bucket if item)
-
-    raw_items = catalog.get("items", [])
-    if isinstance(raw_items, list):
-        for item in raw_items:
-            if isinstance(item, dict) and isinstance(item.get("item"), str):
-                names.add(item["item"])
-    for entry in catalog.get("archetypes", []) or []:
-        if not isinstance(entry, dict):
-            continue
-        for bucket in ("carry_items", "core_items", "support_items", "condition_items"):
-            raw_bucket = entry.get(bucket, [])
-            if isinstance(raw_bucket, list):
-                names.update(str(item) for item in raw_bucket)
-    return names

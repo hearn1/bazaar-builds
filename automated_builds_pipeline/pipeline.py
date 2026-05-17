@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import re
 import subprocess
 import tempfile
@@ -13,7 +14,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Literal, Optional
 
-from automated_builds_pipeline import diff
+from automated_builds_pipeline import applier, diff
 from automated_builds_pipeline.evaluator import load_catalog_items, evaluate_hero
 from automated_builds_pipeline.llm import DEFAULT_MODEL, LLMClassifier
 from automated_builds_pipeline.pr_comment import render_pr_comment
@@ -126,14 +127,14 @@ def run(
         if _empty_diff(diff_json):
             LOGGER.info("empty diff")
             return PipelineResult(state.phase, diff_path, proposal_path, empty_diff=True)
-        action = pr_action or update_tracker_pr
+        action = pr_action or apply_catalog_pr
         action(hero, tracker_repo, proposal_path, diff_json, diff_path, stats)
         return PipelineResult(state.phase, diff_path, proposal_path, pr_invoked=True)
 
     raise ValueError(f"unsupported phase: {state.phase}")
 
 
-def update_tracker_pr(
+def apply_catalog_pr(
     hero: str,
     tracker_repo: Path,
     proposal_path: Path,
@@ -141,23 +142,40 @@ def update_tracker_pr(
     diff_path: Path,
     stats: HeroStats,
 ) -> None:
-    branch = f"pipeline/{hero}"
-    proposal_dir = tracker_repo / "automated_builds_proposals"
-    proposal_dir.mkdir(parents=True, exist_ok=True)
-    target_diff = proposal_dir / diff_path.name
-    target_proposal = proposal_dir / proposal_path.name
-    target_diff.write_text(json.dumps(diff_json, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    target_proposal.write_text(proposal_path.read_text(encoding="utf-8"), encoding="utf-8")
+    """Apply additive proposed_changes to the real <hero>_builds.json and open a
+    PR whose only file diff is that single catalog file.
 
+    Evidence rides as PR body (proposal markdown) + a supporting-evidence comment;
+    no proposal/diff sidecar files are committed to the coach repo.
+    """
+    catalog_path = _catalog_path(hero, tracker_repo)
+    schema = json.loads(_schema_path(tracker_repo).read_text(encoding="utf-8"))
+    catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+
+    # Fail closed: never touch a catalog we do not understand or that is already
+    # invalid against the coach schema.
+    applier.ensure_supported_schema_version(catalog)
+    applier.validate_catalog(catalog, schema)
+
+    result = applier.apply_proposed_changes(catalog, diff_json)
+
+    # Fail closed: never write/commit/PR an invalid catalog. Aborts before any
+    # git mutation.
+    applier.validate_catalog(result.catalog, schema)
+
+    serialized = applier.serialize_catalog(result.catalog)
+    _atomic_write(catalog_path, serialized)
+
+    branch = f"pipeline/{hero}"
     _git(tracker_repo, "checkout", "-B", branch)
-    _git(tracker_repo, "add", str(target_diff.relative_to(tracker_repo)), str(target_proposal.relative_to(tracker_repo)))
+    _git(tracker_repo, "add", str(catalog_path.relative_to(tracker_repo)))
     if _git(tracker_repo, "diff", "--cached", "--quiet", check=False).returncode == 0:
-        LOGGER.info("empty diff")
+        LOGGER.info("catalog unchanged; no-op")
         return
-    _git(tracker_repo, "commit", "-m", f"automated: {hero} proposal {_window_id(diff_json)}")
+    _git(tracker_repo, "commit", "-m", f"automated: {hero} catalog {_window_id(diff_json)}")
     _git(tracker_repo, "push", "--force", "origin", branch)
 
-    title = f"[automated-builds] {hero} proposal"
+    title = f"[automated-builds] {hero} catalog"
     existing = subprocess.run(
         ["gh", "pr", "view", branch, "--json", "number"],
         cwd=tracker_repo,
@@ -167,13 +185,13 @@ def update_tracker_pr(
     )
     if existing.returncode == 0:
         subprocess.run(
-            ["gh", "pr", "edit", branch, "--title", title, "--body-file", str(target_proposal)],
+            ["gh", "pr", "edit", branch, "--title", title, "--body-file", str(proposal_path)],
             cwd=tracker_repo,
             check=True,
         )
     else:
         subprocess.run(
-            ["gh", "pr", "create", "--head", branch, "--title", title, "--body-file", str(target_proposal)],
+            ["gh", "pr", "create", "--head", branch, "--title", title, "--body-file", str(proposal_path)],
             cwd=tracker_repo,
             check=True,
         )
@@ -312,6 +330,22 @@ def _catalog_path(hero: str, tracker_repo: Path) -> Path:
 
 def _names_file(tracker_repo: Path) -> Path:
     return tracker_repo / "card_cache_names.txt"
+
+
+def _schema_path(tracker_repo: Path) -> Path:
+    return tracker_repo / "builds_schema.json"
+
+
+def _atomic_write(path: Path, text: str) -> None:
+    fd, tmp_name = tempfile.mkstemp(dir=str(path.parent), prefix=path.name, suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="") as handle:
+            handle.write(text)
+        os.replace(tmp_name, path)
+    except BaseException:
+        if os.path.exists(tmp_name):
+            os.unlink(tmp_name)
+        raise
 
 
 def _bazaar_builds_category_url(hero: str) -> str:

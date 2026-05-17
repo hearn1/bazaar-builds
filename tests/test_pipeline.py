@@ -46,11 +46,115 @@ def write_state(path: Path, phase: str, **overrides) -> None:
     path.write_text(json.dumps(payload), encoding="utf-8")
 
 
+BUILDS_SCHEMA = {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "schema_version",
+        "hero",
+        "season",
+        "last_updated",
+        "notes",
+        "item_tier_list",
+        "game_phases",
+    ],
+    "additionalProperties": True,
+    "properties": {
+        "schema_version": {"type": "integer", "minimum": 1},
+        "hero": {"type": "string", "minLength": 1},
+        "season": {"oneOf": [{"type": "integer"}, {"type": "string"}]},
+        "last_updated": {"type": "string"},
+        "notes": {"type": "string"},
+        "item_tier_list": {"type": "object", "additionalProperties": True},
+        "game_phases": {
+            "type": "object",
+            "required": ["early", "early_mid", "late"],
+            "additionalProperties": True,
+            "properties": {
+                "early": {"$ref": "#/definitions/early_phase"},
+                "early_mid": {"$ref": "#/definitions/archetype_phase"},
+                "late": {"$ref": "#/definitions/archetype_phase"},
+            },
+        },
+    },
+    "definitions": {
+        "early_phase": {
+            "type": "object",
+            "required": ["day_range", "description", "universal_utility_items", "economy_items"],
+            "additionalProperties": True,
+            "properties": {
+                "day_range": {"type": "string"},
+                "description": {"type": "string"},
+                "universal_utility_items": {"type": "array", "items": {"type": "string"}},
+                "economy_items": {"type": "array", "items": {"type": "string"}},
+            },
+        },
+        "archetype_phase": {
+            "type": "object",
+            "required": ["day_range", "description", "archetypes"],
+            "additionalProperties": True,
+            "properties": {
+                "day_range": {"type": "string"},
+                "description": {"type": "string"},
+                "archetypes": {"type": "array", "items": {"$ref": "#/definitions/archetype"}},
+            },
+        },
+        "archetype": {
+            "type": "object",
+            "required": ["name", "carry_items", "support_items"],
+            "additionalProperties": True,
+            "properties": {
+                "name": {"type": "string", "minLength": 1},
+                "core_items": {"type": "array", "items": {"type": "string"}},
+                "carry_items": {"type": "array", "items": {"type": "string"}},
+                "support_items": {"type": "array", "items": {"type": "string"}},
+                "timing_profile": {
+                    "type": "string",
+                    "enum": ["tempo", "scaling", "exodia", "neutral"],
+                },
+            },
+        },
+    },
+}
+
+
+def base_catalog() -> dict:
+    return {
+        "schema_version": 1,
+        "hero": "Karnok",
+        "season": 13,
+        "last_updated": "2026-05-05",
+        "notes": "test catalog",
+        "item_tier_list": {"description": "test"},
+        "game_phases": {
+            "early": {
+                "day_range": "Day 1-4",
+                "description": "early",
+                "universal_utility_items": [],
+                "economy_items": [],
+            },
+            "early_mid": {
+                "day_range": "Day 4-7",
+                "description": "early_mid",
+                "archetypes": [
+                    {"name": "Axe", "carry_items": ["Battle Axe"], "support_items": []}
+                ],
+            },
+            "late": {
+                "day_range": "Day 7-13",
+                "description": "late",
+                "archetypes": [],
+            },
+        },
+    }
+
+
 def make_tracker(tmp_path: Path) -> Path:
     tracker = tmp_path / "tracker"
     tracker.mkdir()
     (tracker / "card_cache_names.txt").write_text("Pufferfish\n", encoding="utf-8")
-    (tracker / "karnok_builds.json").write_text(json.dumps({"items": []}), encoding="utf-8")
+    (tracker / "builds_schema.json").write_text(json.dumps(BUILDS_SCHEMA), encoding="utf-8")
+    (tracker / "karnok_builds.json").write_text(json.dumps(base_catalog()), encoding="utf-8")
     return tracker
 
 
@@ -723,3 +827,153 @@ def test_freeze_state_is_passed_to_evaluator(monkeypatch, tmp_path):
     )
 
     assert captured["state"].freeze_status("Karnok").active is True
+
+
+def semantic_update_diff() -> dict:
+    return {
+        "schema_version": 1,
+        "hero": "Karnok",
+        "semantic_classification": True,
+        "window_id": "w1",
+        "source_window": {},
+        "freeze_state": {"removals_frozen": False, "patch_label": None},
+        "source_health": [],
+        "proposed_changes": {
+            "archetype_updates": [
+                {
+                    "phase": "early_mid",
+                    "archetype": "Axe",
+                    "missing_items": [
+                        {"item": "Sawpike", "llm_classification": "carry"}
+                    ],
+                }
+            ],
+            "archetype_additions": [],
+            "archetype_removal_candidates": [],
+            "item_removal_candidates": [],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+
+def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_update_diff())
+    git_calls = []
+    run_calls = []
+
+    def fake_git(repo, *args, check=True):
+        git_calls.append(args)
+        return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        if args[:3] == ["gh", "pr", "view"]:
+            return subprocess_result(returncode=1)  # PR does not exist yet
+        return subprocess_result(returncode=0)
+
+    comment_calls = []
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
+
+    result = pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert result.pr_invoked is True
+    # Only the single catalog file is staged.
+    add_calls = [a for a in git_calls if a and a[0] == "add"]
+    assert add_calls == [("add", "karnok_builds.json")]
+    # Catalog was actually mutated additively.
+    catalog_after = json.loads((tracker / "karnok_builds.json").read_text(encoding="utf-8"))
+    axe = catalog_after["game_phases"]["early_mid"]["archetypes"][0]
+    assert axe["carry_items"] == ["Battle Axe", "Sawpike"]
+    # No sidecar evidence files committed to the coach repo.
+    assert not (tracker / "automated_builds_proposals").exists()
+    # PR body is the proposal markdown artifact, not a committed sidecar.
+    proposal_path = str(tmp_path / "artifacts" / "Karnok_build_update_proposal.md")
+    gh_create = next(a for a in run_calls if a[:3] == ["gh", "pr", "create"])
+    assert "--body-file" in gh_create
+    assert gh_create[gh_create.index("--body-file") + 1] == proposal_path
+    assert all("automated_builds_proposals" not in str(part) for a in run_calls for part in a)
+    assert len(comment_calls) == 1
+    assert comment_calls[0][4] == "pipeline/Karnok"
+
+
+def test_apply_catalog_pr_idempotent_noop_skips_commit_and_pr(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_update_diff())
+    git_calls = []
+    run_calls = []
+
+    def fake_git(repo, *args, check=True):
+        git_calls.append(args)
+        # Simulate "no staged changes" -> catalog already matches.
+        return subprocess_result(returncode=0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        return subprocess_result(returncode=0)
+
+    comment_calls = []
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
+
+    result = pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert result.pr_invoked is True  # action was invoked
+    assert not any(a and a[0] in {"commit", "push"} for a in git_calls)
+    assert run_calls == []  # no gh pr view/create/edit
+    assert comment_calls == []
+
+
+@pytest.mark.parametrize("phase,overrides", [
+    ("local_dry_run", {}),
+    ("shadow_cron", {}),
+    ("live_cron", {"dry_run": True}),
+])
+def test_non_live_phases_do_not_mutate_catalog(monkeypatch, tmp_path, phase, overrides):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, phase, **overrides)
+    tracker = make_tracker(tmp_path)
+    before = (tracker / "karnok_builds.json").read_bytes()
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_update_diff())
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+        classifier_mode="deterministic" if phase == "shadow_cron" else "llm",
+        pr_action=lambda *args: None,
+    )
+
+    assert (tracker / "karnok_builds.json").read_bytes() == before

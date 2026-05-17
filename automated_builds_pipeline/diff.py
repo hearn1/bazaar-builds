@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any, Literal, Optional, Protocol
 
 from automated_builds_pipeline.evaluator import EvaluationResult
+from automated_builds_pipeline.known_items import catalog_item_names
 from automated_builds_pipeline.llm import DEFAULT_MODEL, ItemClassification, LLMClassifier
 from automated_builds_pipeline.proposal import render_proposal
 
@@ -442,6 +443,7 @@ def _all_catalog_names(catalog: dict[str, Any]) -> set[str]:
     for buckets in _catalog_index(catalog).values():
         for bucket in buckets.values():
             names.update(bucket)
+    names.update(catalog_item_names(catalog))
     return names
 
 

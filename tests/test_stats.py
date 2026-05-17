@@ -171,6 +171,47 @@ def test_per_source_append_does_not_mutate_other_source_history():
     assert stats.item_history("Hunting Knife", "bazaardb")[0].present is False
 
 
+def test_classifier_fields_round_trip_when_set(tmp_path):
+    stats = HeroStats(hero="Karnok")
+    stats.last_classifier_mode = "deterministic"
+    stats.classifier_started_at = "2026-05-10T00:00:00Z"
+
+    save_stats(stats, tmp_path)
+    loaded = load_stats("Karnok", tmp_path)
+
+    assert loaded.last_classifier_mode == "deterministic"
+    assert loaded.classifier_started_at == "2026-05-10T00:00:00Z"
+
+
+def test_classifier_fields_omitted_when_unset(tmp_path):
+    serialized = HeroStats(hero="Karnok").to_dict()
+
+    assert "last_classifier_mode" not in serialized
+    assert "classifier_started_at" not in serialized
+
+
+def test_old_sidecar_without_classifier_fields_loads_as_none(tmp_path):
+    path = stats_path("Karnok", tmp_path)
+    path.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "hero": "Karnok",
+                "generated_at": "2026-05-05T12:00:00Z",
+                "retention_windows": {},
+                "source_windows": {},
+                "items": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    loaded = load_stats("Karnok", tmp_path)
+
+    assert loaded.last_classifier_mode is None
+    assert loaded.classifier_started_at is None
+
+
 def test_refuses_to_load_higher_schema_version(tmp_path):
     path = stats_path("Karnok", tmp_path)
     path.write_text(

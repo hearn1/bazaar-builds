@@ -7,13 +7,28 @@ import json
 from dataclasses import fields
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Literal, Optional
+from typing import Any, Literal, Optional, Protocol
 
 from automated_builds_pipeline.evaluator import EvaluationResult
 from automated_builds_pipeline.llm import DEFAULT_MODEL, ItemClassification, LLMClassifier
 from automated_builds_pipeline.proposal import render_proposal
 
-ClassifierMode = Literal["llm", "mock", "no_llm_shadow"]
+ClassifierMode = Literal["llm", "mock", "no_llm_shadow", "deterministic"]
+
+
+class Classifier(Protocol):
+    def classify_archetype(
+        self,
+        hero: str,
+        phase: Optional[str],
+        archetype: Optional[str],
+        existing_buckets: dict[str, list[str]],
+        candidate_items: list[dict[str, Any]],
+        evidence_summary: dict[str, Any],
+        mobalytics_description: Optional[str],
+    ) -> list[ItemClassification]: ...
+
+
 NO_LLM_CLASSIFICATION_MODE = "no_llm_shadow"
 NO_LLM_PROVIDER = "none"
 NO_LLM_CLASSIFICATION = "classification_pending"
@@ -27,7 +42,7 @@ def generate_diff(
     hero: str,
     evaluation: EvaluationResult,
     catalog: dict[str, Any],
-    classifier: Optional[LLMClassifier],
+    classifier: Optional[Classifier],
     *,
     mock_mode: bool = False,
     classifier_mode: ClassifierMode = "llm",
@@ -127,8 +142,14 @@ def generate_diff(
         "schema_version": 1,
         "hero": hero,
         "classification_mode": artifact_mode,
-        "semantic_classification": artifact_mode == "llm",
-        "llm_provider": "anthropic" if artifact_mode == "llm" else NO_LLM_PROVIDER,
+        "semantic_classification": artifact_mode in ("llm", "deterministic"),
+        "llm_provider": (
+            "anthropic"
+            if artifact_mode == "llm"
+            else "deterministic"
+            if artifact_mode == "deterministic"
+            else NO_LLM_PROVIDER
+        ),
         "generated_at": _now_iso(),
         "window_id": _window_id(evaluation),
         "source_window": _source_window(evaluation),
@@ -162,7 +183,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--names-file", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--mock", action="store_true")
-    parser.add_argument("--classifier-mode", choices=("llm", "mock", "no_llm_shadow"), default="llm")
+    parser.add_argument(
+        "--classifier-mode",
+        choices=("llm", "mock", "no_llm_shadow", "deterministic"),
+        default="llm",
+    )
     parser.add_argument("--api-key-env", default="CLAUDE_API_KEY")
     return parser
 
@@ -191,7 +216,7 @@ def _classify_group(
     archetype: Optional[str],
     existing_buckets: dict[str, list[str]],
     rows: list[dict[str, Any]],
-    classifier: Optional[LLMClassifier],
+    classifier: Optional[Classifier],
     classifier_mode: ClassifierMode,
 ) -> list[ItemClassification]:
     if classifier_mode == "mock":

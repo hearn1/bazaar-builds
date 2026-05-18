@@ -3,8 +3,14 @@
 Evaluates whether the pipeline meets the criteria for live_cron promotion:
   - At least N=2 healthy bazaardb patch windows across all hero sidecars
   - Shadow output spans >=14 calendar days (oldest sidecar observed_at -> now)
-  - Deterministic classifier readiness or a waiver file
+  - Deterministic classifier readiness or a classifier waiver file
   - No malformed-shadow run in the last 14 days
+
+Gate 1 and Gate 2 can be bypassed only by an explicit operator promotion
+waiver file named ``live_cron_promotion_waiver_*.md``. The waiver is reported
+in the readiness summary and warnings so promotion is auditable rather than a
+silent threshold change. The promotion waiver does not bypass classifier
+readiness or recent malformed/unhealthy source runs.
 
 "Healthy" bazaardb window predicate
 -------------------------------------
@@ -46,6 +52,8 @@ MALFORMED_LOOKBACK_DAYS = 14
 BAZAARDB_SOURCE = "bazaardb"
 # Single shared definition; also imported by pipeline.py.
 REAL_CLASSIFIER_MODES = frozenset({"deterministic"})
+CLASSIFIER_WAIVER_PATTERN = "classifier_waiver_*.md"
+PROMOTION_WAIVER_PATTERN = "live_cron_promotion_waiver_*.md"
 _UNHEALTHY_STATUSES = frozenset({"unhealthy", "error", "skipped"})
 _BAD_WINDOW_SUFFIXES = (":skipped", ":unknown", ":nopatch")
 
@@ -95,6 +103,8 @@ def evaluate_readiness(
 
     blockers: list[str] = []
     warnings: list[str] = []
+    promotion_waiver_found = _check_promotion_waiver(waiver_dir)
+    waived_gates: list[str] = []
 
     # --- Load all sidecars -------------------------------------------------------
     sidecars = _load_all_sidecars(stats_dir)
@@ -108,11 +118,18 @@ def evaluate_readiness(
     healthy_count = max(windows_by_hero_counts.values(), default=0)
 
     if healthy_count < MIN_HEALTHY_WINDOWS:
-        blockers.append(
-            f"Insufficient healthy bazaardb patch windows: best hero has "
-            f"{healthy_count}/{MIN_HEALTHY_WINDOWS} required. No single hero sidecar "
-            f"has at least {MIN_HEALTHY_WINDOWS} distinct healthy bazaardb patch windows."
-        )
+        if promotion_waiver_found:
+            waived_gates.append("gate1_bazaardb_patch_windows")
+            warnings.append(
+                f"Gate 1 waived by {PROMOTION_WAIVER_PATTERN}: best hero has "
+                f"{healthy_count}/{MIN_HEALTHY_WINDOWS} healthy bazaardb patch windows."
+            )
+        else:
+            blockers.append(
+                f"Insufficient healthy bazaardb patch windows: best hero has "
+                f"{healthy_count}/{MIN_HEALTHY_WINDOWS} required. No single hero sidecar "
+                f"has at least {MIN_HEALTHY_WINDOWS} distinct healthy bazaardb patch windows."
+            )
 
     # --- Classifier readiness (Gate 3) — computed first; Gate 2 depends on it ---
     classifier_ready, waiver_found = _check_classifier_readiness(sidecars, waiver_dir)
@@ -137,20 +154,35 @@ def evaluate_readiness(
         effective_min_shadow_days = MIN_CLASSIFIED_DAYS
         classified_days = (now - classifier_started_at).total_seconds() / 86400.0
         if classified_days < MIN_CLASSIFIED_DAYS:
-            blockers.append(
-                f"Classifier-produced output spans only {classified_days:.1f} days; "
-                f"{MIN_CLASSIFIED_DAYS} required. First classified run at "
-                f"{classifier_started_at.isoformat()}."
-            )
+            if promotion_waiver_found:
+                waived_gates.append("gate2_classified_output_span")
+                warnings.append(
+                    f"Gate 2 waived by {PROMOTION_WAIVER_PATTERN}: classifier-produced "
+                    f"output spans {classified_days:.1f}/{MIN_CLASSIFIED_DAYS} days. "
+                    f"First classified run at {classifier_started_at.isoformat()}."
+                )
+            else:
+                blockers.append(
+                    f"Classifier-produced output spans only {classified_days:.1f} days; "
+                    f"{MIN_CLASSIFIED_DAYS} required. First classified run at "
+                    f"{classifier_started_at.isoformat()}."
+                )
     else:
         # No real classifier (or a waiver only) — the full 14-day shadow
         # requirement still applies. A waiver does NOT shorten this gate.
         effective_min_shadow_days = MIN_SHADOW_DAYS
         if shadow_days < MIN_SHADOW_DAYS:
-            blockers.append(
-                f"Shadow output spans only {shadow_days:.1f} days; {MIN_SHADOW_DAYS} required "
-                f"(no classifier deployed)."
-            )
+            if promotion_waiver_found:
+                waived_gates.append("gate2_shadow_output_span")
+                warnings.append(
+                    f"Gate 2 waived by {PROMOTION_WAIVER_PATTERN}: shadow output spans "
+                    f"{shadow_days:.1f}/{MIN_SHADOW_DAYS} days with no classifier deployed."
+                )
+            else:
+                blockers.append(
+                    f"Shadow output spans only {shadow_days:.1f} days; {MIN_SHADOW_DAYS} required "
+                    f"(no classifier deployed)."
+                )
 
     # --- Check 3: deterministic classifier readiness or explicit waiver ----------
     if not classifier_ready and not waiver_found:
@@ -186,6 +218,8 @@ def evaluate_readiness(
         ),
         "classifier_ready": classifier_ready,
         "waiver_found": waiver_found,
+        "promotion_waiver_found": promotion_waiver_found,
+        "waived_gates": waived_gates,
         "malformed_recent_count": len(malformed_recent),
     }
 
@@ -301,9 +335,16 @@ def _check_classifier_readiness(
 
     waiver_found = False
     if waiver_dir is not None and waiver_dir.is_dir():
-        waiver_found = any(waiver_dir.glob("classifier_waiver_*.md"))
+        waiver_found = any(waiver_dir.glob(CLASSIFIER_WAIVER_PATTERN))
 
     return classifier_ready, waiver_found
+
+
+def _check_promotion_waiver(waiver_dir: Optional[Path]) -> bool:
+    """Return True when an explicit Gate 1/Gate 2 promotion waiver exists."""
+    if waiver_dir is None or not waiver_dir.is_dir():
+        return False
+    return any(waiver_dir.glob(PROMOTION_WAIVER_PATTERN))
 
 
 def _min_classifier_started_at(sidecars: list[HeroStats]) -> Optional[datetime]:
@@ -417,7 +458,8 @@ def _print_human(report: ReadinessReport) -> None:
     checks = [
         (
             f"Healthy bazaardb windows: {report.summary.get('healthy_bazaardb_windows', 0)}/{MIN_HEALTHY_WINDOWS}",
-            report.summary.get("healthy_bazaardb_windows", 0) >= MIN_HEALTHY_WINDOWS,
+            report.summary.get("healthy_bazaardb_windows", 0) >= MIN_HEALTHY_WINDOWS
+            or "gate1_bazaardb_patch_windows" in report.summary.get("waived_gates", []),
         ),
         _span_check(report.summary),
         (
@@ -432,8 +474,9 @@ def _print_human(report: ReadinessReport) -> None:
         ),
     ]
     for label, ok in checks:
-        mark = "✓" if ok else "✗"
+        mark = "OK" if ok else "FAIL"
         print(f"  {mark} {label}")
+    print(f"  INFO Promotion waiver found: {report.summary.get('promotion_waiver_found')}")
 
     if report.blockers:
         print()
@@ -452,7 +495,9 @@ def _print_human(report: ReadinessReport) -> None:
         f"shadow_days={s.get('shadow_days')} classified_days={s.get('classified_days')} "
         f"effective_min_days={s.get('effective_min_shadow_days')} "
         f"classifier_started_at={s.get('classifier_started_at')} "
-        f"classifier_ready={s.get('classifier_ready')} waiver={s.get('waiver_found')}"
+        f"classifier_ready={s.get('classifier_ready')} waiver={s.get('waiver_found')} "
+        f"promotion_waiver={s.get('promotion_waiver_found')} "
+        f"waived_gates={s.get('waived_gates')}"
     )
 
 
@@ -461,15 +506,17 @@ def _span_check(summary: dict[str, Any]) -> tuple[str, bool]:
     effective = summary.get("effective_min_shadow_days", MIN_SHADOW_DAYS)
     classified = summary.get("classified_days")
     if classified is not None:
+        waived = "gate2_classified_output_span" in summary.get("waived_gates", [])
         return (
             f"Classified output span: {classified:.1f}/{effective} days "
             f"(classifier active)",
-            classified >= effective,
+            classified >= effective or waived,
         )
     shadow = summary.get("shadow_days") or 0
+    waived = "gate2_shadow_output_span" in summary.get("waived_gates", [])
     return (
         f"Shadow output span: {shadow:.1f}/{effective} days (no classifier)",
-        shadow >= effective,
+        shadow >= effective or waived,
     )
 
 

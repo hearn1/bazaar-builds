@@ -35,8 +35,8 @@ on:
           - Dooley
           - Vanessa
           - Pygmalien
-          # Jules/Stelle are on hold per ROADMAP; add them when their
-          # catalog files land in the coach repo.
+          - Jules
+          - Stelle
       phase_override:
         description: "Optional one-run phase override: implementation, local_dry_run, shadow_cron, or live_cron"
         required: false
@@ -57,9 +57,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Jules/Stelle are on hold per ROADMAP; add them to the matrix when
-        # their catalog files land in the coach repo.
-        hero: [Karnok, Mak, Dooley, Vanessa, Pygmalien]
+        hero: [Karnok, Mak, Dooley, Vanessa, Pygmalien, Jules, Stelle]
 
     steps:
       - name: Check selected hero

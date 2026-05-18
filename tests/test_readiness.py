@@ -420,6 +420,70 @@ def test_deterministic_classifier_under_fourteen_days_blocked(tmp_path):
     assert report.summary["classified_days"] < MIN_CLASSIFIED_DAYS
 
 
+def test_live_promotion_waiver_bypasses_gate1_and_gate2(tmp_path):
+    """A promotion waiver is explicit and limited to the launch timing gates."""
+    stats_dir = tmp_path / "stats"
+    stats_dir.mkdir()
+    state_path = _make_state(tmp_path)
+
+    waiver_dir = tmp_path / "waivers"
+    waiver_dir.mkdir()
+    (waiver_dir / "live_cron_promotion_waiver_2026-05-18.md").write_text(
+        "Operator waiver for Gate 1 and Gate 2.\n", encoding="utf-8"
+    )
+
+    two_days_ago = NOW - timedelta(days=2)
+    _make_sidecar(
+        stats_dir,
+        "karnok",
+        [_healthy_window("bazaardb:14.1", _iso(two_days_ago))],
+        last_classifier_mode="deterministic",
+        classifier_started_at=_iso(two_days_ago),
+    )
+
+    report = evaluate_readiness(stats_dir, state_path, waiver_dir=waiver_dir, now=NOW)
+
+    assert report.ready is True, f"Expected promotion waiver to pass, got: {report.blockers}"
+    assert report.blockers == []
+    assert report.summary["promotion_waiver_found"] is True
+    assert report.summary["waived_gates"] == [
+        "gate1_bazaardb_patch_windows",
+        "gate2_classified_output_span",
+    ]
+    assert any("Gate 1 waived" in warning for warning in report.warnings)
+    assert any("Gate 2 waived" in warning for warning in report.warnings)
+
+
+def test_live_promotion_waiver_does_not_bypass_malformed_runs(tmp_path):
+    stats_dir = tmp_path / "stats"
+    stats_dir.mkdir()
+    state_path = _make_state(tmp_path)
+
+    waiver_dir = tmp_path / "waivers"
+    waiver_dir.mkdir()
+    (waiver_dir / "live_cron_promotion_waiver_2026-05-18.md").write_text(
+        "Operator waiver for Gate 1 and Gate 2.\n", encoding="utf-8"
+    )
+
+    two_days_ago = NOW - timedelta(days=2)
+    _make_sidecar(
+        stats_dir,
+        "karnok",
+        [
+            _healthy_window("bazaardb:14.1", _iso(two_days_ago)),
+            _unhealthy_window("bazaardb:bad", _iso(two_days_ago)),
+        ],
+        last_classifier_mode="deterministic",
+        classifier_started_at=_iso(two_days_ago),
+    )
+
+    report = evaluate_readiness(stats_dir, state_path, waiver_dir=waiver_dir, now=NOW)
+
+    assert report.ready is False
+    malformed_blocker = [b for b in report.blockers if "malformed" in b.lower()]
+    assert malformed_blocker, f"Expected malformed blocker, got: {report.blockers}"
+
+
 def test_waiver_only_still_requires_fourteen_days(tmp_path):
     """Regression guard: a waiver satisfies Gate 3 but must NOT shorten Gate 2."""
     stats_dir = tmp_path / "stats"

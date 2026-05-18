@@ -1,9 +1,9 @@
 {
-  "dry_run": true,
+  "dry_run": false,
   "expected_bazaardb_patch_label": null,
   "freeze_removals_until": null,
   "hero_freezes": {},
   "patch_label": null,
-  "phase": "shadow_cron",
+  "phase": "live_cron",
   "schema_version": 1
 }

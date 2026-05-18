@@ -1,6 +1,11 @@
 # Runs the automated builds refresh pipeline and, in live_cron, updates rolling
 # proposal PRs in hearn1/bazaar_coach.
 #
+# Cadence: weekly (Mondays). bazaardb is patch-scoped and readiness Gate 2 is a
+# calendar span, so daily runs add cost/PR churn without speeding promotion. Use
+# the workflow_dispatch trigger below for an on-demand run when a new Bazaar
+# patch drops and you want its window captured before the next Monday.
+#
 # Required secrets:
 # - TRACKER_PR_TOKEN: fine-grained PAT scoped to hearn1/bazaar_coach with
 #   Contents: Read & Write and Pull requests: Read & Write.
@@ -16,7 +21,9 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    # Weekly, Monday 06:00 UTC (one hour before the live-sources smoke).
+    - cron: "0 6 * * 1"
+  # Manual trigger for on-demand "a patch just dropped, run now" refreshes.
   workflow_dispatch:
     inputs:
       hero:
@@ -194,7 +201,9 @@ jobs:
           hero_slug=$(echo "${{ matrix.hero }}" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_//; s/_$//')
           stats_file="stats/${hero_slug}_stats.json"
           run_date=$(date -u +%Y%m%d)
-          branch="automated/stats-sync-${hero_slug}-${run_date}"
+          # One stable rolling branch per hero (force-pushed) so we keep a single
+          # open PR per hero instead of minting a new dated PR every run.
+          branch="automated/stats-sync-${hero_slug}"
 
           if [[ ! -f "$stats_file" ]]; then
             echo "No stats file was written for ${{ matrix.hero }}"
@@ -217,14 +226,21 @@ jobs:
           fi
 
           git commit -m "automated: persist ${{ matrix.hero }} stats ${run_date}"
-          git push origin "$branch"
+          git push --force origin "$branch"
 
-          # Each run creates a fresh dated branch, so always open a new PR.
-          gh pr create \
-            --base main \
-            --head "$branch" \
-            --title "automated: persist ${{ matrix.hero }} stats ${run_date}" \
-            --body "Stats sidecar PR for ${run_date}. Opened automatically by the builds refresh workflow; merge or close at curator discretion."
+          # Reuse the existing OPEN PR if there is one; the force-pushed branch
+          # updates it automatically. Only create a PR when no open one exists
+          # (so a previously merged/closed rolling PR still gets a fresh one).
+          open_pr=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
+          if [[ -n "$open_pr" ]]; then
+            echo "Rolling stats PR #${open_pr} for ${{ matrix.hero }} already open; branch updated."
+          else
+            gh pr create \
+              --base main \
+              --head "$branch" \
+              --title "automated: persist ${{ matrix.hero }} stats" \
+              --body "Rolling stats sidecar PR for ${{ matrix.hero }}. Force-pushed each run by the builds refresh workflow; merge or close at curator discretion."
+          fi
 
       - name: Upload shadow artifacts
         if: steps.selected.outputs.run == 'true' && (steps.state.outputs.phase != 'live_cron' || steps.state.outputs.dry_run == 'true')

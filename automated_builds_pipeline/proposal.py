@@ -35,6 +35,13 @@ def _pipeline_state(lines: list[str], diff: dict[str, Any]) -> None:
         lines.append(
             "- Warning: deterministic/no-LLM shadow output is operational observation evidence only; it does not validate semantic catalog acceptance."
         )
+    invalid_names = _invalid_llm_item_count(diff)
+    if invalid_names:
+        lines.append(
+            f"- Warning: {invalid_names} item name(s) were dropped as invalid_llm_item; "
+            f"the coach card_cache_names.txt may be stale (regenerate via "
+            f"tracker.py refresh-images)."
+        )
     health = diff.get("source_health", [])
     if health:
         lines.append("")
@@ -43,6 +50,24 @@ def _pipeline_state(lines: list[str], diff: dict[str, Any]) -> None:
         for row in health:
             lines.append(f"| {row.get('source', '')} | {row.get('status', '')} | {row.get('window_id', '')} |")
     lines.append("")
+
+
+def _invalid_llm_item_count(diff: dict[str, Any]) -> int:
+    """Count items dropped as ``invalid_llm_item`` in the diff noise.
+
+    Counts individual rows plus any ``{"summary": true, "count": N}`` rollups so
+    the stale-name signal survives diff noise summarization.
+    """
+    total = 0
+    for row in diff.get("noise", []):
+        if not isinstance(row, dict) or row.get("reason") != "invalid_llm_item":
+            continue
+        if row.get("summary"):
+            count = row.get("count", 0)
+            total += count if isinstance(count, int) else 0
+        else:
+            total += 1
+    return total
 
 
 def _archetype_updates(lines: list[str], diff: dict[str, Any]) -> None:

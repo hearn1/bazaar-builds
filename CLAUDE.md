@@ -17,13 +17,15 @@ python -m pytest -q tests
 
 Current local verification: 119 tests passing. Use `python -m pytest -q tests`; a bare repo-root pytest can collect generated `artifacts/` directories and fail before the tracked suite runs.
 
-Fetch evidence for a hero:
+Fetch evidence for a hero. The GitHub repo is `hearn1/bazaar_coach`, but the
+local working checkout in use is the sibling directory `..\bazaar_tracker`;
+point `--catalog-dir`/`--names-file`/`--tracker-repo` at that local path:
 
 ```powershell
 python bazaar_build_enricher.py https://bazaar-builds.net/category/builds/karnok-builds/ `
   --hero Karnok --days 30 --fetch-posts `
-  --catalog-dir ..\bazaar_coach `
-  --names-file ..\bazaar_coach\card_cache_names.txt `
+  --catalog-dir ..\bazaar_tracker `
+  --names-file ..\bazaar_tracker\card_cache_names.txt `
   --output artifacts\karnok_bazaar_builds_summary.json
 ```
 
@@ -32,7 +34,7 @@ Compare an artifact against a coach catalog:
 ```powershell
 python bazaar_build_enricher.py compare `
   artifacts\karnok_bazaar_builds_summary.json `
-  ..\bazaar_coach\karnok_builds.json `
+  ..\bazaar_tracker\karnok_builds.json `
   --output artifacts\karnok_build_update_proposal.md
 ```
 
@@ -42,7 +44,7 @@ Run the automated pipeline locally:
 python -m automated_builds_pipeline.pipeline run `
   --hero Karnok `
   --state-file pipeline_state.json `
-  --tracker-repo C:\Users\Matt\Desktop\bazaar_coach `
+  --tracker-repo ..\bazaar_tracker `
   --stats-dir .\stats `
   --output-dir .\artifacts `
   --classifier-mode no_llm_shadow

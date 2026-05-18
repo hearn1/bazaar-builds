@@ -1,0 +1,34 @@
+# Deletes a rolling stats-sync branch once its PR is merged. The next scheduled
+# refresh run recreates the branch and opens a fresh PR with the new delta, so
+# merged rolling PRs do not leave stale branches behind.
+
+name: Stats-sync branch cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  delete-branch:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.head.ref, 'automated/stats-sync-')
+    steps:
+      - name: Delete merged stats-sync branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -euo pipefail
+          echo "Deleting merged rolling branch: $BRANCH"
+          if gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/$BRANCH"; then
+            echo "Deleted $BRANCH"
+          else
+            # 422/404 here just means a concurrent refresh run already
+            # recreated or removed the ref; nothing to clean up.
+            echo "Branch $BRANCH already gone or could not be deleted; skipping."
+          fi

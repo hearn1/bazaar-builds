@@ -128,13 +128,20 @@ def test_three_sidecars_short_span_not_ready(tmp_path):
     stats_dir.mkdir()
     state_path = _make_state(tmp_path)
 
-    # All three windows clustered in last 5 days
+    # All windows clustered in last 5 days. karnok has 2 distinct windows so
+    # Gate 1 (per-hero >=2) passes and the span blocker is tested in isolation.
     five_days_ago = NOW - timedelta(days=5)
     four_days_ago = NOW - timedelta(days=4)
     three_days_ago = NOW - timedelta(days=3)
 
-    _make_sidecar(stats_dir, "karnok", [_healthy_window("bazaardb:w1", _iso(five_days_ago))])
-    _make_sidecar(stats_dir, "mak", [_healthy_window("bazaardb:w2", _iso(four_days_ago))])
+    _make_sidecar(
+        stats_dir,
+        "karnok",
+        [
+            _healthy_window("bazaardb:w1", _iso(five_days_ago)),
+            _healthy_window("bazaardb:w2", _iso(four_days_ago)),
+        ],
+    )
     _make_sidecar(stats_dir, "dooley", [_healthy_window("bazaardb:w3", _iso(three_days_ago))])
 
     report = evaluate_readiness(stats_dir, state_path, now=NOW)
@@ -142,7 +149,7 @@ def test_three_sidecars_short_span_not_ready(tmp_path):
     assert report.ready is False
     shadow_blocker = [b for b in report.blockers if "days" in b]
     assert shadow_blocker, f"Expected shadow_days blocker, got blockers: {report.blockers}"
-    assert report.summary["healthy_bazaardb_windows"] == 3
+    assert report.summary["healthy_bazaardb_windows"] == 2
     assert report.summary["shadow_days"] < MIN_SHADOW_DAYS
 
 
@@ -160,8 +167,16 @@ def test_healthy_windows_long_span_no_classifier_not_ready(tmp_path):
     forty_days_ago = NOW - timedelta(days=40)
     ten_days_ago = NOW - timedelta(days=10)
 
-    _make_sidecar(stats_dir, "karnok", [_healthy_window("bazaardb:w1", _iso(sixty_five_days_ago))])
-    _make_sidecar(stats_dir, "mak", [_healthy_window("bazaardb:w2", _iso(forty_days_ago))])
+    # karnok carries 2 distinct windows so Gate 1 (per-hero) passes; the
+    # classifier gate is what blocks here.
+    _make_sidecar(
+        stats_dir,
+        "karnok",
+        [
+            _healthy_window("bazaardb:w1", _iso(sixty_five_days_ago)),
+            _healthy_window("bazaardb:w2", _iso(forty_days_ago)),
+        ],
+    )
     _make_sidecar(stats_dir, "dooley", [_healthy_window("bazaardb:w3", _iso(ten_days_ago))])
 
     # No waiver_dir provided → no waiver
@@ -196,8 +211,14 @@ def test_healthy_windows_with_waiver_is_ready(tmp_path):
     forty_days_ago = NOW - timedelta(days=40)
     ten_days_ago = NOW - timedelta(days=10)
 
-    _make_sidecar(stats_dir, "karnok", [_healthy_window("bazaardb:w1", _iso(sixty_five_days_ago))])
-    _make_sidecar(stats_dir, "mak", [_healthy_window("bazaardb:w2", _iso(forty_days_ago))])
+    _make_sidecar(
+        stats_dir,
+        "karnok",
+        [
+            _healthy_window("bazaardb:w1", _iso(sixty_five_days_ago)),
+            _healthy_window("bazaardb:w2", _iso(forty_days_ago)),
+        ],
+    )
     _make_sidecar(stats_dir, "dooley", [_healthy_window("bazaardb:w3", _iso(ten_days_ago))])
 
     report = evaluate_readiness(stats_dir, state_path, waiver_dir=waiver_dir, now=NOW)
@@ -205,7 +226,8 @@ def test_healthy_windows_with_waiver_is_ready(tmp_path):
     assert report.ready is True, f"Expected ready but got blockers: {report.blockers}"
     assert report.blockers == []
     assert report.summary["waiver_found"] is True
-    assert report.summary["healthy_bazaardb_windows"] == 3
+    assert report.summary["healthy_bazaardb_windows"] == 2
+    assert report.summary["healthy_windows_by_hero"] == {"dooley": 1, "karnok": 2}
     assert report.summary["shadow_days"] >= MIN_SHADOW_DAYS
 
 
@@ -264,9 +286,11 @@ def test_skipped_window_ids_not_counted(tmp_path):
         stats_dir,
         "karnok",
         [
-            # These have healthy status but :skipped window_id — should not count
+            # Healthy status but excluded window_ids — none should count. The
+            # :nopatch suffix tags a bare-date patch fallback (issue #1/#2).
             _healthy_window("bazaardb:skipped", _iso(sixty_five_days_ago)),
             _healthy_window("bazaardb:unknown", _iso(sixty_five_days_ago)),
+            _healthy_window("bazaardb:May 14:nopatch", _iso(sixty_five_days_ago)),
         ],
     )
 
@@ -274,6 +298,58 @@ def test_skipped_window_ids_not_counted(tmp_path):
 
     assert report.ready is False
     assert report.summary["healthy_bazaardb_windows"] == 0
+
+
+def test_gate1_counts_per_hero_not_globally(tmp_path):
+    """Two heroes with one window each must NOT satisfy Gate 1.
+
+    Previously the count was a global union across heroes (so 1+1 == 2 passed).
+    Gate 1 is now per-hero: it needs a single hero with >=2 distinct windows.
+    """
+    stats_dir = tmp_path / "stats"
+    stats_dir.mkdir()
+    state_path = _make_state(tmp_path)
+
+    sixty_days_ago = NOW - timedelta(days=60)
+    forty_days_ago = NOW - timedelta(days=40)
+
+    _make_sidecar(stats_dir, "karnok", [_healthy_window("bazaardb:w1", _iso(sixty_days_ago))])
+    _make_sidecar(stats_dir, "mak", [_healthy_window("bazaardb:w2", _iso(forty_days_ago))])
+
+    report = evaluate_readiness(stats_dir, state_path, now=NOW)
+
+    assert report.ready is False
+    gate1_blocker = [b for b in report.blockers if "bazaardb patch windows" in b]
+    assert gate1_blocker, f"Expected Gate 1 blocker, got: {report.blockers}"
+    assert report.summary["healthy_bazaardb_windows"] == 1
+    assert report.summary["healthy_windows_by_hero"] == {"karnok": 1, "mak": 1}
+
+
+def test_gate1_passes_when_one_hero_has_two_windows(tmp_path):
+    """A single hero with >=2 distinct healthy windows satisfies Gate 1."""
+    stats_dir = tmp_path / "stats"
+    stats_dir.mkdir()
+    state_path = _make_state(tmp_path)
+
+    sixty_days_ago = NOW - timedelta(days=60)
+    forty_days_ago = NOW - timedelta(days=40)
+
+    _make_sidecar(
+        stats_dir,
+        "karnok",
+        [
+            _healthy_window("bazaardb:w1", _iso(sixty_days_ago)),
+            _healthy_window("bazaardb:w2", _iso(forty_days_ago)),
+        ],
+    )
+    _make_sidecar(stats_dir, "mak", [_healthy_window("bazaardb:w3", _iso(forty_days_ago))])
+
+    report = evaluate_readiness(stats_dir, state_path, now=NOW)
+
+    gate1_blocker = [b for b in report.blockers if "bazaardb patch windows" in b]
+    assert not gate1_blocker, f"Gate 1 should pass, got: {report.blockers}"
+    assert report.summary["healthy_bazaardb_windows"] == 2
+    assert report.summary["healthy_windows_by_hero"] == {"karnok": 2, "mak": 1}
 
 
 # ---------------------------------------------------------------------------
@@ -297,16 +373,12 @@ def test_deterministic_classifier_fourteen_days_is_ready(tmp_path):
     _make_sidecar(
         stats_dir,
         "karnok",
-        [_healthy_window("bazaardb:14.0", _iso(sixteen_days_ago))],
+        [
+            _healthy_window("bazaardb:14.0", _iso(sixteen_days_ago)),
+            _healthy_window("bazaardb:14.1", _iso(fifteen_days_ago)),
+        ],
         last_classifier_mode="deterministic",
         classifier_started_at=_iso(sixteen_days_ago),
-    )
-    _make_sidecar(
-        stats_dir,
-        "mak",
-        [_healthy_window("bazaardb:14.1", _iso(fifteen_days_ago))],
-        last_classifier_mode="deterministic",
-        classifier_started_at=_iso(fifteen_days_ago),
     )
 
     report = evaluate_readiness(stats_dir, state_path, now=NOW)
@@ -331,16 +403,12 @@ def test_deterministic_classifier_under_fourteen_days_blocked(tmp_path):
     _make_sidecar(
         stats_dir,
         "karnok",
-        [_healthy_window("bazaardb:14.0", _iso(three_days_ago))],
+        [
+            _healthy_window("bazaardb:14.0", _iso(three_days_ago)),
+            _healthy_window("bazaardb:14.1", _iso(two_days_ago)),
+        ],
         last_classifier_mode="deterministic",
         classifier_started_at=_iso(three_days_ago),
-    )
-    _make_sidecar(
-        stats_dir,
-        "mak",
-        [_healthy_window("bazaardb:14.1", _iso(two_days_ago))],
-        last_classifier_mode="deterministic",
-        classifier_started_at=_iso(two_days_ago),
     )
 
     report = evaluate_readiness(stats_dir, state_path, now=NOW)
@@ -367,9 +435,16 @@ def test_waiver_only_still_requires_fourteen_days(tmp_path):
     five_days_ago = NOW - timedelta(days=5)
     three_days_ago = NOW - timedelta(days=3)
 
-    # No last_classifier_mode anywhere → no real classifier deployed.
-    _make_sidecar(stats_dir, "karnok", [_healthy_window("bazaardb:w1", _iso(five_days_ago))])
-    _make_sidecar(stats_dir, "mak", [_healthy_window("bazaardb:w2", _iso(three_days_ago))])
+    # No last_classifier_mode anywhere → no real classifier deployed. karnok
+    # has 2 windows so Gate 1 passes and the Gate 2 span rule is isolated.
+    _make_sidecar(
+        stats_dir,
+        "karnok",
+        [
+            _healthy_window("bazaardb:w1", _iso(five_days_ago)),
+            _healthy_window("bazaardb:w2", _iso(three_days_ago)),
+        ],
+    )
 
     report = evaluate_readiness(stats_dir, state_path, waiver_dir=waiver_dir, now=NOW)
 

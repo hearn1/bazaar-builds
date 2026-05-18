@@ -92,19 +92,29 @@ def parse_meta_html(html: str, options: Optional[FetchOptions] = None) -> Source
     parser = _BazaardbHTMLParser()
     parser.feed(html or "")
     patch_label, patch_url = _extract_patch(parser.links, html)
-    window_id = f"bazaardb:{patch_label}" if patch_label else "bazaardb:unknown"
     if not patch_label:
-        return _result(window_id, options, "unhealthy", ["patch_label_missing"])
+        return _result("bazaardb:unknown", options, "unhealthy", ["patch_label_missing"])
     if options.expected_patch_label and options.expected_patch_label != patch_label:
-        return _result(window_id, options, "unhealthy", ["expected_patch_mismatch"], patch_label=patch_label)
+        return _result(
+            f"bazaardb:{patch_label}", options, "unhealthy", ["expected_patch_mismatch"], patch_label=patch_label
+        )
+
+    # A real patch label keys the readiness window so runs between patches reuse
+    # it. The bare "Mon DD" fallback (no patch identity) instead changes every
+    # run; tag it ":nopatch" so readiness Gate 1 excludes it like ":unknown".
+    real_patch = _is_real_patch_label(patch_label)
+    window_id = f"bazaardb:{patch_label}" if real_patch else f"bazaardb:{patch_label}:nopatch"
 
     items = _extract_items_from_tokens(parser.tokens, options.artifact_ref, patch_url)
-    details: list[str] = []
+    fatal: list[str] = []
     if not items:
-        details.append("zero_item_archetype_groups")
+        fatal.append("zero_item_archetype_groups")
     if items and not any(item.appearances is not None and item.frequency is not None for item in items):
-        details.append("run_frequency_context_missing")
-    status = "healthy" if not details else "unhealthy"
+        fatal.append("run_frequency_context_missing")
+    status = "healthy" if not fatal else "unhealthy"
+    # The nopatch fallback is recorded but is non-fatal: evidence is still
+    # captured, it is only excluded from readiness Gate 1 via the window_id.
+    details = (["patch_label_fallback_nopatch"] if not real_patch else []) + fatal
     return _result(window_id, options, status, details, items, patch_label=patch_label)
 
 
@@ -166,8 +176,17 @@ def parse_meta_fixture(path: Path, options: Optional[FetchOptions] = None) -> So
                     )
                     rank += 1
     status = "healthy" if patch_label != "unknown" and items else "unhealthy"
-    details = [] if status == "healthy" else ["fixture_missing_patch_or_items"]
-    return _result(f"bazaardb:{patch_label}", options, status, details, items, patch_label=patch_label)
+    if patch_label == "unknown":
+        window_id = "bazaardb:unknown"
+        details = ["fixture_missing_patch_or_items"]
+    else:
+        real_patch = _is_real_patch_label(patch_label)
+        window_id = f"bazaardb:{patch_label}" if real_patch else f"bazaardb:{patch_label}:nopatch"
+        if status == "healthy":
+            details = [] if real_patch else ["patch_label_fallback_nopatch"]
+        else:
+            details = ["fixture_missing_patch_or_items"]
+    return _result(window_id, options, status, details, items, patch_label=patch_label)
 
 
 def _render_meta_page(playwright: Any, options: FetchOptions, *, headless: bool) -> dict[str, Any]:
@@ -289,6 +308,27 @@ def _extract_items_from_tokens(tokens: list[_Token], artifact_ref: Optional[str]
                 recent_imgs.append(token.value)
             recent_text = []
     return items
+
+
+_REAL_PATCH_LABEL_RE = re.compile(r"^\d+(?:\.\d+)?\s*\(.+\)$")
+_BARE_DATE_LABEL_RE = re.compile(
+    r"^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}$",
+    re.IGNORECASE,
+)
+
+
+def _is_real_patch_label(label: Optional[str]) -> bool:
+    """True when *label* is a real Bazaar patch identity (e.g. ``14.1 (May 12)``).
+
+    The bare ``Mon DD`` fallback from :func:`_extract_patch` carries no patch
+    identity and changes on every run, so it is not a real patch label.
+    """
+    if not label:
+        return False
+    text = label.strip()
+    if _BARE_DATE_LABEL_RE.match(text):
+        return False
+    return bool(_REAL_PATCH_LABEL_RE.match(text))
 
 
 def _extract_patch(links: list[tuple[str, str]], html: str) -> tuple[Optional[str], Optional[str]]:

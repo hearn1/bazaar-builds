@@ -2,6 +2,7 @@ name: Live sources smoke
 
 permissions:
   contents: read
+  issues: write
 
 on:
   schedule:
@@ -54,6 +55,32 @@ jobs:
           name: live-source-health-${{ github.run_id }}
           path: artifacts/source-health.json
           if-no-files-found: error
+
+      - name: Open or update smoke-failure issue
+        if: steps.smoke.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          title="[smoke] required source unhealthy"
+          health_file="$GITHUB_WORKSPACE/artifacts/source-health.json"
+          run_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          summary="(source-health.json not produced)"
+          if [[ -f "$health_file" ]]; then
+            summary=$(cat "$health_file")
+          fi
+
+          body=$(printf 'The weekly live-sources smoke reported a required source as unhealthy.\n\nRun: %s\n\n```json\n%s\n```\n' "$run_url" "$summary")
+
+          existing=$(gh issue list --state open --search "in:title $title" \
+            --json number,title --jq ".[] | select(.title == \"$title\") | .number" | head -n1)
+
+          if [[ -n "$existing" ]]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi
 
       - name: Fail on required source health failure
         if: steps.smoke.outcome == 'failure'

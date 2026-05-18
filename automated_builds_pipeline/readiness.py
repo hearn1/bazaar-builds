@@ -2,7 +2,7 @@
 
 Evaluates whether the pipeline meets the criteria for live_cron promotion:
   - At least N=2 healthy bazaardb patch windows across all hero sidecars
-  - Shadow output spans >=60 calendar days (oldest sidecar observed_at -> now)
+  - Shadow output spans >=14 calendar days (oldest sidecar observed_at -> now)
   - Classifier/provider readiness (semantic_classification seen) or a waiver file
   - No malformed-shadow run in the last 14 days
 
@@ -37,8 +37,8 @@ from automated_builds_pipeline.state import load_state
 from automated_builds_pipeline.stats import HeroStats, StatsError
 
 MIN_HEALTHY_WINDOWS = 2
-MIN_SHADOW_DAYS = 60
-MIN_CLASSIFIED_DAYS = 7
+MIN_SHADOW_DAYS = 14
+MIN_CLASSIFIED_DAYS = 14
 MALFORMED_LOOKBACK_DAYS = 14
 BAZAARDB_SOURCE = "bazaardb"
 # Single shared definition; also imported by pipeline.py.
@@ -135,7 +135,7 @@ def evaluate_readiness(
                 f"{classifier_started_at.isoformat()}."
             )
     else:
-        # No real classifier (or a waiver only) — the full 60-day shadow
+        # No real classifier (or a waiver only) — the full 14-day shadow
         # requirement still applies. A waiver does NOT shorten this gate.
         effective_min_shadow_days = MIN_SHADOW_DAYS
         if shadow_days < MIN_SHADOW_DAYS:

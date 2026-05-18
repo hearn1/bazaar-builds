@@ -15,7 +15,7 @@ Shadow runs must not mutate `bazaar_coach` catalog files, open coach PRs, or pro
 
 Live cron remains disabled. Do not promote to `live_cron` until all of these are true:
 - **Gate 1** — At least 2 healthy bazaardb patch windows have accumulated. `window_id` is keyed by patch label, so runs between patches reuse the same window; this gate is bound to The Bazaar's patch cadence and is the likely critical path regardless of how fast the classifier work lands.
-- **Gate 2** — Deterministic/LLM classifier-produced output spans at least 7 calendar days, measured from the durable `classifier_started_at` (set once on the first real-classifier run). When no real classifier has run the full 60-calendar-day shadow span still applies; a waiver does **not** shorten this day count.
+- **Gate 2** — Deterministic/LLM classifier-produced output spans at least 14 calendar days, measured from the durable `classifier_started_at` (set once on the first real-classifier run). When no real classifier has run the full 14-calendar-day shadow span still applies; a waiver does **not** shorten this day count.
 - **Gate 3** — `classifier_ready` is satisfied: a hero sidecar's `last_classifier_mode` is a real classifier (`llm` or `deterministic`), **or** the operator records an explicit waiver. A later `no_llm_shadow` run flips `last_classifier_mode` back and correctly re-blocks this gate.
 - No malformed/unhealthy bazaardb shadow run in the last 14 days.
 - The curator manually flips `phase`/`dry_run` after reviewing shadow artifacts and rollback behavior.

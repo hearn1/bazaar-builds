@@ -147,11 +147,11 @@ def test_three_sidecars_short_span_not_ready(tmp_path):
 
 
 # ---------------------------------------------------------------------------
-# Case 3: 3 healthy sidecars over 60+ days but no classifier and no waiver → not ready
+# Case 3: 3 healthy sidecars over a long span but no classifier and no waiver → not ready
 # ---------------------------------------------------------------------------
 
 
-def test_healthy_windows_over_60_days_no_classifier_not_ready(tmp_path):
+def test_healthy_windows_long_span_no_classifier_not_ready(tmp_path):
     stats_dir = tmp_path / "stats"
     stats_dir.mkdir()
     state_path = _make_state(tmp_path)
@@ -282,31 +282,31 @@ def test_skipped_window_ids_not_counted(tmp_path):
 
 
 # ---------------------------------------------------------------------------
-# Deterministic classifier: Gate 2 measures classified span (7d), Gate 3 reads mode
+# Deterministic classifier: Gate 2 measures classified span (14d), Gate 3 reads mode
 # ---------------------------------------------------------------------------
 
 
-def test_deterministic_classifier_seven_days_is_ready(tmp_path):
+def test_deterministic_classifier_fourteen_days_is_ready(tmp_path):
     stats_dir = tmp_path / "stats"
     stats_dir.mkdir()
     state_path = _make_state(tmp_path)
 
-    eight_days_ago = NOW - timedelta(days=8)
-    five_days_ago = NOW - timedelta(days=5)
+    sixteen_days_ago = NOW - timedelta(days=16)
+    fifteen_days_ago = NOW - timedelta(days=15)
 
     _make_sidecar(
         stats_dir,
         "karnok",
-        [_healthy_window("bazaardb:14.0", _iso(eight_days_ago))],
+        [_healthy_window("bazaardb:14.0", _iso(sixteen_days_ago))],
         last_classifier_mode="deterministic",
-        classifier_started_at=_iso(eight_days_ago),
+        classifier_started_at=_iso(sixteen_days_ago),
     )
     _make_sidecar(
         stats_dir,
         "mak",
-        [_healthy_window("bazaardb:14.1", _iso(five_days_ago))],
+        [_healthy_window("bazaardb:14.1", _iso(fifteen_days_ago))],
         last_classifier_mode="deterministic",
-        classifier_started_at=_iso(five_days_ago),
+        classifier_started_at=_iso(fifteen_days_ago),
     )
 
     report = evaluate_readiness(stats_dir, state_path, now=NOW)
@@ -315,12 +315,12 @@ def test_deterministic_classifier_seven_days_is_ready(tmp_path):
     assert report.blockers == []
     assert report.summary["classifier_ready"] is True
     assert report.summary["effective_min_shadow_days"] == MIN_CLASSIFIED_DAYS
-    # classified span anchored on the EARLIEST classifier_started_at (8 days)
+    # classified span anchored on the EARLIEST classifier_started_at (16 days)
     assert report.summary["classified_days"] >= MIN_CLASSIFIED_DAYS
-    assert datetime.fromisoformat(report.summary["classifier_started_at"]) == eight_days_ago
+    assert datetime.fromisoformat(report.summary["classifier_started_at"]) == sixteen_days_ago
 
 
-def test_deterministic_classifier_under_seven_days_blocked(tmp_path):
+def test_deterministic_classifier_under_fourteen_days_blocked(tmp_path):
     stats_dir = tmp_path / "stats"
     stats_dir.mkdir()
     state_path = _make_state(tmp_path)
@@ -352,7 +352,7 @@ def test_deterministic_classifier_under_seven_days_blocked(tmp_path):
     assert report.summary["classified_days"] < MIN_CLASSIFIED_DAYS
 
 
-def test_waiver_only_still_requires_sixty_days(tmp_path):
+def test_waiver_only_still_requires_fourteen_days(tmp_path):
     """Regression guard: a waiver satisfies Gate 3 but must NOT shorten Gate 2."""
     stats_dir = tmp_path / "stats"
     stats_dir.mkdir()
@@ -373,11 +373,11 @@ def test_waiver_only_still_requires_sixty_days(tmp_path):
 
     report = evaluate_readiness(stats_dir, state_path, waiver_dir=waiver_dir, now=NOW)
 
-    assert report.ready is False, "Waiver must not bypass the 60-day shadow gate"
+    assert report.ready is False, "Waiver must not bypass the 14-day shadow gate"
     assert report.summary["waiver_found"] is True
     assert report.summary["effective_min_shadow_days"] == MIN_SHADOW_DAYS
     span_blocker = [b for b in report.blockers if "no classifier deployed" in b]
-    assert span_blocker, f"Expected 60-day shadow blocker, got: {report.blockers}"
+    assert span_blocker, f"Expected 14-day shadow blocker, got: {report.blockers}"
 
 
 def test_regression_to_no_llm_shadow_reblocks_gate3(tmp_path):
@@ -412,7 +412,7 @@ def test_regression_to_no_llm_shadow_reblocks_gate3(tmp_path):
         b for b in report.blockers if "classifier" in b.lower() or "waiver" in b.lower()
     ]
     assert classifier_blocker, f"Expected Gate 3 re-block, got: {report.blockers}"
-    # Gate 2 falls back to the 60-day shadow rule (satisfied here at 65 days), so
+    # Gate 2 falls back to the 14-day shadow rule (satisfied here at 65 days), so
     # the only blocker is the Gate 3 classifier/waiver one.
     assert report.summary["effective_min_shadow_days"] == MIN_SHADOW_DAYS
 

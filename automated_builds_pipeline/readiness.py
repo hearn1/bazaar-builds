@@ -10,18 +10,21 @@ Evaluates whether the pipeline meets the criteria for live_cron promotion:
 -------------------------------------
 A SourceWindowSummary from source_windows["bazaardb"] is healthy when:
   1. health_status == "healthy"  (explicit field written by append_window via WindowObservation)
-  2. window_id does not end with ":skipped" or ":unknown"  (skipped/operator-skip entries)
+  2. window_id does not end with ":skipped", ":unknown", or ":nopatch".
+     ":nopatch" tags a run whose patch label fell back to a bare "Mon DD"
+     string (no patch identity); such windows change every run and would
+     inflate the distinct-patch-window count, so they are excluded here even
+     though the run itself is health_status == "healthy" and evidence-bearing.
 
 The classification_mode/semantic_classification fields live only in diff artifacts, not in
 the stats sidecar. Consequently the healthy-window count cannot introspect classifier
 quality at the per-window level; that aspect is covered separately by the
 classifier-readiness check.
 
-Open question for maintainer: should healthy-window count be gated per-hero (require
->=2 healthy windows in every hero's sidecar) rather than globally across all heroes?
-Currently the check counts distinct window_ids across all heroes, so a hero that ran
-both windows while others ran 0 would still pass. Tightening this to per-hero is
-more conservative and is recommended once a few shadow cycles complete.
+Gate 1 is counted per-hero: it passes when at least one hero's sidecar has >=2
+distinct healthy patch windows. The count is not summed across heroes, so two
+heroes with one window each does not satisfy the gate. summary
+["healthy_windows_by_hero"] exposes the per-hero counts for transparency.
 """
 
 from __future__ import annotations
@@ -44,7 +47,7 @@ BAZAARDB_SOURCE = "bazaardb"
 # Single shared definition; also imported by pipeline.py.
 REAL_CLASSIFIER_MODES = frozenset({"llm", "deterministic"})
 _UNHEALTHY_STATUSES = frozenset({"unhealthy", "error", "skipped"})
-_BAD_WINDOW_SUFFIXES = (":skipped", ":unknown")
+_BAD_WINDOW_SUFFIXES = (":skipped", ":unknown", ":nopatch")
 
 
 @dataclass
@@ -97,13 +100,18 @@ def evaluate_readiness(
     sidecars = _load_all_sidecars(stats_dir)
 
     # --- Check 1: healthy bazaardb patch windows ---------------------------------
-    healthy_windows, oldest_observed_at = _collect_bazaardb_windows(sidecars)
-    healthy_count = len(healthy_windows)
+    # Counted per-hero: the gate passes when at least one hero's sidecar has
+    # >=2 distinct healthy patch windows. The count is NOT summed across heroes,
+    # so two heroes with one window each does not satisfy the gate.
+    windows_by_hero, oldest_observed_at = _collect_bazaardb_windows(sidecars)
+    windows_by_hero_counts = {hero: len(ids) for hero, ids in windows_by_hero.items()}
+    healthy_count = max(windows_by_hero_counts.values(), default=0)
 
     if healthy_count < MIN_HEALTHY_WINDOWS:
         blockers.append(
-            f"Insufficient healthy bazaardb patch windows: {healthy_count}/{MIN_HEALTHY_WINDOWS} required. "
-            f"Shadow runs must accumulate at least {MIN_HEALTHY_WINDOWS} distinct healthy bazaardb windows across all hero sidecars."
+            f"Insufficient healthy bazaardb patch windows: best hero has "
+            f"{healthy_count}/{MIN_HEALTHY_WINDOWS} required. No single hero sidecar "
+            f"has at least {MIN_HEALTHY_WINDOWS} distinct healthy bazaardb patch windows."
         )
 
     # --- Classifier readiness (Gate 3) — computed first; Gate 2 depends on it ---
@@ -169,6 +177,7 @@ def evaluate_readiness(
     summary: dict[str, Any] = {
         "phase": current_phase,
         "healthy_bazaardb_windows": healthy_count,
+        "healthy_windows_by_hero": dict(sorted(windows_by_hero_counts.items())),
         "shadow_days": round(shadow_days, 1) if shadow_days is not None else None,
         "effective_min_shadow_days": effective_min_shadow_days,
         "classified_days": round(classified_days, 1) if classified_days is not None else None,
@@ -225,9 +234,15 @@ def _is_healthy_bazaardb_window_id(window_id: str) -> bool:
 
 def _collect_bazaardb_windows(
     sidecars: list[HeroStats],
-) -> tuple[set[str], Optional[datetime]]:
-    """Return (set of distinct healthy window_ids, oldest observed_at datetime)."""
-    seen_ids: set[str] = set()
+) -> tuple[dict[str, set[str]], Optional[datetime]]:
+    """Return (per-hero distinct healthy window_ids, oldest observed_at datetime).
+
+    Gate 1 is counted per-hero (see :func:`evaluate_readiness`), so the windows
+    are kept partitioned by hero rather than unioned. ``oldest`` is still the
+    oldest healthy observed_at across *all* heroes — Gate 2's calendar span is
+    a global measure and is unaffected by the per-hero Gate 1 change.
+    """
+    by_hero: dict[str, set[str]] = {}
     oldest: Optional[datetime] = None
 
     for sidecar in sidecars:
@@ -236,7 +251,7 @@ def _collect_bazaardb_windows(
                 continue
             if not _is_healthy_bazaardb_window_id(summary.window_id):
                 continue
-            seen_ids.add(summary.window_id)
+            by_hero.setdefault(sidecar.hero, set()).add(summary.window_id)
             try:
                 ts = _parse_iso(summary.observed_at)
             except ValueError:
@@ -244,7 +259,7 @@ def _collect_bazaardb_windows(
             if oldest is None or ts < oldest:
                 oldest = ts
 
-    return seen_ids, oldest
+    return by_hero, oldest
 
 
 def _find_malformed_recent(

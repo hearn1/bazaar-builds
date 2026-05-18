@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import json
 
-from automated_builds_pipeline.sources.bazaardb import parse_meta_fixture, parse_meta_html
+from automated_builds_pipeline.sources.bazaardb import (
+    _is_real_patch_label,
+    parse_meta_fixture,
+    parse_meta_html,
+)
 from automated_builds_pipeline.sources.base import FetchOptions
 from automated_builds_pipeline.stats import HeroStats, append_window, load_stats, save_stats
 
@@ -13,9 +17,13 @@ def test_bazaardb_fixture_extracts_patch_items_and_archetypes(sample_dir):
         FetchOptions(observed_at="2026-05-05T12:00:00Z"),
     )
 
+    # "Apr 29" is a bare-date fallback (no patch identity): still healthy and
+    # evidence-bearing, but window_id is tagged :nopatch so readiness Gate 1
+    # excludes it, and the non-fatal detail records why.
     assert result.status == "healthy"
     assert result.patch_label == "Apr 29"
-    assert result.observation.window_id == "bazaardb:Apr 29"
+    assert result.observation.window_id == "bazaardb:Apr 29:nopatch"
+    assert "patch_label_fallback_nopatch" in result.observation.details
     names = {item.item for item in result.observation.items}
     assert {"Flying Potion", "Caustic Solvent", "Potion Distillery"} <= names
     solvent = next(item for item in result.observation.items if item.item == "Caustic Solvent")
@@ -130,6 +138,44 @@ def test_bazaardb_current_shape_summary_fixture_extracts_patch_items_and_archety
     assert {"Wolf", "Bat", "Karst", "Flying Squirrel"} <= names
 
 
+def test_is_real_patch_label_distinguishes_patch_from_date_fallback():
+    assert _is_real_patch_label("14.1 (May 12)") is True
+    assert _is_real_patch_label("14.0 (Hotfix May 7)") is True
+    assert _is_real_patch_label("14 (May 6)") is True
+    # Bare month/day fallback carries no patch identity.
+    assert _is_real_patch_label("May 14") is False
+    assert _is_real_patch_label("Apr 29") is False
+    assert _is_real_patch_label("unknown") is False
+    assert _is_real_patch_label(None) is False
+    assert _is_real_patch_label("") is False
+
+
+def test_bazaardb_date_fallback_patch_is_healthy_but_nopatch_tagged():
+    # Only the bare-date fallback (last resort in _extract_patch) resolves here:
+    # no patch link text, no "Database based on patch" footer.
+    html = """
+    <main>
+      <h1>Meta Stats</h1>
+      <p>These meta stats are based on data uploaded by the community.</p>
+      <h2>Archetypes</h2>
+      <h3>Core Items</h3>
+      <img alt="Wolf"><span>Wolf</span>
+      <h3>Supporting Items</h3>
+      <img alt="Bat"><span>Bat</span><a href="/run?cards=x,y">6 runs · 75%</a>
+    </main>
+    <footer>Snapshot taken May 14</footer>
+    """
+
+    result = parse_meta_html(html, FetchOptions(observed_at="2026-05-14T12:00:00Z"))
+
+    assert result.status == "healthy"
+    assert result.patch_label == "May 14"
+    assert result.observation.window_id == "bazaardb:May 14:nopatch"
+    assert "patch_label_fallback_nopatch" in result.observation.details
+    # Non-fatal: evidence is still captured.
+    assert result.observation.items
+
+
 def test_bazaardb_round_trips_into_stats_sidecar(sample_dir, tmp_path):
     result = parse_meta_fixture(
         sample_dir / "bazaardb" / "meta-page-sample.json",
@@ -141,6 +187,6 @@ def test_bazaardb_round_trips_into_stats_sidecar(sample_dir, tmp_path):
     save_stats(stats, tmp_path)
     loaded = load_stats("Mak", tmp_path)
 
-    assert loaded.last_window_id("bazaardb") == "bazaardb:Apr 29"
+    assert loaded.last_window_id("bazaardb") == "bazaardb:Apr 29:nopatch"
     assert loaded.item_history("Caustic Solvent", "bazaardb")[0].rank == 1
 

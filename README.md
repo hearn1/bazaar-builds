@@ -16,20 +16,25 @@ py -3.12 -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
-Fetch evidence for a hero (defaults assume a sibling `bazaar_coach` checkout at `../bazaar_coach`):
+Fetch evidence for a hero. The coach GitHub repo is `hearn1/bazaar_coach`; the
+local working checkout in use is the sibling directory `../bazaar_tracker`, so
+pass that as the catalog/names path (the `--output` default is unaffected):
 
 ```bash
 python bazaar_build_enricher.py https://bazaar-builds.net/category/builds/karnok-builds/ \
-    --hero Karnok --days 30 --output artifacts/karnok_bazaar_builds_summary.json
+    --hero Karnok --days 30 \
+    --catalog-dir ../bazaar_tracker \
+    --names-file ../bazaar_tracker/card_cache_names.txt \
+    --output artifacts/karnok_bazaar_builds_summary.json
 ```
 
-If your coach checkout is in a non-sibling location, pass explicit paths:
+If your coach checkout is in a different location, pass explicit paths:
 
 ```bash
 python bazaar_build_enricher.py https://bazaar-builds.net/category/builds/dooley-builds/ \
     --hero Dooley --days 30 \
-    --catalog-dir /path/to/bazaar_coach \
-    --names-file /path/to/bazaar_coach/card_cache_names.txt \
+    --catalog-dir /path/to/bazaar_tracker \
+    --names-file /path/to/bazaar_tracker/card_cache_names.txt \
     --output artifacts/dooley_bazaar_builds_summary.json
 ```
 
@@ -38,7 +43,7 @@ Diff the artifact against the hero catalog and emit a review proposal:
 ```bash
 python bazaar_build_enricher.py compare \
     artifacts/karnok_bazaar_builds_summary.json \
-    ../bazaar_coach/karnok_builds.json \
+    ../bazaar_tracker/karnok_builds.json \
     --output artifacts/karnok_build_update_proposal.md
 ```
 

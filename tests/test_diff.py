@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import json
 
+from automated_builds_pipeline.classification import ItemClassification
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.diff import build_arg_parser, generate_diff, main
 from automated_builds_pipeline.evaluator import EvaluationResult
-from automated_builds_pipeline.llm import ItemClassification
 
 
 class StaticClassifier:
@@ -71,7 +71,7 @@ def test_diff_generator_mock_mode_populates_shape():
     assert diff["schema_version"] == 1
     assert diff["classification_mode"] == "mock"
     assert diff["semantic_classification"] is False
-    assert diff["llm_provider"] == "none"
+    assert diff["classifier_provider"] == "none"
     assert set(diff["proposed_changes"]) == {
         "archetype_updates",
         "archetype_additions",
@@ -107,9 +107,9 @@ def test_source_quality_gate_coerces_carry_to_support():
     item = diff["proposed_changes"]["archetype_additions"][0]["candidate_support"][0]
     assert item["llm_classification"] == "support"
     assert "capped" in item["llm_rationale"]
-    assert diff["classification_mode"] == "llm"
+    assert diff["classification_mode"] == "deterministic"
     assert diff["semantic_classification"] is True
-    assert diff["llm_provider"] == "anthropic"
+    assert diff["classifier_provider"] == "deterministic"
 
 
 def test_no_llm_shadow_mode_emits_pending_candidates_without_classifier_call():
@@ -131,7 +131,7 @@ def test_no_llm_shadow_mode_emits_pending_candidates_without_classifier_call():
     assert item["item"] == "Observed Item"
     assert item["llm_classification"] == "classification_pending"
     assert item["llm_confidence"] == "none"
-    assert "Deterministic shadow observation" in item["llm_rationale"]
+    assert "Observation-only shadow output" in item["llm_rationale"]
     assert item["evidence_refs"] == [{"source": "bazaardb", "summary": "bazaardb:Observed Item"}]
 
 
@@ -279,9 +279,15 @@ def test_arg_parser_accepts_deterministic_mode():
 
 def test_deterministic_mode_classifies_into_core_and_support():
     carry_row = add_row("Pylon", archetype="Pylon Build")
-    carry_row["windows_seen"] = 1
+    carry_row["current_patch_evidence"] = {
+        "bazaardb": {"presence": "present", "metadata": {"section": "CORE ITEMS"}, "sample_count": 40, "frequency": 1.0}
+    }
+    carry_row["within_patch_strength"] = "statistical_core"
     core_row = add_row("Sidekick", archetype="Pylon Build")
-    core_row["windows_seen"] = 3
+    core_row["current_patch_evidence"] = {
+        "bazaardb": {"presence": "present", "metadata": {"section": "CORE ITEMS"}, "sample_count": 40, "frequency": 1.0}
+    }
+    core_row["within_patch_strength"] = "statistical_core"
 
     classifier = DeterministicClassifier()
     classifier.known_items = {"Pylon", "Sidekick"}
@@ -296,7 +302,7 @@ def test_deterministic_mode_classifies_into_core_and_support():
 
     assert diff["classification_mode"] == "deterministic"
     assert diff["semantic_classification"] is True
-    assert diff["llm_provider"] == "deterministic"
+    assert diff["classifier_provider"] == "deterministic"
 
     addition = diff["proposed_changes"]["archetype_additions"][0]
     core_items = {item["item"] for item in addition["candidate_core"]}

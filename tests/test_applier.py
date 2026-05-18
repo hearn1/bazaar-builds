@@ -11,8 +11,8 @@ from automated_builds_pipeline.applier import (
     serialize_catalog,
     validate_catalog,
 )
+from automated_builds_pipeline.classification import ItemClassification
 from automated_builds_pipeline.diff import generate_diff
-from automated_builds_pipeline.llm import ItemClassification
 
 from test_diff import StaticClassifier, add_row, evaluation
 
@@ -469,7 +469,7 @@ def test_applier_consumes_real_generate_diff_output():
         [ItemClassification("Sawpike", "carry", "high", "reason", "top_line")]
     )
     diff_json = generate_diff(
-        "Karnok", evaluation(rows), catalog, classifier, classifier_mode="llm"
+        "Karnok", evaluation(rows), catalog, classifier, classifier_mode="deterministic"
     )
     assert diff_json["semantic_classification"] is True
 

@@ -1,4 +1,4 @@
-"""Shared known-items loading for the LLM and deterministic classifiers.
+"""Shared known-items loading for deterministic classifiers.
 
 The coach/tracker repo writes ``card_cache_names.txt`` as a JSON array, often
 preceded by a stray stdout line such as ``[DB] Initialized at ...``. Parsing it

@@ -57,7 +57,7 @@ def test_renderer_includes_update_addition_removal_weaker_and_noise():
     assert "reshuffle_deferred" in markdown
 
 
-def test_renderer_warns_when_invalid_llm_items_suggest_stale_name_list():
+def test_renderer_warns_when_invalid_classifier_items_suggest_stale_name_list():
     base_changes = {
         "archetype_updates": [],
         "archetype_additions": [],
@@ -73,28 +73,28 @@ def test_renderer_warns_when_invalid_llm_items_suggest_stale_name_list():
         "proposed_changes": dict(base_changes),
         "weaker_signals": [],
         "noise": [
-            {"reason": "invalid_llm_item", "item": "Starfish", "archetype": "Aquatic"},
-            {"reason": "invalid_llm_item", "item": "Atlas Stone", "archetype": "Aquatic"},
+            {"reason": "invalid_classifier_item", "item": "Starfish", "archetype": "Aquatic"},
+            {"reason": "invalid_classifier_item", "item": "Atlas Stone", "archetype": "Aquatic"},
             {"reason": "secondary_present_bazaardb_absent", "count": 3, "summary": True},
         ],
     }
 
     markdown = render_proposal(diff)
 
-    assert "2 item name(s) were dropped as invalid_llm_item" in markdown
+    assert "2 item name(s) were dropped as invalid_classifier_item" in markdown
     assert "card_cache_names.txt may be stale" in markdown
 
     # Summary rollups are counted too.
     diff_summary = {
         **diff,
         "proposed_changes": dict(base_changes),
-        "noise": [{"reason": "invalid_llm_item", "count": 5, "summary": True}],
+        "noise": [{"reason": "invalid_classifier_item", "count": 5, "summary": True}],
     }
-    assert "5 item name(s) were dropped as invalid_llm_item" in render_proposal(diff_summary)
+    assert "5 item name(s) were dropped as invalid_classifier_item" in render_proposal(diff_summary)
 
     # No invalid items → no warning.
     diff_clean = {**diff, "proposed_changes": dict(base_changes), "noise": []}
-    assert "invalid_llm_item" not in render_proposal(diff_clean)
+    assert "invalid_classifier_item" not in render_proposal(diff_clean)
 
 
 def test_renderer_warns_for_no_llm_shadow_and_lists_pending_candidates():
@@ -102,14 +102,14 @@ def test_renderer_warns_for_no_llm_shadow_and_lists_pending_candidates():
         "item": "Pufferfish",
         "llm_classification": "classification_pending",
         "llm_confidence": "none",
-        "llm_rationale": "Deterministic shadow observation only.",
+        "llm_rationale": "Observation-only shadow output.",
         "evidence_refs": [{"summary": "bazaardb:puffer"}],
     }
     diff = {
         "hero": "Karnok",
         "classification_mode": "no_llm_shadow",
         "semantic_classification": False,
-        "llm_provider": "none",
+        "classifier_provider": "none",
         "source_window": {"start": "2026-05-01", "end": "2026-05-05", "n_windows_history": 3},
         "freeze_state": {"removals_frozen": False, "patch_label": None},
         "source_health": [],
@@ -135,7 +135,7 @@ def test_renderer_warns_for_no_llm_shadow_and_lists_pending_candidates():
     markdown = render_proposal(diff)
 
     assert "Classification mode: no_llm_shadow" in markdown
-    assert "LLM provider: none" in markdown
-    assert "operational observation evidence only" in markdown
+    assert "Classifier provider: none" in markdown
+    assert "operational evidence only" in markdown
     assert "Pending semantic classification:" in markdown
     assert "classification_pending (none)" in markdown

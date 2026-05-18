@@ -3,7 +3,7 @@
 Evaluates whether the pipeline meets the criteria for live_cron promotion:
   - At least N=2 healthy bazaardb patch windows across all hero sidecars
   - Shadow output spans >=14 calendar days (oldest sidecar observed_at -> now)
-  - Classifier/provider readiness (semantic_classification seen) or a waiver file
+  - Deterministic classifier readiness or a waiver file
   - No malformed-shadow run in the last 14 days
 
 "Healthy" bazaardb window predicate
@@ -45,7 +45,7 @@ MIN_CLASSIFIED_DAYS = 14
 MALFORMED_LOOKBACK_DAYS = 14
 BAZAARDB_SOURCE = "bazaardb"
 # Single shared definition; also imported by pipeline.py.
-REAL_CLASSIFIER_MODES = frozenset({"llm", "deterministic"})
+REAL_CLASSIFIER_MODES = frozenset({"deterministic"})
 _UNHEALTHY_STATUSES = frozenset({"unhealthy", "error", "skipped"})
 _BAD_WINDOW_SUFFIXES = (":skipped", ":unknown", ":nopatch")
 
@@ -152,7 +152,7 @@ def evaluate_readiness(
                 f"(no classifier deployed)."
             )
 
-    # --- Check 3: classifier/provider readiness or explicit waiver ---------------
+    # --- Check 3: deterministic classifier readiness or explicit waiver ----------
     if not classifier_ready and not waiver_found:
         blockers.append(
             "Semantic classifier not ready and no classifier waiver found. "

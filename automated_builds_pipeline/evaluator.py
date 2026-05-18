@@ -30,9 +30,13 @@ ADD_BAZAARDB_MIN_SEEN = 2
 ADD_BAZAARDB_WINDOW_COUNT = 3
 ADD_BAZAAR_BUILDS_NET_MIN_SEEN = 2
 ADD_BAZAAR_BUILDS_NET_WINDOW_COUNT = 3
+BAZAARDB_STRONG_APPEARANCES = 10
+BAZAARDB_STRONG_FREQUENCY = 0.20
+BAZAARDB_CORE_SAMPLE = 20
 REMOVE_BAZAARDB_ABSENT_PATCHES = 4
 REMOVE_MIN_ABSENT_DAYS = 21
 REASON_MAP = {
+    "bazaardb_current_strong": "bazaardb_current_patch_strong",
     "bazaardb_2_of_3": "bazaardb_present_2_of_3_patches",
     "mobalytics_current": "mobalytics_current_build",
     "bazaar_builds_net_2_of_3": "bazaar_builds_net_2_of_3_windows",
@@ -204,7 +208,7 @@ def evaluate_hero(
         else:
             decision = _evaluate_existing(item, existing, stats, current, disagreement, freeze_active)
         decisions.append(decision)
-        rows.append(_row_dict(hero, decision, existing, current))
+        rows.append(_row_dict(hero, decision, existing, current, stats))
 
     return EvaluationResult(
         hero=hero,
@@ -354,6 +358,9 @@ def _evaluate_add(
     context: CatalogContext,
 ) -> ThresholdDecision:
     evidence_refs = _evidence_refs(item, current)
+    classification_ceiling = _add_classification_ceiling(item, disagreement, current, context)
+    if _current_bazaardb_strength(item, current) in {"statistical_core", "statistical_strong"}:
+        return ThresholdDecision(item, "add_candidate", "bazaardb_current_strong", classification_ceiling=classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
     if _healthy_seen_count(
         stats,
         current,
@@ -363,14 +370,14 @@ def _evaluate_add(
         context=context,
         require_scoped_history=True,
     ) >= ADD_BAZAARDB_MIN_SEEN:
-        return ThresholdDecision(item, "add_candidate", "bazaardb_2_of_3", classification_ceiling=disagreement.classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
+        return ThresholdDecision(item, "add_candidate", "bazaardb_2_of_3", classification_ceiling=classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
     if any(_current_presence(item, current.get(source)) is True for source in MOBALYTICS_SOURCES):
-        return ThresholdDecision(item, "add_candidate", "mobalytics_current", classification_ceiling=disagreement.classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
+        return ThresholdDecision(item, "add_candidate", "mobalytics_current", classification_ceiling=classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
     if _healthy_seen_count(stats, current, item, "bazaar_builds_net", ADD_BAZAAR_BUILDS_NET_WINDOW_COUNT) >= ADD_BAZAAR_BUILDS_NET_MIN_SEEN:
-        return ThresholdDecision(item, "add_candidate", "bazaar_builds_net_2_of_3", classification_ceiling=disagreement.classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
+        return ThresholdDecision(item, "add_candidate", "bazaar_builds_net_2_of_3", classification_ceiling=classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
     if _current_source_support_count(item, current) >= 2:
-        return ThresholdDecision(item, "add_candidate", "mixed_current_sources", classification_ceiling=disagreement.classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
-    return ThresholdDecision(item, "no_change", "below_add_threshold", classification_ceiling=disagreement.classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
+        return ThresholdDecision(item, "add_candidate", "mixed_current_sources", classification_ceiling=classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
+    return ThresholdDecision(item, "no_change", "below_add_threshold", classification_ceiling=classification_ceiling, disagreement=disagreement, evidence_refs=evidence_refs)
 
 
 def _evaluate_existing(
@@ -520,12 +527,13 @@ def _hero_scoped_current(
     current: dict[str, SourceFetchResult],
     context: CatalogContext,
 ) -> dict[str, SourceFetchResult]:
+    anchor_context = _seed_anchor_context(context.hero, current) if _empty_context(context) else context
     scoped = {}
     for source, result in current.items():
         items = [
             row
             for row in result.observation.items
-            if _current_row_matches_context(row, source, context)
+            if _current_row_matches_context(row, source, anchor_context)
         ]
         observation = WindowObservation(
             window_id=result.observation.window_id,
@@ -542,6 +550,36 @@ def _hero_scoped_current(
             patch_label=result.patch_label,
         )
     return scoped
+
+
+def _empty_context(context: CatalogContext) -> bool:
+    return not context.items and not context.archetypes
+
+
+def _seed_anchor_context(hero: str, current: dict[str, SourceFetchResult]) -> CatalogContext:
+    """Build first-catalog anchors from hero-scoped secondary sources.
+
+    Empty seed catalogs have no curator-authored archetypes yet, so primary
+    bazaardb rows need a deterministic cross-source anchor instead of the normal
+    existing-catalog context. Mobalytics/bazaar-builds rows are already fetched
+    for the target hero and can safely constrain the primary source surface.
+    """
+    items: set[str] = set()
+    archetypes: set[str] = set()
+    for source, result in current.items():
+        if source == PRIMARY_SOURCE or result.status != HEALTHY:
+            continue
+        for row in result.observation.items:
+            if not row.present:
+                continue
+            metadata_hero = _metadata_hero(row.metadata)
+            if metadata_hero and metadata_hero.casefold() != hero.casefold():
+                continue
+            items.add(row.item)
+            if row.archetype:
+                archetypes.add(row.archetype)
+            archetypes.update(value for value in row.archetypes_seen if value)
+    return CatalogContext(hero=hero, items=frozenset(items), archetypes=frozenset(archetypes))
 
 
 def _stats_items_for_context(stats: HeroStats, context: CatalogContext) -> set[str]:
@@ -651,22 +689,40 @@ def _row_dict(
     decision: ThresholdDecision,
     existing: Optional[CatalogItem],
     current: dict[str, SourceFetchResult],
+    stats: HeroStats,
 ) -> dict[str, Any]:
     source_presence = _source_presence(decision.item, current)
+    current_patch_evidence = _current_patch_evidence(decision.item, current)
+    history = _history_summary(decision.item, stats)
+    phase = decision.phase or _observed_phase(decision.item, current) or _default_candidate_phase(decision, existing)
     return {
         "hero": hero,
-        "phase": decision.phase,
+        "phase": phase,
         "archetype": decision.archetype or _observed_archetype(decision.item, current),
         "archetype_status": _archetype_status(decision, existing),
         "item": decision.item,
         "catalog_membership": "present" if existing else "missing",
         "source_presence": source_presence,
+        "current_patch_evidence": current_patch_evidence,
+        "within_patch_strength": _within_patch_strength(decision.item, current),
+        "current_source_support_count": _current_source_support_count(decision.item, current),
         "canonical_presence": _canonical_presence(decision, source_presence),
         "classification_ceiling": decision.classification_ceiling,
         "threshold_result": decision.threshold_result,
         "threshold_reason": decision.threshold_reason,
         "removal_blocked_by": decision.removal_blocked_by,
         "disagreement": decision.disagreement.label if decision.disagreement else "none",
+        "windows_seen": history["windows_seen"],
+        "first_seen_window": history["first_seen_window"],
+        "last_seen_window": history["last_seen_window"],
+        "sample_count_latest": _latest_numeric(current_patch_evidence, "sample_count"),
+        "appearances_latest": _latest_numeric(current_patch_evidence, "appearances"),
+        "frequency_latest": _latest_numeric(current_patch_evidence, "frequency"),
+        "mobalytics_description": _mobalytics_description(decision.item, current),
+        "classifier_input_required": (
+            decision.threshold_result == "add_candidate"
+            and decision.classification_ceiling in {"carry_core_support", "support_only"}
+        ),
         "llm_input_required": (
             decision.threshold_result == "add_candidate"
             and decision.classification_ceiling in {"carry_core_support", "support_only"}
@@ -696,6 +752,132 @@ def _source_presence(item: str, current: dict[str, SourceFetchResult]) -> dict[s
     return presence
 
 
+def _current_patch_evidence(item: str, current: dict[str, SourceFetchResult]) -> dict[str, dict[str, Any]]:
+    evidence: dict[str, dict[str, Any]] = {}
+    for source in sorted(SUPPORTED_SOURCES):
+        result = current.get(source)
+        if result is None:
+            evidence[source] = {"presence": "skipped"}
+            continue
+        if result.status != HEALTHY:
+            evidence[source] = {"presence": result.status, "window_id": result.observation.window_id}
+            continue
+        observed = next((row for row in result.observation.items if row.item == item and row.present), None)
+        payload: dict[str, Any] = {
+            "presence": "present" if observed else "absent",
+            "window_id": result.observation.window_id,
+            "observed_at": result.observation.observed_at,
+        }
+        if observed:
+            payload.update(
+                _drop_none(
+                    {
+                        "item": observed.item,
+                        "phase": observed.phase,
+                        "archetype": observed.archetype,
+                        "appearances": observed.appearances,
+                        "sample_count": observed.sample_count,
+                        "frequency": observed.frequency,
+                        "rank": observed.rank,
+                        "archetypes_seen": list(observed.archetypes_seen),
+                        "evidence_refs": list(observed.evidence_refs),
+                        "metadata": dict(observed.metadata),
+                    }
+                )
+            )
+        evidence[source] = payload
+    return evidence
+
+
+def _within_patch_strength(item: str, current: dict[str, SourceFetchResult]) -> str:
+    bazaardb_strength = _current_bazaardb_strength(item, current)
+    if bazaardb_strength in {"statistical_core", "statistical_strong"}:
+        return bazaardb_strength
+    if any(_current_presence(item, current.get(source)) is True for source in MOBALYTICS_SOURCES):
+        return "editorial_confirmed"
+    if _current_source_support_count(item, current) >= 2:
+        return "multi_source_current"
+    if bazaardb_strength != "none":
+        return bazaardb_strength
+    if any(_current_presence(item, current.get(source)) is True for source in EVALUATED_SOURCES):
+        return "single_source_thin"
+    return "none"
+
+
+def _current_bazaardb_strength(item: str, current: dict[str, SourceFetchResult]) -> str:
+    result = current.get(PRIMARY_SOURCE)
+    if result is None or result.status != HEALTHY:
+        return "none"
+    observed = next((row for row in result.observation.items if row.item == item and row.present), None)
+    if observed is None:
+        return "none"
+    section = str(observed.metadata.get("section") or "").upper()
+    if section == "CORE ITEMS":
+        sample = observed.sample_count or observed.appearances or 0
+        return "statistical_core" if sample >= BAZAARDB_CORE_SAMPLE else "statistical_strong"
+    appearances = observed.appearances or 0
+    frequency = observed.frequency or 0.0
+    if appearances >= BAZAARDB_STRONG_APPEARANCES and frequency >= BAZAARDB_STRONG_FREQUENCY:
+        return "statistical_strong"
+    return "single_source_thin"
+
+
+def _add_classification_ceiling(
+    item: str,
+    disagreement: SourceDisagreement,
+    current: dict[str, SourceFetchResult],
+    context: CatalogContext,
+) -> str:
+    if disagreement.classification_ceiling != "support_only":
+        return disagreement.classification_ceiling
+    if not _empty_context(context):
+        return disagreement.classification_ceiling
+    if any(_current_presence(item, current.get(source)) is True for source in MOBALYTICS_SOURCES):
+        return "carry_core_support"
+    return disagreement.classification_ceiling
+
+
+def _history_summary(item: str, stats: HeroStats) -> dict[str, Any]:
+    windows_seen = 0
+    first_seen: Optional[str] = None
+    last_seen: Optional[str] = None
+    for source in sorted(SUPPORTED_SOURCES):
+        for row in stats.item_history(item, source):
+            if not row.present:
+                continue
+            windows_seen += 1
+            first_seen = first_seen or row.window_id
+            last_seen = row.window_id
+    return {
+        "windows_seen": windows_seen,
+        "first_seen_window": first_seen,
+        "last_seen_window": last_seen,
+    }
+
+
+def _mobalytics_description(item: str, current: dict[str, SourceFetchResult]) -> str:
+    descriptions = []
+    for source in MOBALYTICS_SOURCES:
+        result = current.get(source)
+        if result is None or result.status != HEALTHY:
+            continue
+        for row in result.observation.items:
+            if row.item != item or not row.present:
+                continue
+            description = row.metadata.get("editorial_description")
+            if description:
+                descriptions.append(str(description))
+    return "\n\n".join(descriptions)
+
+
+def _latest_numeric(evidence: dict[str, dict[str, Any]], key: str) -> Optional[float | int]:
+    for source in (PRIMARY_SOURCE, *MOBALYTICS_SOURCES, "bazaar_builds_net"):
+        value = evidence.get(source, {}).get(key)
+        if isinstance(value, (int, float)):
+            return value
+    return None
+
+
 def _canonical_presence(decision: ThresholdDecision, source_presence: dict[str, str]) -> str:
     if source_presence[PRIMARY_SOURCE] == "present" or decision.threshold_result == "add_candidate":
         return "present"
@@ -717,6 +899,22 @@ def _observed_archetype(item: str, current: dict[str, SourceFetchResult]) -> Opt
         for row in result.observation.items:
             if row.item == item and row.archetype:
                 return row.archetype
+    return None
+
+
+def _observed_phase(item: str, current: dict[str, SourceFetchResult]) -> Optional[str]:
+    for result in current.values():
+        if result.status != HEALTHY:
+            continue
+        for row in result.observation.items:
+            if row.item == item and row.phase:
+                return row.phase
+    return None
+
+
+def _default_candidate_phase(decision: ThresholdDecision, existing: Optional[CatalogItem]) -> Optional[str]:
+    if existing is None and decision.threshold_result == "add_candidate":
+        return "late"
     return None
 
 
@@ -799,6 +997,10 @@ def _optional_str(value: Any) -> Optional[str]:
     if value is None:
         return None
     return str(value)
+
+
+def _drop_none(data: dict[str, Any]) -> dict[str, Any]:
+    return {key: value for key, value in data.items() if value is not None}
 
 
 if __name__ == "__main__":

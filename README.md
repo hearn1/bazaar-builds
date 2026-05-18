@@ -51,9 +51,9 @@ python bazaar_build_enricher.py compare \
 
 ## Automated pipeline status
 
-The GitHub Actions cron schedule exists, and `pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to deterministic `no_llm_shadow`: they may fetch sources, evaluate, write diff/proposal artifacts, upload review artifacts, and open/update a rolling `automated/stats-sync-<hero>` PR per hero against this repo's `main`. They must not mutate coach catalogs or open coach PRs.
+The GitHub Actions cron schedule exists, and `pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to deterministic classification: they may fetch sources, evaluate, write diff/proposal artifacts, upload review artifacts, and open/update a rolling `automated/stats-sync-<hero>` PR per hero against this repo's `main`. They must not mutate coach catalogs or open coach PRs.
 
-`live_cron` remains disabled until a later manual gate. Before enabling rolling coach PRs, require at least 2 healthy bazaardb patch windows, at least 14 calendar days of shadow output, and semantic classifier/provider readiness or an explicit waiver.
+`live_cron` remains disabled until a later manual gate. Before enabling rolling coach PRs, require at least 2 healthy bazaardb patch windows, at least 14 calendar days of deterministic classifier output, and classifier readiness or an explicit waiver.
 
 See `ROADMAP.md` for active gates and `CLAUDE.md` for operator notes.
 
@@ -65,7 +65,7 @@ Run the tracked suite explicitly:
 python -m pytest -q tests
 ```
 
-Current local verification: 119 tests passing. A bare `python -m pytest -q` from the repo root can walk generated `artifacts/` directories and fail during collection; use the `tests` path unless pytest collection is later constrained in config.
+A bare `python -m pytest -q` from the repo root can walk generated `artifacts/` directories and fail during collection; use the `tests` path unless pytest collection is later constrained in config.
 
 ## Schema contract
 

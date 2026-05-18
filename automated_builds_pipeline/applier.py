@@ -37,7 +37,8 @@ _ARCHETYPE_KEY_ORDER = (
     "notes",
 )
 
-# llm_classification -> archetype item bucket.
+# v1 artifact compatibility: llm_classification now carries deterministic
+# classifier output.
 _BUCKET_BY_CLASSIFICATION = {
     "carry": "carry_items",
     "core": "core_items",
@@ -98,7 +99,7 @@ def apply_proposed_changes(
     """
     result = ApplyResult(catalog=copy.deepcopy(catalog))
 
-    # Belt-and-suspenders semantic gate: no_llm_shadow / classification_pending
+    # Belt-and-suspenders semantic gate: observation-only / classification_pending
     # output must never mutate the catalog, even if called outside the phase gate.
     if not diff_json.get("semantic_classification"):
         result.skipped.append(

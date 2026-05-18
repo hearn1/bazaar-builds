@@ -9,12 +9,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Literal, Optional, Protocol
 
+from automated_builds_pipeline.classification import ItemClassification
 from automated_builds_pipeline.evaluator import EvaluationResult
 from automated_builds_pipeline.known_items import catalog_item_names
-from automated_builds_pipeline.llm import DEFAULT_MODEL, ItemClassification, LLMClassifier
 from automated_builds_pipeline.proposal import render_proposal
 
-ClassifierMode = Literal["llm", "mock", "no_llm_shadow", "deterministic"]
+ClassifierMode = Literal["mock", "no_llm_shadow", "deterministic"]
 
 
 class Classifier(Protocol):
@@ -35,7 +35,7 @@ NO_LLM_PROVIDER = "none"
 NO_LLM_CLASSIFICATION = "classification_pending"
 NO_LLM_CONFIDENCE = "none"
 NO_LLM_RATIONALE = (
-    "Deterministic shadow observation only; semantic carry/core/support classification is pending LLM or curator review."
+    "Observation-only shadow output; deterministic carry/core/support classification is pending curator review."
 )
 
 
@@ -46,12 +46,12 @@ def generate_diff(
     classifier: Optional[Classifier],
     *,
     mock_mode: bool = False,
-    classifier_mode: ClassifierMode = "llm",
+    classifier_mode: ClassifierMode = "deterministic",
 ) -> dict[str, Any]:
     if mock_mode:
         classifier_mode = "mock"
-    if classifier_mode == "llm" and classifier is None:
-        raise ValueError("classifier is required when classifier_mode is 'llm'")
+    if classifier_mode == "deterministic" and classifier is None:
+        raise ValueError("classifier is required when classifier_mode is 'deterministic'")
 
     catalog_index = _catalog_index(catalog)
     rows = list(evaluation.rows)
@@ -75,7 +75,7 @@ def generate_diff(
         elif row.get("threshold_result") == "remove_candidate":
             proposed_changes["item_removal_candidates"].append(_removal_row(row))
 
-    for key, group in _group_llm_rows(rows).items():
+    for key, group in _group_classifier_rows(rows).items():
         phase, archetype = key
         existing_buckets = catalog_index.get(key, _empty_buckets())
         classifications = _classify_group(
@@ -99,13 +99,15 @@ def generate_diff(
                         }
                     )
                 else:
-                    noise.append({"reason": "invalid_llm_item", "item": classification.item, "archetype": archetype})
+                    noise.append({"reason": "invalid_classifier_item", "item": classification.item, "archetype": archetype})
                 continue
             row = _row_for_item(group, classification.item)
             emitted = _classification_to_diff(classification, row)
             if row.get("classification_ceiling") == "support_only" and emitted["llm_classification"] in {"carry", "core"}:
                 emitted["llm_classification"] = "support"
                 emitted["llm_rationale"] = f"{emitted['llm_rationale']} Source-quality gate capped this item at support."
+                emitted["classification"] = "support"
+                emitted["rationale"] = emitted["llm_rationale"]
             if classification.surface == "top_line" or mock_mode:
                 top_line.append(emitted)
             elif classification.surface == "weaker_signal":
@@ -143,14 +145,8 @@ def generate_diff(
         "schema_version": 1,
         "hero": hero,
         "classification_mode": artifact_mode,
-        "semantic_classification": artifact_mode in ("llm", "deterministic"),
-        "llm_provider": (
-            "anthropic"
-            if artifact_mode == "llm"
-            else "deterministic"
-            if artifact_mode == "deterministic"
-            else NO_LLM_PROVIDER
-        ),
+        "semantic_classification": artifact_mode == "deterministic",
+        "classifier_provider": "deterministic" if artifact_mode == "deterministic" else NO_LLM_PROVIDER,
         "generated_at": _now_iso(),
         "window_id": _window_id(evaluation),
         "source_window": _source_window(evaluation),
@@ -186,10 +182,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--mock", action="store_true")
     parser.add_argument(
         "--classifier-mode",
-        choices=("llm", "mock", "no_llm_shadow", "deterministic"),
-        default="llm",
+        choices=("mock", "no_llm_shadow", "deterministic"),
+        default="deterministic",
     )
-    parser.add_argument("--api-key-env", default="CLAUDE_API_KEY")
     return parser
 
 
@@ -199,8 +194,10 @@ def main(argv: Optional[list[str]] = None) -> int:
     evaluation = load_evaluation(args.evaluation)
     classifier = None
     classifier_mode = "mock" if args.mock else args.classifier_mode
-    if classifier_mode == "llm":
-        classifier = LLMClassifier(DEFAULT_MODEL, known_items_path=args.names_file, api_key_env=args.api_key_env)
+    if classifier_mode == "deterministic":
+        from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
+
+        classifier = DeterministicClassifier(known_items_path=args.names_file)
         classifier.known_items.update(_all_catalog_names(catalog))
     diff = generate_diff(args.hero, evaluation, catalog, classifier, classifier_mode=classifier_mode)
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -231,7 +228,7 @@ def _classify_group(
             for row in rows
         ]
     if classifier is None:
-        raise ValueError("classifier is required when classifier_mode is 'llm'")
+        raise ValueError("classifier is required when classifier_mode is 'deterministic'")
     return classifier.classify_archetype(
         hero,
         phase,
@@ -243,10 +240,13 @@ def _classify_group(
     )
 
 
-def _group_llm_rows(rows: list[dict[str, Any]]) -> dict[tuple[Optional[str], Optional[str]], list[dict[str, Any]]]:
+def _group_classifier_rows(rows: list[dict[str, Any]]) -> dict[tuple[Optional[str], Optional[str]], list[dict[str, Any]]]:
     grouped: dict[tuple[Optional[str], Optional[str]], list[dict[str, Any]]] = {}
     for row in rows:
-        if row.get("llm_input_required") is True and row.get("threshold_result") == "add_candidate":
+        if (
+            row.get("classifier_input_required") is True
+            or row.get("llm_input_required") is True
+        ) and row.get("threshold_result") == "add_candidate":
             grouped.setdefault((row.get("phase"), row.get("archetype")), []).append(row)
     return grouped
 
@@ -307,6 +307,9 @@ def _classification_to_diff(classification: ItemClassification, row: dict[str, A
             "classification_ceiling": row.get("classification_ceiling"),
             "threshold_result": row.get("threshold_result"),
             "threshold_reason": row.get("threshold_reason"),
+            "within_patch_strength": row.get("within_patch_strength"),
+            "current_source_support_count": row.get("current_source_support_count"),
+            "current_patch_evidence": row.get("current_patch_evidence", {}),
             "source_presence": row.get("source_presence", {}),
             "evidence_by_source": _evidence_by_source(row),
             "evidence_refs": list(row.get("evidence_refs", [])),
@@ -421,6 +424,8 @@ def _sample_count(rows: list[dict[str, Any]]) -> int:
 def _evidence_by_source(row: dict[str, Any]) -> dict[str, Any]:
     if isinstance(row.get("evidence_by_source"), dict):
         return row["evidence_by_source"]
+    if isinstance(row.get("current_patch_evidence"), dict):
+        return row["current_patch_evidence"]
     presence = row.get("source_presence", {})
     return {source: {"presence": value} for source, value in presence.items()} if isinstance(presence, dict) else {}
 

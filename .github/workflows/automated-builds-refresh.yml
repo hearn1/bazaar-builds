@@ -11,7 +11,6 @@
 #   Contents: Read & Write and Pull requests: Read & Write.
 #   Note: the secret is still named TRACKER_PR_TOKEN; after the repo rename the
 #   PAT must have been updated (or re-confirmed) to grant access to bazaar_coach.
-# - CLAUDE_API_KEY: Anthropic API key for the LLM classifier in live/LLM mode.
 
 name: Automated builds refresh
 
@@ -42,13 +41,8 @@ on:
         description: "Optional one-run phase override: implementation, local_dry_run, shadow_cron, or live_cron"
         required: false
         type: string
-      mock_llm:
-        description: "Bypass Claude classification for dry-run artifact validation"
-        required: false
-        default: false
-        type: boolean
       classifier_mode:
-        description: "Classifier strategy: llm, deterministic, or no_llm_shadow. Scheduled shadow_cron defaults to deterministic."
+        description: "Classifier strategy: deterministic or no_llm_shadow. Scheduled runs default to deterministic."
         required: false
         default: ""
         type: string
@@ -161,20 +155,11 @@ jobs:
       - name: Run pipeline
         if: steps.selected.outputs.run == 'true'
         env:
-          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           GH_TOKEN: ${{ secrets.TRACKER_PR_TOKEN }}
         run: |
-          mock_llm_args=()
-          if [[ "${{ inputs.mock_llm }}" == "true" ]]; then
-            mock_llm_args+=(--mock-llm)
-          fi
           classifier_mode="${{ inputs.classifier_mode }}"
           if [[ -z "$classifier_mode" ]]; then
-            if [[ "${{ steps.state.outputs.phase }}" == "shadow_cron" ]]; then
-              classifier_mode="deterministic"
-            else
-              classifier_mode="llm"
-            fi
+            classifier_mode="deterministic"
           fi
 
           xvfb-run -a python -m automated_builds_pipeline.pipeline run \
@@ -183,10 +168,8 @@ jobs:
             --tracker-repo "$GITHUB_WORKSPACE/bazaar_coach" \
             --stats-dir "$GITHUB_WORKSPACE/stats" \
             --output-dir "$GITHUB_WORKSPACE/artifacts" \
-            --api-key-env CLAUDE_API_KEY \
             --classifier-mode "$classifier_mode" \
-            --bazaardb-retries 2 \
-            "${mock_llm_args[@]}"
+            --bazaardb-retries 2
 
       - name: Persist stats via rolling PR
         if: steps.selected.outputs.run == 'true' && github.ref_name == 'main' && (steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron')

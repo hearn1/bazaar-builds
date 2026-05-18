@@ -15,7 +15,7 @@ python -m pip install -r requirements.txt
 python -m pytest -q tests
 ```
 
-Current local verification: 119 tests passing. Use `python -m pytest -q tests`; a bare repo-root pytest can collect generated `artifacts/` directories and fail before the tracked suite runs.
+Use `python -m pytest -q tests`; a bare repo-root pytest can collect generated `artifacts/` directories and fail before the tracked suite runs.
 
 Fetch evidence for a hero. The GitHub repo is `hearn1/bazaar_coach`, but the
 local working checkout in use is the sibling directory `..\bazaar_tracker`;
@@ -47,10 +47,10 @@ python -m automated_builds_pipeline.pipeline run `
   --tracker-repo ..\bazaar_tracker `
   --stats-dir .\stats `
   --output-dir .\artifacts `
-  --classifier-mode no_llm_shadow
+  --classifier-mode deterministic
 ```
 
-Use `--mock-llm` only for local synthetic validation. It is not scheduled shadow evidence or catalog-acceptance evidence.
+Use `--classifier-mode no_llm_shadow` only for observation-only dry-run artifacts that deliberately skip semantic carry/core/support classification.
 
 Refresh source-shape samples for curator review:
 
@@ -60,9 +60,9 @@ python -m automated_builds_pipeline.research.refresh_samples --source bazaardb
 
 ## Current Pipeline Phase
 
-`pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to deterministic `no_llm_shadow`; they may fetch sources, evaluate, render diff/proposal artifacts, upload workflow artifacts, and open a dated `automated/stats-sync-<hero>-<YYYYMMDD>` PR per hero in this repo each run. Merge or close at curator discretion; unmerged PRs from prior days do not block future runs. Direct pushes to `main` are not used because branch protection requires PRs.
+`pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to the deterministic classifier; they may fetch sources, evaluate, render diff/proposal artifacts, upload workflow artifacts, and open a dated `automated/stats-sync-<hero>-<YYYYMMDD>` PR per hero in this repo each run. Merge or close at curator discretion; unmerged PRs from prior days do not block future runs. Direct pushes to `main` are not used because branch protection requires PRs.
 
-Do not promote to `live_cron` until at least 2 healthy bazaardb patch windows and at least 14 calendar days of shadow output have accumulated, and semantic classifier/provider readiness is confirmed or explicitly waived. Do not mutate coach catalogs or open coach PRs while `dry_run` remains true.
+Do not promote to `live_cron` until at least 2 healthy bazaardb patch windows and at least 14 calendar days of deterministic classifier output have accumulated, and classifier readiness is confirmed or explicitly waived. Do not mutate coach catalogs or open coach PRs while `dry_run` remains true.
 
 `implementation` is the off switch. `local_dry_run` is the rollback path for artifact-only scheduled/manual runs without stats sidecar PRs.
 
@@ -71,7 +71,7 @@ Do not promote to `live_cron` until at least 2 healthy bazaardb patch windows an
 Priority order is bazaardb, then Mobalytics, then bazaar-builds.net.
 
 - `bazaardb.gg/run/meta`: canonical statistical baseline. It is patch-scoped, fetched with Playwright/browser handling because plain HTTP can hit Cloudflare, and healthy absence is the only canonical removal evidence.
-- `mobalytics.gg/the-bazaar/guides/meta-builds`: structured editorial source via `window.__PRELOADED_STATE__`; item names are deterministic JSON fields, not LLM-extracted text.
+- `mobalytics.gg/the-bazaar/guides/meta-builds`: structured editorial source via `window.__PRELOADED_STATE__`; item names are deterministic JSON fields, not free-text extraction.
 - `bazaar-builds.net/category/builds/`: dated WordPress post evidence. Use `--fetch-posts`; the 30-day window depends on parsed post dates and a non-empty known-items list.
 
 Unhealthy source runs contribute no absence evidence. Multiple healthy sources in one run are not multiple temporal windows.
@@ -97,7 +97,7 @@ automated_builds_pipeline.sources.*     # source fetchers and health checks
 automated_builds_pipeline.evaluator     # threshold rows and source-disagreement logic
 automated_builds_pipeline.stats         # per-hero stats sidecar read/write API
 automated_builds_pipeline.diff          # candidate diff construction
-automated_builds_pipeline.llm           # classifier modes and hosted provider wiring
+automated_builds_pipeline.classification # shared classifier result types
 automated_builds_pipeline.proposal      # proposal markdown rendering
 automated_builds_pipeline.pr_comment    # supporting evidence comment rendering
 automated_builds_pipeline.smoke         # source-health smoke workflow support

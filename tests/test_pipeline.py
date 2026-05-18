@@ -401,54 +401,6 @@ def test_local_dry_run_writes_artifacts_without_saving_stats(monkeypatch, tmp_pa
     assert not stats_path("Karnok", stats_dir).exists()
 
 
-def test_local_dry_run_mock_llm_uses_mock_diff_without_classifier(monkeypatch, tmp_path):
-    state_file = tmp_path / "pipeline_state.json"
-    write_state(state_file, "local_dry_run")
-    tracker = make_tracker(tmp_path)
-    patch_fetchers(monkeypatch)
-    captured = {}
-    patch_evaluator(monkeypatch, captured)
-    diff_calls = []
-    monkeypatch.setattr(pipeline, "LLMClassifier", lambda *args, **kwargs: pytest.fail("should not create classifier"))
-
-    def fake_generate_diff(hero, evaluation, catalog, classifier, *, classifier_mode):
-        diff_calls.append({"classifier": classifier, "classifier_mode": classifier_mode})
-        return minimal_diff_payload()
-
-    monkeypatch.setattr(pipeline.diff, "generate_diff", fake_generate_diff)
-
-    pipeline.run(
-        hero="Karnok",
-        state_file=state_file,
-        tracker_repo=tracker,
-        stats_dir=tmp_path / "stats",
-        output_dir=tmp_path / "artifacts",
-        mock_llm=True,
-    )
-
-    assert diff_calls == [{"classifier": None, "classifier_mode": "mock"}]
-    assert (tmp_path / "artifacts" / "Karnok_diff.json").exists()
-    assert (tmp_path / "artifacts" / "Karnok_build_update_proposal.md").exists()
-
-
-def test_live_cron_without_dry_run_rejects_mock_llm_before_work(monkeypatch, tmp_path):
-    state_file = tmp_path / "pipeline_state.json"
-    write_state(state_file, "live_cron", dry_run=False)
-    tracker = make_tracker(tmp_path)
-    monkeypatch.setattr(pipeline, "_fetch_sources", lambda *args, **kwargs: pytest.fail("should not fetch"))
-    monkeypatch.setattr(pipeline.diff, "generate_diff", lambda *args, **kwargs: pytest.fail("should not diff"))
-
-    with pytest.raises(ValueError, match="--mock-llm"):
-        pipeline.run(
-            hero="Karnok",
-            state_file=state_file,
-            tracker_repo=tracker,
-            stats_dir=tmp_path / "stats",
-            output_dir=tmp_path / "artifacts",
-            mock_llm=True,
-        )
-
-
 def test_shadow_cron_no_llm_shadow_bypasses_classifier_and_saves_stats(monkeypatch, tmp_path):
     state_file = tmp_path / "pipeline_state.json"
     write_state(state_file, "shadow_cron")
@@ -458,7 +410,7 @@ def test_shadow_cron_no_llm_shadow_bypasses_classifier_and_saves_stats(monkeypat
     patch_fetchers(monkeypatch)
     captured = {}
     patch_evaluator(monkeypatch, captured)
-    monkeypatch.setattr(pipeline, "LLMClassifier", lambda *args, **kwargs: pytest.fail("should not create classifier"))
+    monkeypatch.setattr(pipeline, "DeterministicClassifier", lambda *args, **kwargs: pytest.fail("should not create classifier"))
     diff_calls = []
 
     def fake_generate_diff(hero, evaluation, catalog, classifier, *, classifier_mode):
@@ -485,15 +437,14 @@ def test_shadow_cron_no_llm_shadow_bypasses_classifier_and_saves_stats(monkeypat
     assert (tmp_path / "artifacts" / "Karnok_diff.json").exists()
 
 
-def test_local_dry_run_no_llm_shadow_succeeds_without_api_key(monkeypatch, tmp_path):
+def test_local_dry_run_no_llm_shadow_succeeds_without_classifier(monkeypatch, tmp_path):
     state_file = tmp_path / "pipeline_state.json"
     write_state(state_file, "local_dry_run")
     tracker = make_tracker(tmp_path)
     patch_fetchers(monkeypatch)
     captured = {}
     patch_evaluator(monkeypatch, captured)
-    monkeypatch.delenv("CLAUDE_API_KEY", raising=False)
-    monkeypatch.setattr(pipeline, "LLMClassifier", lambda *args, **kwargs: pytest.fail("should not create classifier"))
+    monkeypatch.setattr(pipeline, "DeterministicClassifier", lambda *args, **kwargs: pytest.fail("should not create classifier"))
     diff_calls = []
 
     def fake_generate_diff(hero, evaluation, catalog, classifier, *, classifier_mode):
@@ -534,7 +485,7 @@ def test_live_cron_without_dry_run_rejects_no_llm_shadow_before_work(monkeypatch
         )
 
 
-def test_default_llm_mode_creates_classifier_and_uses_real_diff_mode(monkeypatch, tmp_path):
+def test_default_deterministic_mode_creates_classifier_and_uses_real_diff_mode(monkeypatch, tmp_path):
     state_file = tmp_path / "pipeline_state.json"
     write_state(state_file, "local_dry_run")
     tracker = make_tracker(tmp_path)
@@ -544,8 +495,8 @@ def test_default_llm_mode_creates_classifier_and_uses_real_diff_mode(monkeypatch
     classifier_inits = []
 
     class FakeClassifier:
-        def __init__(self, model, *, known_items_path, api_key_env):
-            classifier_inits.append((model, known_items_path, api_key_env))
+        def __init__(self, *, known_items_path):
+            classifier_inits.append(known_items_path)
             self.known_items = set()
 
     diff_calls = []
@@ -554,7 +505,7 @@ def test_default_llm_mode_creates_classifier_and_uses_real_diff_mode(monkeypatch
         diff_calls.append({"classifier": classifier, "classifier_mode": classifier_mode})
         return minimal_diff_payload()
 
-    monkeypatch.setattr(pipeline, "LLMClassifier", FakeClassifier)
+    monkeypatch.setattr(pipeline, "DeterministicClassifier", FakeClassifier)
     monkeypatch.setattr(pipeline.diff, "generate_diff", fake_generate_diff)
 
     pipeline.run(
@@ -565,8 +516,8 @@ def test_default_llm_mode_creates_classifier_and_uses_real_diff_mode(monkeypatch
         output_dir=tmp_path / "artifacts",
     )
 
-    assert classifier_inits == [(pipeline.DEFAULT_MODEL, tracker / "card_cache_names.txt", "CLAUDE_API_KEY")]
-    assert diff_calls[0]["classifier_mode"] == "llm"
+    assert classifier_inits == [tracker / "card_cache_names.txt"]
+    assert diff_calls[0]["classifier_mode"] == "deterministic"
     assert isinstance(diff_calls[0]["classifier"], FakeClassifier)
 
 
@@ -598,8 +549,9 @@ def test_workflow_persists_stats_only_for_shadow_and_live_phases():
     text = workflow.read_text(encoding="utf-8")
 
     assert "steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron'" in text
-    assert "mock_llm:" in text
-    assert "mock_llm_args+=(--mock-llm)" in text
+    assert "mock_llm:" not in text
+    assert "--mock-llm" not in text
+    assert "CLAUDE_API_KEY" not in text
     assert 'classifier_mode="deterministic"' in text
     assert '--classifier-mode "$classifier_mode"' in text
 
@@ -765,9 +717,6 @@ def test_shadow_cron_deterministic_wires_classifier_and_records_started_once(mon
     )
     captured = {}
     patch_evaluator(monkeypatch, captured)
-    monkeypatch.setattr(
-        pipeline, "LLMClassifier", lambda *args, **kwargs: pytest.fail("should not create LLM classifier")
-    )
     diff_calls = []
 
     def fake_generate_diff(hero, evaluation, catalog, classifier, *, classifier_mode):
@@ -972,7 +921,7 @@ def test_non_live_phases_do_not_mutate_catalog(monkeypatch, tmp_path, phase, ove
         tracker_repo=tracker,
         stats_dir=tmp_path / "stats",
         output_dir=tmp_path / "artifacts",
-        classifier_mode="deterministic" if phase == "shadow_cron" else "llm",
+        classifier_mode="deterministic",
         pr_action=lambda *args: None,
     )
 

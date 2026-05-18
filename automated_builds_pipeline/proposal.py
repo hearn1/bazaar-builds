@@ -31,14 +31,14 @@ def _pipeline_state(lines: list[str], diff: dict[str, Any]) -> None:
     )
     if semantic_classification is False:
         lines.append(f"- Classification mode: {diff.get('classification_mode', 'unknown')}")
-        lines.append(f"- LLM provider: {diff.get('llm_provider', 'unknown')}")
+        lines.append(f"- Classifier provider: {diff.get('classifier_provider', 'unknown')}")
         lines.append(
-            "- Warning: deterministic/no-LLM shadow output is operational observation evidence only; it does not validate semantic catalog acceptance."
+            "- Warning: observation-only shadow output is operational evidence only; it does not validate semantic catalog acceptance."
         )
-    invalid_names = _invalid_llm_item_count(diff)
+    invalid_names = _invalid_classifier_item_count(diff)
     if invalid_names:
         lines.append(
-            f"- Warning: {invalid_names} item name(s) were dropped as invalid_llm_item; "
+            f"- Warning: {invalid_names} item name(s) were dropped as invalid_classifier_item; "
             f"the coach card_cache_names.txt may be stale (regenerate via "
             f"tracker.py refresh-images)."
         )
@@ -52,15 +52,15 @@ def _pipeline_state(lines: list[str], diff: dict[str, Any]) -> None:
     lines.append("")
 
 
-def _invalid_llm_item_count(diff: dict[str, Any]) -> int:
-    """Count items dropped as ``invalid_llm_item`` in the diff noise.
+def _invalid_classifier_item_count(diff: dict[str, Any]) -> int:
+    """Count items dropped as ``invalid_classifier_item`` in the diff noise.
 
     Counts individual rows plus any ``{"summary": true, "count": N}`` rollups so
     the stale-name signal survives diff noise summarization.
     """
     total = 0
     for row in diff.get("noise", []):
-        if not isinstance(row, dict) or row.get("reason") != "invalid_llm_item":
+        if not isinstance(row, dict) or row.get("reason") not in {"invalid_classifier_item", "invalid_llm_item"}:
             continue
         if row.get("summary"):
             count = row.get("count", 0)
@@ -149,7 +149,10 @@ def _noise(lines: list[str], diff: dict[str, Any]) -> None:
 
 
 def _item_line(item: dict[str, Any]) -> str:
-    return f"- {item.get('item')}: {item.get('llm_classification')} ({item.get('llm_confidence')}) - {item.get('llm_rationale')}"
+    classification = item.get("classification", item.get("llm_classification"))
+    confidence = item.get("confidence", item.get("llm_confidence"))
+    rationale = item.get("rationale", item.get("llm_rationale"))
+    return f"- {item.get('item')}: {classification} ({confidence}) - {rationale}"
 
 
 def _bucket_lines(lines: list[str], label: str, items: list[dict[str, Any]]) -> None:

@@ -108,12 +108,92 @@ def test_add_candidate_from_bazaardb_two_of_three():
     assert row["threshold_reason"] == "bazaardb_present_2_of_3_patches"
 
 
+def test_add_candidate_from_strong_current_bazaardb_patch_signal():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Anaconda", phase="late", archetype="Anaconda")],
+        HeroStats(hero="Karnok"),
+        [
+            result_with_evidence(
+                "bazaardb",
+                [
+                    ItemWindowEvidence(
+                        item="Pufferfish",
+                        archetype="Anaconda",
+                        archetypes_seen=["Anaconda"],
+                        appearances=18,
+                        frequency=0.36,
+                    )
+                ],
+            )
+        ],
+    )
+
+    row = row_for(evaluation, "Pufferfish")
+    assert row["threshold_result"] == "add_candidate"
+    assert row["threshold_reason"] == "bazaardb_current_patch_strong"
+    assert row["within_patch_strength"] == "statistical_strong"
+    assert row["current_patch_evidence"]["bazaardb"]["appearances"] == 18
+
+
 def test_add_candidate_from_mobalytics_current():
     evaluation = evaluate_hero("Karnok", [], HeroStats(hero="Karnok"), [result("mobalytics_meta_builds", ["Pufferfish"])])
 
     row = row_for(evaluation, "Pufferfish")
     assert row["threshold_result"] == "add_candidate"
     assert row["threshold_reason"] == "mobalytics_current_build"
+
+
+def test_empty_seed_catalog_anchors_bazaardb_to_current_secondary_evidence():
+    evaluation = evaluate_hero(
+        "Jules",
+        [],
+        HeroStats(hero="Jules"),
+        [
+            result_with_evidence(
+                "mobalytics_meta_builds",
+                [
+                    ItemWindowEvidence(
+                        item="Bread Knife",
+                        archetype="Farmer's Market",
+                        metadata={"hero": "Jules", "editorial_description": "Bread Knife is in the Jules board."},
+                    )
+                ],
+            ),
+            result_with_evidence(
+                "bazaardb",
+                [
+                    ItemWindowEvidence(
+                        item="Bread Knife",
+                        archetype="Farmer's Market / Bread Knife / Pasta",
+                        archetypes_seen=["Farmer's Market / Bread Knife / Pasta"],
+                        appearances=85,
+                        sample_count=85,
+                        frequency=1.0,
+                        metadata={"section": "CORE ITEMS"},
+                    ),
+                    ItemWindowEvidence(
+                        item="Foreign Item",
+                        archetype="Unrelated Build",
+                        archetypes_seen=["Unrelated Build"],
+                        appearances=100,
+                        sample_count=100,
+                        frequency=1.0,
+                        metadata={"section": "CORE ITEMS"},
+                    ),
+                ],
+            ),
+        ],
+    )
+
+    items = {row["item"] for row in evaluation.rows}
+    assert "Bread Knife" in items
+    assert "Foreign Item" not in items
+    row = row_for(evaluation, "Bread Knife")
+    assert row["threshold_result"] == "add_candidate"
+    assert row["phase"] == "late"
+    assert row["classification_ceiling"] == "carry_core_support"
+    assert row["within_patch_strength"] == "statistical_core"
 
 
 def test_add_candidate_from_bazaar_builds_net_two_of_three():
@@ -223,7 +303,7 @@ def test_insufficient_history_returns_insufficient_history_not_no_change():
 def test_source_quality_gate_sets_support_only_when_bazaardb_absent_and_mobalytics_present():
     evaluation = evaluate_hero(
         "Karnok",
-        [],
+        [CatalogItem("Known Item", phase="late", archetype="Known Build")],
         HeroStats(hero="Karnok"),
         [result("bazaardb", []), result("mobalytics_meta_builds", ["Pufferfish"])],
     )

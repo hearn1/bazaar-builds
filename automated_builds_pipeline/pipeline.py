@@ -15,8 +15,8 @@ from pathlib import Path
 from typing import Any, Callable, Literal, Optional
 
 from automated_builds_pipeline import applier, diff
+from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.evaluator import load_catalog_items, evaluate_hero
-from automated_builds_pipeline.llm import DEFAULT_MODEL, LLMClassifier
 from automated_builds_pipeline.pr_comment import render_pr_comment
 from automated_builds_pipeline.proposal import render_proposal
 from automated_builds_pipeline.sources import bazaar_builds_net, bazaardb, mobalytics
@@ -38,7 +38,7 @@ SOURCE_MOBALYTICS_META = "mobalytics_meta_builds"
 SOURCE_MOBALYTICS_ARTICLES = "mobalytics_build_articles"
 SOURCE_BAZAAR_BUILDS_NET = "bazaar_builds_net"
 LIVE_PHASE = "live_cron"
-ClassifierMode = Literal["llm", "mock", "no_llm_shadow", "deterministic"]
+ClassifierMode = Literal["no_llm_shadow", "deterministic"]
 
 
 @dataclass(frozen=True)
@@ -60,17 +60,12 @@ def run(
     tracker_repo: Path,
     stats_dir: Path,
     output_dir: Path,
-    api_key_env: str = "CLAUDE_API_KEY",
     bazaardb_retries: int = 2,
     no_bazaardb: bool = False,
-    mock_llm: bool = False,
-    classifier_mode: ClassifierMode = "llm",
+    classifier_mode: ClassifierMode = "deterministic",
     pr_action: Optional[PrAction] = None,
 ) -> PipelineResult:
     state = load_state(state_file)
-    classifier_mode = _resolve_classifier_mode(classifier_mode, mock_llm)
-    if mock_llm and not _mock_llm_allowed(state):
-        raise ValueError("--mock-llm is only allowed for dry-run artifact-only pipeline modes")
     if classifier_mode == "no_llm_shadow" and not _no_llm_shadow_allowed(state):
         raise ValueError("--classifier-mode no_llm_shadow is only allowed for dry-run or shadow_cron modes")
     if state.phase == "implementation":
@@ -97,12 +92,7 @@ def run(
 
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
     classifier = None
-    if classifier_mode == "llm":
-        classifier = LLMClassifier(DEFAULT_MODEL, known_items_path=_names_file(tracker_repo), api_key_env=api_key_env)
-        classifier.known_items.update(diff._all_catalog_names(catalog))
-    elif classifier_mode == "deterministic":
-        from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
-
+    if classifier_mode == "deterministic":
         classifier = DeterministicClassifier(known_items_path=_names_file(tracker_repo))
         classifier.known_items.update(diff._all_catalog_names(catalog))
     diff_json = diff.generate_diff(hero, evaluation, catalog, classifier, classifier_mode=classifier_mode)
@@ -234,15 +224,13 @@ def build_arg_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--tracker-repo", type=Path, required=True)
     run_parser.add_argument("--stats-dir", type=Path, required=True)
     run_parser.add_argument("--output-dir", type=Path, required=True)
-    run_parser.add_argument("--api-key-env", default="CLAUDE_API_KEY")
     run_parser.add_argument("--bazaardb-retries", type=int, default=2)
     run_parser.add_argument("--no-bazaardb", action="store_true")
     run_parser.add_argument(
         "--classifier-mode",
-        choices=("llm", "mock", "no_llm_shadow", "deterministic"),
-        default="llm",
+        choices=("no_llm_shadow", "deterministic"),
+        default="deterministic",
     )
-    run_parser.add_argument("--mock-llm", action="store_true")
     return parser
 
 
@@ -256,10 +244,8 @@ def main(argv: Optional[list[str]] = None) -> int:
             tracker_repo=args.tracker_repo,
             stats_dir=args.stats_dir,
             output_dir=args.output_dir,
-            api_key_env=args.api_key_env,
             bazaardb_retries=args.bazaardb_retries,
             no_bazaardb=args.no_bazaardb,
-            mock_llm=args.mock_llm,
             classifier_mode=args.classifier_mode,
         )
         return 0
@@ -378,18 +364,8 @@ def _empty_diff(diff_json: dict[str, Any]) -> bool:
     return proposed_empty and not diff_json.get("weaker_signals")
 
 
-def _mock_llm_allowed(state: CuratorState) -> bool:
-    return state.phase == "local_dry_run" or state.dry_run
-
-
 def _no_llm_shadow_allowed(state: CuratorState) -> bool:
     return state.phase == "shadow_cron" or state.dry_run
-
-
-def _resolve_classifier_mode(classifier_mode: ClassifierMode, mock_llm: bool) -> ClassifierMode:
-    if mock_llm:
-        return "mock"
-    return classifier_mode
 
 
 def _window_id(diff_json: dict[str, Any]) -> str:

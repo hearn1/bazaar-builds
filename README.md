@@ -51,11 +51,15 @@ python bazaar_build_enricher.py compare \
 
 ## Automated pipeline status
 
-The GitHub Actions cron schedule exists, and `pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to deterministic classification: they may fetch sources, evaluate, write diff/proposal artifacts, upload review artifacts, and open/update a rolling `automated/stats-sync-<hero>` PR per hero against this repo's `main`. They must not mutate coach catalogs or open coach PRs.
+`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification, fetch live sources, evaluate thresholds, persist stats sidecars through rolling `automated/stats-sync-<hero>` PRs in this repo, and open or update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes.
 
-`live_cron` remains disabled until a later manual gate. Before enabling rolling coach PRs, require at least 2 healthy bazaardb patch windows, at least 14 calendar days of deterministic classifier output, and classifier readiness or an explicit waiver.
+Promotion was made with an explicit operator waiver in `waivers/live_cron_promotion_waiver_2026-05-18.md`. That waiver bypasses only Gate 1 (2 counted healthy bazaardb patch windows) and Gate 2 (14 calendar days of deterministic output). It does not bypass deterministic classifier readiness, recent malformed/unhealthy bazaardb checks, schema validation, or curator review of coach PRs.
 
-See `ROADMAP.md` for active gates and `CLAUDE.md` for operator notes.
+Hosted LLM classification is not part of the live path. Do not require `CLAUDE_API_KEY`, Anthropic credentials, or hosted classifier readiness for scheduled runs.
+
+`implementation` remains the off switch. `local_dry_run` remains the rollback path for artifact-only verification without stats sidecar PRs or coach catalog mutation.
+
+See `ROADMAP.md` for active gates and `AGENTS.md` for operator notes.
 
 ## Tests
 

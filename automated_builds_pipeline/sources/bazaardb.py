@@ -81,7 +81,7 @@ def fetch_meta(hero: str, options: Optional[FetchOptions] = None) -> SourceFetch
     except PlaywrightTimeoutError:
         return _result("bazaardb:unknown", options, "unhealthy", ["browser_timeout"])
     except Exception as exc:
-        return _result("bazaardb:unknown", options, "unhealthy", [f"browser_failed:{type(exc).__name__}"])
+        return _result("bazaardb:unknown", options, "unhealthy", [f"browser_failed:{_exception_summary(exc)}"])
     return parse_meta_html(html, options)
 
 
@@ -190,7 +190,7 @@ def parse_meta_fixture(path: Path, options: Optional[FetchOptions] = None) -> So
 
 
 def _render_meta_page(playwright: Any, options: FetchOptions, *, headless: bool) -> dict[str, Any]:
-    browser = playwright.chromium.launch(headless=headless)
+    browser = _launch_chromium_browser(playwright, headless=headless)
     page = browser.new_page()
     try:
         page.goto(options.source_url or META_URL, wait_until="domcontentloaded", timeout=options.timeout_seconds * 1000)
@@ -204,6 +204,29 @@ def _render_meta_page(playwright: Any, options: FetchOptions, *, headless: bool)
         return {"status": "html", "html": page.content()}
     finally:
         browser.close()
+
+
+def _launch_chromium_browser(playwright: Any, *, headless: bool) -> Any:
+    """Launch a Chromium browser, preferring Playwright-managed bits.
+
+    Local Windows workstations often have Chrome/Edge installed but stale or
+    missing Playwright-managed browser binaries. The scheduled workflow still
+    uses ``playwright install chromium``; this fallback keeps local verification
+    useful without weakening the source-health signal when no browser works.
+    """
+
+    attempts: list[tuple[str, dict[str, Any]]] = [
+        ("managed", {"headless": headless}),
+        ("chrome", {"headless": headless, "channel": "chrome"}),
+        ("msedge", {"headless": headless, "channel": "msedge"}),
+    ]
+    failures: list[str] = []
+    for label, kwargs in attempts:
+        try:
+            return playwright.chromium.launch(**kwargs)
+        except Exception as exc:
+            failures.append(f"{label}:{_exception_summary(exc)}")
+    raise RuntimeError(f"chromium_launch_failed:{'; '.join(failures)}")
 
 
 def _wait_for_real_page_landmark(page: Any, timeout_ms: int) -> None:
@@ -431,6 +454,13 @@ def _clean_patch_label(value: Any) -> str:
     label = re.sub(r"\(\s+", "(", label)
     label = re.sub(r"\s+\)", ")", label)
     return label
+
+
+def _exception_summary(exc: Exception, *, max_length: int = 500) -> str:
+    lines = [_clean(line) for line in str(exc).splitlines()]
+    message = next((line for line in lines if line), "")
+    summary = f"{type(exc).__name__}:{message}" if message else type(exc).__name__
+    return summary[:max_length]
 
 
 def _utc_now() -> str:

@@ -3,7 +3,9 @@ from __future__ import annotations
 import json
 
 from automated_builds_pipeline.sources.bazaardb import (
+    _exception_summary,
     _is_real_patch_label,
+    _launch_chromium_browser,
     parse_meta_fixture,
     parse_meta_html,
 )
@@ -174,6 +176,51 @@ def test_bazaardb_date_fallback_patch_is_healthy_but_nopatch_tagged():
     assert "patch_label_fallback_nopatch" in result.observation.details
     # Non-fatal: evidence is still captured.
     assert result.observation.items
+
+
+def test_bazaardb_browser_launch_falls_back_to_installed_chrome():
+    class FakeChromium:
+        def __init__(self):
+            self.calls = []
+
+        def launch(self, **kwargs):
+            self.calls.append(kwargs)
+            if kwargs.get("channel") == "chrome":
+                return "browser"
+            raise RuntimeError("Executable doesn't exist at missing-managed-chromium")
+
+    class FakePlaywright:
+        def __init__(self):
+            self.chromium = FakeChromium()
+
+    playwright = FakePlaywright()
+
+    assert _launch_chromium_browser(playwright, headless=True) == "browser"
+    assert playwright.chromium.calls == [
+        {"headless": True},
+        {"headless": True, "channel": "chrome"},
+    ]
+
+
+def test_bazaardb_browser_launch_error_preserves_actionable_detail():
+    class FakeChromium:
+        def launch(self, **kwargs):
+            raise RuntimeError(f"launch failed for {kwargs.get('channel') or 'managed'}\nsecond line")
+
+    class FakePlaywright:
+        chromium = FakeChromium()
+
+    try:
+        _launch_chromium_browser(FakePlaywright(), headless=False)
+    except RuntimeError as exc:
+        summary = _exception_summary(exc)
+    else:
+        raise AssertionError("expected launch failure")
+
+    assert "chromium_launch_failed" in summary
+    assert "managed:RuntimeError:launch failed for managed" in summary
+    assert "chrome:RuntimeError:launch failed for chrome" in summary
+    assert "msedge:RuntimeError:launch failed for msedge" in summary
 
 
 def test_bazaardb_round_trips_into_stats_sidecar(sample_dir, tmp_path):

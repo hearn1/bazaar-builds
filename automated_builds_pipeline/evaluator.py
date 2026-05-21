@@ -72,6 +72,7 @@ class CatalogContext:
     hero: str
     items: frozenset[str]
     archetypes: frozenset[str]
+    anchor_mode: str = "catalog"
 
 
 @dataclass
@@ -579,7 +580,7 @@ def _seed_anchor_context(hero: str, current: dict[str, SourceFetchResult]) -> Ca
             if row.archetype:
                 archetypes.add(row.archetype)
             archetypes.update(value for value in row.archetypes_seen if value)
-    return CatalogContext(hero=hero, items=frozenset(items), archetypes=frozenset(archetypes))
+    return CatalogContext(hero=hero, items=frozenset(items), archetypes=frozenset(archetypes), anchor_mode="seed")
 
 
 def _stats_items_for_context(stats: HeroStats, context: CatalogContext) -> set[str]:
@@ -601,6 +602,8 @@ def _current_row_matches_context(row: ItemWindowEvidence, source: str, context: 
         return False
     if source != PRIMARY_SOURCE:
         return True
+    if context.anchor_mode == "seed":
+        return _evidence_matches_seed_context(row.item, row.archetype, row.archetypes_seen, context)
     return _evidence_matches_catalog_context(row.item, row.archetype, row.archetypes_seen, context)
 
 
@@ -633,6 +636,23 @@ def _evidence_matches_catalog_context(
         if value in context.archetypes:
             return True
         if any(part in context.items for part in _archetype_parts(value)):
+            return True
+    return False
+
+
+def _evidence_matches_seed_context(
+    item: str,
+    archetype: Optional[str],
+    archetypes_seen: Iterable[str],
+    context: CatalogContext,
+) -> bool:
+    if item in context.items:
+        return True
+    archetype_values = [value for value in [archetype, *list(archetypes_seen)] if value]
+    if any(value in context.archetypes for value in archetype_values):
+        return True
+    for value in archetype_values:
+        if len(set(_archetype_parts(value)) & set(context.items)) >= 2:
             return True
     return False
 

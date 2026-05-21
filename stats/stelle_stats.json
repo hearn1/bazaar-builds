@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T13:37:52Z",
-  "generated_at": "2026-05-21T11:04:07Z",
+  "generated_at": "2026-05-21T11:31:08Z",
   "hero": "Stelle",
   "items": {
     "Amber": {
@@ -95,7 +95,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -170,7 +170,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -248,7 +248,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -294,7 +294,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -340,7 +340,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -386,7 +386,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -432,7 +432,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -478,7 +478,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -524,7 +524,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -570,7 +570,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -601,7 +601,7 @@
                   "start": "2026-04-27"
                 }
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -648,7 +648,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -695,7 +695,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -742,7 +742,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 101,
@@ -790,7 +790,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 93,
@@ -820,7 +820,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 68,
@@ -850,7 +850,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -896,7 +896,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -942,7 +942,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -989,7 +989,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 185,
@@ -1221,7 +1221,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -1268,7 +1268,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -1343,7 +1343,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -1374,7 +1374,7 @@
                   "start": "2026-04-26"
                 }
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -1421,7 +1421,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -1467,7 +1467,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -1542,7 +1542,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -1617,7 +1617,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -1693,7 +1693,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -1729,7 +1729,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 73,
+              "appearances": 74,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -1740,10 +1740,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
-              "sample_count": 73,
+              "sample_count": 74,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -1776,7 +1776,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 73,
+              "appearances": 74,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -1787,10 +1787,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
-              "sample_count": 73,
+              "sample_count": 74,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -1817,7 +1817,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2126,7 +2126,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -2173,7 +2173,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2220,7 +2220,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 185,
@@ -2268,7 +2268,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 101,
@@ -2298,7 +2298,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2373,7 +2373,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2402,7 +2402,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2431,7 +2431,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2477,7 +2477,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2523,7 +2523,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2569,9 +2569,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
-              "rank": 3,
+              "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -2616,7 +2616,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 122,
@@ -2663,7 +2663,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2694,7 +2694,7 @@
                   "start": "2026-04-26"
                 }
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -2720,7 +2720,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 68,
@@ -2767,7 +2767,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2813,7 +2813,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2859,7 +2859,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2905,7 +2905,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2951,7 +2951,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2997,7 +2997,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3043,7 +3043,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3072,7 +3072,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3118,7 +3118,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3345,7 +3345,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -3377,7 +3377,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -3420,7 +3420,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3466,7 +3466,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3512,7 +3512,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3587,7 +3587,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3633,7 +3633,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3662,7 +3662,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3708,7 +3708,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3737,7 +3737,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3766,7 +3766,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4075,7 +4075,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -4122,7 +4122,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4168,7 +4168,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4214,7 +4214,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4260,7 +4260,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4335,7 +4335,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4381,7 +4381,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4427,7 +4427,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4473,7 +4473,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4660,7 +4660,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -4690,7 +4690,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4736,7 +4736,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4765,7 +4765,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -5010,7 +5010,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -5057,7 +5057,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -5370,7 +5370,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -5407,7 +5407,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 73,
+              "appearances": 74,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -5418,10 +5418,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
-              "sample_count": 73,
+              "sample_count": 74,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -5494,7 +5494,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -5677,7 +5677,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -5724,7 +5724,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -5753,7 +5753,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -5788,18 +5788,18 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 8,
+              "appearances": 9,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.11,
+              "frequency": 0.12,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -5846,7 +5846,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 82,
@@ -5878,7 +5878,7 @@
                   "start": "2026-04-26"
                 }
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "sample_count": 3,
@@ -5922,7 +5922,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 122,
@@ -5984,7 +5984,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -6059,7 +6059,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 87,
@@ -6373,7 +6373,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -6421,7 +6421,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 185,
@@ -6468,7 +6468,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -6515,7 +6515,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 71,
@@ -6563,7 +6563,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -6746,7 +6746,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -6793,7 +6793,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -6822,7 +6822,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -6851,7 +6851,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7160,7 +7160,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -7208,7 +7208,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 101,
@@ -7262,12 +7262,12 @@
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.09,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7313,7 +7313,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7359,7 +7359,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7406,7 +7406,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 87,
@@ -7453,7 +7453,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7482,7 +7482,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7709,7 +7709,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -7756,7 +7756,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7802,7 +7802,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7989,7 +7989,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -8036,7 +8036,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8082,7 +8082,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8313,7 +8313,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -8360,7 +8360,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8406,7 +8406,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8435,7 +8435,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8464,7 +8464,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 68,
@@ -8774,7 +8774,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -8853,7 +8853,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8882,7 +8882,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8957,7 +8957,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9003,7 +9003,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9032,7 +9032,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9078,7 +9078,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9107,7 +9107,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9153,7 +9153,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9199,7 +9199,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9274,7 +9274,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9305,7 +9305,7 @@
                   "start": "2026-04-26"
                 }
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 3,
@@ -9377,7 +9377,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9423,7 +9423,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9498,7 +9498,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9527,7 +9527,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9574,7 +9574,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 71,
@@ -9650,7 +9650,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9744,7 +9744,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 23,
+              "appearances": 24,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -9755,7 +9755,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9802,7 +9802,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 82,
@@ -9849,7 +9849,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9880,7 +9880,7 @@
                   "start": "2026-04-28"
                 }
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -9923,7 +9923,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9969,7 +9969,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10015,7 +10015,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10090,7 +10090,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10136,7 +10136,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10182,7 +10182,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10228,7 +10228,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10274,7 +10274,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10320,7 +10320,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10366,7 +10366,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10675,7 +10675,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -10722,7 +10722,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10768,9 +10768,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
-              "rank": 2,
+              "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -10847,7 +10847,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 87,
@@ -10894,7 +10894,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10940,7 +10940,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10986,7 +10986,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -11032,7 +11032,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -11090,7 +11090,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -11137,7 +11137,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 122,
@@ -11184,7 +11184,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -11444,7 +11444,7 @@
                 },
                 "hero": "Stelle"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -11474,7 +11474,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -11551,7 +11551,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 82,
@@ -11599,7 +11599,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T11:03:47Z",
+              "observed_at": "2026-05-21T11:30:46Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -11625,7 +11625,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-21T11:03:47Z",
+        "observed_at": "2026-05-21T11:30:46Z",
         "window_id": "bazaar_builds_net:2026-W21"
       }
     ],
@@ -11641,7 +11641,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-21T11:03:47Z",
+        "observed_at": "2026-05-21T11:30:46Z",
         "window_id": "bazaardb:14.1 (Hotfix May 14)"
       }
     ],
@@ -11651,7 +11651,7 @@
           "no_article_slugs_configured"
         ],
         "health_status": "skipped",
-        "observed_at": "2026-05-21T11:03:47Z",
+        "observed_at": "2026-05-21T11:30:46Z",
         "window_id": "mobalytics_build_articles:skipped"
       }
     ],
@@ -11665,7 +11665,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-21T11:03:47Z",
+        "observed_at": "2026-05-21T11:30:46Z",
         "window_id": "mobalytics_meta_builds:v557"
       }
     ]

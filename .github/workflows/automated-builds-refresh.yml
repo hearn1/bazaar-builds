@@ -214,13 +214,29 @@ jobs:
           # (so a previously merged/closed rolling PR still gets a fresh one).
           open_pr=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
           if [[ -n "$open_pr" ]]; then
+            pr_number="$open_pr"
             echo "Rolling stats PR #${open_pr} for ${{ matrix.hero }} already open; branch updated."
           else
-            gh pr create \
+            pr_number=$(gh pr create \
               --base main \
               --head "$branch" \
               --title "automated: persist ${{ matrix.hero }} stats" \
-              --body "Rolling stats sidecar PR for ${{ matrix.hero }}. Force-pushed each run by the builds refresh workflow; merge or close at curator discretion."
+              --body "Rolling stats sidecar PR for ${{ matrix.hero }}. Force-pushed each run by the builds refresh workflow; merged automatically because stats sidecars are machine state." \
+              --json number \
+              --jq '.number')
+          fi
+
+          changed_files=$(gh pr view "$pr_number" --json files --jq '.files[].path')
+          if [[ "$changed_files" != "$stats_file" ]]; then
+            echo "Refusing to auto-merge stats PR #${pr_number}: expected only ${stats_file}, got:"
+            echo "$changed_files"
+            exit 1
+          fi
+
+          echo "Merging rolling stats PR #${pr_number}."
+          if ! gh pr merge "$pr_number" --squash --auto --delete-branch; then
+            echo "GitHub auto-merge is unavailable; attempting immediate merge for guarded stats-only PR #${pr_number}."
+            gh pr merge "$pr_number" --squash --delete-branch
           fi
 
       - name: Upload shadow artifacts

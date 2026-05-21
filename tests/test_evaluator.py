@@ -196,6 +196,79 @@ def test_empty_seed_catalog_anchors_bazaardb_to_current_secondary_evidence():
     assert row["within_patch_strength"] == "statistical_core"
 
 
+def test_empty_seed_catalog_does_not_admit_entire_global_bazaardb_archetype_from_one_overlap():
+    foreign_archetype = "Waterskin / Messenger Sparrow / Flying Squirrel"
+    evaluation = evaluate_hero(
+        "Stelle",
+        [],
+        HeroStats(hero="Stelle"),
+        [
+            result_with_evidence(
+                "bazaar_builds_net",
+                [
+                    ItemWindowEvidence(
+                        item="Messenger Sparrow",
+                        archetype="Space Laser Build",
+                        archetypes_seen=["Space Laser Build"],
+                    )
+                ],
+            ),
+            result_with_evidence(
+                "bazaardb",
+                [
+                    ItemWindowEvidence(
+                        item="Waterskin",
+                        archetype=foreign_archetype,
+                        archetypes_seen=[foreign_archetype],
+                        appearances=122,
+                        sample_count=122,
+                        frequency=1.0,
+                        metadata={"section": "CORE ITEMS"},
+                    ),
+                    ItemWindowEvidence(
+                        item="Messenger Sparrow",
+                        archetype=foreign_archetype,
+                        archetypes_seen=[foreign_archetype],
+                        appearances=122,
+                        sample_count=122,
+                        frequency=1.0,
+                        metadata={"section": "CORE ITEMS"},
+                    ),
+                    ItemWindowEvidence(
+                        item="Flying Squirrel",
+                        archetype=foreign_archetype,
+                        archetypes_seen=[foreign_archetype],
+                        appearances=122,
+                        sample_count=122,
+                        frequency=1.0,
+                        metadata={"section": "CORE ITEMS"},
+                    ),
+                    ItemWindowEvidence(
+                        item="Hunter's Journal",
+                        archetype=foreign_archetype,
+                        archetypes_seen=[foreign_archetype],
+                        appearances=29,
+                        frequency=0.24,
+                        metadata={"section": "SUPPORTING ITEMS"},
+                    ),
+                    ItemWindowEvidence(
+                        item="Runic Claymore",
+                        archetype=foreign_archetype,
+                        archetypes_seen=[foreign_archetype],
+                        appearances=34,
+                        frequency=0.28,
+                        metadata={"section": "SUPPORTING ITEMS"},
+                    ),
+                ],
+            ),
+        ],
+    )
+
+    items = {row["item"] for row in evaluation.rows}
+    assert "Messenger Sparrow" in items
+    assert {"Waterskin", "Flying Squirrel", "Hunter's Journal", "Runic Claymore"}.isdisjoint(items)
+
+
 def test_add_candidate_from_bazaar_builds_net_two_of_three():
     stats = history_with_windows("Karnok", "bazaar_builds_net", "Pufferfish", [True, False])
 

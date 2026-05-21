@@ -17,6 +17,7 @@ from typing import Any, Callable, Literal, Optional
 from automated_builds_pipeline import applier, diff
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.evaluator import load_catalog_items, evaluate_hero
+from automated_builds_pipeline.hero_items import HeroItemOwnership, load_hero_item_ownership
 from automated_builds_pipeline.pr_comment import render_pr_comment
 from automated_builds_pipeline.proposal import render_proposal
 from automated_builds_pipeline.sources import bazaar_builds_net, bazaardb, mobalytics
@@ -74,6 +75,8 @@ def run(
 
     options = _fetch_options(state, tracker_repo)
     source_results = _fetch_sources(hero, tracker_repo, options, bazaardb_retries, no_bazaardb)
+    ownership = load_hero_item_ownership(tracker_repo)
+    source_results = _filter_source_results_for_hero_items(hero, source_results, ownership)
     current_run = _current_run(source_results, include_skipped={SOURCE_BAZAARDB} if no_bazaardb else set())
 
     stats = load_stats(hero, stats_dir)
@@ -291,6 +294,45 @@ def _current_run(
         for source, result in source_results.items()
         if result.status != SKIPPED or source in include_skipped
     ]
+
+
+def _filter_source_results_for_hero_items(
+    hero: str,
+    source_results: dict[str, SourceFetchResult],
+    ownership: HeroItemOwnership,
+) -> dict[str, SourceFetchResult]:
+    return {
+        source: _filter_source_result_for_hero_items(hero, result, ownership)
+        for source, result in source_results.items()
+    }
+
+
+def _filter_source_result_for_hero_items(
+    hero: str,
+    result: SourceFetchResult,
+    ownership: HeroItemOwnership,
+) -> SourceFetchResult:
+    kept_items = [item for item in result.observation.items if ownership.allows(hero, item.item)]
+    filtered_count = len(result.observation.items) - len(kept_items)
+    if filtered_count == 0:
+        return result
+
+    details = list(result.details)
+    details.append(f"filtered {filtered_count} item(s) not owned by {hero}")
+    observation = WindowObservation(
+        window_id=result.observation.window_id,
+        observed_at=result.observation.observed_at,
+        items=kept_items,
+        artifact_ref=result.observation.artifact_ref,
+        health_status=result.status,
+        details=details,
+    )
+    return SourceFetchResult(
+        observation=observation,
+        status=result.status,
+        details=details,
+        patch_label=result.patch_label,
+    )
 
 
 def _fetch_options(state: CuratorState, tracker_repo: Path) -> FetchOptions:

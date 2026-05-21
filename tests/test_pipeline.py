@@ -6,6 +6,7 @@ import pytest
 from automated_builds_pipeline import pipeline
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.evaluator import EvaluationResult
+from automated_builds_pipeline.hero_items import HeroItemOwnership
 from automated_builds_pipeline.sources.base import SourceFetchResult
 from automated_builds_pipeline.stats import (
     ItemWindowEvidence,
@@ -237,6 +238,33 @@ def minimal_diff_payload() -> dict:
         "weaker_signals": [],
         "noise": [],
     }
+
+
+def test_source_results_are_filtered_by_hero_item_ownership():
+    result = SourceFetchResult(
+        observation=WindowObservation(
+            window_id="bazaardb:window",
+            observed_at=OBSERVED_AT,
+            items=[
+                ItemWindowEvidence("Messenger Sparrow"),
+                ItemWindowEvidence("Launch Tower"),
+            ],
+        ),
+        status="healthy",
+    )
+    ownership = HeroItemOwnership(
+        catalog_item_owners={"messenger sparrow": frozenset({"karnok"})}
+    )
+
+    filtered = pipeline._filter_source_results_for_hero_items(
+        "Stelle",
+        {"bazaardb": result},
+        ownership,
+    )
+
+    items = [item.item for item in filtered["bazaardb"].observation.items]
+    assert items == ["Launch Tower"]
+    assert filtered["bazaardb"].details == ["filtered 1 item(s) not owned by Stelle"]
 
 
 @pytest.mark.parametrize(

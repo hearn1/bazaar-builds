@@ -224,11 +224,11 @@ jobs:
             exit 1
           fi
 
+          echo "Waiting for stats PR #${pr_number} checks before merge."
+          gh pr checks "$pr_number" --watch --interval 10
+
           echo "Merging stats PR #${pr_number}."
-          if ! gh pr merge "$pr_number" --squash --auto --delete-branch; then
-            echo "GitHub auto-merge is unavailable; attempting immediate merge for guarded stats-only PR #${pr_number}."
-            gh pr merge "$pr_number" --squash --delete-branch
-          fi
+          gh pr merge "$pr_number" --squash --delete-branch
 
       - name: Upload shadow artifacts
         if: steps.selected.outputs.run == 'true' && (steps.state.outputs.phase != 'live_cron' || steps.state.outputs.dry_run == 'true')

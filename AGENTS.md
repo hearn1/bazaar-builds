@@ -60,7 +60,7 @@ python -m automated_builds_pipeline.research.refresh_samples --source bazaardb
 
 ## Current Pipeline Phase
 
-`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification; they fetch sources, evaluate, persist stats sidecars through auto-merged rolling `automated/stats-sync-<hero>` PRs in this repo, and open/update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes. Direct pushes to `main` are not used because branch protection requires PRs.
+`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification; they fetch sources, evaluate, persist stats sidecars through auto-merged `automated/stats-sync-<hero>-<run>` PRs in this repo, and open/update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes. Direct pushes to `main` are not used because branch protection requires PRs.
 
 The promotion intentionally waives Gate 1 (2 counted healthy bazaardb patch windows) and Gate 2 (14 calendar days of deterministic output). The audit record is `waivers/live_cron_promotion_waiver_2026-05-18.md`, and readiness reporting must surface that waiver. The waiver does not bypass deterministic classifier readiness, recent malformed/unhealthy bazaardb checks, schema validation, or curator review of coach PRs.
 

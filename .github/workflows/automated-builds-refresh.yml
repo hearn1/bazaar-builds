@@ -182,9 +182,10 @@ jobs:
           hero_slug=$(echo "${{ matrix.hero }}" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_//; s/_$//')
           stats_file="stats/${hero_slug}_stats.json"
           run_date=$(date -u +%Y%m%d)
-          # One stable rolling branch per hero (force-pushed) so we keep a single
-          # open PR per hero instead of minting a new dated PR every run.
-          branch="automated/stats-sync-${hero_slug}"
+          # One run-scoped branch per stats update. Repository rules disallow
+          # force-pushes, so these PRs merge/delete themselves instead of
+          # reusing a stable rolling branch.
+          branch="automated/stats-sync-${hero_slug}-${{ github.run_id }}-${{ github.run_attempt }}"
 
           if [[ ! -f "$stats_file" ]]; then
             echo "No stats file was written for ${{ matrix.hero }}"
@@ -193,8 +194,8 @@ jobs:
 
           git fetch origin main
 
-          # Stash freshly-generated stats, reset working tree to main, then re-apply
-          # so the branch contains exactly main + this one-file delta.
+          # Stash freshly-generated stats, reset working tree to main, then
+          # re-apply so the branch contains exactly main + this one-file delta.
           cp "$stats_file" "$RUNNER_TEMP/${hero_slug}_stats.json"
           git checkout -B "$branch" origin/main
           mkdir -p stats
@@ -207,23 +208,14 @@ jobs:
           fi
 
           git commit -m "automated: persist ${{ matrix.hero }} stats ${run_date}"
-          git push --force origin "$branch"
+          git push origin "$branch"
 
-          # Reuse the existing OPEN PR if there is one; the force-pushed branch
-          # updates it automatically. Only create a PR when no open one exists
-          # (so a previously merged/closed rolling PR still gets a fresh one).
-          open_pr=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
-          if [[ -n "$open_pr" ]]; then
-            pr_number="$open_pr"
-            echo "Rolling stats PR #${open_pr} for ${{ matrix.hero }} already open; branch updated."
-          else
-            pr_url=$(gh pr create \
-              --base main \
-              --head "$branch" \
-              --title "automated: persist ${{ matrix.hero }} stats" \
-              --body "Rolling stats sidecar PR for ${{ matrix.hero }}. Force-pushed each run by the builds refresh workflow; merged automatically because stats sidecars are machine state.")
-            pr_number=$(gh pr view "$pr_url" --json number --jq '.number')
-          fi
+          pr_url=$(gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "automated: persist ${{ matrix.hero }} stats" \
+            --body "Stats sidecar PR for ${{ matrix.hero }}. Created by the builds refresh workflow and merged automatically because stats sidecars are machine state.")
+          pr_number=$(gh pr view "$pr_url" --json number --jq '.number')
 
           changed_files=$(gh pr view "$pr_number" --json files --jq '.files[].path')
           if [[ "$changed_files" != "$stats_file" ]]; then
@@ -232,7 +224,7 @@ jobs:
             exit 1
           fi
 
-          echo "Merging rolling stats PR #${pr_number}."
+          echo "Merging stats PR #${pr_number}."
           if ! gh pr merge "$pr_number" --squash --auto --delete-branch; then
             echo "GitHub auto-merge is unavailable; attempting immediate merge for guarded stats-only PR #${pr_number}."
             gh pr merge "$pr_number" --squash --delete-branch

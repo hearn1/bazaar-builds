@@ -11,6 +11,10 @@
 #   Contents: Read & Write and Pull requests: Read & Write.
 #   Note: the secret is still named TRACKER_PR_TOKEN; after the repo rename the
 #   PAT must have been updated (or re-confirmed) to grant access to bazaar_coach.
+# - STATS_PR_TOKEN: fine-grained PAT or GitHub App token scoped to
+#   hearn1/bazaar-builds with Contents: Read & Write and Pull requests:
+#   Read & Write. This must not be the workflow GITHUB_TOKEN; stats PRs need a
+#   normal token so their pull_request checks run before auto-merge.
 
 name: Automated builds refresh
 
@@ -72,6 +76,8 @@ jobs:
       - name: Check out bazaar-builds
         if: steps.selected.outputs.run == 'true'
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Check out bazaar_coach
         if: steps.selected.outputs.run == 'true'
@@ -172,12 +178,18 @@ jobs:
       - name: Persist stats via rolling PR
         if: steps.selected.outputs.run == 'true' && github.ref_name == 'main' && (steps.state.outputs.phase == 'shadow_cron' || steps.state.outputs.phase == 'live_cron')
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.STATS_PR_TOKEN }}
         run: |
           set -euo pipefail
 
+          if [[ -z "${GH_TOKEN:-}" ]]; then
+            echo "::error::STATS_PR_TOKEN is required to create stats PRs that trigger branch-protection checks."
+            exit 1
+          fi
+
           git config user.name "bazaar-builds-bot"
           git config user.email "bazaar-builds-bot@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
           hero_slug=$(echo "${{ matrix.hero }}" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_//; s/_$//')
           stats_file="stats/${hero_slug}_stats.json"

@@ -59,6 +59,8 @@ Hosted LLM classification is not part of the live path. Do not require `CLAUDE_A
 
 `implementation` remains the off switch. `local_dry_run` remains the rollback path for artifact-only verification without stats sidecar PRs or coach catalog mutation.
 
+The stats sidecar PR step requires a `STATS_PR_TOKEN` secret for `hearn1/bazaar-builds` with Contents and Pull requests write access. Do not use the workflow `GITHUB_TOKEN` for that step: PRs opened by `GITHUB_TOKEN` do not trigger the normal pull request checks needed before the guarded auto-merge.
+
 See `ROADMAP.md` for active gates and `AGENTS.md` for operator notes.
 
 ## Tests

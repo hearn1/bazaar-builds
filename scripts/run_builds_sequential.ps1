@@ -55,10 +55,27 @@ function Resolve-PythonCommand {
     throw "Could not find a working Python. Pass -Python with a Python 3.12 executable path."
 }
 
+function ConvertTo-RunPath {
+    param(
+        [string]$PathValue,
+        [string]$BasePath
+    )
+
+    if ([System.IO.Path]::IsPathRooted($PathValue)) {
+        return [System.IO.Path]::GetFullPath($PathValue)
+    }
+    return [System.IO.Path]::GetFullPath((Join-Path $BasePath $PathValue))
+}
+
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 Push-Location $repoRoot
 try {
     $pythonSpec = Resolve-PythonCommand -RequestedPython $Python
+    $repoRootPath = $repoRoot.Path
+    $stateFilePath = ConvertTo-RunPath -PathValue $StateFile -BasePath $repoRootPath
+    $trackerRepoPath = ConvertTo-RunPath -PathValue $TrackerRepo -BasePath $repoRootPath
+    $statsDirPath = ConvertTo-RunPath -PathValue $StatsDir -BasePath $repoRootPath
+    $outputDirPath = ConvertTo-RunPath -PathValue $OutputDir -BasePath $repoRootPath
     $total = $Heroes.Count
 
     for ($index = 0; $index -lt $total; $index++) {
@@ -69,10 +86,10 @@ try {
         $pipelineArgs = @(
             "-m", "automated_builds_pipeline.pipeline", "run",
             "--hero", $hero,
-            "--state-file", $StateFile,
-            "--tracker-repo", $TrackerRepo,
-            "--stats-dir", $StatsDir,
-            "--output-dir", $OutputDir,
+            "--state-file", $stateFilePath,
+            "--tracker-repo", $trackerRepoPath,
+            "--stats-dir", $statsDirPath,
+            "--output-dir", $outputDirPath,
             "--classifier-mode", $ClassifierMode,
             "--bazaardb-retries", "$BazaarDbRetries"
         )

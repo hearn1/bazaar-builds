@@ -217,13 +217,12 @@ jobs:
             pr_number="$open_pr"
             echo "Rolling stats PR #${open_pr} for ${{ matrix.hero }} already open; branch updated."
           else
-            pr_number=$(gh pr create \
+            pr_url=$(gh pr create \
               --base main \
               --head "$branch" \
               --title "automated: persist ${{ matrix.hero }} stats" \
-              --body "Rolling stats sidecar PR for ${{ matrix.hero }}. Force-pushed each run by the builds refresh workflow; merged automatically because stats sidecars are machine state." \
-              --json number \
-              --jq '.number')
+              --body "Rolling stats sidecar PR for ${{ matrix.hero }}. Force-pushed each run by the builds refresh workflow; merged automatically because stats sidecars are machine state.")
+            pr_number=$(gh pr view "$pr_url" --json number --jq '.number')
           fi
 
           changed_files=$(gh pr view "$pr_number" --json files --jq '.files[].path')

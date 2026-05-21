@@ -582,7 +582,6 @@ def test_workflow_persists_stats_only_for_shadow_and_live_phases():
     assert "CLAUDE_API_KEY" not in text
     assert 'classifier_mode="deterministic"' in text
     assert '--classifier-mode "$classifier_mode"' in text
-    assert "max-parallel: 1" in text
 
 
 def test_run_merges_existing_stats_with_current_fetch_output(monkeypatch, tmp_path):

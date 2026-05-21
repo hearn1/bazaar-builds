@@ -63,10 +63,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      # Keep the hero refreshes serialized. The live path mutates rolling PR
-      # branches and stats sidecars, so each hero should finish before the next
-      # one starts.
-      max-parallel: 1
       matrix:
         hero: [Karnok, Mak, Dooley, Vanessa, Pygmalien, Jules, Stelle]
 

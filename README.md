@@ -51,7 +51,7 @@ python bazaar_build_enricher.py compare \
 
 ## Automated pipeline status
 
-`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification, fetch live sources, evaluate thresholds, persist stats sidecars through rolling `automated/stats-sync-<hero>` PRs in this repo, and open or update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes.
+`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification, fetch live sources, evaluate thresholds, persist stats sidecars through auto-merged rolling `automated/stats-sync-<hero>` PRs in this repo, and open or update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes.
 
 Promotion was made with an explicit operator waiver in `waivers/live_cron_promotion_waiver_2026-05-18.md`. That waiver bypasses only Gate 1 (2 counted healthy bazaardb patch windows) and Gate 2 (14 calendar days of deterministic output). It does not bypass deterministic classifier readiness, recent malformed/unhealthy bazaardb checks, schema validation, or curator review of coach PRs.
 

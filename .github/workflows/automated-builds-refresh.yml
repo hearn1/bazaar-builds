@@ -14,7 +14,9 @@
 # - STATS_PR_TOKEN: fine-grained PAT or GitHub App token scoped to
 #   hearn1/bazaar-builds with Contents: Read & Write and Pull requests:
 #   Read & Write. This must not be the workflow GITHUB_TOKEN; stats PRs need a
-#   normal token so their pull_request checks run before auto-merge.
+#   normal token so their pull_request checks run before auto-merge. The token
+#   actor must also be allowed to bypass branch rules for the guarded stats-only
+#   merge step.
 
 name: Automated builds refresh
 
@@ -256,20 +258,8 @@ jobs:
           echo "Waiting for stats PR #${pr_number} checks before merge."
           gh pr checks "$pr_number" --watch --interval 10
 
-          merged=false
-          for attempt in {1..12}; do
-            echo "Merging stats PR #${pr_number} (attempt ${attempt}/12)."
-            if gh pr merge "$pr_number" --squash --delete-branch; then
-              merged=true
-              break
-            fi
-            echo "Stats PR #${pr_number} is not mergeable yet; waiting for GitHub branch-policy state to settle."
-            sleep 10
-          done
-          if [[ "$merged" != "true" ]]; then
-            echo "::error::Stats PR #${pr_number} did not become mergeable after checks passed."
-            exit 1
-          fi
+          echo "Merging guarded stats PR #${pr_number} with admin bypass."
+          gh pr merge "$pr_number" --squash --admin --delete-branch
 
       - name: Upload shadow artifacts
         if: steps.selected.outputs.run == 'true' && (steps.state.outputs.phase != 'live_cron' || steps.state.outputs.dry_run == 'true')

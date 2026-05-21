@@ -66,7 +66,7 @@ The promotion intentionally waives Gate 1 (2 counted healthy bazaardb patch wind
 
 `implementation` is the off switch. `local_dry_run` is the rollback path for artifact-only scheduled/manual runs without stats sidecar PRs or coach catalog mutation.
 
-Stats sidecar PR automation requires a `STATS_PR_TOKEN` secret for this repo with Contents and Pull requests write access. Do not use the workflow `GITHUB_TOKEN`; PRs opened by `GITHUB_TOKEN` do not trigger the pull request checks that branch protection expects before auto-merge.
+Stats sidecar PR automation requires a `STATS_PR_TOKEN` secret for this repo with Contents and Pull requests write access. Do not use the workflow `GITHUB_TOKEN`; PRs opened by `GITHUB_TOKEN` do not trigger the pull request checks that branch protection expects before auto-merge. The token actor must be allowed to bypass branch rules for the guarded stats-only merge step.
 
 ## Source Roles
 

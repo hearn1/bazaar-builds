@@ -9,7 +9,7 @@ Status labels:
 
 ## Automated Builds Pipeline - Live
 
-Current state: `pipeline_state.json` is `phase: live_cron` with `dry_run: false`. The weekly GitHub Actions cron schedule exists (`0 6 * * 1`). Scheduled runs default to the deterministic classifier, fetch live sources, evaluate thresholds, persist stats sidecars through auto-merged `automated/stats-sync-<hero>-<run>` PRs in this repo, and open/update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes. Direct pushes to `main` remain blocked by branch protection.
+Current state: `pipeline_state.json` is `phase: live_cron` with `dry_run: false`. The weekly GitHub Actions cron schedule exists (`0 6 * * 5`, Friday 06:00 UTC). Scheduled runs default to the deterministic classifier, fetch live sources, evaluate thresholds, persist stats sidecars through auto-merged `automated/stats-sync-<hero>-<run>` PRs in this repo, and open/update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes. Direct pushes to `main` remain blocked by branch protection.
 
 The live promotion intentionally bypasses the original launch-timing thresholds:
 - **Gate 1**: at least 2 counted healthy bazaardb patch windows.

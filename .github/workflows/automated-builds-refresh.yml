@@ -1,10 +1,11 @@
 # Runs the automated builds refresh pipeline and, in live_cron, updates rolling
 # proposal PRs in hearn1/bazaar_coach.
 #
-# Cadence: weekly (Mondays). bazaardb is patch-scoped and readiness Gate 2 is a
-# calendar span, so daily runs add cost/PR churn without speeding promotion. Use
-# the workflow_dispatch trigger below for an on-demand run when a new Bazaar
-# patch drops and you want its window captured before the next Monday.
+# Cadence: weekly, Friday 06:00 UTC (Thursday night / early Friday in US time).
+# bazaardb is patch-scoped and readiness Gate 2 is a calendar span, so daily
+# runs add cost/PR churn without speeding promotion. Use the workflow_dispatch
+# trigger below for an on-demand run when a new Bazaar patch drops and you want
+# its window captured before the next Friday run.
 #
 # Required secrets:
 # - TRACKER_PR_TOKEN: fine-grained PAT scoped to hearn1/bazaar_coach with
@@ -26,8 +27,8 @@ permissions:
 
 on:
   schedule:
-    # Weekly, Monday 06:00 UTC (one hour before the live-sources smoke).
-    - cron: "0 6 * * 1"
+    # Weekly, Friday 06:00 UTC (one hour before the live-sources smoke).
+    - cron: "0 6 * * 5"
   # Manual trigger for on-demand "a patch just dropped, run now" refreshes.
   workflow_dispatch:
     inputs:

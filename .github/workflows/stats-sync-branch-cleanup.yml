@@ -1,6 +1,6 @@
-# Deletes a rolling stats-sync branch once its PR is merged. The next scheduled
-# refresh run recreates the branch and opens a fresh PR with the new delta, so
-# merged rolling PRs do not leave stale branches behind.
+# Deletes a stats-sync branch once its PR is merged. Refresh runs create
+# run-scoped stats branches, so merged PRs should not leave stale branches
+# behind.
 
 name: Stats-sync branch cleanup
 

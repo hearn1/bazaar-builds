@@ -169,26 +169,42 @@ def apply_catalog_pr(
     _git(tracker_repo, "push", "--force", "origin", branch)
 
     title = f"[automated-builds] {hero} catalog"
-    existing = subprocess.run(
-        ["gh", "pr", "view", branch, "--json", "number"],
-        cwd=tracker_repo,
-        text=True,
-        capture_output=True,
-        check=False,
-    )
-    if existing.returncode == 0:
+    open_pr_number = _open_pr_number(tracker_repo, branch)
+    if open_pr_number is not None:
         subprocess.run(
-            ["gh", "pr", "edit", branch, "--title", title, "--body-file", str(proposal_path)],
+            ["gh", "pr", "edit", str(open_pr_number), "--title", title, "--body-file", str(proposal_path)],
             cwd=tracker_repo,
             check=True,
         )
+        pr_selector = str(open_pr_number)
     else:
         subprocess.run(
             ["gh", "pr", "create", "--head", branch, "--title", title, "--body-file", str(proposal_path)],
             cwd=tracker_repo,
             check=True,
         )
-    _post_pr_comment(hero, tracker_repo, diff_json, stats, branch)
+        pr_selector = str(_open_pr_number(tracker_repo, branch) or branch)
+    _post_pr_comment(hero, tracker_repo, diff_json, stats, pr_selector)
+
+
+def _open_pr_number(tracker_repo: Path, branch: str) -> Optional[int]:
+    result = subprocess.run(
+        ["gh", "pr", "list", "--head", branch, "--state", "open", "--json", "number"],
+        cwd=tracker_repo,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        return None
+    try:
+        prs = json.loads(result.stdout)
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(prs, list) or not prs:
+        return None
+    number = prs[0].get("number") if isinstance(prs[0], dict) else None
+    return number if isinstance(number, int) else None
 
 
 def _post_pr_comment(

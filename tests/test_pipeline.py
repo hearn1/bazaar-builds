@@ -706,8 +706,8 @@ def test_live_cron_posts_supporting_evidence_comment(monkeypatch, tmp_path):
     assert branch == "pipeline/Karnok"
 
 
-def subprocess_result(*, returncode: int):
-    return pipeline.subprocess.CompletedProcess(args=[], returncode=returncode, stdout="", stderr="")
+def subprocess_result(*, returncode: int, stdout: str = ""):
+    return pipeline.subprocess.CompletedProcess(args=[], returncode=returncode, stdout=stdout, stderr="")
 
 
 def test_live_cron_dry_run_suppresses_pr(monkeypatch, tmp_path):
@@ -852,8 +852,8 @@ def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch
 
     def fake_run(args, **kwargs):
         run_calls.append(args)
-        if args[:3] == ["gh", "pr", "view"]:
-            return subprocess_result(returncode=1)  # PR does not exist yet
+        if args[:3] == ["gh", "pr", "list"]:
+            return subprocess_result(returncode=0, stdout="[]")  # no open PR exists yet
         return subprocess_result(returncode=0)
 
     comment_calls = []
@@ -887,6 +887,79 @@ def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch
     assert all("automated_builds_proposals" not in str(part) for a in run_calls for part in a)
     assert len(comment_calls) == 1
     assert comment_calls[0][4] == "pipeline/Karnok"
+
+
+def test_apply_catalog_pr_ignores_closed_pr_and_creates_open_pr(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_update_diff())
+    run_calls = []
+
+    def fake_git(repo, *args, check=True):
+        return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        if args[:3] == ["gh", "pr", "list"]:
+            return subprocess_result(returncode=0, stdout="[]")
+        return subprocess_result(returncode=0)
+
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: None)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert any(a[:3] == ["gh", "pr", "create"] for a in run_calls)
+    assert not any(a[:3] == ["gh", "pr", "edit"] for a in run_calls)
+
+
+def test_apply_catalog_pr_updates_existing_open_pr_by_number(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_update_diff())
+    run_calls = []
+    comment_calls = []
+
+    def fake_git(repo, *args, check=True):
+        return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        if args[:3] == ["gh", "pr", "list"]:
+            return subprocess_result(returncode=0, stdout='[{"number": 67}]')
+        return subprocess_result(returncode=0)
+
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    gh_edit = next(a for a in run_calls if a[:3] == ["gh", "pr", "edit"])
+    assert gh_edit[3] == "67"
+    assert not any(a[:3] == ["gh", "pr", "create"] for a in run_calls)
+    assert comment_calls[0][4] == "67"
 
 
 def test_apply_catalog_pr_idempotent_noop_skips_commit_and_pr(monkeypatch, tmp_path):

@@ -86,6 +86,18 @@ def test_bazaardb_current_rendered_dom_extracts_footer_patch_and_items(sample_di
     assert bat.metadata["patch_notes_url"] == "/patchnotes"
 
 
+def test_bazaardb_hotfix_footer_extracts_numbered_patch_label(sample_dir):
+    html = (sample_dir / "bazaardb" / "meta-rendered-dom-hotfix-footer-2026-05-18.html").read_text(encoding="utf-8")
+
+    result = parse_meta_html(html, FetchOptions(observed_at="2026-05-18T12:00:00Z"))
+
+    assert result.status == "healthy"
+    assert result.patch_label == "14.1 (Hotfix May 14)"
+    assert result.observation.window_id == "bazaardb:14.1 (Hotfix May 14)"
+    assert "patch_label_fallback_nopatch" not in result.observation.details
+    assert result.observation.items
+
+
 def test_bazaardb_relative_patch_link_text_is_not_patch_label():
     html = """
     <a href="/patchnotes">4h ago</a>

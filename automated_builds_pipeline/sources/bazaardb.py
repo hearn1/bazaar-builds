@@ -5,6 +5,7 @@ Install browser bits once with: playwright install chromium
 
 from __future__ import annotations
 
+import html as html_lib
 import json
 import re
 from dataclasses import dataclass
@@ -338,6 +339,11 @@ _BARE_DATE_LABEL_RE = re.compile(
     r"^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}$",
     re.IGNORECASE,
 )
+_PATCH_LABEL_PATTERN = r"\d+(?:\.\d+)?\s*\(\s*[^)]+?\s*\)"
+_DATABASE_PATCH_RE = re.compile(
+    rf"Database\s+based\s+on\s+patch\s+(?P<label>{_PATCH_LABEL_PATTERN})",
+    re.IGNORECASE,
+)
 
 
 def _is_real_patch_label(label: Optional[str]) -> bool:
@@ -356,30 +362,31 @@ def _is_real_patch_label(label: Optional[str]) -> bool:
 
 def _extract_patch(links: list[tuple[str, str]], html: str) -> tuple[Optional[str], Optional[str]]:
     patch_url: Optional[str] = None
+    patch_link_texts: list[tuple[str, str]] = []
     for href, text in links:
         if "patch" in href.casefold():
             patch_url = href
-            if text and not _is_relative_freshness(text):
-                return text, href
-    footer_match = re.search(
-        r"Database\s+based\s+on\s+patch(?:\s|<[^>]+>)*(?P<label>\d+(?:\.\d+)?\s*\([^)]+\))",
-        html,
-        re.IGNORECASE,
-    )
-    if footer_match:
-        return _clean_patch_label(footer_match.group("label")), patch_url
-    text_match = re.search(
-        r"Database\s+based\s+on\s+patch\s+(?P<label>\d+(?:\.\d+)?\s*\([^)]+\))",
-        _strip_tags(html),
-        re.IGNORECASE,
-    )
-    if text_match:
-        return _clean_patch_label(text_match.group("label")), patch_url
-    for href, text in links:
-        if "patch" in href.casefold() and text:
-            return text, href
+            clean_text = _clean_patch_label(text)
+            if clean_text and not _is_relative_freshness(clean_text):
+                patch_link_texts.append((href, clean_text))
+                if _is_real_patch_label(clean_text):
+                    return clean_text, href
+    database_patch = _extract_database_patch_label(html)
+    if database_patch:
+        return database_patch, patch_url
+    if patch_link_texts:
+        href, text = patch_link_texts[0]
+        return text, href
     match = re.search(r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\b", html)
     return (match.group(0), patch_url) if match else (None, patch_url)
+
+
+def _extract_database_patch_label(html: str) -> Optional[str]:
+    text = _strip_tags(html)
+    match = _DATABASE_PATCH_RE.search(text)
+    if match:
+        return _clean_patch_label(match.group("label"))
+    return None
 
 
 def _result(window_id: str, options: FetchOptions, status: str, details: list[str], items: Optional[list[ItemWindowEvidence]] = None, patch_label: Optional[str] = None) -> SourceFetchResult:
@@ -427,7 +434,9 @@ def _is_relative_freshness(text: str) -> bool:
 
 
 def _strip_tags(html: str) -> str:
-    return re.sub(r"<[^>]+>", " ", html or "")
+    text = re.sub(r"<!--.*?-->", " ", html or "", flags=re.DOTALL)
+    text = re.sub(r"<[^>]+>", " ", text)
+    return html_lib.unescape(_clean(text))
 
 
 def _frequency(value: Any) -> Optional[float]:

@@ -236,6 +236,23 @@ jobs:
             exit 1
           fi
 
+          checks_reported=false
+          for attempt in {1..18}; do
+            checks_output=$(gh pr checks "$pr_number" 2>&1) || true
+            if [[ "$checks_output" == *"no checks reported"* ]]; then
+              echo "Stats PR #${pr_number} has no checks reported yet (attempt ${attempt}/18); waiting."
+              sleep 10
+              continue
+            fi
+            echo "$checks_output"
+            checks_reported=true
+            break
+          done
+          if [[ "$checks_reported" != "true" ]]; then
+            echo "::error::Stats PR #${pr_number} never reported checks."
+            exit 1
+          fi
+
           echo "Waiting for stats PR #${pr_number} checks before merge."
           gh pr checks "$pr_number" --watch --interval 10
 

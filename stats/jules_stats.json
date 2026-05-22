@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T13:37:25Z",
-  "generated_at": "2026-05-21T10:21:58Z",
+  "generated_at": "2026-05-22T08:55:00Z",
   "hero": "Jules",
   "items": {
     "Amber": {
@@ -283,20 +283,20 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 10,
+              "appearances": 12,
               "archetype": "Zarlic / Spice Rack / Instant Noodles",
               "archetypes_seen": [
                 "Zarlic / Spice Rack / Instant Noodles"
               ],
               "evidence_refs": [],
-              "frequency": 0.09,
+              "frequency": 0.1,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 9,
+              "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -307,6 +307,34 @@
     },
     "Basket": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Durian Build",
+              "archetypes_seen": [
+                "Durian Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-24",
+                  "start": "2026-04-24"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -329,7 +357,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 11,
+              "appearances": 12,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -340,9 +368,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 15,
+              "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -495,18 +523,18 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 7,
+              "appearances": 8,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.1,
+              "frequency": 0.11,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -547,12 +575,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.11,
+              "frequency": 0.1,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -833,7 +861,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -1197,7 +1225,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -1304,6 +1332,34 @@
     },
     "Bread Knife": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Luau Stelle Build",
+              "archetypes_seen": [
+                "Luau Stelle Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-22",
+                  "start": "2026-04-22"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -1327,7 +1383,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 101,
+              "appearances": 110,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -1338,10 +1394,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 2,
-              "sample_count": 101,
+              "sample_count": 110,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -1690,7 +1746,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -1787,18 +1843,18 @@
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
           "per_window": [
             {
-              "appearances": 6,
+              "appearances": 7,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.07,
+              "frequency": 0.08,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -1879,7 +1935,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 20,
+              "appearances": 21,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
@@ -1890,7 +1946,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2100,12 +2156,12 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.06,
+              "frequency": 0.05,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2184,6 +2240,35 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14:nopatch"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Dragonmelon": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "per_window": [
+            {
+              "appearances": 6,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.05,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
           "windows_observed": 1,
@@ -2290,7 +2375,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 13,
+              "appearances": 14,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -2301,9 +2386,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 9,
+              "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -2501,7 +2586,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -2608,6 +2693,34 @@
     },
     "Farmer's Market": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Luau Stelle Build",
+              "archetypes_seen": [
+                "Luau Stelle Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-22",
+                  "start": "2026-04-22"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -2631,7 +2744,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 101,
+              "appearances": 110,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -2642,10 +2755,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 1,
-              "sample_count": 101,
+              "sample_count": 110,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -2994,7 +3107,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -3128,9 +3241,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 7,
+              "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -3157,9 +3270,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 5,
+              "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -3203,9 +3316,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 8,
+              "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -3465,7 +3578,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3506,14 +3619,14 @@
                 "Flying Potion / Boiling Flask / Broken Bottle"
               ],
               "evidence_refs": [],
-              "frequency": 0.11,
+              "frequency": 0.1,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 12,
+              "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -3546,18 +3659,18 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 29,
+              "appearances": 31,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.35,
+              "frequency": 0.36,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3592,18 +3705,18 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 2,
+              "appearances": 3,
               "archetype": "Sirens / Observatory / Ornithopter",
               "archetypes_seen": [
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.03,
+              "frequency": 0.04,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3638,20 +3751,20 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 13,
+              "appearances": 15,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
               ],
               "evidence_refs": [],
-              "frequency": 0.13,
+              "frequency": 0.14,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 5,
+              "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -3770,7 +3883,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3811,12 +3924,12 @@
                 "Repair Drone / Buster / Freefall Simulator"
               ],
               "evidence_refs": [],
-              "frequency": 0.6,
+              "frequency": 0.59,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -3943,7 +4056,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 18,
+              "appearances": 19,
               "archetype": "Zarlic / Spice Rack / Instant Noodles",
               "archetypes_seen": [
                 "Zarlic / Spice Rack / Instant Noodles"
@@ -3954,7 +4067,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -4208,9 +4321,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 13,
+              "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -4249,14 +4362,14 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.11,
+              "frequency": 0.1,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 7,
+              "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -4535,7 +4648,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -4571,20 +4684,20 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 22,
+              "appearances": 25,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.27,
+              "frequency": 0.29,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 8,
+              "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -4808,6 +4921,34 @@
     },
     "Instant Noodles": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Pantry Build",
+              "archetypes_seen": [
+                "Pantry Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-27",
+                  "start": "2026-04-27"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -4836,14 +4977,14 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.29,
+              "frequency": 0.28,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 4,
+              "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -5066,7 +5207,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -5137,14 +5278,14 @@
                 "Repair Drone / Buster / Freefall Simulator"
               ],
               "evidence_refs": [],
-              "frequency": 0.18,
+              "frequency": 0.17,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 12,
+              "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -5238,20 +5379,20 @@
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
           "per_window": [
             {
-              "appearances": 7,
+              "appearances": 9,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
               ],
               "evidence_refs": [],
-              "frequency": 0.07,
+              "frequency": 0.08,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 11,
+              "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -5471,14 +5612,14 @@
                 "Repair Drone / Buster / Freefall Simulator"
               ],
               "evidence_refs": [],
-              "frequency": 0.18,
+              "frequency": 0.17,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 10,
+              "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -5551,7 +5692,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -5586,18 +5727,18 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 8,
+              "appearances": 9,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
               ],
               "evidence_refs": [],
-              "frequency": 0.11,
+              "frequency": 0.12,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -5610,6 +5751,34 @@
     },
     "Meat Tenderizer": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Pantry Build",
+              "archetypes_seen": [
+                "Pantry Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-27",
+                  "start": "2026-04-27"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -5633,7 +5802,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 82,
+              "appearances": 86,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
@@ -5644,10 +5813,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 2,
-              "sample_count": 82,
+              "sample_count": 86,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -5870,7 +6039,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -5969,7 +6138,7 @@
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
           "per_window": [
             {
-              "appearances": 7,
+              "appearances": 8,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -5980,9 +6149,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 12,
+              "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -6145,12 +6314,12 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.13,
+              "frequency": 0.12,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -6258,6 +6427,34 @@
     },
     "Oven": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Durian Build",
+              "archetypes_seen": [
+                "Durian Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-24",
+                  "start": "2026-04-24"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
           "last_seen_window": "mobalytics_meta_builds:v557",
@@ -6600,7 +6797,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -6636,7 +6833,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 12,
+              "appearances": 13,
               "archetype": "Zarlic / Spice Rack / Instant Noodles",
               "archetypes_seen": [
                 "Zarlic / Spice Rack / Instant Noodles"
@@ -6647,7 +6844,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -6872,7 +7069,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -6902,9 +7099,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 5,
+              "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -6967,7 +7164,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 101,
+              "appearances": 110,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
@@ -6978,10 +7175,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 3,
-              "sample_count": 101,
+              "sample_count": 110,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -7330,7 +7527,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -7424,7 +7621,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 11,
+              "appearances": 12,
               "archetype": "Narwhal / Piranha / Tortuga",
               "archetypes_seen": [
                 "Narwhal / Piranha / Tortuga"
@@ -7435,7 +7632,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7476,12 +7673,12 @@
                 "Sirens / Observatory / Ornithopter"
               ],
               "evidence_refs": [],
-              "frequency": 0.13,
+              "frequency": 0.12,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -7790,7 +7987,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -7912,9 +8109,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 5,
+              "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -7958,9 +8155,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 4,
+              "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -8036,7 +8233,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8117,7 +8314,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 10,
+              "appearances": 11,
               "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
               "archetypes_seen": [
                 "Flying Potion / Boiling Flask / Broken Bottle"
@@ -8128,7 +8325,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8198,12 +8395,12 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.09,
+              "frequency": 0.08,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8308,7 +8505,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8568,7 +8765,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 14,
+              "appearances": 15,
               "archetype": "Zarlic / Spice Rack / Instant Noodles",
               "archetypes_seen": [
                 "Zarlic / Spice Rack / Instant Noodles"
@@ -8579,9 +8776,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 6,
+              "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -8667,6 +8864,34 @@
     },
     "Serving Platter": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Burn Crit Build",
+              "archetypes_seen": [
+                "Burn Crit Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-28",
+                  "start": "2026-04-28"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -8689,7 +8914,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 13,
+              "appearances": 14,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
@@ -8700,7 +8925,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -8914,20 +9139,20 @@
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
           "per_window": [
             {
-              "appearances": 6,
+              "appearances": 7,
               "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
               "archetypes_seen": [
                 "Flying Potion / Boiling Flask / Broken Bottle"
               ],
               "evidence_refs": [],
-              "frequency": 0.06,
+              "frequency": 0.07,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 15,
+              "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -9043,14 +9268,14 @@
                 "Flying Potion / Boiling Flask / Broken Bottle"
               ],
               "evidence_refs": [],
-              "frequency": 0.11,
+              "frequency": 0.1,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 13,
+              "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -9166,6 +9391,34 @@
     },
     "Sorbet": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Pantry Build",
+              "archetypes_seen": [
+                "Pantry Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-27",
+                  "start": "2026-04-27"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -9189,7 +9442,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 82,
+              "appearances": 86,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
@@ -9200,10 +9453,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 3,
-              "sample_count": 82,
+              "sample_count": 86,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -9482,7 +9735,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -9649,7 +9902,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -9662,6 +9915,34 @@
     },
     "Spice Rack": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Burn Crit Build",
+              "archetypes_seen": [
+                "Burn Crit Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-28",
+                  "start": "2026-04-28"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -9690,14 +9971,14 @@
                 "Zarlic / Meat Tenderizer / Sorbet"
               ],
               "evidence_refs": [],
-              "frequency": 0.26,
+              "frequency": 0.24,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 9,
+              "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -9920,7 +10201,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -10042,7 +10323,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10088,9 +10369,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 6,
+              "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -10439,7 +10720,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -10578,7 +10859,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10624,9 +10905,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 11,
+              "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -10705,7 +10986,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 13,
+              "appearances": 14,
               "archetype": "Excavation Tools / Eternal Torch / Library",
               "archetypes_seen": [
                 "Excavation Tools / Eternal Torch / Library"
@@ -10716,7 +10997,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -10863,20 +11144,20 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 18,
+              "appearances": 19,
               "archetype": "Farmer's Market / Bread Knife / Pasta",
               "archetypes_seen": [
                 "Farmer's Market / Bread Knife / Pasta"
               ],
               "evidence_refs": [],
-              "frequency": 0.18,
+              "frequency": 0.17,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 8,
+              "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -10920,9 +11201,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 7,
+              "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -10966,9 +11247,9 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 11,
+              "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -10979,6 +11260,34 @@
     },
     "Veggie Garden": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Bread Knife Build",
+              "archetypes_seen": [
+                "Bread Knife Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-22",
+                  "start": "2026-04-22"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -11007,14 +11316,14 @@
                 "Farmer's Market / Bread Knife / Pasta"
               ],
               "evidence_refs": [],
-              "frequency": 0.22,
+              "frequency": 0.2,
               "metadata": {
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
-              "rank": 4,
+              "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -11070,7 +11379,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
@@ -11355,7 +11664,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -11519,6 +11828,35 @@
         }
       }
     },
+    "Wrecking Ball": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "per_window": [
+            {
+              "appearances": 3,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.04,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Yeti Crab": {
       "per_source": {
         "bazaardb": {
@@ -11551,6 +11889,34 @@
     },
     "Zarlic": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Burn Crit Build",
+              "archetypes_seen": [
+                "Burn Crit Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-28",
+                  "start": "2026-04-28"
+                }
+              },
+              "observed_at": "2026-05-22T08:54:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W21"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
           "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
@@ -11574,7 +11940,7 @@
               "window_id": "bazaardb:May 14:nopatch"
             },
             {
-              "appearances": 82,
+              "appearances": 86,
               "archetype": "Zarlic / Meat Tenderizer / Sorbet",
               "archetypes_seen": [
                 "Zarlic / Meat Tenderizer / Sorbet"
@@ -11585,10 +11951,10 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 1,
-              "sample_count": 82,
+              "sample_count": 86,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
             }
           ],
@@ -11937,7 +12303,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-21T10:21:34Z",
+              "observed_at": "2026-05-22T08:54:41Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -12009,9 +12375,11 @@
   "source_windows": {
     "bazaar_builds_net": [
       {
-        "details": [],
+        "details": [
+          "filtered 13 item(s) not owned by Jules"
+        ],
         "health_status": "healthy",
-        "observed_at": "2026-05-21T10:21:34Z",
+        "observed_at": "2026-05-22T08:54:41Z",
         "window_id": "bazaar_builds_net:2026-W21"
       }
     ],
@@ -12025,9 +12393,11 @@
         "window_id": "bazaardb:May 14:nopatch"
       },
       {
-        "details": [],
+        "details": [
+          "filtered 94 item(s) not owned by Jules"
+        ],
         "health_status": "healthy",
-        "observed_at": "2026-05-21T10:21:34Z",
+        "observed_at": "2026-05-22T08:54:41Z",
         "window_id": "bazaardb:14.1 (Hotfix May 14)"
       }
     ],
@@ -12037,7 +12407,7 @@
           "no_article_slugs_configured"
         ],
         "health_status": "skipped",
-        "observed_at": "2026-05-21T10:21:34Z",
+        "observed_at": "2026-05-22T08:54:41Z",
         "window_id": "mobalytics_build_articles:skipped"
       }
     ],
@@ -12051,7 +12421,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-21T10:21:34Z",
+        "observed_at": "2026-05-22T08:54:41Z",
         "window_id": "mobalytics_meta_builds:v557"
       }
     ]

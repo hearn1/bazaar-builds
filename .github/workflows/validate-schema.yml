@@ -25,7 +25,10 @@ jobs:
           import urllib.request
           from pathlib import Path
 
-          SCHEMA_URL = "https://raw.githubusercontent.com/hearn1/bazaar_coach/main/builds_schema.json"
+          # Coach repo PR #85 (Consolidate build catalogs into builds/) moved
+          # builds_schema.json into the builds/ subdirectory alongside the
+          # <hero>_builds.json files.
+          SCHEMA_URL = "https://raw.githubusercontent.com/hearn1/bazaar_coach/main/builds/builds_schema.json"
 
           try:
               import jsonschema

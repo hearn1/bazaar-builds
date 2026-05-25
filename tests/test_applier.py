@@ -266,6 +266,37 @@ def test_addition_with_existing_name_merges_instead_of_duplicating():
     assert archetypes[0]["carry_items"] == ["Battle Axe", "Sawpike"]
 
 
+def test_addition_with_only_support_classifications_is_refused():
+    # Mirror of coach's test_archetypes_have_commitment_bucket: an archetype
+    # whose evidence collapsed to support-only must not be added to the
+    # catalog, since it would score 1.0 on bare item ownership in the coach
+    # scorer. See hearn1/bazaar-builds#104.
+    catalog = small_catalog()
+    diff = diff_with(
+        {
+            "archetype_additions": [
+                {
+                    "tag": "Night Vision / Chains / Fairy Circle",
+                    "candidate_phase": "late",
+                    "candidate_core": [],
+                    "candidate_support": [
+                        item("Dual Reaver", "support"),
+                        item("Fogshroom", "support"),
+                        item("Waystones", "support"),
+                    ],
+                }
+            ]
+        }
+    )
+    before = copy.deepcopy(catalog)
+    result = apply_proposed_changes(catalog, diff)
+    assert result.catalog == before
+    assert result.changed is False
+    assert any(
+        "no core or carry classifications" in s for s in result.skipped
+    ), result.skipped
+
+
 def test_addition_to_early_phase_is_skipped():
     catalog = small_catalog()
     diff = diff_with(

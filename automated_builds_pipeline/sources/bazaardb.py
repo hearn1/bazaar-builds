@@ -272,6 +272,20 @@ def _extract_items_from_tokens(tokens: list[_Token], artifact_ref: Optional[str]
         if token.kind == "text":
             section = SECTION_HEADER_MAP.get(token.value.casefold())
             if section:
+                # Fallback: leaving a CORE ITEMS block where CORE_RUN_TEXT_RE
+                # never fired. Without this the core items collected as imgs
+                # would be lost while current_archetype (the joined name)
+                # propagates into the next section's support evidence — which
+                # produces support-only archetype stubs downstream.
+                if (
+                    current_section == "CORE ITEMS"
+                    and core_items
+                    and not core_items_emitted
+                ):
+                    _emit_core_items_fallback(
+                        items, core_items, artifact_ref, patch_url
+                    )
+                    core_items_emitted = True
                 current_section = section
                 section_rank = 0
                 recent_imgs = []
@@ -331,7 +345,47 @@ def _extract_items_from_tokens(tokens: list[_Token], artifact_ref: Optional[str]
             else:
                 recent_imgs.append(token.value)
             recent_text = []
+    # Token stream ended mid-CORE-ITEMS without ever firing CORE_RUN_TEXT_RE.
+    if (
+        current_section == "CORE ITEMS"
+        and core_items
+        and not core_items_emitted
+    ):
+        _emit_core_items_fallback(items, core_items, artifact_ref, patch_url)
     return items
+
+
+def _emit_core_items_fallback(
+    items: list[ItemWindowEvidence],
+    core_items: list[str],
+    artifact_ref: Optional[str],
+    patch_url: Optional[str],
+) -> None:
+    """Emit CORE ITEMS imgs when the per-archetype run count never appeared.
+
+    Without run text we have no appearances / frequency, but section identity
+    is still recoverable from the parser state, so downstream classification
+    can route these items into core_items via metadata["section"].
+    """
+    archetype = " / ".join(core_items)
+    for rank, item in enumerate(core_items, start=1):
+        items.append(
+            ItemWindowEvidence(
+                item=item,
+                archetype=archetype,
+                appearances=None,
+                sample_count=None,
+                frequency=None,
+                rank=rank,
+                archetypes_seen=[archetype],
+                evidence_refs=[artifact_ref] if artifact_ref else [],
+                metadata={
+                    "section": "CORE ITEMS",
+                    "patch_notes_url": patch_url,
+                    "core_run_text_missing": True,
+                },
+            )
+        )
 
 
 _REAL_PATCH_LABEL_RE = re.compile(r"^\d+(?:\.\d+)?\s*\(.+\)$")

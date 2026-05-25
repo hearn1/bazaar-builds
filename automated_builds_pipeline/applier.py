@@ -177,6 +177,18 @@ def _apply_addition(result: ApplyResult, entry: dict[str, Any]) -> None:
         for i in items
         if i.get("llm_classification") == "support" and i.get("item")
     ]
+    # Catalog commitment guard: an archetype represents the player's commitment
+    # to a particular core or carry shape. Adding one with only support_items
+    # would emit a stub that the coach scorer can match 1.0 on bare item
+    # ownership, beating well-formed archetypes. Mirror coach's
+    # test_archetypes_have_commitment_bucket and refuse the addition; the
+    # candidate remains visible in the proposal artifact.
+    if not core and not carry:
+        result.skipped.append(
+            f"archetype_addition {name!r} in phase {phase!r}: "
+            "no core or carry classifications; refusing to add support-only stub"
+        )
+        return
     if core:
         new_arch["core_items"] = _dedupe(core)
     # carry_items / support_items are schema-required: always emit (possibly []).

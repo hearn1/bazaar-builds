@@ -60,11 +60,11 @@ python -m automated_builds_pipeline.research.refresh_samples --source bazaardb
 
 ## Current Pipeline Phase
 
-`pipeline_state.json` is currently `phase: shadow_cron` with `dry_run: true`. Scheduled shadow runs default to the deterministic classifier; they may fetch sources, evaluate, render diff/proposal artifacts, upload workflow artifacts, and open a dated `automated/stats-sync-<hero>-<YYYYMMDD>` PR per hero in this repo each run. Merge or close at curator discretion; unmerged PRs from prior days do not block future runs. Direct pushes to `main` are not used because branch protection requires PRs.
+`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification; they fetch sources, evaluate, persist stats sidecars through auto-merged `automated/stats-sync-<hero>-<run>` PRs in this repo, and open/update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes. Direct pushes to `main` are not used because branch protection requires PRs.
 
-Do not promote to `live_cron` until at least 2 healthy bazaardb patch windows and at least 14 calendar days of deterministic classifier output have accumulated, and classifier readiness is confirmed or explicitly waived. Do not mutate coach catalogs or open coach PRs while `dry_run` remains true.
+The live promotion was made with an explicit operator waiver (`waivers/live_cron_promotion_waiver_2026-05-18.md`) that bypasses Gate 1 (2 counted healthy bazaardb patch windows) and Gate 2 (14 calendar days of deterministic classifier output). The waiver does not bypass deterministic classifier readiness, recent malformed/unhealthy bazaardb checks, schema validation, or curator review of coach PRs.
 
-`implementation` is the off switch. `local_dry_run` is the rollback path for artifact-only scheduled/manual runs without stats sidecar PRs.
+`implementation` is the off switch. `local_dry_run` is the rollback path for artifact-only scheduled/manual runs without stats sidecar PRs or coach catalog mutation.
 
 ## Source Roles
 

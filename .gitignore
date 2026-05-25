@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 .venv/
 artifacts/
+pipeline_state_local.json

@@ -235,6 +235,48 @@ def test_bazaardb_browser_launch_error_preserves_actionable_detail():
     assert "msedge:RuntimeError:launch failed for msedge" in summary
 
 
+def test_bazaardb_core_items_emit_when_run_count_text_missing():
+    # Reproduces the support-only archetype stub bug (issue #104): when the
+    # rendered DOM jumps from CORE ITEMS straight into SUPPORTING ITEMS without
+    # a "N RUNS" text node landing in CORE_RUN_TEXT_RE's window, the parser
+    # used to drop the core items entirely while still propagating the joined
+    # name to the support items.
+    html = """
+    <main>
+      <h1>Meta Stats</h1>
+      <p>These meta stats are based on data uploaded by the community.</p>
+      <h2>Archetypes</h2>
+      <h3>Core Items</h3>
+      <img alt="Repair Drone">
+      <img alt="Buster">
+      <img alt="Freefall Simulator">
+      <h3>Supporting Items</h3>
+      <img alt="Headset"><a href="/run?cards=x">2 runs · 50%</a>
+    </main>
+    <footer>Database based on patch <span>14.0 (May 6)</span></footer>
+    """
+
+    result = parse_meta_html(html, FetchOptions(observed_at="2026-05-06T12:00:00Z"))
+
+    assert result.status == "healthy"
+    core_items = [
+        item for item in result.observation.items if item.metadata.get("section") == "CORE ITEMS"
+    ]
+    core_names = [item.item for item in core_items]
+    # All three core imgs are recovered, in order, sharing the joined archetype name.
+    assert core_names == ["Repair Drone", "Buster", "Freefall Simulator"]
+    archetype = "Repair Drone / Buster / Freefall Simulator"
+    assert all(item.archetype == archetype for item in core_items)
+    # Fallback marks evidence as run-count-missing so curators can see why
+    # appearances/frequency are absent.
+    assert all(item.metadata.get("core_run_text_missing") is True for item in core_items)
+    assert all(item.appearances is None and item.frequency is None for item in core_items)
+    # Support items still attach to the same archetype, as before.
+    headset = next(item for item in result.observation.items if item.item == "Headset")
+    assert headset.archetype == archetype
+    assert headset.metadata.get("section") == "SUPPORTING ITEMS"
+
+
 def test_bazaardb_round_trips_into_stats_sidecar(sample_dir, tmp_path):
     result = parse_meta_fixture(
         sample_dir / "bazaardb" / "meta-page-sample.json",

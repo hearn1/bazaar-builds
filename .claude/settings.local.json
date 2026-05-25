@@ -18,7 +18,15 @@
       "Bash(git push *)",
       "Bash(gh issue *)",
       "PowerShell(gh issue list --repo hearn1/bazaar-builds --state open --limit 10 --json number,title,body,url)",
-      "Bash(python -m pytest -q tests)"
+      "Bash(python -m pytest -q tests)",
+      "Bash(git switch *)",
+      "Bash(gh pr create --title 'Fix support-only archetype stubs from bazaardb evidence loss' --body ' *)",
+      "Bash(git stash *)",
+      "Bash(gh run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://raw.githubusercontent.com/hearn1/bazaar_coach/main/builds_schema.json)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://raw.githubusercontent.com/hearn1/bazaar_coach/main/builds/builds_schema.json)",
+      "Bash(git commit -m ' *)",
+      "Bash(cd ../bazaar_tracker && gh issue view 120 2>&1)"
     ]
   }
 }

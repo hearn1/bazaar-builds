@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T09:56:55Z",
-  "generated_at": "2026-05-22T08:54:57Z",
+  "generated_at": "2026-05-29T09:44:37Z",
   "hero": "Karnok",
   "items": {
     "Altimeter": {
@@ -46,6 +46,35 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Amber": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "per_window": [
+            {
+              "appearances": 9,
+              "archetype": "Eternal Torch / Smelling Salts / Library",
+              "archetypes_seen": [
+                "Eternal Torch / Smelling Salts / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -150,7 +179,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (May 12)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -202,10 +231,27 @@
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 41,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.2,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 2,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -1447,7 +1493,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -1516,10 +1562,27 @@
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 18,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.12,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -1658,7 +1721,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 12,
@@ -1727,10 +1790,27 @@
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 22,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -2712,7 +2792,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -2781,10 +2861,27 @@
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 20,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 7,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -3150,7 +3247,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -3168,10 +3265,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 12,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -3431,7 +3545,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 61,
@@ -3504,10 +3618,28 @@
               "rank": 2,
               "sample_count": 196,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 277,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 277,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -3887,7 +4019,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -4259,7 +4391,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:May 14",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 9,
@@ -4311,10 +4443,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14"
+            },
+            {
+              "appearances": 21,
+              "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
+              "archetypes_seen": [
+                "Zoarcid / Yeti Crab / Elemental Depth Charge"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.22,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -4431,7 +4580,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 13,
@@ -4500,10 +4649,27 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 17,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v557",
@@ -4613,7 +4779,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -4629,7 +4795,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -4698,10 +4864,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 18,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -5167,7 +5350,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 17,
@@ -5236,10 +5419,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 22,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -5315,7 +5515,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 61,
@@ -5388,10 +5588,28 @@
               "rank": 3,
               "sample_count": 196,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 277,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 277,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
@@ -5765,7 +5983,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -6222,7 +6440,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -6291,10 +6509,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 31,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.15,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -7074,7 +7309,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -7457,7 +7692,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 53,
@@ -7530,10 +7765,28 @@
               "rank": 3,
               "sample_count": 134,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 203,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 203,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -8294,7 +8547,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -8378,7 +8631,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 29,
@@ -8447,10 +8700,27 @@
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 101,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.36,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
@@ -8824,7 +9094,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -8905,6 +9175,31 @@
           ],
           "windows_observed": 3,
           "windows_seen": 3
+        },
+        "bazaardb": {
+          "first_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "per_window": [
+            {
+              "appearances": 22,
+              "archetype": "Flying Squirrel / Runic Claymore / Hunter's Journal",
+              "archetypes_seen": [
+                "Flying Squirrel / Runic Claymore / Hunter's Journal"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -8942,7 +9237,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -9011,10 +9306,27 @@
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 15,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.12,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 2,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -9094,7 +9406,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -9163,10 +9475,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 13,
+              "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
+              "archetypes_seen": [
+                "Flying Potion / Boiling Flask / Broken Bottle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -9806,7 +10135,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -9875,10 +10204,27 @@
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 16,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -9949,7 +10295,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 15,
@@ -10018,10 +10364,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 26,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.13,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -10449,7 +10812,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -10518,10 +10881,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 16,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.06,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -10529,7 +10909,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (May 12)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -10564,10 +10944,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (May 12)"
+            },
+            {
+              "appearances": 64,
+              "archetype": "Flying Squirrel / Runic Claymore / Hunter's Journal",
+              "archetypes_seen": [
+                "Flying Squirrel / Runic Claymore / Hunter's Journal"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.31,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
@@ -10891,7 +11288,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -10953,7 +11350,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -11022,10 +11419,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 26,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.17,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -11101,7 +11515,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 33,
@@ -11170,10 +11584,27 @@
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 177,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.64,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 1,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -11181,7 +11612,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -11250,10 +11681,27 @@
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 49,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.24,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
@@ -11577,7 +12025,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -11593,7 +12041,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 11,
@@ -11611,10 +12059,27 @@
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 17,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -11736,7 +12201,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 68,
@@ -11807,10 +12272,27 @@
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 22,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -11886,7 +12368,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -11955,10 +12437,27 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 16,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -12064,7 +12563,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -12133,10 +12632,27 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -12144,7 +12660,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -12213,10 +12729,27 @@
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 33,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.26,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -12488,7 +13021,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -12557,10 +13090,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 26,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.13,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
@@ -12956,7 +13506,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -13276,7 +13826,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 22,
@@ -13345,10 +13895,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 25,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.12,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -14044,7 +14611,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -14079,10 +14646,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 10,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.06,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -14119,7 +14703,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (May 12)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 1,
@@ -14154,10 +14738,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (May 12)"
+            },
+            {
+              "appearances": 7,
+              "archetype": "Eternal Torch / Smelling Salts / Library",
+              "archetypes_seen": [
+                "Eternal Torch / Smelling Salts / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.06,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -14640,6 +15241,31 @@
           ],
           "windows_observed": 3,
           "windows_seen": 3
+        },
+        "bazaardb": {
+          "first_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "per_window": [
+            {
+              "appearances": 6,
+              "archetype": "Flying Squirrel / Runic Claymore / Hunter's Journal",
+              "archetypes_seen": [
+                "Flying Squirrel / Runic Claymore / Hunter's Journal"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -14840,7 +15466,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -14892,10 +15518,27 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 22,
+              "archetype": "Eternal Torch / Smelling Salts / Library",
+              "archetypes_seen": [
+                "Eternal Torch / Smelling Salts / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.19,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -14903,7 +15546,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (May 12)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -14938,10 +15581,27 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (May 12)"
+            },
+            {
+              "appearances": 7,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.06,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -15066,7 +15726,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -15137,10 +15797,28 @@
               "rank": 2,
               "sample_count": 134,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 203,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 203,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -15920,7 +16598,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -16248,7 +16926,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 61,
@@ -16321,10 +16999,28 @@
               "rank": 1,
               "sample_count": 196,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 277,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 277,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
@@ -16698,7 +17394,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -17058,7 +17754,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -17127,10 +17823,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 14,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -17400,7 +18113,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -17469,10 +18182,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 15,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.13,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -17655,7 +18385,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -17724,10 +18454,27 @@
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 34,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.17,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -17764,7 +18511,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -17833,10 +18580,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -17907,7 +18671,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -17942,10 +18706,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 16,
+              "archetype": "Eternal Torch / Smelling Salts / Library",
+              "archetypes_seen": [
+                "Eternal Torch / Smelling Salts / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.14,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -18138,7 +18919,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -18173,10 +18954,27 @@
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 6,
+              "archetype": "Eternal Torch / Smelling Salts / Library",
+              "archetypes_seen": [
+                "Eternal Torch / Smelling Salts / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.05,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -18308,7 +19106,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -18326,10 +19124,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 13,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -18574,7 +19389,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -18643,10 +19458,27 @@
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 55,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.27,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 1,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
@@ -18970,7 +19802,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -19199,7 +20031,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 8,
@@ -19268,10 +20100,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 19,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.13,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -19812,7 +20661,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -19830,10 +20679,27 @@
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
+              "archetypes_seen": [
+                "Flying Potion / Boiling Flask / Broken Bottle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -19999,7 +20865,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -20068,10 +20934,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
+              "archetypes_seen": [
+                "Flying Potion / Boiling Flask / Broken Bottle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -20256,6 +21139,35 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Snowshoes": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "per_window": [
+            {
+              "appearances": 6,
+              "archetype": "Flying Squirrel / Runic Claymore / Hunter's Journal",
+              "archetypes_seen": [
+                "Flying Squirrel / Runic Claymore / Hunter's Journal"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -20879,7 +21791,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -20948,10 +21860,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 8,
+              "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
+              "archetypes_seen": [
+                "Zoarcid / Yeti Crab / Elemental Depth Charge"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -20959,7 +21888,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -21028,10 +21957,27 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 14,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -21170,7 +22116,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 53,
@@ -21241,10 +22187,27 @@
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 15,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -21590,7 +22553,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -21659,10 +22622,27 @@
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -21977,7 +22957,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -22029,10 +23009,27 @@
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 21,
+              "archetype": "Eternal Torch / Smelling Salts / Library",
+              "archetypes_seen": [
+                "Eternal Torch / Smelling Salts / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.18,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -22298,11 +23295,40 @@
         }
       }
     },
+    "Trail Markers": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "per_window": [
+            {
+              "appearances": 9,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Trail Mix": {
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -22371,10 +23397,56 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
+        }
+      }
+    },
+    "Trapping Pit": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "per_window": [
+            {
+              "appearances": 8,
+              "archetype": "Flying Squirrel / Runic Claymore / Hunter's Journal",
+              "archetypes_seen": [
+                "Flying Squirrel / Runic Claymore / Hunter's Journal"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.04,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -22618,7 +23690,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -22653,10 +23725,27 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -22693,7 +23782,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -22762,10 +23851,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 7,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -23287,7 +24393,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 53,
@@ -23360,10 +24466,28 @@
               "rank": 1,
               "sample_count": 134,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 203,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 203,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -24030,7 +25154,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -24099,10 +25223,27 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 36,
+              "archetype": "Waterskin / Messenger Sparrow / Flying Squirrel",
+              "archetypes_seen": [
+                "Waterskin / Messenger Sparrow / Flying Squirrel"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.18,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 7,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
@@ -24498,7 +25639,7 @@
                 },
                 "hero": "Karnok"
               },
-              "observed_at": "2026-05-22T08:54:35Z",
+              "observed_at": "2026-05-29T09:44:22Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -24582,7 +25723,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:May 14",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 8,
@@ -24634,10 +25775,27 @@
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:May 14"
+            },
+            {
+              "appearances": 7,
+              "archetype": "Flying Squirrel / Runic Claymore / Hunter's Journal",
+              "archetypes_seen": [
+                "Flying Squirrel / Runic Claymore / Hunter's Journal"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -25101,7 +26259,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -25153,10 +26311,27 @@
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 10,
+              "archetype": "Night Vision / Chains / Fairy Circle",
+              "archetypes_seen": [
+                "Night Vision / Chains / Fairy Circle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.04,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-29T09:44:22Z",
+              "present": true,
+              "rank": 2,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -25742,6 +26917,14 @@
         "health_status": "healthy",
         "observed_at": "2026-05-22T08:54:35Z",
         "window_id": "bazaar_builds_net:2026-W21"
+      },
+      {
+        "details": [
+          "known_items_empty"
+        ],
+        "health_status": "unhealthy",
+        "observed_at": "2026-05-29T09:44:22Z",
+        "window_id": "bazaar_builds_net:2026-W22"
       }
     ],
     "bazaardb": [
@@ -25770,6 +26953,14 @@
         "health_status": "healthy",
         "observed_at": "2026-05-22T08:54:35Z",
         "window_id": "bazaardb:14.1 (Hotfix May 14)"
+      },
+      {
+        "details": [
+          "filtered 90 item(s) not owned by Karnok"
+        ],
+        "health_status": "healthy",
+        "observed_at": "2026-05-29T09:44:22Z",
+        "window_id": "bazaardb:14.1 (Hotfix May 26)"
       }
     ],
     "mobalytics_build_articles": [
@@ -25778,7 +26969,7 @@
           "no_article_slugs_configured"
         ],
         "health_status": "skipped",
-        "observed_at": "2026-05-22T08:54:35Z",
+        "observed_at": "2026-05-29T09:44:22Z",
         "window_id": "mobalytics_build_articles:skipped"
       }
     ],
@@ -25804,7 +26995,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-22T08:54:35Z",
+        "observed_at": "2026-05-29T09:44:22Z",
         "window_id": "mobalytics_meta_builds:v557"
       }
     ]

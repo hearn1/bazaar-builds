@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T09:57:01Z",
-  "generated_at": "2026-05-30T21:47:45Z",
+  "generated_at": "2026-05-30T22:07:06Z",
   "hero": "Pygmalien",
   "items": {
     "Abacus": {
@@ -23,7 +23,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -582,9 +582,9 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
-              "rank": 8,
+              "rank": 10,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W22"
             }
@@ -674,7 +674,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -1018,7 +1018,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -1116,7 +1116,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -1428,7 +1428,7 @@
                   "start": "2026-05-02"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -2282,7 +2282,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -2420,7 +2420,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -3019,7 +3019,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -3117,7 +3117,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -3446,7 +3446,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -4270,7 +4270,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -4362,9 +4362,9 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
-              "rank": 12,
+              "rank": 10,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W22"
             }
@@ -4629,7 +4629,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -4660,9 +4660,9 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
-              "rank": 10,
+              "rank": 11,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W22"
             }
@@ -4738,7 +4738,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -4830,7 +4830,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -5654,7 +5654,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -6062,7 +6062,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -6334,7 +6334,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -6484,7 +6484,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -6516,7 +6516,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -6593,7 +6593,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -6736,7 +6736,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -6827,7 +6827,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -7097,7 +7097,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8097,7 +8097,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8548,7 +8548,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8697,7 +8697,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8791,9 +8791,9 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
-              "rank": 8,
+              "rank": 10,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W22"
             }
@@ -8901,7 +8901,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8998,7 +8998,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -9152,7 +9152,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -9553,7 +9553,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -10007,7 +10007,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -10038,7 +10038,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -10442,7 +10442,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -10474,7 +10474,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -10670,7 +10670,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -10761,7 +10761,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -11033,7 +11033,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -11131,7 +11131,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -11228,7 +11228,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -11883,7 +11883,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -11975,7 +11975,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12066,7 +12066,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -12250,9 +12250,9 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
-              "rank": 11,
+              "rank": 8,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W22"
             }
@@ -12534,7 +12534,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12625,7 +12625,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -13449,7 +13449,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -13527,7 +13527,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -13683,7 +13683,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -13714,7 +13714,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -13778,7 +13778,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -13990,7 +13990,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -14394,7 +14394,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -14486,7 +14486,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -14781,7 +14781,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -14813,7 +14813,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -14877,7 +14877,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -15241,7 +15241,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -15338,7 +15338,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -15559,7 +15559,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -15905,7 +15905,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -16074,7 +16074,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -16105,9 +16105,9 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
-              "rank": 11,
+              "rank": 10,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W22"
             }
@@ -16137,7 +16137,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -16194,7 +16194,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -16292,7 +16292,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -16547,7 +16547,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -16673,7 +16673,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -16764,7 +16764,7 @@
                   "start": "2026-05-04"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -17036,7 +17036,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -17068,7 +17068,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -17472,7 +17472,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -17504,9 +17504,9 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
-              "rank": 10,
+              "rank": 11,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W22"
             }
@@ -17585,7 +17585,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -17679,7 +17679,7 @@
                   "start": "2026-05-02"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -17798,7 +17798,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -17936,7 +17936,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -18027,7 +18027,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -18851,7 +18851,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -19261,7 +19261,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -19479,7 +19479,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -19699,7 +19699,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -19843,7 +19843,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -20107,7 +20107,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -20138,7 +20138,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -20328,7 +20328,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -20426,7 +20426,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -21194,7 +21194,7 @@
                   "start": "2026-04-30"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -21427,7 +21427,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -21524,7 +21524,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -21555,7 +21555,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -21844,7 +21844,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -22016,7 +22016,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -22303,7 +22303,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -22510,7 +22510,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -22541,7 +22541,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -22945,7 +22945,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -22977,7 +22977,7 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -23100,7 +23100,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -23304,7 +23304,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -23556,9 +23556,9 @@
                   "start": "2026-05-05"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
-              "rank": 10,
+              "rank": 9,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W22"
             }
@@ -24021,7 +24021,7 @@
                   "start": "2026-05-07"
                 }
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -24451,7 +24451,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-30T21:46:41Z",
+              "observed_at": "2026-05-30T22:06:02Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -24631,7 +24631,7 @@
           "filtered 17 item(s) not owned by Pygmalien"
         ],
         "health_status": "healthy",
-        "observed_at": "2026-05-30T21:46:41Z",
+        "observed_at": "2026-05-30T22:06:02Z",
         "window_id": "bazaar_builds_net:2026-W22"
       }
     ],
@@ -24667,7 +24667,7 @@
           "filtered 132 item(s) not owned by Pygmalien"
         ],
         "health_status": "healthy",
-        "observed_at": "2026-05-30T21:46:41Z",
+        "observed_at": "2026-05-30T22:06:02Z",
         "window_id": "bazaardb:14.1 (Hotfix May 26)"
       }
     ],
@@ -24677,7 +24677,7 @@
           "no_article_slugs_configured"
         ],
         "health_status": "skipped",
-        "observed_at": "2026-05-30T21:46:41Z",
+        "observed_at": "2026-05-30T22:06:02Z",
         "window_id": "mobalytics_build_articles:skipped"
       }
     ],
@@ -24703,7 +24703,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-30T21:46:41Z",
+        "observed_at": "2026-05-30T22:06:02Z",
         "window_id": "mobalytics_meta_builds:v557"
       }
     ]

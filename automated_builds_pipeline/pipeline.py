@@ -335,24 +335,33 @@ def _filter_source_result_for_hero_items(
     )
 
 
+def _coach_builds_dir(tracker_repo: Path) -> Path:
+    """Return the directory that contains builds_schema.json and *_builds.json catalogs.
+
+    Checks repo root first (old layout), then builds/ (new layout after coach
+    restructure). Falls through to root if neither has the schema anchor file so
+    callers get a clean FileNotFoundError rather than a silent wrong path.
+    """
+    for candidate in [tracker_repo, tracker_repo / "builds"]:
+        if (candidate / "builds_schema.json").exists():
+            return candidate
+    return tracker_repo
+
+
 def _fetch_options(state: CuratorState, tracker_repo: Path) -> FetchOptions:
     observed_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     return FetchOptions(
         observed_at=observed_at,
         expected_patch_label=state.expected_bazaardb_patch_label,
-        catalog_dir=str(tracker_repo),
+        catalog_dir=str(_coach_builds_dir(tracker_repo)),
         names_file=str(_names_file(tracker_repo)),
     )
 
 
 def _catalog_path(hero: str, tracker_repo: Path) -> Path:
-    candidates = [
-        tracker_repo / f"{_hero_slug(hero)}_builds.json",
-        tracker_repo / "builds" / f"{_hero_slug(hero)}_builds.json",
-    ]
-    for path in candidates:
-        if path.exists():
-            return path
+    path = _coach_builds_dir(tracker_repo) / f"{_hero_slug(hero)}_builds.json"
+    if path.exists():
+        return path
     raise FileNotFoundError(f"could not find catalog for {hero!r} in {tracker_repo}")
 
 
@@ -361,7 +370,7 @@ def _names_file(tracker_repo: Path) -> Path:
 
 
 def _schema_path(tracker_repo: Path) -> Path:
-    return tracker_repo / "builds_schema.json"
+    return _coach_builds_dir(tracker_repo) / "builds_schema.json"
 
 
 def _atomic_write(path: Path, text: str) -> None:

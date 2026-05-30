@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Optional
 
-from automated_builds_pipeline.pipeline import _bazaar_builds_category_url, _names_file
+from automated_builds_pipeline.pipeline import _bazaar_builds_category_url, _coach_builds_dir, _names_file
 from automated_builds_pipeline.sources import bazaar_builds_net, bazaardb, mobalytics
 from automated_builds_pipeline.sources.base import SKIPPED, UNHEALTHY, FetchOptions, SourceFetchResult
 
@@ -36,7 +36,7 @@ def run_smoke(
         observed_at=generated_at,
         expected_patch_label=expected_patch_label,
         timeout_seconds=timeout_seconds,
-        catalog_dir=str(tracker_repo),
+        catalog_dir=str(_coach_builds_dir(tracker_repo)),
         names_file=str(_names_file(tracker_repo)),
         article_slugs=list(article_slugs or []),
     )

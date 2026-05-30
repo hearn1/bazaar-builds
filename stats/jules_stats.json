@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T13:37:25Z",
-  "generated_at": "2026-05-30T21:49:12Z",
+  "generated_at": "2026-05-30T22:08:50Z",
   "hero": "Jules",
   "items": {
     "Amber": {
@@ -311,7 +311,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -402,7 +402,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -585,7 +585,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -648,7 +648,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -929,7 +929,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -1293,7 +1293,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -1480,7 +1480,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 2,
               "sample_count": 167,
@@ -1832,7 +1832,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -1957,7 +1957,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -2066,7 +2066,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -2266,7 +2266,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -2298,7 +2298,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -2362,7 +2362,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -2454,7 +2454,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -2621,7 +2621,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -3008,7 +3008,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 1,
               "sample_count": 167,
@@ -3360,7 +3360,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -3586,7 +3586,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -3865,7 +3865,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -3928,7 +3928,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -3991,7 +3991,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 1,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -4054,7 +4054,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -4085,7 +4085,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -4149,7 +4149,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -4471,7 +4471,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -4727,7 +4727,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -4820,7 +4820,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -5101,7 +5101,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -5165,7 +5165,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -5469,7 +5469,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -5694,7 +5694,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -5894,7 +5894,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -5969,7 +5969,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -6155,7 +6155,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -6293,7 +6293,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -6322,7 +6322,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -6415,7 +6415,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 2,
               "sample_count": 134,
@@ -6641,7 +6641,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -6768,7 +6768,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -6955,7 +6955,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -7433,7 +7433,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -7497,7 +7497,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -7722,7 +7722,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -7846,7 +7846,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "sample_count": 167,
@@ -8198,7 +8198,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -8320,7 +8320,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8383,7 +8383,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8692,7 +8692,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -8831,7 +8831,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8894,7 +8894,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -8957,7 +8957,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -9021,7 +9021,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -9130,7 +9130,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -9222,7 +9222,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -9494,7 +9494,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -9632,7 +9632,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -9738,7 +9738,7 @@
                   "start": "2026-05-03"
                 }
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -9830,7 +9830,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -10072,7 +10072,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -10212,7 +10212,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -10410,7 +10410,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "sample_count": 134,
@@ -10692,7 +10692,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -10876,7 +10876,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -10967,7 +10967,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -11192,7 +11192,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -11331,7 +11331,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -11394,7 +11394,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -11745,7 +11745,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -11947,7 +11947,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12056,7 +12056,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12231,7 +12231,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12294,7 +12294,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12357,7 +12357,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12448,7 +12448,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12523,7 +12523,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "SUPPORTING ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
@@ -12808,7 +12808,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -13113,7 +13113,7 @@
                 "patch_notes_url": "/patchnotes",
                 "section": "CORE ITEMS"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 1,
               "sample_count": 134,
@@ -13465,7 +13465,7 @@
                 },
                 "hero": "Jules"
               },
-              "observed_at": "2026-05-30T21:48:48Z",
+              "observed_at": "2026-05-30T22:08:20Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -13549,7 +13549,7 @@
           "filtered 3 item(s) not owned by Jules"
         ],
         "health_status": "healthy",
-        "observed_at": "2026-05-30T21:48:48Z",
+        "observed_at": "2026-05-30T22:08:20Z",
         "window_id": "bazaar_builds_net:2026-W22"
       }
     ],
@@ -13575,7 +13575,7 @@
           "filtered 104 item(s) not owned by Jules"
         ],
         "health_status": "healthy",
-        "observed_at": "2026-05-30T21:48:48Z",
+        "observed_at": "2026-05-30T22:08:20Z",
         "window_id": "bazaardb:14.1 (Hotfix May 26)"
       }
     ],
@@ -13585,7 +13585,7 @@
           "no_article_slugs_configured"
         ],
         "health_status": "skipped",
-        "observed_at": "2026-05-30T21:48:48Z",
+        "observed_at": "2026-05-30T22:08:20Z",
         "window_id": "mobalytics_build_articles:skipped"
       }
     ],
@@ -13599,7 +13599,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-30T21:48:48Z",
+        "observed_at": "2026-05-30T22:08:20Z",
         "window_id": "mobalytics_meta_builds:v557"
       }
     ]

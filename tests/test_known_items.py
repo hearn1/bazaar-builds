@@ -1,5 +1,7 @@
+import json
 from pathlib import Path
 
+import bazaar_build_enricher as enricher
 from automated_builds_pipeline.known_items import catalog_item_names, load_known_items_file
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 
@@ -72,3 +74,64 @@ def test_classifier_accepts_real_items_from_json_names_file(tmp_path: Path) -> N
     )
 
     assert result[0].classification != "invalid"
+
+
+# --- enricher.load_known_items tests (Fixes #108) ---
+
+_SAMPLE_CATALOG = {
+    "schema_version": 1,
+    "hero": "Karnok",
+    "season": 1,
+    "last_updated": "2026-01-01",
+    "notes": "",
+    "item_tier_list": {"S": ["Anaconda"], "A": ["Pufferfish"]},
+    "game_phases": {
+        "early": {"universal_utility_items": ["Waterskin"], "economy_items": []},
+    },
+}
+
+_DB_PREAMBLE = (
+    "[DB] Initialized at C:\\Users\\Matt\\Desktop\\bazaar_tracker\\bazaar_runs.db\n"
+    '["Atlas Stone", "Fogshroom"]\n'
+)
+
+
+def test_load_known_items_finds_catalogs_at_root(tmp_path: Path) -> None:
+    (tmp_path / "karnok_builds.json").write_text(json.dumps(_SAMPLE_CATALOG), encoding="utf-8")
+    (tmp_path / "card_cache_names.txt").write_text("", encoding="utf-8")
+
+    items = enricher.load_known_items(tmp_path, tmp_path / "card_cache_names.txt")
+
+    assert "Anaconda" in items
+    assert "Pufferfish" in items
+
+
+def test_load_known_items_finds_catalogs_in_builds_subdir(tmp_path: Path) -> None:
+    builds = tmp_path / "builds"
+    builds.mkdir()
+    (builds / "karnok_builds.json").write_text(json.dumps(_SAMPLE_CATALOG), encoding="utf-8")
+    (tmp_path / "card_cache_names.txt").write_text("", encoding="utf-8")
+
+    items = enricher.load_known_items(tmp_path, tmp_path / "card_cache_names.txt")
+
+    assert "Anaconda" in items
+    assert "Pufferfish" in items
+
+
+def test_load_known_items_names_file_with_db_preamble(tmp_path: Path) -> None:
+    (tmp_path / "card_cache_names.txt").write_text(_DB_PREAMBLE, encoding="utf-8")
+
+    items = enricher.load_known_items(tmp_path, tmp_path / "card_cache_names.txt")
+
+    assert "Atlas Stone" in items
+    assert "Fogshroom" in items
+
+
+def test_load_known_items_names_fallback_alone_despite_db_preamble(tmp_path: Path) -> None:
+    """Names file is a real fallback even when no catalogs exist and [DB] preamble is present."""
+    (tmp_path / "card_cache_names.txt").write_text(_DB_PREAMBLE, encoding="utf-8")
+
+    items = enricher.load_known_items(tmp_path, tmp_path / "card_cache_names.txt")
+
+    assert len(items) > 0
+    assert "Atlas Stone" in items

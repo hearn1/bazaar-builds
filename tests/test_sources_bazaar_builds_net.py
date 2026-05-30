@@ -114,7 +114,7 @@ def test_category_json_ld_webpage_is_not_treated_as_build_record():
     assert records == []
 
 
-def test_post_enrichment_dates_are_filtered_again(monkeypatch):
+def test_post_enrichment_dates_are_filtered_again(monkeypatch, tmp_path):
     category_html = """
     <article><a href="/old-karnok-10-0-build/">Old Karnok 10-0 Build</a></article>
     """
@@ -149,8 +149,8 @@ def test_post_enrichment_dates_are_filtered_again(monkeypatch):
         fetch_posts=True,
         timeout=5,
         output=None,
-        catalog_dir=Namespace(glob=lambda pattern: []),
-        names_file=Namespace(is_file=lambda: False),
+        catalog_dir=tmp_path,
+        names_file=tmp_path / "nonexistent_names.txt",
     )
 
     summary = enricher.run(args)

@@ -188,23 +188,33 @@ def parse_html(html: str) -> SimpleHTMLTextParser:
 
 
 def load_known_items(catalog_dir: Path, names_file: Path) -> set[str]:
+    from automated_builds_pipeline.known_items import _parse_json_array
+
     items: set[str] = set()
-    for path in catalog_dir.glob("*_builds.json"):
-        try:
-            data = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            continue
-        collect_items_from_build_catalog(data, items)
+
+    # Search root and builds/ subdir so the function is layout-agnostic.
+    search_dirs = [catalog_dir]
+    builds_subdir = catalog_dir / "builds"
+    if builds_subdir.is_dir():
+        search_dirs.append(builds_subdir)
+
+    for search_dir in search_dirs:
+        for path in search_dir.glob("*_builds.json"):
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            collect_items_from_build_catalog(data, items)
 
     if names_file.is_file():
         raw = names_file.read_text(encoding="utf-8", errors="ignore")
-        start = raw.find("[")
-        if start >= 0:
-            try:
-                names = json.loads(raw[start:])
-                items.update(name.strip() for name in names if isinstance(name, str) and name.strip())
-            except json.JSONDecodeError:
-                pass
+        # card_cache_names.txt can begin with a stray "[DB] Initialized ..."
+        # stdout line whose "[" raw.find() would grab instead of the real
+        # JSON-array opener. Walk every "[" until one parses (same as
+        # known_items._parse_json_array).
+        parsed = _parse_json_array(raw)
+        if parsed is not None:
+            items.update(name.strip() for name in parsed if isinstance(name, str) and name.strip())
 
     return {normalize_item_name(item, items) for item in items if not item.startswith("[")}
 

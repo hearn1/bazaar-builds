@@ -159,6 +159,18 @@ def make_tracker(tmp_path: Path) -> Path:
     return tracker
 
 
+def make_tracker_builds_subdir(tmp_path: Path) -> Path:
+    """Tracker with catalogs and schema under builds/ (new coach layout)."""
+    tracker = tmp_path / "tracker"
+    tracker.mkdir()
+    builds = tracker / "builds"
+    builds.mkdir()
+    (tracker / "card_cache_names.txt").write_text("Pufferfish\n", encoding="utf-8")
+    (builds / "builds_schema.json").write_text(json.dumps(BUILDS_SCHEMA), encoding="utf-8")
+    (builds / "karnok_builds.json").write_text(json.dumps(base_catalog()), encoding="utf-8")
+    return tracker
+
+
 def patch_fetchers(monkeypatch, *, bazaardb_results: list[SourceFetchResult] | None = None):
     results = list(bazaardb_results or [source_result("bazaardb")])
 
@@ -954,3 +966,73 @@ def test_non_live_phases_do_not_mutate_catalog(monkeypatch, tmp_path, phase, ove
     )
 
     assert (tracker / "karnok_builds.json").read_bytes() == before
+
+
+# --- coach builds/ layout resolver tests (Fixes #109) ---
+
+def test_coach_builds_dir_returns_root_when_schema_at_root(tmp_path):
+    tracker = make_tracker(tmp_path)
+    assert pipeline._coach_builds_dir(tracker) == tracker
+
+
+def test_coach_builds_dir_returns_builds_subdir_when_schema_there(tmp_path):
+    tracker = make_tracker_builds_subdir(tmp_path)
+    assert pipeline._coach_builds_dir(tracker) == tracker / "builds"
+
+
+def test_schema_path_resolves_from_builds_subdir(tmp_path):
+    tracker = make_tracker_builds_subdir(tmp_path)
+    schema_path = pipeline._schema_path(tracker)
+    assert schema_path == tracker / "builds" / "builds_schema.json"
+    assert schema_path.exists()
+
+
+def test_catalog_path_resolves_from_builds_subdir(tmp_path):
+    tracker = make_tracker_builds_subdir(tmp_path)
+    catalog_path = pipeline._catalog_path("Karnok", tracker)
+    assert catalog_path == tracker / "builds" / "karnok_builds.json"
+    assert catalog_path.exists()
+
+
+def test_apply_catalog_pr_works_with_builds_subdir_layout(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker_builds_subdir(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_update_diff())
+    git_calls = []
+    run_calls = []
+
+    def fake_git(repo, *args, check=True):
+        git_calls.append(args)
+        return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        if args[:3] == ["gh", "pr", "view"]:
+            return subprocess_result(returncode=1)
+        return subprocess_result(returncode=0)
+
+    comment_calls = []
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
+
+    result = pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert result.pr_invoked is True
+    # Git add uses path relative to tracker root, so builds/karnok_builds.json.
+    add_calls = [a for a in git_calls if a and a[0] == "add"]
+    assert len(add_calls) == 1
+    assert Path(add_calls[0][1]) == Path("builds/karnok_builds.json")
+    catalog_after = json.loads((tracker / "builds" / "karnok_builds.json").read_text(encoding="utf-8"))
+    axe = catalog_after["game_phases"]["early_mid"]["archetypes"][0]
+    assert axe["carry_items"] == ["Battle Axe", "Sawpike"]

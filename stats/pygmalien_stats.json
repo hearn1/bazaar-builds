@@ -1,10 +1,38 @@
 {
   "classifier_started_at": "2026-05-18T09:57:01Z",
-  "generated_at": "2026-05-22T08:54:56Z",
+  "generated_at": "2026-05-30T21:47:45Z",
   "hero": "Pygmalien",
   "items": {
     "Abacus": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Skyscraper Build",
+              "archetypes_seen": [
+                "Skyscraper Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
           "last_seen_window": "mobalytics_meta_builds:v542",
@@ -534,11 +562,43 @@
         }
       }
     },
+    "Atlas": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Medium Weapon Build",
+              "archetypes_seen": [
+                "Medium Weapon Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Atlas Stone": {
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -599,10 +659,30 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Medium Weapon Build",
+              "archetypes_seen": [
+                "Medium Weapon Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -862,7 +942,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -923,10 +1003,30 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Laser Security System Build",
+              "archetypes_seen": [
+                "Laser Security System Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-03",
+                  "start": "2026-05-03"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -934,7 +1034,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -1003,10 +1103,27 @@
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 18,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.12,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -1293,6 +1410,34 @@
     },
     "Beast of Burden": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Beast of Burden Build",
+              "archetypes_seen": [
+                "Beast of Burden Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-02",
+                  "start": "2026-05-02"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
           "last_seen_window": "bazaardb:May 7",
@@ -2137,7 +2282,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -2199,7 +2344,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -2260,10 +2405,30 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Skyscraper Build",
+              "archetypes_seen": [
+                "Skyscraper Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -2854,7 +3019,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -2870,7 +3035,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -2939,10 +3104,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 8,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 7,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -3188,7 +3370,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -3249,10 +3431,30 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Burn Freeze Build",
+              "archetypes_seen": [
+                "Burn Freeze Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-04",
+                  "start": "2026-05-04"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -4068,7 +4270,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -4084,7 +4286,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -4145,10 +4347,30 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Burn Freeze Build",
+              "archetypes_seen": [
+                "Burn Freeze Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-04",
+                  "start": "2026-05-04"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 12,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -4376,7 +4598,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -4394,6 +4616,55 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 12,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            }
+          ],
+          "windows_observed": 2,
+          "windows_seen": 2
+        }
+      }
+    },
+    "Cannon": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Burst Build",
+              "archetypes_seen": [
+                "Burst Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 10,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
           "windows_observed": 1,
@@ -4447,11 +4718,43 @@
         }
       }
     },
+    "Cargo Shorts": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Laser Security System Build",
+              "archetypes_seen": [
+                "Laser Security System Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-03",
+                  "start": "2026-05-03"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Cash Cannon": {
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -4512,10 +4815,30 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Burst Build",
+              "archetypes_seen": [
+                "Burst Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -5331,7 +5654,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -5721,6 +6044,34 @@
     },
     "Cold Room": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Burn Freeze Build",
+              "archetypes_seen": [
+                "Burn Freeze Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-04",
+                  "start": "2026-05-04"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
           "last_seen_window": "mobalytics_meta_builds:v557",
@@ -5983,7 +6334,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -6057,7 +6408,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -6118,18 +6469,66 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Medium Weapon Build",
+              "archetypes_seen": [
+                "Medium Weapon Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
     "Darts": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Darts Build",
+              "archetypes_seen": [
+                "Darts Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 1,
@@ -6181,10 +6580,27 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 4,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.04,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -6255,7 +6671,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:May 14",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 9,
@@ -6307,10 +6723,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:May 14"
+            },
+            {
+              "appearances": 21,
+              "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
+              "archetypes_seen": [
+                "Zoarcid / Yeti Crab / Elemental Depth Charge"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.21,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -6318,7 +6751,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -6379,10 +6812,30 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Medium Weapon Build",
+              "archetypes_seen": [
+                "Medium Weapon Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -6562,7 +7015,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -6631,10 +7084,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 18,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -7545,7 +8015,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 8,
@@ -7614,10 +8084,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 15,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.16,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -7979,7 +8466,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -8048,10 +8535,27 @@
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 16,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.12,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -8111,7 +8615,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -8180,10 +8684,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 14,
+              "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
+              "archetypes_seen": [
+                "Flying Potion / Boiling Flask / Broken Bottle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -8250,6 +8771,38 @@
         }
       }
     },
+    "Furnace": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Money Furnace Build",
+              "archetypes_seen": [
+                "Money Furnace Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Furs": {
       "per_source": {
         "bazaardb": {
@@ -8300,7 +8853,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -8335,10 +8888,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -8346,7 +8916,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -8415,10 +8985,27 @@
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 18,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 7,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -8489,7 +9076,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -8550,10 +9137,30 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch Build",
+              "archetypes_seen": [
+                "Welding Torch Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -8946,7 +9553,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -9318,7 +9925,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -9387,10 +9994,59 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 27,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.17,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
+        }
+      }
+    },
+    "Hot Springs": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Burn Freeze Build",
+              "archetypes_seen": [
+                "Burn Freeze Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-04",
+                  "start": "2026-05-04"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 9,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -9766,6 +10422,70 @@
         }
       }
     },
+    "Hypergreens": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Darts Build",
+              "archetypes_seen": [
+                "Darts Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Ice 9000": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 9,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Ice Bomb": {
       "per_source": {
         "bazaardb": {
@@ -9868,7 +10588,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -9937,10 +10657,27 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 10,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -9948,7 +10685,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -10009,10 +10746,30 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch Build",
+              "archetypes_seen": [
+                "Welding Torch Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -10276,7 +11033,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -10292,7 +11049,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -10361,10 +11118,27 @@
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 36,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.27,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 7,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -10372,7 +11146,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -10441,10 +11215,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
+              "archetypes_seen": [
+                "Zoarcid / Yeti Crab / Elemental Depth Charge"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -11044,7 +11835,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -11079,10 +11870,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 10,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.06,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -11119,7 +11927,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (May 12)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 1,
@@ -11154,10 +11962,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (May 12)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -11165,7 +11990,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -11226,10 +12051,30 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Laser Security System Build",
+              "archetypes_seen": [
+                "Laser Security System Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-03",
+                  "start": "2026-05-03"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -11329,7 +12174,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -11390,10 +12235,30 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Medium Weapon Build",
+              "archetypes_seen": [
+                "Medium Weapon Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 11,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -11587,7 +12452,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -11656,10 +12521,27 @@
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -11667,7 +12549,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -11728,10 +12610,30 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Medium Weapon Build",
+              "archetypes_seen": [
+                "Medium Weapon Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -12547,7 +13449,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -12602,6 +13504,38 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Luxury Kiuas": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Burn Freeze Build",
+              "archetypes_seen": [
+                "Burn Freeze Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-04",
+                  "start": "2026-05-04"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -12684,7 +13618,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -12736,10 +13670,59 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Blank Slate / Eternal Torch / Library",
+              "archetypes_seen": [
+                "Blank Slate / Eternal Torch / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
+        }
+      }
+    },
+    "Marbles": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -12747,7 +13730,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (May 12)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -12782,10 +13765,27 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (May 12)"
+            },
+            {
+              "appearances": 7,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.06,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -12972,6 +13972,34 @@
     },
     "Model Ship": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
           "last_seen_window": "mobalytics_meta_builds:v557",
@@ -13366,7 +14394,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -13382,7 +14410,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -13443,10 +14471,30 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Money Furnace Build",
+              "archetypes_seen": [
+                "Money Furnace Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -13657,7 +14705,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -13718,10 +14766,62 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Money Furnace Build",
+              "archetypes_seen": [
+                "Money Furnace Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
+        }
+      }
+    },
+    "Monocle": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch Build",
+              "archetypes_seen": [
+                "Welding Torch Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -13729,7 +14829,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -13764,10 +14864,27 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -14042,7 +15159,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -14111,10 +15228,27 @@
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 10,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 2,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -14181,6 +15315,38 @@
           ],
           "windows_observed": 3,
           "windows_seen": 3
+        }
+      }
+    },
+    "Open Sign": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Skyscraper Build",
+              "archetypes_seen": [
+                "Skyscraper Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -14311,7 +15477,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -14380,10 +15546,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 16,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -14646,7 +15829,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -14707,10 +15890,30 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Darts Build",
+              "archetypes_seen": [
+                "Darts Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
@@ -14789,7 +15992,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -14858,15 +16061,92 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 15,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.12,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
+        }
+      }
+    },
+    "Piggles": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 11,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
     "Piggles Board": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Darts Build",
+              "archetypes_seen": [
+                "Darts Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
           "last_seen_window": "bazaardb:May 7",
@@ -14894,11 +16174,43 @@
         }
       }
     },
+    "Piggles Launcher": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Pillbuggy": {
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -14967,10 +16279,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 10,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -15136,7 +16465,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -15205,10 +16534,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 12,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -15279,7 +16625,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -15314,10 +16660,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 6,
+              "archetype": "Blank Slate / Eternal Torch / Library",
+              "archetypes_seen": [
+                "Blank Slate / Eternal Torch / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.05,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -15325,7 +16688,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -15386,10 +16749,30 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Burn Freeze Build",
+              "archetypes_seen": [
+                "Burn Freeze Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-04",
+                  "start": "2026-05-04"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -15653,7 +17036,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -15667,6 +17050,34 @@
     },
     "Private Jet": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
           "last_seen_window": "mobalytics_meta_builds:v557",
@@ -16061,7 +17472,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -16073,11 +17484,43 @@
         }
       }
     },
+    "Progress": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 10,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Propeller": {
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 1,
@@ -16129,10 +17572,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -16201,6 +17661,34 @@
     },
     "Pyg's Gym": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Beast of Burden Build",
+              "archetypes_seen": [
+                "Beast of Burden Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-02",
+                  "start": "2026-05-02"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
           "last_seen_window": "bazaardb:May 7",
@@ -16262,7 +17750,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -16297,10 +17785,27 @@
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 4,
+              "archetype": "Blank Slate / Eternal Torch / Library",
+              "archetypes_seen": [
+                "Blank Slate / Eternal Torch / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -16400,7 +17905,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -16418,10 +17923,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 13,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -16429,7 +17951,7 @@
       "per_source": {
         "bazaar_builds_net": {
           "first_seen_window": "bazaar_builds_net:2026-W19",
-          "last_seen_window": "bazaar_builds_net:2026-W21",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
           "per_window": [
             {
               "appearances": 1,
@@ -16490,10 +18012,30 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "bazaar_builds_net:2026-W21"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Medium Weapon Build",
+              "archetypes_seen": [
+                "Medium Weapon Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -17309,7 +18851,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -17688,7 +19230,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:May 7",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -17706,10 +19248,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:May 7"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Blank Slate / Eternal Torch / Library",
+              "archetypes_seen": [
+                "Blank Slate / Eternal Torch / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -17838,7 +19397,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 8,
@@ -17907,10 +19466,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 19,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.12,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -18103,6 +19679,38 @@
         }
       }
     },
+    "Self Promotion": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Serving Platter": {
       "per_source": {
         "bazaardb": {
@@ -18170,7 +19778,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:May 14",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -18222,10 +19830,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:May 14"
+            },
+            {
+              "appearances": 15,
+              "archetype": "Farmer's Market / Bread Knife / Pasta",
+              "archetypes_seen": [
+                "Farmer's Market / Bread Knife / Pasta"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -18451,7 +20076,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -18469,6 +20094,55 @@
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
+              "archetypes_seen": [
+                "Flying Potion / Boiling Flask / Broken Bottle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            }
+          ],
+          "windows_observed": 2,
+          "windows_seen": 2
+        }
+      }
+    },
+    "Silk Scarf": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch Build",
+              "archetypes_seen": [
+                "Welding Torch Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
             }
           ],
           "windows_observed": 1,
@@ -18634,11 +20308,43 @@
         }
       }
     },
+    "Skyscraper": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Skyscraper Build",
+              "archetypes_seen": [
+                "Skyscraper Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Sleeping Potion": {
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 7,
@@ -18707,10 +20413,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Flying Potion / Boiling Flask / Broken Bottle",
+              "archetypes_seen": [
+                "Flying Potion / Boiling Flask / Broken Bottle"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -19451,6 +21174,38 @@
         }
       }
     },
+    "Sponsored Apparel": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Darts Build",
+              "archetypes_seen": [
+                "Darts Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-04-30",
+                  "start": "2026-04-30"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Staff of the Moose": {
       "per_source": {
         "bazaardb": {
@@ -19590,7 +21345,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -19659,10 +21414,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
+              "archetypes_seen": [
+                "Zoarcid / Yeti Crab / Elemental Depth Charge"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -19670,7 +21442,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 4,
@@ -19739,10 +21511,59 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 14,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
+        }
+      }
+    },
+    "Streaming Setup": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Laser Security System Build",
+              "archetypes_seen": [
+                "Laser Security System Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-03",
+                  "start": "2026-05-03"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -19941,7 +21762,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 3,
@@ -20010,10 +21831,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.03,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -20113,7 +21951,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -20165,10 +22003,27 @@
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 29,
+              "archetype": "Blank Slate / Eternal Torch / Library",
+              "archetypes_seen": [
+                "Blank Slate / Eternal Torch / Library"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.22,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -20366,7 +22221,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -20435,10 +22290,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -20590,7 +22462,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 6,
@@ -20625,15 +22497,60 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 11,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
     "Uwashiwali Bird": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
           "last_seen_window": "mobalytics_meta_builds:v557",
@@ -21028,7 +22945,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -21042,6 +22959,34 @@
     },
     "VIP Pass": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Money Furnace Build",
+              "archetypes_seen": [
+                "Money Furnace Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
           "last_seen_window": "bazaardb:May 7",
@@ -21073,7 +23018,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 5,
@@ -21142,10 +23087,27 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 9,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.07,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -21311,7 +23273,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
           "per_window": [
             {
               "appearances": 2,
@@ -21329,10 +23291,27 @@
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 2,
+              "archetype": "Sirens / Observatory / Ornithopter",
+              "archetypes_seen": [
+                "Sirens / Observatory / Ornithopter"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.02,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:14.1 (Hotfix May 26)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -21554,6 +23533,38 @@
           ],
           "windows_observed": 3,
           "windows_seen": 3
+        }
+      }
+    },
+    "Welding Torch": {
+      "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch Build",
+              "archetypes_seen": [
+                "Welding Torch Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-05",
+                  "start": "2026-05-05"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 10,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -21992,6 +24003,34 @@
     },
     "Yo-Yo": {
       "per_source": {
+        "bazaar_builds_net": {
+          "first_seen_window": "bazaar_builds_net:2026-W22",
+          "last_seen_window": "bazaar_builds_net:2026-W22",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Yo-Yo Build",
+              "archetypes_seen": [
+                "Yo-Yo Build"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "date_range": {
+                  "end": "2026-05-07",
+                  "start": "2026-05-07"
+                }
+              },
+              "observed_at": "2026-05-30T21:46:41Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 7",
           "last_seen_window": "bazaardb:May 7",
@@ -22412,7 +24451,7 @@
                 },
                 "hero": "Pygmalien"
               },
-              "observed_at": "2026-05-22T08:54:33Z",
+              "observed_at": "2026-05-30T21:46:41Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -22586,6 +24625,14 @@
         "health_status": "healthy",
         "observed_at": "2026-05-22T08:54:33Z",
         "window_id": "bazaar_builds_net:2026-W21"
+      },
+      {
+        "details": [
+          "filtered 17 item(s) not owned by Pygmalien"
+        ],
+        "health_status": "healthy",
+        "observed_at": "2026-05-30T21:46:41Z",
+        "window_id": "bazaar_builds_net:2026-W22"
       }
     ],
     "bazaardb": [
@@ -22614,6 +24661,14 @@
         "health_status": "healthy",
         "observed_at": "2026-05-22T08:54:33Z",
         "window_id": "bazaardb:14.1 (Hotfix May 14)"
+      },
+      {
+        "details": [
+          "filtered 132 item(s) not owned by Pygmalien"
+        ],
+        "health_status": "healthy",
+        "observed_at": "2026-05-30T21:46:41Z",
+        "window_id": "bazaardb:14.1 (Hotfix May 26)"
       }
     ],
     "mobalytics_build_articles": [
@@ -22622,7 +24677,7 @@
           "no_article_slugs_configured"
         ],
         "health_status": "skipped",
-        "observed_at": "2026-05-22T08:54:33Z",
+        "observed_at": "2026-05-30T21:46:41Z",
         "window_id": "mobalytics_build_articles:skipped"
       }
     ],
@@ -22648,7 +24703,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-05-22T08:54:33Z",
+        "observed_at": "2026-05-30T21:46:41Z",
         "window_id": "mobalytics_meta_builds:v557"
       }
     ]

@@ -940,6 +940,77 @@ def test_apply_catalog_pr_idempotent_noop_skips_commit_and_pr(monkeypatch, tmp_p
     assert comment_calls == []
 
 
+def support_only_addition_diff() -> dict:
+    """Non-empty diff whose only proposed change is a support-only archetype
+    addition — the commitment guard rejects it, so the catalog is unchanged."""
+    return {
+        "schema_version": 1,
+        "hero": "Karnok",
+        "semantic_classification": True,
+        "window_id": "w1",
+        "source_window": {},
+        "freeze_state": {"removals_frozen": False, "patch_label": None},
+        "source_health": [],
+        "proposed_changes": {
+            "archetype_updates": [],
+            "archetype_additions": [
+                {
+                    "tag": "Support Shape",
+                    "candidate_phase": "late",
+                    "candidate_core": [],
+                    "candidate_support": [
+                        {"item": "Pufferfish", "llm_classification": "support"}
+                    ],
+                }
+            ],
+            "archetype_removal_candidates": [],
+            "item_removal_candidates": [],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+
+def test_apply_catalog_pr_support_only_addition_noop_logs_skip_reason(monkeypatch, tmp_path, caplog):
+    # A non-empty diff that the applier fully rejects (support-only stub) must
+    # not silently no-op: the run log has to surface why nothing was applied.
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, support_only_addition_diff())
+    run_calls = []
+
+    def fake_git(repo, *args, check=True):
+        # Rejected addition leaves the catalog byte-identical -> nothing staged.
+        return subprocess_result(returncode=0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        return subprocess_result(returncode=0)
+
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: None)
+
+    with caplog.at_level("INFO", logger="automated_builds_pipeline.pipeline"):
+        result = pipeline.run(
+            hero="Karnok",
+            state_file=state_file,
+            tracker_repo=tracker,
+            stats_dir=tmp_path / "stats",
+            output_dir=tmp_path / "artifacts",
+        )
+
+    assert result.pr_invoked is True  # action was invoked
+    assert run_calls == []  # no gh pr create/edit/comment
+    assert "no actionable changes" in caplog.text
+    assert "support-only stub" in caplog.text
+
+
 @pytest.mark.parametrize("phase,overrides", [
     ("local_dry_run", {}),
     ("shadow_cron", {}),

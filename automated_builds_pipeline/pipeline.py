@@ -163,7 +163,24 @@ def apply_catalog_pr(
     _git(tracker_repo, "checkout", "-B", branch)
     _git(tracker_repo, "add", str(catalog_path.relative_to(tracker_repo)))
     if _git(tracker_repo, "diff", "--cached", "--quiet", check=False).returncode == 0:
-        LOGGER.info("catalog unchanged; no-op")
+        if result.applied:
+            # Changes applied but byte-identical to the live catalog: the proposed
+            # items were already present. Idempotent re-run, nothing to PR.
+            LOGGER.info(
+                "catalog unchanged; no-op (proposed changes already present): %s",
+                "; ".join(result.applied),
+            )
+        else:
+            # The diff was non-empty (so it did not short-circuit as empty), yet
+            # the applier rejected every proposed change — e.g. support-only
+            # archetype additions blocked by the commitment guard. Surface the
+            # skip reasons so this silent gap is diagnosable from the run log.
+            LOGGER.info(
+                "catalog unchanged; no-op: non-empty diff with no actionable "
+                "changes; %d proposed change(s) skipped: %s",
+                len(result.skipped),
+                "; ".join(result.skipped) or "(none)",
+            )
         return
     _git(tracker_repo, "commit", "-m", f"automated: {hero} catalog {_window_id(diff_json)}")
     _git(tracker_repo, "push", "--force", "origin", branch)

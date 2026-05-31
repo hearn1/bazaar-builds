@@ -1,16 +1,15 @@
 {
-  "archetype_additions": [
+  "archetype_additions": [],
+  "archetype_updates": [
     {
-      "tag": "Axe / Shield",
-      "candidate_phase": "mid",
-      "candidate_core": [
+      "phase": "early",
+      "archetype": "Axe Warrior",
+      "missing_items": [
         {"item": "Lightning Rod", "llm_classification": "core"},
         {"item": "Thunder Totem", "llm_classification": "core"}
-      ],
-      "candidate_support": []
+      ]
     }
   ],
-  "archetype_updates": [],
   "archetype_removal_candidates": [],
   "item_removal_candidates": [],
   "archetype_reshuffles": []

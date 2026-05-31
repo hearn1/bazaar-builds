@@ -1,0 +1,21 @@
+{
+  "status": "healthy",
+  "patch_label": null,
+  "observation": {
+    "window_id": "mobalytics_meta_builds:2026-05-05",
+    "observed_at": "2026-05-05T12:00:00Z",
+    "items": [
+      {
+        "item": "Mana Vial",
+        "present": true,
+        "phase": "early",
+        "archetype": "Mage Support",
+        "rank": 5,
+        "archetypes_seen": ["Mage Support"],
+        "metadata": {
+          "hero": "Karnok"
+        }
+      }
+    ]
+  }
+}

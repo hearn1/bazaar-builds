@@ -17,6 +17,10 @@ python -m pytest -q tests
 
 Use `python -m pytest -q tests`; a bare repo-root pytest can collect generated `artifacts/` directories and fail before the tracked suite runs.
 
+Validate pipeline changes safely:
+- `python -m pytest -q tests` — fixture golden gate (network-free; CI gate). The `vanessa_diving_helmet` fixture is `xfail(strict=True)` until #131 lands.
+- `python artifacts/sweep_dry_run.py` — 7-hero `local_dry_run` smoke (requires network). Uses a temp state file; NEVER reads or mutates `pipeline_state.json`, `stats/`, or `../bazaar_tracker`. See README "Validating pipeline changes safely" for full instructions.
+
 Fetch evidence for a hero. The GitHub repo is `hearn1/bazaar_coach`, but the
 local working checkout in use is the sibling directory `..\bazaar_tracker`;
 point `--catalog-dir`/`--names-file`/`--tracker-repo` at that local path:

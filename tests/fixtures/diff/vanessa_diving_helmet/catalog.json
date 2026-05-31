@@ -1,0 +1,42 @@
+{
+  "hero": "Vanessa",
+  "schema_version": 1,
+  "game_phases": {
+    "mid": {
+      "archetypes": [
+        {
+          "name": "Elemental Depth Charge",
+          "carry_items": ["Elemental Depth Charge"],
+          "core_items": ["Deep Sea Mine"],
+          "support_items": [],
+          "condition_items": []
+        },
+        {
+          "name": "Aquatic Vanessa",
+          "carry_items": ["Yeti Crab"],
+          "core_items": ["Coral Crown"],
+          "support_items": [],
+          "condition_items": []
+        },
+        {
+          "name": "Zoarcid Storm Build",
+          "carry_items": ["Zoarcid"],
+          "core_items": ["Storm Anchor"],
+          "support_items": [],
+          "condition_items": []
+        }
+      ]
+    }
+  },
+  "item_tier_list": {
+    "S": [
+      "Elemental Depth Charge",
+      "Deep Sea Mine",
+      "Yeti Crab",
+      "Coral Crown",
+      "Zoarcid",
+      "Storm Anchor",
+      "Diving Helmet"
+    ]
+  }
+}

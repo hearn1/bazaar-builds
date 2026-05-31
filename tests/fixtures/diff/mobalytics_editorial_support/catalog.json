@@ -1,0 +1,20 @@
+{
+  "hero": "Karnok",
+  "schema_version": 1,
+  "game_phases": {
+    "early": {
+      "archetypes": [
+        {
+          "name": "Axe Warrior",
+          "carry_items": ["Axe"],
+          "core_items": ["Shield"],
+          "support_items": [],
+          "condition_items": []
+        }
+      ]
+    }
+  },
+  "item_tier_list": {
+    "S": ["Axe", "Shield", "Mana Vial"]
+  }
+}

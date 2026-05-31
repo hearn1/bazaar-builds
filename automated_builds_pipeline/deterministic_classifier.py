@@ -19,9 +19,16 @@ STRONG_FREQUENCY_FLOOR = 0.20
 
 class DeterministicClassifier:
     known_items: set[str]
+    promote_cross_source: bool
 
-    def __init__(self, known_items_path: Optional[Path] = None) -> None:
+    def __init__(
+        self,
+        known_items_path: Optional[Path] = None,
+        *,
+        promote_cross_source: bool = False,
+    ) -> None:
         self.known_items = load_known_items_file(known_items_path)
+        self.promote_cross_source = promote_cross_source
 
     def classify_archetype(
         self,
@@ -34,7 +41,10 @@ class DeterministicClassifier:
         mobalytics_description: Optional[str],
     ) -> list[ItemClassification]:
         carry = _extract_carry_candidate(archetype or "", self.known_items, candidate_items)
-        return [_classify_row(row, self.known_items, carry) for row in candidate_items]
+        return [
+            _classify_row(row, self.known_items, carry, promote_cross_source=self.promote_cross_source)
+            for row in candidate_items
+        ]
 
 
 def _make(item: str, classification: str, confidence: str, rationale: str) -> ItemClassification:
@@ -64,6 +74,8 @@ def _classify_row(
     row: dict[str, Any],
     known_items: set[str],
     carry_candidate: Optional[str],
+    *,
+    promote_cross_source: bool = False,
 ) -> ItemClassification:
     item = str(row.get("item", ""))
     if item not in known_items:
@@ -100,6 +112,13 @@ def _classify_row(
         return _make(item, "support", "high", _strength_rationale("current Mobalytics editorial signal", row))
 
     if source_count >= 2:
+        if promote_cross_source:
+            # Asymmetric bar: ≥2 independent source groups agreeing lifts surfacing
+            # to top_line as support.  Role (support vs core) is unchanged — agreement
+            # never promotes to core (that requires bazaardb CORE-section / statistical
+            # floor / Mobalytics rank≤2).  The support_only ceiling cap in diff.py
+            # remains in force: secondary-only items cannot punch through to core.
+            return _make(item, "support", "high", _strength_rationale("cross-source agreement: same-window multi-source support", row))
         return _make(item, "support", "medium", _strength_rationale("same-window multi-source support", row))
     if strength in {"statistical_strong", "editorial_confirmed"}:
         return _make(item, "support", "medium", _strength_rationale("current-patch evidence signal", row))

@@ -324,3 +324,142 @@ def test_cli_smoke_mock_writes_diff_and_proposal(tmp_path):
 
     assert json.loads((output_dir / "Karnok_diff.json").read_text(encoding="utf-8"))["hero"] == "Karnok"
     assert "## Pipeline State" in (output_dir / "Karnok_build_update_proposal.md").read_text(encoding="utf-8")
+
+
+def _multi_source_row(item: str, *, ceiling: str = "support_only", existing: bool = False, phase: str = "early", archetype: str = "Mixed") -> dict:
+    """Row where two secondary (non-bazaardb, non-mobalytics_meta) sources agree.
+
+    Uses source_presence keys that are not in the bazaardb or MOBALYTICS check
+    paths so the row falls through to the source_count >= 2 branch.
+    """
+    return {
+        "hero": "Karnok",
+        "phase": phase,
+        "archetype": archetype,
+        "archetype_status": "existing" if existing else "candidate_new",
+        "item": item,
+        "catalog_membership": "missing",
+        # Two sources present, neither bazaardb nor mobalytics_meta_builds
+        "source_presence": {"mobalytics_build_articles": "present", "bazaar_builds_net": "present"},
+        "classification_ceiling": ceiling,
+        "threshold_result": "add_candidate",
+        "threshold_reason": "multi_source_current",
+        "removal_blocked_by": [],
+        "llm_input_required": True,
+        "evidence_refs": [],
+        "within_patch_strength": "multi_source_current",
+        "current_source_support_count": 2,
+    }
+
+
+def test_cross_source_promotion_off_by_default_goes_to_weaker_signals():
+    """Without promote_cross_source, ≥2-source agreement lands in weaker_signals."""
+    classifier = DeterministicClassifier()
+    classifier.known_items = {"Frost Nova"}
+
+    diff = generate_diff(
+        "Karnok",
+        evaluation([_multi_source_row("Frost Nova", existing=True)]),
+        {"items": [{"item": "Existing", "phase": "early", "archetype": "Mixed"}]},
+        classifier,
+        classifier_mode="deterministic",
+    )
+
+    # Default: should be weaker_signal, not top_line
+    assert not diff["proposed_changes"]["archetype_updates"], "Should not appear in updates without promotion"
+    assert any(w.get("item") == "Frost Nova" for w in diff["weaker_signals"]), (
+        "Frost Nova should be in weaker_signals when promote_cross_source=False"
+    )
+
+
+def test_cross_source_promotion_surfaces_multi_source_to_top_line():
+    """With promote_cross_source=True, ≥2-source agreement is promoted to top_line as support."""
+    classifier = DeterministicClassifier(promote_cross_source=True)
+    classifier.known_items = {"Frost Nova"}
+
+    diff = generate_diff(
+        "Karnok",
+        evaluation([_multi_source_row("Frost Nova", existing=True)]),
+        {"items": [{"item": "Existing", "phase": "early", "archetype": "Mixed"}]},
+        classifier,
+        classifier_mode="deterministic",
+    )
+
+    assert diff["proposed_changes"]["archetype_updates"], "Should appear in archetype_updates with promotion"
+    update = diff["proposed_changes"]["archetype_updates"][0]
+    items = {i["item"]: i for i in update["missing_items"]}
+    assert "Frost Nova" in items, "Frost Nova should be in top_line items"
+    assert items["Frost Nova"]["llm_classification"] == "support"
+    assert items["Frost Nova"]["llm_confidence"] == "high"
+    assert not diff["weaker_signals"], "Should not remain in weaker_signals"
+
+
+def test_cross_source_promotion_never_promotes_to_core():
+    """promote_cross_source lifts surfacing only; agreement alone never promotes to core."""
+    classifier = DeterministicClassifier(promote_cross_source=True)
+    classifier.known_items = {"Frost Nova"}
+
+    diff = generate_diff(
+        "Karnok",
+        evaluation([_multi_source_row("Frost Nova", existing=True)]),
+        {"items": [{"item": "Existing", "phase": "early", "archetype": "Mixed"}]},
+        classifier,
+        classifier_mode="deterministic",
+    )
+
+    update = diff["proposed_changes"]["archetype_updates"][0]
+    for item in update["missing_items"]:
+        assert item["llm_classification"] != "core", (
+            f"cross-source agreement must not promote {item['item']} to core"
+        )
+        assert item["llm_classification"] != "carry", (
+            f"cross-source agreement must not promote {item['item']} to carry"
+        )
+
+
+def test_support_only_ceiling_cap_still_holds_with_promotion():
+    """support_only ceiling cap remains intact even when promote_cross_source=True."""
+    # Item has support_only ceiling; classifier would try to classify as carry/core
+    # but the ceiling cap in diff.py must coerce it back to support.
+    # With promote_cross_source, the item reaches top_line but stays as support.
+    classifier = DeterministicClassifier(promote_cross_source=True)
+    classifier.known_items = {"Ice Barrier"}
+
+    row = _multi_source_row("Ice Barrier", ceiling="support_only", existing=True)
+
+    diff = generate_diff(
+        "Karnok",
+        evaluation([row]),
+        {"items": [{"item": "Existing", "phase": "early", "archetype": "Mixed"}]},
+        classifier,
+        classifier_mode="deterministic",
+    )
+
+    # With support_only ceiling + promotion: item should reach top_line AS support
+    updates = diff["proposed_changes"]["archetype_updates"]
+    assert updates, "support_only + promoted item should still reach top_line"
+    items = {i["item"]: i for i in updates[0]["missing_items"]}
+    assert "Ice Barrier" in items
+    assert items["Ice Barrier"]["llm_classification"] == "support", (
+        "support_only ceiling cap must keep classification as support"
+    )
+
+
+def test_cross_source_promotion_rationale_includes_marker():
+    """Promoted items carry 'cross-source agreement' in their rationale."""
+    classifier = DeterministicClassifier(promote_cross_source=True)
+    classifier.known_items = {"Frost Nova"}
+
+    diff = generate_diff(
+        "Karnok",
+        evaluation([_multi_source_row("Frost Nova", existing=True)]),
+        {"items": [{"item": "Existing", "phase": "early", "archetype": "Mixed"}]},
+        classifier,
+        classifier_mode="deterministic",
+    )
+
+    update = diff["proposed_changes"]["archetype_updates"][0]
+    item = next(i for i in update["missing_items"] if i["item"] == "Frost Nova")
+    assert "cross-source agreement" in item["llm_rationale"].lower(), (
+        f"Expected 'cross-source agreement' in rationale, got: {item['llm_rationale']}"
+    )

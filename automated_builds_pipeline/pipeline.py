@@ -64,6 +64,7 @@ def run(
     bazaardb_retries: int = 2,
     no_bazaardb: bool = False,
     classifier_mode: ClassifierMode = "deterministic",
+    promote_cross_source: bool = False,
     pr_action: Optional[PrAction] = None,
 ) -> PipelineResult:
     state = load_state(state_file)
@@ -96,7 +97,10 @@ def run(
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
     classifier = None
     if classifier_mode == "deterministic":
-        classifier = DeterministicClassifier(known_items_path=_names_file(tracker_repo))
+        classifier = DeterministicClassifier(
+            known_items_path=_names_file(tracker_repo),
+            promote_cross_source=promote_cross_source,
+        )
         classifier.known_items.update(diff._all_catalog_names(catalog))
     diff_json = diff.generate_diff(hero, evaluation, catalog, classifier, classifier_mode=classifier_mode)
 
@@ -251,6 +255,16 @@ def build_arg_parser() -> argparse.ArgumentParser:
         choices=("no_llm_shadow", "deterministic"),
         default="deterministic",
     )
+    run_parser.add_argument(
+        "--promote-cross-source",
+        action="store_true",
+        default=False,
+        help=(
+            "Promote ≥2-source agreement to top_line (support/high) instead of "
+            "weaker_signal.  NOT active by default; requires operator sign-off after "
+            "shadow comparison over ≥2 windows."
+        ),
+    )
     return parser
 
 
@@ -267,6 +281,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             bazaardb_retries=args.bazaardb_retries,
             no_bazaardb=args.no_bazaardb,
             classifier_mode=args.classifier_mode,
+            promote_cross_source=args.promote_cross_source,
         )
         return 0
     return 2

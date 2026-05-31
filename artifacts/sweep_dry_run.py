@@ -70,6 +70,7 @@ def _run_hero(
     stats_dir: Path,
     output_dir: Path,
     no_bazaardb: bool,
+    promote_cross_source: bool = False,
 ) -> dict[str, Any]:
     """Run pipeline for one hero in local_dry_run; return the diff JSON."""
     # Import here so the module is only needed when actually running the sweep
@@ -84,6 +85,7 @@ def _run_hero(
         output_dir=output_dir,
         no_bazaardb=no_bazaardb,
         classifier_mode="deterministic",
+        promote_cross_source=promote_cross_source,
     )
     if result.diff_path and result.diff_path.exists():
         return json.loads(result.diff_path.read_text(encoding="utf-8"))
@@ -144,6 +146,82 @@ def _print_table(rows: list[dict[str, Any]]) -> None:
     print(_DIVIDER)
 
 
+def _print_comparison_table(comparison: list[dict[str, Any]]) -> None:
+    """Print side-by-side old-vs-new table for cross-source confidence promotion."""
+    print(_DIVIDER)
+    print("Cross-source confidence promotion: OLD (current) vs NEW (promote_cross_source)")
+    print(_DIVIDER)
+    header = (
+        f"{'Hero':<12}"
+        f" {'old_weaker':>10} {'new_weaker':>10} {'Δweaker':>8}"
+        f" {'old_applied':>11} {'new_applied':>11} {'Δapplied':>9}"
+    )
+    print(header)
+    print(_DIVIDER)
+    for row in comparison:
+        hero = row["hero"]
+        old_s = row["old_summary"]
+        new_s = row["new_summary"]
+        old_a = row["old_apply"]
+        new_a = row["new_apply"]
+        if old_a.get("error") or new_a.get("error"):
+            err = old_a.get("error") or new_a.get("error") or "?"
+            print(f"{hero:<12} ERR {err[:50]}")
+            continue
+        old_weaker = old_s.get("weaker", 0)
+        new_weaker = new_s.get("weaker", 0)
+        old_applied = old_a.get("applied", 0)
+        new_applied = new_a.get("applied", 0)
+        delta_weaker = new_weaker - old_weaker
+        delta_applied = new_applied - old_applied
+        print(
+            f"{hero:<12}"
+            f" {old_weaker:>10} {new_weaker:>10} {delta_weaker:>+8}"
+            f" {old_applied:>11} {new_applied:>11} {delta_applied:>+9}"
+        )
+    print(_DIVIDER)
+    print("Δweaker < 0  = items rescued from weaker_signals into top_line (good)")
+    print("Δapplied > 0 = more items reach the catalog applier (good)")
+
+
+def _run_hero_pair(
+    hero: str,
+    *,
+    state_file: Path,
+    tracker_repo: Path,
+    stats_dir: Path,
+    old_output_dir: Path,
+    new_output_dir: Path,
+    no_bazaardb: bool,
+) -> dict[str, Any]:
+    """Run old and new rules for one hero; return comparison row."""
+    old_diff = _run_hero(
+        hero,
+        state_file=state_file,
+        tracker_repo=tracker_repo,
+        stats_dir=stats_dir,
+        output_dir=old_output_dir,
+        no_bazaardb=no_bazaardb,
+        promote_cross_source=False,
+    )
+    new_diff = _run_hero(
+        hero,
+        state_file=state_file,
+        tracker_repo=tracker_repo,
+        stats_dir=stats_dir,
+        output_dir=new_output_dir,
+        no_bazaardb=no_bazaardb,
+        promote_cross_source=True,
+    )
+    return {
+        "hero": hero,
+        "old_summary": _summarize(old_diff),
+        "new_summary": _summarize(new_diff),
+        "old_apply": _apply_summary(old_diff, tracker_repo, hero),
+        "new_apply": _apply_summary(new_diff, tracker_repo, hero),
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description=__doc__,
@@ -179,12 +257,68 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Skip bazaardb fetch (useful for offline testing)",
     )
+    parser.add_argument(
+        "--compare-cross-source",
+        action="store_true",
+        default=False,
+        help=(
+            "Run each hero twice (old rules + new promote_cross_source rules) and "
+            "print a side-by-side comparison.  This is the shadow comparison "
+            "required before enabling --promote-cross-source in production.  "
+            "Old diffs go to <output-dir>/old/, new diffs to <output-dir>/new/."
+        ),
+    )
     args = parser.parse_args(argv)
 
     heroes: list[str] = args.hero or HEROES
     tracker_repo: Path = args.tracker_repo
     stats_dir: Path = args.stats_dir
     output_dir: Path = args.output_dir
+
+    if args.compare_cross_source:
+        print(f"sweep_dry_run --compare-cross-source: {len(heroes)} hero(es)")
+        print(f"  tracker: {tracker_repo}")
+        print(f"  stats:   {stats_dir}  (read-only)")
+        print(f"  NEVER touching pipeline_state.json")
+        print(f"  old diffs → {output_dir / 'old'}")
+        print(f"  new diffs → {output_dir / 'new'}")
+        print()
+
+        with tempfile.TemporaryDirectory(prefix="sweep_dry_run_") as tmp:
+            state_file = _write_temp_state(tmp)
+            print(f"  temp state file: {state_file}")
+            print()
+
+            comparison: list[dict[str, Any]] = []
+            for hero in heroes:
+                print(f"  running {hero} (old+new)...", end=" ", flush=True)
+                try:
+                    row = _run_hero_pair(
+                        hero,
+                        state_file=state_file,
+                        tracker_repo=tracker_repo,
+                        stats_dir=stats_dir,
+                        old_output_dir=output_dir / "old",
+                        new_output_dir=output_dir / "new",
+                        no_bazaardb=args.no_bazaardb,
+                    )
+                    comparison.append(row)
+                    print("ok")
+                except Exception as exc:  # noqa: BLE001
+                    comparison.append(
+                        {
+                            "hero": hero,
+                            "old_summary": {},
+                            "new_summary": {},
+                            "old_apply": {"error": str(exc)},
+                            "new_apply": {"error": str(exc)},
+                        }
+                    )
+                    print(f"ERROR: {exc}")
+
+        print()
+        _print_comparison_table(comparison)
+        return 0
 
     print(f"sweep_dry_run: {len(heroes)} hero(es), output → {output_dir}")
     print(f"  tracker: {tracker_repo}")

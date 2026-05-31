@@ -41,6 +41,24 @@ from typing import Any
 
 _HERE = Path(__file__).resolve().parent.parent  # repo root
 
+# Running this file as a script puts artifacts/ on sys.path[0], not the repo
+# root, so ``import automated_builds_pipeline`` fails.  Insert the repo root so
+# the documented invocation (``python artifacts/sweep_dry_run.py``) works
+# without requiring ``PYTHONPATH=.``.
+if str(_HERE) not in sys.path:
+    sys.path.insert(0, str(_HERE))
+
+# Default Windows consoles use cp1252, which cannot encode the table glyphs
+# (→, Δ) below.  Switch stdout/stderr to utf-8 when the stream supports it so
+# the documented invocation runs cleanly without ``PYTHONIOENCODING=utf-8``.
+for _stream in (sys.stdout, sys.stderr):
+    _reconfigure = getattr(_stream, "reconfigure", None)
+    if _reconfigure is not None:
+        try:
+            _reconfigure(encoding="utf-8")
+        except (ValueError, OSError):
+            pass
+
 HEROES = ["Dooley", "Jules", "Karnok", "Mak", "Pygmalien", "Stelle", "Vanessa"]
 
 _LOCAL_DRY_RUN_STATE = {

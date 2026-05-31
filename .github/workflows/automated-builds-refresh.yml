@@ -262,8 +262,13 @@ jobs:
           echo "Merging guarded stats PR #${pr_number} with admin bypass."
           gh pr merge "$pr_number" --squash --admin --delete-branch
 
-      - name: Upload shadow artifacts
-        if: steps.selected.outputs.run == 'true' && (steps.state.outputs.phase != 'live_cron' || steps.state.outputs.dry_run == 'true')
+      # Upload the diff/proposal artifacts on every run, including live_cron.
+      # In live_cron a non-empty diff can still produce no coach PR (e.g. the
+      # only proposed change is a support-only archetype addition that the
+      # applier commitment guard rejects). Without these artifacts that case is
+      # invisible from CI; with them the diff JSON is always inspectable.
+      - name: Upload run artifacts
+        if: steps.selected.outputs.run == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: automated-builds-${{ matrix.hero }}-${{ github.run_id }}

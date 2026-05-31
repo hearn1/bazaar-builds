@@ -36,13 +36,7 @@ FIXTURES_DIR = Path(__file__).parent / "fixtures" / "diff"
 # Cases expected to fail until their corresponding feature branch lands.
 # key: fixture directory name
 # value: reason string surfaced in the xfail marker
-XFAIL_CASES: dict[str, str] = {
-    "vanessa_diving_helmet": (
-        "Pre-#131: bazaardb archetype label 'Zoarcid / Yeti Crab / Elemental Depth Charge' "
-        "does not resolve to catalog archetypes; Diving Helmet lands in archetype_additions "
-        "instead of archetype_updates. Flip will be made green by #131."
-    ),
-}
+XFAIL_CASES: dict[str, str] = {}
 
 
 def _fixture_cases() -> list[Path]:
@@ -220,8 +214,11 @@ def test_mobalytics_editorial_support_lands_in_weaker_signals() -> None:
 
 
 def test_bazaardb_new_core_addition_has_candidate_core() -> None:
-    """Complementary assertion: the bazaardb core-section addition must populate
-    candidate_core (not candidate_support) — guards the CORE ITEMS routing path.
+    """Complementary assertion: the bazaardb core-section items must be classified
+    as 'core' (not 'support') — guards the CORE ITEMS routing path.
+
+    After the #131 cluster-routing fix, these items are routed to the existing
+    Axe Warrior archetype (cross-phase match) rather than creating a new addition.
     """
     fixture = FIXTURES_DIR / "bazaardb_new_core_addition"
     if not fixture.exists():
@@ -237,11 +234,11 @@ def test_bazaardb_new_core_addition_has_candidate_core() -> None:
     classifier.known_items.update(_all_catalog_names(catalog))
     diff = generate_diff(hero, evaluation, catalog, classifier, classifier_mode="deterministic")
 
-    additions = diff["proposed_changes"]["archetype_additions"]
-    assert len(additions) == 1, f"Expected 1 addition, got {len(additions)}"
-    addition = additions[0]
-    assert addition["candidate_core"], "candidate_core must be non-empty for CORE ITEMS section"
-    core_items = [i["item"] for i in addition["candidate_core"]]
-    assert "Thunder Totem" in core_items
-    assert "Lightning Rod" in core_items
-    assert addition["candidate_support"] == []
+    updates = diff["proposed_changes"]["archetype_updates"]
+    assert len(updates) == 1, f"Expected 1 archetype_update, got {len(updates)}"
+    update = updates[0]
+    assert update["archetype"] == "Axe Warrior"
+    core_items = [i["item"] for i in update["missing_items"] if i.get("llm_classification") == "core"]
+    assert "Thunder Totem" in core_items, "Thunder Totem must be classified as core"
+    assert "Lightning Rod" in core_items, "Lightning Rod must be classified as core"
+    assert diff["proposed_changes"]["archetype_additions"] == []

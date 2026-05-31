@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import json
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -57,6 +58,7 @@ class CatalogItem:
     item: str
     phase: Optional[str] = None
     archetype: Optional[str] = None
+    bucket: Optional[str] = None
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "CatalogItem":
@@ -186,8 +188,10 @@ def evaluate_hero(
     state = state or CuratorState()
     generated_at = _format_utc(now or datetime.now(timezone.utc))
     current = _current_index(source_results)
-    catalog = _catalog_index(catalog_items)
+    catalog_items_list = list(catalog_items)
+    catalog = _catalog_index(catalog_items_list)
     context = _catalog_context(hero, catalog.values())
+    commitment_index = _archetype_commitment_index(catalog_items_list)
     current = _hero_scoped_current(current, context)
     freeze = state.freeze_status(hero, now)
     freeze_active = freeze.active
@@ -206,6 +210,16 @@ def evaluate_hero(
         existing = catalog.get(item)
         if existing is None:
             decision = _evaluate_add(item, stats, current, disagreement, context)
+            if decision.threshold_result == "add_candidate":
+                parts = _observed_archetype_labels(item, current)
+                observed_phase = _observed_phase(item, current) or _default_candidate_phase(decision, existing)
+                resolved = _resolve_cluster_archetypes(parts, observed_phase, commitment_index)
+                if resolved:
+                    for rphase, rname in resolved:
+                        routed = dataclasses.replace(decision, phase=rphase, archetype=rname)
+                        decisions.append(routed)
+                        rows.append(_row_dict(hero, routed, existing, current, stats))
+                    continue
         else:
             decision = _evaluate_existing(item, existing, stats, current, disagreement, freeze_active)
         decisions.append(decision)
@@ -305,7 +319,7 @@ def iter_catalog_items(catalog: dict[str, Any]) -> Iterable[CatalogItem]:
                 for bucket in ("carry_items", "core_items", "support_items", "condition_items"):
                     for item in archetype.get(bucket, []) or []:
                         if item:
-                            yield CatalogItem(item=str(item), phase=phase_name, archetype=arch_name)
+                            yield CatalogItem(item=str(item), phase=phase_name, archetype=arch_name, bucket=bucket)
             for bucket in ("universal_utility_items", "economy_items"):
                 for item in phase_data.get(bucket, []) or []:
                     if item:
@@ -325,7 +339,7 @@ def iter_catalog_items(catalog: dict[str, Any]) -> Iterable[CatalogItem]:
         for bucket in ("carry_items", "core_items", "support_items", "condition_items"):
             for item in archetype.get(bucket, []) or []:
                 if item:
-                    yield CatalogItem(item=str(item), phase=phase, archetype=arch_name)
+                    yield CatalogItem(item=str(item), phase=phase, archetype=arch_name, bucket=bucket)
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
@@ -659,6 +673,61 @@ def _evidence_matches_seed_context(
 
 def _archetype_parts(value: str) -> list[str]:
     return [part.strip() for part in value.replace(",", "/").split("/") if part.strip()]
+
+
+def _archetype_commitment_index(
+    catalog_items: Iterable[CatalogItem],
+) -> dict[tuple[Optional[str], Optional[str]], frozenset[str]]:
+    """Build a map of (phase, archetype_name) -> frozenset of carry+core item names.
+
+    Used by the cluster-routing resolver to find existing archetypes whose
+    commitment buckets overlap (≥2 items) with a new bazaardb slash-label.
+    """
+    index: dict[tuple[Optional[str], Optional[str]], set[str]] = {}
+    for ci in catalog_items:
+        if ci.archetype and ci.bucket in {"carry_items", "core_items"}:
+            key = (ci.phase, ci.archetype)
+            index.setdefault(key, set()).add(ci.item)
+    return {key: frozenset(items) for key, items in index.items()}
+
+
+def _observed_archetype_labels(item: str, current: dict[str, SourceFetchResult]) -> frozenset[str]:
+    """Collect all archetype label parts seen for *item* across healthy sources."""
+    parts: set[str] = set()
+    for result in current.values():
+        if result.status != HEALTHY:
+            continue
+        for row in result.observation.items:
+            if row.item != item:
+                continue
+            for label in [row.archetype, *list(row.archetypes_seen)]:
+                if label:
+                    parts.update(_archetype_parts(label))
+    return frozenset(parts)
+
+
+def _resolve_cluster_archetypes(
+    parts: frozenset[str],
+    phase: Optional[str],
+    commitment_index: dict[tuple[Optional[str], Optional[str]], frozenset[str]],
+) -> list[tuple[Optional[str], Optional[str]]]:
+    """Return catalog (phase, name) tuples whose carry+core items overlap ≥2 with *parts*.
+
+    Prefer same-phase matches; fall back to cross-phase only when no same-phase
+    candidate with ≥2 overlap exists.
+    """
+    if not parts:
+        return []
+
+    def matches(pred: Any) -> list[tuple[Optional[str], Optional[str]]]:
+        return [
+            (ph, name)
+            for (ph, name), commit in commitment_index.items()
+            if pred(ph) and len(parts & commit) >= 2
+        ]
+
+    same_phase = matches(lambda ph: ph == phase)
+    return same_phase or matches(lambda ph: True)
 
 
 def _metadata_hero(metadata: dict[str, Any]) -> Optional[str]:

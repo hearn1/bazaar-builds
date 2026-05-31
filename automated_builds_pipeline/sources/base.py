@@ -34,6 +34,7 @@ class SourceFetchResult:
     status: str
     details: list[str] = field(default_factory=list)
     patch_label: Optional[str] = None
+    meta_state: Optional[dict] = field(default=None, repr=False)
 
     def __post_init__(self) -> None:
         if self.status not in VALID_HEALTH_STATUSES:

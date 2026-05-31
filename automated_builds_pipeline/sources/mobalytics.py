@@ -88,7 +88,40 @@ def parse_meta_builds_state(state: dict[str, Any], hero: str, options: Optional[
                     },
                 )
             )
-    return _result(window_id, options, "healthy", [], items)
+    result = _result(window_id, options, "healthy", [], items)
+    result.meta_state = state
+    return result
+
+
+def slugs_from_meta_builds_state(state: dict[str, Any], hero: str) -> list[str]:
+    """Extract per-hero build-article slugs from a meta-builds PRELOADED_STATE.
+
+    The meta-builds state embeds article links inside the
+    ``descriptionTheBazaarBoardCreator`` rich-text field of each board node as
+    ``{"type": "link", "url": "/the-bazaar/builds/<slug>"}`` nodes.  We walk the
+    full state, collect every such URL, and return the path segment (slug) for
+    links whose URL contains the hero name (casefold comparison).
+    """
+    prefix = "/the-bazaar/builds/"
+    hero_token = hero.casefold()
+    slugs: list[str] = []
+    seen: set[str] = set()
+    for node in _walk(state):
+        if not isinstance(node, dict):
+            continue
+        if node.get("type") != "link":
+            continue
+        url = node.get("url", "")
+        if not isinstance(url, str) or not url.startswith(prefix):
+            continue
+        slug = url[len(prefix):].strip("/")
+        if not slug or slug in seen:
+            continue
+        if hero_token not in slug.casefold():
+            continue
+        seen.add(slug)
+        slugs.append(slug)
+    return slugs
 
 
 def fetch_build_articles(
@@ -102,19 +135,35 @@ def fetch_build_articles(
 
     all_items: list[ItemWindowEvidence] = []
     details: list[str] = []
+    slug_failures: list[str] = []
     for slug in slugs:
         html, detail = _http_get(urljoin(ARTICLE_BASE_URL, slug), options.timeout_seconds)
         if html is None:
-            return _result(f"mobalytics_build_articles:{slug}", options, "unhealthy", [detail])
+            slug_failures.append(slug)
+            details.append(f"slug_failed:{slug}:{detail}")
+            continue
         state = _extract_preloaded_state(html)
         if state is None:
-            return _result(f"mobalytics_build_articles:{slug}", options, "unhealthy", ["preloaded_state_missing_or_invalid"])
+            slug_failures.append(slug)
+            details.append(f"slug_failed:{slug}:preloaded_state_missing_or_invalid")
+            continue
         article_items = parse_build_article_state(state, slug, options)
         if article_items.status != "healthy":
-            return article_items
+            slug_failures.append(slug)
+            details.append(f"slug_failed:{slug}:{';'.join(article_items.details)}")
+            continue
         all_items.extend(article_items.observation.items)
         details.extend(article_items.details)
-    window_suffix = ",".join(slugs)
+
+    if slug_failures and not all_items:
+        # All slugs failed — source is unhealthy.
+        return _result(
+            f"mobalytics_build_articles:{','.join(slug_failures)}",
+            options,
+            "unhealthy",
+            details,
+        )
+    window_suffix = ",".join(s for s in slugs if s not in slug_failures)
     return _result(f"mobalytics_build_articles:{window_suffix}", options, "healthy", details, all_items)
 
 

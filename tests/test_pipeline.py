@@ -1107,3 +1107,77 @@ def test_apply_catalog_pr_works_with_builds_subdir_layout(monkeypatch, tmp_path)
     catalog_after = json.loads((tracker / "builds" / "karnok_builds.json").read_text(encoding="utf-8"))
     axe = catalog_after["game_phases"]["early_mid"]["archetypes"][0]
     assert axe["carry_items"] == ["Battle Axe", "Sawpike"]
+
+
+# --- #132: pipeline auto-discovers article slugs from meta-builds result ---
+
+
+def test_fetch_sources_forwards_meta_state_slugs_to_build_articles(monkeypatch, tmp_path):
+    """_fetch_sources extracts slugs from a healthy meta-builds result and passes
+    them to fetch_build_articles; it does not call fetch_build_articles with an
+    empty slug list when meta_state has discoverable slugs."""
+    from automated_builds_pipeline.sources.base import FetchOptions
+    from automated_builds_pipeline.sources.mobalytics import slugs_from_meta_builds_state
+
+    # Build a meta-builds result that carries a meta_state with discoverable slugs.
+    meta_state = {
+        "theBazaarState": {
+            "apollo": {
+                "graphqlV2": {
+                    "queries": [
+                        {
+                            "state": {
+                                "data": [
+                                    {
+                                        "foo": [
+                                            {"type": "link", "url": "/the-bazaar/builds/crunch-karnok-kripp"},
+                                            {"type": "link", "url": "/the-bazaar/builds/blade-karnok-kripp"},
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    meta_result = source_result("mobalytics_meta_builds")
+    meta_result.meta_state = meta_state
+
+    slugs_seen = []
+
+    def fake_fetch_build_articles(slugs, options):
+        slugs_seen.extend(slugs)
+        return source_result("mobalytics_build_articles")
+
+    def fake_fetch_bazaardb(hero, options):
+        return source_result("bazaardb")
+
+    options = FetchOptions(observed_at=OBSERVED_AT)
+    monkeypatch.setattr(pipeline.bazaardb, "fetch_meta", fake_fetch_bazaardb)
+    monkeypatch.setattr(pipeline.mobalytics, "fetch_meta_builds", lambda hero, opts: meta_result)
+    monkeypatch.setattr(pipeline.mobalytics, "fetch_build_articles", fake_fetch_build_articles)
+    monkeypatch.setattr(
+        pipeline.bazaar_builds_net,
+        "fetch_builds",
+        lambda hero, url, opts: source_result("bazaar_builds_net"),
+    )
+
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert "crunch-karnok-kripp" in slugs_seen
+    assert "blade-karnok-kripp" in slugs_seen

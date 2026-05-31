@@ -286,7 +286,8 @@ def _fetch_sources(
         results[SOURCE_BAZAARDB] = _fetch_bazaardb_with_retries(hero, options, bazaardb_retries)
 
     results[SOURCE_MOBALYTICS_META] = mobalytics.fetch_meta_builds(hero, options)
-    results[SOURCE_MOBALYTICS_ARTICLES] = mobalytics.fetch_build_articles(options.article_slugs, options)
+    article_slugs = list(options.article_slugs) or _slugs_from_meta_result(results[SOURCE_MOBALYTICS_META], hero)
+    results[SOURCE_MOBALYTICS_ARTICLES] = mobalytics.fetch_build_articles(article_slugs, options)
     results[SOURCE_BAZAAR_BUILDS_NET] = bazaar_builds_net.fetch_builds(hero, _bazaar_builds_category_url(hero), options)
     return results
 
@@ -419,6 +420,20 @@ def _skipped_result(source: str, options: FetchOptions, details: list[str]) -> S
         status=SKIPPED,
         details=details,
     )
+
+
+def _slugs_from_meta_result(meta_result: SourceFetchResult, hero: str) -> list[str]:
+    """Extract build-article slugs for *hero* from the meta-builds fetch result.
+
+    The meta-builds fetcher attaches the raw PRELOADED_STATE as ``meta_state``
+    when it successfully parses the page.  We walk the state to find embedded
+    article links filtered to this hero; if none are found (unhealthy/skipped
+    meta result) build-articles is skipped rather than erroring.
+    """
+    state = meta_result.meta_state
+    if state is None:
+        return []
+    return mobalytics.slugs_from_meta_builds_state(state, hero)
 
 
 def _retryable_bazaardb(result: SourceFetchResult) -> bool:

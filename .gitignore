@@ -1,5 +1,9 @@
 __pycache__/
 *.pyc
 .venv/
-artifacts/
+# Generated run artifacts are ignored, but Python tooling kept under
+# artifacts/ (summarize_diffs.py, verify_apply.py, and future sweep scripts)
+# is tracked so a fresh checkout has the validation harness.
+artifacts/*
+!artifacts/*.py
 pipeline_state_local.json

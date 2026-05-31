@@ -1,0 +1,38 @@
+{
+  "status": "healthy",
+  "patch_label": "2026-W18",
+  "observation": {
+    "window_id": "bazaardb:2026-W18",
+    "observed_at": "2026-05-05T12:00:00Z",
+    "items": [
+      {
+        "item": "Thunder Totem",
+        "present": true,
+        "phase": "mid",
+        "archetype": "Axe / Shield",
+        "appearances": 35,
+        "sample_count": 35,
+        "frequency": 1.0,
+        "archetypes_seen": ["Axe / Shield"],
+        "metadata": {
+          "section": "CORE ITEMS",
+          "hero": "Karnok"
+        }
+      },
+      {
+        "item": "Lightning Rod",
+        "present": true,
+        "phase": "mid",
+        "archetype": "Axe / Shield",
+        "appearances": 30,
+        "sample_count": 35,
+        "frequency": 0.86,
+        "archetypes_seen": ["Axe / Shield"],
+        "metadata": {
+          "section": "CORE ITEMS",
+          "hero": "Karnok"
+        }
+      }
+    ]
+  }
+}

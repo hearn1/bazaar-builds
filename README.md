@@ -82,6 +82,41 @@ python -m pytest -q tests
 
 A bare `python -m pytest -q` from the repo root can walk generated `artifacts/` directories and fail during collection; use the `tests` path unless pytest collection is later constrained in config.
 
+## Validating pipeline changes safely
+
+Two layers of validation are available for changes to the pipeline:
+
+**Layer 1 — fixture golden tests (CI gate, network-free):**
+
+```powershell
+python -m pytest -q tests
+```
+
+This runs `tests/test_diff_fixtures.py`, a parametrized suite that loads
+captured source artifacts from `tests/fixtures/diff/<case>/` and asserts the
+resulting `proposed_changes` matches the expected JSON.  The `vanessa_diving_helmet`
+fixture is marked `xfail(strict=True)` until issue #131 lands.  All other
+fixtures must be green on every branch.
+
+**Layer 2 — 7-hero `local_dry_run` sweep (manual smoke, requires network):**
+
+```powershell
+python artifacts/sweep_dry_run.py
+```
+
+Runs the full pipeline for all 7 heroes using a **temporary** `local_dry_run`
+state file.  It never reads or modifies `pipeline_state.json`, never writes
+stats sidecars, and never touches `../bazaar_tracker`.  Diff artifacts land in
+`artifacts/verify/` (git-ignored).
+
+Run the sweep on `main` (before) and on a feature branch (after) to produce
+the regression evidence table (adds / updates / weaker_signals / applied / skipped).
+
+**Safety invariant:** the sweep must never reuse `pipeline_state.json`.
+The script enforces this by constructing a temp state file in a
+`tempfile.TemporaryDirectory` and deleting it when the sweep exits.  The
+safety contract is encoded in `tests/test_sweep_safety.py`.
+
 ## Schema contract
 
 `*_builds.json` files are owned by the coach repo. The JSON Schema is at [`builds_schema.json`](https://github.com/hearn1/bazaar_coach/blob/main/builds_schema.json) in the coach repo — the consumer defines the contract. CI in this repo validates any `*_builds.json` produced by the enricher against that schema before review.

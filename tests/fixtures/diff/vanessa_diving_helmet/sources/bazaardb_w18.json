@@ -1,0 +1,24 @@
+{
+  "status": "healthy",
+  "patch_label": "2026-W18",
+  "observation": {
+    "window_id": "bazaardb:2026-W18",
+    "observed_at": "2026-05-05T12:00:00Z",
+    "items": [
+      {
+        "item": "Diving Helmet",
+        "present": true,
+        "phase": "mid",
+        "archetype": "Zoarcid / Yeti Crab / Elemental Depth Charge",
+        "appearances": 21,
+        "sample_count": 21,
+        "frequency": 0.21,
+        "archetypes_seen": ["Zoarcid / Yeti Crab / Elemental Depth Charge"],
+        "metadata": {
+          "section": "SUPPORTING ITEMS",
+          "hero": "Vanessa"
+        }
+      }
+    ]
+  }
+}

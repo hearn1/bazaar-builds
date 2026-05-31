@@ -1,0 +1,22 @@
+{
+  "archetype_additions": [],
+  "archetype_updates": [
+    {
+      "phase": "mid",
+      "archetype": "Aquatic Vanessa",
+      "missing_items": [
+        {"item": "Diving Helmet", "llm_classification": "support"}
+      ]
+    },
+    {
+      "phase": "mid",
+      "archetype": "Elemental Depth Charge",
+      "missing_items": [
+        {"item": "Diving Helmet", "llm_classification": "support"}
+      ]
+    }
+  ],
+  "archetype_removal_candidates": [],
+  "item_removal_candidates": [],
+  "archetype_reshuffles": []
+}

@@ -535,7 +535,7 @@ def test_default_deterministic_mode_creates_classifier_and_uses_real_diff_mode(m
     classifier_inits = []
 
     class FakeClassifier:
-        def __init__(self, *, known_items_path):
+        def __init__(self, *, known_items_path, promote_cross_source=False):
             classifier_inits.append(known_items_path)
             self.known_items = set()
 

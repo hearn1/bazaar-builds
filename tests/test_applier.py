@@ -74,6 +74,30 @@ def item(name: str, classification: str) -> dict:
     return {"item": name, "llm_classification": classification}
 
 
+def support_removal(
+    item_name: str = "Bagpipes",
+    *,
+    phase: str | None = "early_mid",
+    archetype: str | None = "Axe",
+    catalog_bucket: str | None = "support_items",
+    retirement_type: str | None = "support_item",
+    actionability: str | None = "item_removal_candidate",
+    blocked_by: list[str] | None = None,
+    freeze_blocked: bool = False,
+) -> dict:
+    return {
+        "phase": phase,
+        "archetype": archetype,
+        "item": item_name,
+        "catalog_bucket": catalog_bucket,
+        "retirement_type": retirement_type,
+        "retirement_basis": "bazaardb_absent_30_days",
+        "actionability": actionability,
+        "removal_blocked_by": blocked_by or [],
+        "freeze_blocked": freeze_blocked,
+    }
+
+
 # --- serialization -----------------------------------------------------------
 
 
@@ -317,24 +341,177 @@ def test_addition_to_early_phase_is_skipped():
     assert any("early" in s for s in result.skipped)
 
 
-# --- additive only / gates ---------------------------------------------------
+# --- removals / gates --------------------------------------------------------
 
 
-def test_removal_buckets_are_not_applied():
+def test_support_item_removal_applies_from_exact_archetype_support_items():
+    catalog = small_catalog()
+    diff = diff_with(
+        {"item_removal_candidates": [support_removal("Bagpipes")]}
+    )
+
+    result = apply_proposed_changes(catalog, diff)
+    axe = result.catalog["game_phases"]["early_mid"]["archetypes"][0]
+
+    assert axe["support_items"] == []
+    assert result.changed is True
+    assert result.applied == ["'Axe'/'early_mid': removed 'Bagpipes' from support_items"]
+
+
+def test_support_item_removal_is_idempotent_on_rerun_with_clear_skip():
+    catalog = small_catalog()
+    diff = diff_with(
+        {"item_removal_candidates": [support_removal("Bagpipes")]}
+    )
+
+    first = apply_proposed_changes(catalog, diff)
+    second = apply_proposed_changes(first.catalog, diff)
+
+    assert first.changed is True
+    assert second.changed is False
+    assert serialize_catalog(first.catalog) == serialize_catalog(second.catalog)
+    assert any("item not found in support_items" in s for s in second.skipped)
+
+
+@pytest.mark.parametrize(
+    ("entry", "expected_reason"),
+    [
+        (support_removal("Bagpipes", phase="missing"), "phase missing"),
+        (support_removal("Bagpipes", archetype="Missing"), "archetype not found"),
+        (support_removal("Missing Support"), "item not found in support_items"),
+    ],
+)
+def test_support_item_removal_missing_exact_target_skips(entry, expected_reason):
+    catalog = small_catalog()
+    before = copy.deepcopy(catalog)
+    diff = diff_with({"item_removal_candidates": [entry]})
+
+    result = apply_proposed_changes(catalog, diff)
+
+    assert result.catalog == before
+    assert result.changed is False
+    assert any(expected_reason in s for s in result.skipped), result.skipped
+
+
+@pytest.mark.parametrize(
+    ("entry", "expected_reason"),
+    [
+        (
+            support_removal(
+                "Battle Axe",
+                catalog_bucket="carry_items",
+                retirement_type="whole_build_review",
+                actionability="review_required",
+            ),
+            "unsupported catalog_bucket 'carry_items'",
+        ),
+        (
+            support_removal(
+                "Hidden Lake",
+                catalog_bucket="core_items",
+                retirement_type="core_item_review",
+                actionability="review_required",
+            ),
+            "unsupported catalog_bucket 'core_items'",
+        ),
+        (
+            support_removal(
+                "Chains",
+                catalog_bucket="condition_items",
+                retirement_type="condition_item_review",
+                actionability="review_required",
+            ),
+            "unsupported catalog_bucket 'condition_items'",
+        ),
+        (
+            support_removal(
+                "Crow's Nest",
+                phase="early",
+                archetype=None,
+                catalog_bucket="universal_utility_items",
+                retirement_type="support_like_phase_item",
+                actionability="review_required",
+            ),
+            "unsupported catalog_bucket 'universal_utility_items'",
+        ),
+        (
+            support_removal(
+                "Investment",
+                phase="early",
+                archetype=None,
+                catalog_bucket="economy_items",
+                retirement_type="support_like_phase_item",
+                actionability="review_required",
+            ),
+            "unsupported catalog_bucket 'economy_items'",
+        ),
+        (
+            support_removal(
+                "Bagpipes",
+                actionability="freeze_blocked",
+                blocked_by=["freeze_removals"],
+                freeze_blocked=True,
+            ),
+            "freeze-blocked retirement candidate is review-only",
+        ),
+        (
+            support_removal("Bagpipes", actionability="review_required"),
+            "unsupported actionability 'review_required'",
+        ),
+        (
+            support_removal("Bagpipes", retirement_type="catalog_item"),
+            "unsupported retirement_type 'catalog_item'",
+        ),
+        (
+            support_removal("Bagpipes", archetype=None),
+            "missing exact archetype",
+        ),
+    ],
+)
+def test_non_supported_item_removal_candidates_skip_with_explicit_reasons(entry, expected_reason):
+    catalog = small_catalog()
+    before = copy.deepcopy(catalog)
+    diff = diff_with({"item_removal_candidates": [entry]})
+
+    result = apply_proposed_changes(catalog, diff)
+
+    assert result.catalog == before
+    assert result.changed is False
+    assert any(expected_reason in s for s in result.skipped), result.skipped
+
+
+def test_archetype_and_phase_level_removal_candidates_skip_with_explicit_reasons():
     catalog = small_catalog()
     diff = diff_with(
         {
-            "item_removal_candidates": [
-                {"phase": "early_mid", "archetype": "Axe", "item": "Battle Axe"}
-            ],
             "archetype_removal_candidates": [
-                {"phase": "early_mid", "archetype": "Axe"}
+                {
+                    "phase": "early_mid",
+                    "archetype": "Axe",
+                    "item": "Battle Axe",
+                    "catalog_bucket": "carry_items",
+                    "actionability": "review_required",
+                },
+                {
+                    "phase": "early",
+                    "archetype": None,
+                    "item": "Investment",
+                    "catalog_bucket": "economy_items",
+                    "actionability": "review_required",
+                },
             ],
         }
     )
     before = copy.deepcopy(catalog)
+
     result = apply_proposed_changes(catalog, diff)
+
     assert result.catalog == before
+    assert result.changed is False
+    assert any("archetype_removal_candidate 'Battle Axe'" in s for s in result.skipped)
+    assert any("bucket='carry_items'" in s for s in result.skipped)
+    assert any("archetype_removal_candidate 'Investment'" in s for s in result.skipped)
+    assert any("bucket='economy_items'" in s for s in result.skipped)
 
 
 def test_semantic_classification_false_is_noop():
@@ -347,7 +524,8 @@ def test_semantic_classification_false_is_noop():
                     "archetype": "Axe",
                     "missing_items": [item("Sawpike", "carry")],
                 }
-            ]
+            ],
+            "item_removal_candidates": [support_removal("Bagpipes")],
         },
         semantic=False,
     )
@@ -368,7 +546,8 @@ def test_input_is_never_mutated():
                     "archetype": "Axe",
                     "missing_items": [item("Sawpike", "carry")],
                 }
-            ]
+            ],
+            "item_removal_candidates": [support_removal("Bagpipes")],
         }
     )
     apply_proposed_changes(catalog, diff)

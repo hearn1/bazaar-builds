@@ -44,6 +44,19 @@ ClassifierMode = Literal["no_llm_shadow", "deterministic"]
 
 
 @dataclass(frozen=True)
+class CoachPrFocus:
+    focus: diff.DiffFocus
+    branch_suffix: str
+    title_suffix: str
+
+
+COACH_PR_FOCI: tuple[CoachPrFocus, ...] = (
+    CoachPrFocus("additions", "additions", "additions"),
+    CoachPrFocus("retirements", "retirements", "retirements"),
+)
+
+
+@dataclass(frozen=True)
 class PipelineResult:
     phase: str
     diff_path: Optional[Path] = None
@@ -153,57 +166,109 @@ def apply_catalog_pr(
     diff_path: Path,
     stats: HeroStats,
 ) -> None:
-    """Apply additive proposed_changes to the real <hero>_builds.json and open a
-    PR whose only file diff is that single catalog file.
+    """Apply focused proposed_changes to the real <hero>_builds.json and open
+    separate coach PRs whose only file diff is that single catalog file.
 
     Evidence rides as PR body (proposal markdown) + a supporting-evidence comment;
     no proposal/diff sidecar files are committed to the coach repo.
     """
+    del proposal_path, diff_path  # durable artifacts stay in this repo only.
     catalog_path = _catalog_path(hero, tracker_repo)
     schema = json.loads(_schema_path(tracker_repo).read_text(encoding="utf-8"))
-    catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    base_catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
 
     # Fail closed: never touch a catalog we do not understand or that is already
     # invalid against the coach schema.
-    applier.ensure_supported_schema_version(catalog)
-    applier.validate_catalog(catalog, schema)
+    applier.ensure_supported_schema_version(base_catalog)
+    applier.validate_catalog(base_catalog, schema)
 
-    result = _apply_partitioned_diff(catalog, diff_json)
+    base_commit = _git(tracker_repo, "rev-parse", "HEAD").stdout.strip() or "HEAD"
+    partitions = diff.partition_diff(diff_json)
+    focused_views = {
+        "additions": partitions.additions,
+        "retirements": partitions.retirements,
+    }
+
+    for spec in COACH_PR_FOCI:
+        _apply_focused_catalog_pr(
+            hero=hero,
+            tracker_repo=tracker_repo,
+            catalog_path=catalog_path,
+            schema=schema,
+            base_catalog=base_catalog,
+            base_commit=base_commit,
+            focus=spec.focus,
+            branch=f"pipeline/{hero}-{spec.branch_suffix}",
+            title=f"[automated-builds] {hero} catalog {spec.title_suffix}",
+            diff_json=focused_views[spec.focus],
+            stats=stats,
+        )
+
+
+def _apply_focused_catalog_pr(
+    *,
+    hero: str,
+    tracker_repo: Path,
+    catalog_path: Path,
+    schema: dict[str, Any],
+    base_catalog: dict[str, Any],
+    base_commit: str,
+    focus: diff.DiffFocus,
+    branch: str,
+    title: str,
+    diff_json: dict[str, Any],
+    stats: HeroStats,
+) -> None:
+    result = applier.apply_proposed_changes(base_catalog, diff_json)
 
     # Fail closed: never write/commit/PR an invalid catalog. Aborts before any
-    # git mutation.
+    # git mutation for this focused branch.
     applier.validate_catalog(result.catalog, schema)
 
-    serialized = applier.serialize_catalog(result.catalog)
-    _atomic_write(catalog_path, serialized)
+    if not result.applied:
+        _log_focused_noop(focus, result)
+        return
 
-    branch = f"pipeline/{hero}"
-    _git(tracker_repo, "checkout", "-B", branch)
+    _git(tracker_repo, "checkout", "-B", branch, base_commit)
+    _atomic_write(catalog_path, applier.serialize_catalog(result.catalog))
     _git(tracker_repo, "add", str(catalog_path.relative_to(tracker_repo)))
     if _git(tracker_repo, "diff", "--cached", "--quiet", check=False).returncode == 0:
-        if result.applied:
-            # Changes applied but byte-identical to the live catalog: the proposed
-            # items were already present. Idempotent re-run, nothing to PR.
-            LOGGER.info(
-                "catalog unchanged; no-op (proposed changes already present): %s",
-                "; ".join(result.applied),
-            )
-        else:
-            # The diff was non-empty (so it did not short-circuit as empty), yet
-            # the applier rejected every proposed change — e.g. support-only
-            # archetype additions blocked by the commitment guard. Surface the
-            # skip reasons so this silent gap is diagnosable from the run log.
-            LOGGER.info(
-                "catalog unchanged; no-op: non-empty diff with no actionable "
-                "changes; %d proposed change(s) skipped: %s",
-                len(result.skipped),
-                "; ".join(result.skipped) or "(none)",
-            )
+        LOGGER.info(
+            "%s catalog unchanged; no PR created (proposed changes already present): %s",
+            focus,
+            "; ".join(result.applied),
+        )
         return
-    _git(tracker_repo, "commit", "-m", f"automated: {hero} catalog {_window_id(diff_json)}")
+
+    _git(tracker_repo, "commit", "-m", f"automated: {hero} catalog {focus} {_window_id(diff_json)}")
     _git(tracker_repo, "push", "--force", "origin", branch)
 
-    title = f"[automated-builds] {hero} catalog"
+    with tempfile.TemporaryDirectory(prefix=f"{_hero_slug(hero)}-{focus}-pr-") as tmp_dir:
+        body_file = Path(tmp_dir) / "proposal.md"
+        body_file.write_text(render_proposal(diff_json), encoding="utf-8")
+        _upsert_coach_pr(tracker_repo, branch, title, body_file)
+    _post_pr_comment(hero, tracker_repo, diff_json, stats, branch)
+
+
+def _log_focused_noop(focus: diff.DiffFocus, result: applier.ApplyResult) -> None:
+    if result.skipped:
+        LOGGER.info(
+            "%s catalog unchanged; no PR created: no catalog byte changes; "
+            "%d proposed change(s) skipped: %s",
+            focus,
+            len(result.skipped),
+            "; ".join(result.skipped),
+        )
+        return
+    LOGGER.info("%s catalog unchanged; no PR created: no actionable changes", focus)
+
+
+def _upsert_coach_pr(
+    tracker_repo: Path,
+    branch: str,
+    title: str,
+    body_file: Path,
+) -> None:
     existing = subprocess.run(
         ["gh", "pr", "view", branch, "--json", "number"],
         cwd=tracker_repo,
@@ -213,17 +278,16 @@ def apply_catalog_pr(
     )
     if existing.returncode == 0:
         subprocess.run(
-            ["gh", "pr", "edit", branch, "--title", title, "--body-file", str(proposal_path)],
+            ["gh", "pr", "edit", branch, "--title", title, "--body-file", str(body_file)],
             cwd=tracker_repo,
             check=True,
         )
     else:
         subprocess.run(
-            ["gh", "pr", "create", "--head", branch, "--title", title, "--body-file", str(proposal_path)],
+            ["gh", "pr", "create", "--head", branch, "--title", title, "--body-file", str(body_file)],
             cwd=tracker_repo,
             check=True,
         )
-    _post_pr_comment(hero, tracker_repo, diff_json, stats, branch)
 
 
 def _post_pr_comment(

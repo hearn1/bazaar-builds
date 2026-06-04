@@ -6,6 +6,7 @@ import pytest
 from automated_builds_pipeline import pipeline
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.evaluator import EvaluationResult
+from automated_builds_pipeline.game_changes import GameChangeSignals
 from automated_builds_pipeline.hero_items import HeroItemOwnership
 from automated_builds_pipeline.sources.base import SourceFetchResult
 from automated_builds_pipeline.stats import (
@@ -196,9 +197,10 @@ def patch_fetchers(monkeypatch, *, bazaardb_results: list[SourceFetchResult] | N
 
 
 def patch_evaluator(monkeypatch, captured):
-    def fake_evaluate(hero, catalog_items, stats, source_results, state):
+    def fake_evaluate(hero, catalog_items, stats, source_results, state, **kwargs):
         captured["source_results"] = list(source_results)
         captured["state"] = state
+        captured["game_change_signals"] = kwargs.get("game_change_signals")
         return EvaluationResult(
             hero=hero,
             freeze_active=state.freeze_status(hero).active,
@@ -683,11 +685,13 @@ def test_live_cron_posts_supporting_evidence_comment(monkeypatch, tmp_path):
     patch_fetchers(monkeypatch)
     captured = {}
     patch_evaluator(monkeypatch, captured)
-    patch_diff(monkeypatch)
+    patch_diff(monkeypatch, semantic_update_diff())
     git_calls = []
 
     def fake_git(repo, *args, check=True):
         git_calls.append(args)
+        if args == ("rev-parse", "HEAD"):
+            return subprocess_result(returncode=0, stdout="coach-base\n")
         return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
 
     def fake_run(args, **kwargs):
@@ -714,12 +718,13 @@ def test_live_cron_posts_supporting_evidence_comment(monkeypatch, tmp_path):
     assert hero == "Karnok"
     assert repo == tracker
     assert diff_json["window_id"] == "w1"
+    assert diff_json["diff_view"]["focus"] == "additions"
     assert stats.hero == "Karnok"
-    assert branch == "pipeline/Karnok"
+    assert branch == "pipeline/Karnok-additions"
 
 
-def subprocess_result(*, returncode: int):
-    return pipeline.subprocess.CompletedProcess(args=[], returncode=returncode, stdout="", stderr="")
+def subprocess_result(*, returncode: int, stdout: str = ""):
+    return pipeline.subprocess.CompletedProcess(args=[], returncode=returncode, stdout=stdout, stderr="")
 
 
 def test_live_cron_dry_run_suppresses_pr(monkeypatch, tmp_path):
@@ -818,6 +823,58 @@ def test_freeze_state_is_passed_to_evaluator(monkeypatch, tmp_path):
     assert captured["state"].freeze_status("Karnok").active is True
 
 
+def test_default_game_change_signals_are_loaded_for_evaluator(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch)
+    loaded = GameChangeSignals()
+    monkeypatch.setattr(pipeline, "load_default_signals", lambda: loaded)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert captured["game_change_signals"] is loaded
+
+
+def test_explicit_game_change_signal_path_is_loaded_for_evaluator(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    signal_path = tmp_path / "signals.json"
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch)
+    loaded = GameChangeSignals()
+
+    def fake_load_signals(path):
+        assert path == signal_path
+        return loaded
+
+    monkeypatch.setattr(pipeline, "load_default_signals", lambda: pytest.fail("should load explicit path"))
+    monkeypatch.setattr(pipeline, "load_signals", fake_load_signals)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+        game_change_signal_path=signal_path,
+    )
+
+    assert captured["game_change_signals"] is loaded
+
+
 def semantic_update_diff() -> dict:
     return {
         "schema_version": 1,
@@ -847,6 +904,110 @@ def semantic_update_diff() -> dict:
     }
 
 
+def semantic_mixed_addition_retirement_diff() -> dict:
+    payload = semantic_update_diff()
+    payload["proposed_changes"]["item_removal_candidates"] = [
+        {
+            "phase": "early_mid",
+            "archetype": "Axe",
+            "item": "Bagpipes",
+            "catalog_bucket": "support_items",
+            "retirement_type": "support_item",
+            "retirement_basis": "game_change_removed_card",
+            "actionability": "item_removal_candidate",
+            "removal_blocked_by": [],
+            "freeze_blocked": False,
+        }
+    ]
+    payload["proposed_changes"]["archetype_removal_candidates"] = [
+        {
+            "phase": "early_mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": "carry_items",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": "bazaardb_absent_30_days",
+            "actionability": "review_required",
+            "affected_items": ["Battle Axe"],
+        }
+    ]
+    return payload
+
+
+def semantic_retirement_support_removal_diff() -> dict:
+    payload = minimal_diff_payload()
+    payload["semantic_classification"] = True
+    payload["proposed_changes"]["item_removal_candidates"] = [
+        {
+            "phase": "early_mid",
+            "archetype": "Axe",
+            "item": "Bagpipes",
+            "catalog_bucket": "support_items",
+            "retirement_type": "support_item",
+            "retirement_basis": "game_change_removed_card",
+            "actionability": "item_removal_candidate",
+            "removal_blocked_by": [],
+            "freeze_blocked": False,
+        }
+    ]
+    return payload
+
+
+def semantic_review_only_retirement_diff() -> dict:
+    payload = minimal_diff_payload()
+    payload["semantic_classification"] = True
+    payload["proposed_changes"]["archetype_removal_candidates"] = [
+        {
+            "phase": "early_mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": "carry_items",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": "bazaardb_absent_30_days",
+            "actionability": "review_required",
+            "affected_items": ["Battle Axe"],
+        }
+    ]
+    return payload
+
+
+def test_partitioned_application_applies_additions_and_support_retirements():
+    catalog = base_catalog()
+    catalog["game_phases"]["early_mid"]["archetypes"][0]["support_items"] = ["Bagpipes"]
+
+    result = pipeline._apply_partitioned_diff(catalog, semantic_mixed_addition_retirement_diff())
+    axe = result.catalog["game_phases"]["early_mid"]["archetypes"][0]
+
+    assert axe["carry_items"] == ["Battle Axe", "Sawpike"]
+    assert axe["support_items"] == []
+    assert any("added 'Sawpike'" in row for row in result.applied)
+    assert any("removed 'Bagpipes'" in row for row in result.applied)
+    assert any("archetype_removal_candidate 'Battle Axe'" in row for row in result.skipped)
+    assert any("actionability='review_required'" in row for row in result.skipped)
+
+
+def test_partitioned_application_review_only_retirement_surfaces_skip_reason():
+    diff_json = minimal_diff_payload()
+    diff_json["semantic_classification"] = True
+    diff_json["proposed_changes"]["archetype_removal_candidates"] = [
+        {
+            "phase": "early_mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": "carry_items",
+            "retirement_type": "whole_build_review",
+            "actionability": "review_required",
+        }
+    ]
+
+    result = pipeline._apply_partitioned_diff(base_catalog(), diff_json)
+
+    assert result.changed is False
+    assert result.applied == []
+    assert any("archetype_removal_candidate 'Battle Axe'" in row for row in result.skipped)
+    assert any("actionability='review_required'" in row for row in result.skipped)
+
+
 def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch, tmp_path):
     state_file = tmp_path / "pipeline_state.json"
     write_state(state_file, "live_cron")
@@ -857,13 +1018,19 @@ def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch
     patch_diff(monkeypatch, semantic_update_diff())
     git_calls = []
     run_calls = []
+    run_bodies = []
 
     def fake_git(repo, *args, check=True):
         git_calls.append(args)
+        if args == ("rev-parse", "HEAD"):
+            return subprocess_result(returncode=0, stdout="coach-base\n")
         return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
 
     def fake_run(args, **kwargs):
         run_calls.append(args)
+        if "--body-file" in args:
+            body_path = Path(args[args.index("--body-file") + 1])
+            run_bodies.append(body_path.read_text(encoding="utf-8"))
         if args[:3] == ["gh", "pr", "view"]:
             return subprocess_result(returncode=1)  # PR does not exist yet
         return subprocess_result(returncode=0)
@@ -882,6 +1049,8 @@ def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch
     )
 
     assert result.pr_invoked is True
+    checkout_calls = [a for a in git_calls if a and a[0] == "checkout"]
+    assert checkout_calls == [("checkout", "-B", "pipeline/Karnok-additions", "coach-base")]
     # Only the single catalog file is staged.
     add_calls = [a for a in git_calls if a and a[0] == "add"]
     assert add_calls == [("add", "karnok_builds.json")]
@@ -891,14 +1060,213 @@ def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch
     assert axe["carry_items"] == ["Battle Axe", "Sawpike"]
     # No sidecar evidence files committed to the coach repo.
     assert not (tracker / "automated_builds_proposals").exists()
-    # PR body is the proposal markdown artifact, not a committed sidecar.
-    proposal_path = str(tmp_path / "artifacts" / "Karnok_build_update_proposal.md")
+    # PR body is a focused proposal markdown temp file, not a committed sidecar.
     gh_create = next(a for a in run_calls if a[:3] == ["gh", "pr", "create"])
+    assert gh_create[gh_create.index("--head") + 1] == "pipeline/Karnok-additions"
+    assert gh_create[gh_create.index("--title") + 1] == "[automated-builds] Karnok catalog additions"
     assert "--body-file" in gh_create
-    assert gh_create[gh_create.index("--body-file") + 1] == proposal_path
+    assert gh_create[gh_create.index("--body-file") + 1] != str(tmp_path / "artifacts" / "Karnok_build_update_proposal.md")
+    assert "Sawpike" in run_bodies[0]
+    assert "Bagpipes" not in run_bodies[0]
     assert all("automated_builds_proposals" not in str(part) for a in run_calls for part in a)
     assert len(comment_calls) == 1
-    assert comment_calls[0][4] == "pipeline/Karnok"
+    assert comment_calls[0][2]["diff_view"]["focus"] == "additions"
+    assert comment_calls[0][4] == "pipeline/Karnok-additions"
+
+
+def test_apply_catalog_pr_retirement_branch_when_support_removal_changes_bytes(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    catalog = base_catalog()
+    catalog["game_phases"]["early_mid"]["archetypes"][0]["support_items"] = ["Bagpipes"]
+    (tracker / "karnok_builds.json").write_text(json.dumps(catalog), encoding="utf-8")
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_retirement_support_removal_diff())
+    git_calls = []
+    run_calls = []
+    run_bodies = []
+
+    def fake_git(repo, *args, check=True):
+        git_calls.append(args)
+        if args == ("rev-parse", "HEAD"):
+            return subprocess_result(returncode=0, stdout="coach-base\n")
+        return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        if "--body-file" in args:
+            body_path = Path(args[args.index("--body-file") + 1])
+            run_bodies.append(body_path.read_text(encoding="utf-8"))
+        if args[:3] == ["gh", "pr", "view"]:
+            return subprocess_result(returncode=1)
+        return subprocess_result(returncode=0)
+
+    comment_calls = []
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
+
+    result = pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert result.pr_invoked is True
+    checkout_calls = [a for a in git_calls if a and a[0] == "checkout"]
+    assert checkout_calls == [("checkout", "-B", "pipeline/Karnok-retirements", "coach-base")]
+    add_calls = [a for a in git_calls if a and a[0] == "add"]
+    assert add_calls == [("add", "karnok_builds.json")]
+    catalog_after = json.loads((tracker / "karnok_builds.json").read_text(encoding="utf-8"))
+    axe = catalog_after["game_phases"]["early_mid"]["archetypes"][0]
+    assert axe["support_items"] == []
+    gh_create = next(a for a in run_calls if a[:3] == ["gh", "pr", "create"])
+    assert gh_create[gh_create.index("--head") + 1] == "pipeline/Karnok-retirements"
+    assert gh_create[gh_create.index("--title") + 1] == "[automated-builds] Karnok catalog retirements"
+    assert "Bagpipes" in run_bodies[0]
+    assert "Sawpike" not in run_bodies[0]
+    assert len(comment_calls) == 1
+    assert comment_calls[0][2]["diff_view"]["focus"] == "retirements"
+    assert comment_calls[0][4] == "pipeline/Karnok-retirements"
+
+
+def test_apply_catalog_pr_mixed_diff_opens_independent_addition_and_retirement_prs(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    catalog = base_catalog()
+    catalog["game_phases"]["early_mid"]["archetypes"][0]["support_items"] = ["Bagpipes"]
+    (tracker / "karnok_builds.json").write_text(json.dumps(catalog), encoding="utf-8")
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_mixed_addition_retirement_diff())
+    git_calls = []
+    run_calls = []
+    run_bodies = []
+
+    def fake_git(repo, *args, check=True):
+        git_calls.append(args)
+        if args == ("rev-parse", "HEAD"):
+            return subprocess_result(returncode=0, stdout="coach-base\n")
+        return subprocess_result(returncode=1 if args == ("diff", "--cached", "--quiet") else 0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        if "--body-file" in args:
+            body_path = Path(args[args.index("--body-file") + 1])
+            branch = args[args.index("--head") + 1] if "--head" in args else args[3]
+            run_bodies.append((branch, body_path.read_text(encoding="utf-8")))
+        if args[:3] == ["gh", "pr", "view"]:
+            return subprocess_result(returncode=1)
+        return subprocess_result(returncode=0)
+
+    comment_calls = []
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    checkout_calls = [a for a in git_calls if a and a[0] == "checkout"]
+    assert checkout_calls == [
+        ("checkout", "-B", "pipeline/Karnok-additions", "coach-base"),
+        ("checkout", "-B", "pipeline/Karnok-retirements", "coach-base"),
+    ]
+    add_calls = [a for a in git_calls if a and a[0] == "add"]
+    assert add_calls == [("add", "karnok_builds.json"), ("add", "karnok_builds.json")]
+    created_heads = [a[a.index("--head") + 1] for a in run_calls if a[:3] == ["gh", "pr", "create"]]
+    assert created_heads == ["pipeline/Karnok-additions", "pipeline/Karnok-retirements"]
+    bodies = dict(run_bodies)
+    assert "Sawpike" in bodies["pipeline/Karnok-additions"]
+    assert "Bagpipes" not in bodies["pipeline/Karnok-additions"]
+    assert "Bagpipes" in bodies["pipeline/Karnok-retirements"]
+    assert "Sawpike" not in bodies["pipeline/Karnok-retirements"]
+    assert [call[2]["diff_view"]["focus"] for call in comment_calls] == ["additions", "retirements"]
+    assert [call[4] for call in comment_calls] == ["pipeline/Karnok-additions", "pipeline/Karnok-retirements"]
+
+
+def test_apply_catalog_pr_review_only_retirement_skips_empty_pr(monkeypatch, tmp_path, caplog):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "live_cron")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_review_only_retirement_diff())
+    git_calls = []
+    run_calls = []
+
+    def fake_git(repo, *args, check=True):
+        git_calls.append(args)
+        if args == ("rev-parse", "HEAD"):
+            return subprocess_result(returncode=0, stdout="coach-base\n")
+        return subprocess_result(returncode=0)
+
+    def fake_run(args, **kwargs):
+        run_calls.append(args)
+        return subprocess_result(returncode=0)
+
+    comment_calls = []
+    monkeypatch.setattr(pipeline, "_git", fake_git)
+    monkeypatch.setattr(pipeline.subprocess, "run", fake_run)
+    monkeypatch.setattr(pipeline, "_post_pr_comment", lambda *args: comment_calls.append(args))
+
+    with caplog.at_level("INFO", logger="automated_builds_pipeline.pipeline"):
+        result = pipeline.run(
+            hero="Karnok",
+            state_file=state_file,
+            tracker_repo=tracker,
+            stats_dir=tmp_path / "stats",
+            output_dir=tmp_path / "artifacts",
+        )
+
+    assert result.pr_invoked is True
+    assert git_calls == [("rev-parse", "HEAD")]
+    assert run_calls == []
+    assert comment_calls == []
+    assert "retirements catalog unchanged; no PR created: no catalog byte changes" in caplog.text
+    assert "actionability='review_required'" in caplog.text
+
+
+def test_local_dry_run_artifacts_remain_full_mixed_diff(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_mixed_addition_retirement_diff())
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    artifact = json.loads((tmp_path / "artifacts" / "Karnok_diff.json").read_text(encoding="utf-8"))
+    proposal = (tmp_path / "artifacts" / "Karnok_build_update_proposal.md").read_text(encoding="utf-8")
+
+    assert "diff_view" not in artifact
+    assert artifact["proposed_changes"]["archetype_updates"]
+    assert artifact["proposed_changes"]["item_removal_candidates"]
+    assert artifact["proposed_changes"]["archetype_removal_candidates"]
+    assert "Sawpike" in proposal
+    assert "Bagpipes" in proposal
+    assert "Battle Axe" in proposal
 
 
 def test_apply_catalog_pr_idempotent_noop_skips_commit_and_pr(monkeypatch, tmp_path):

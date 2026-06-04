@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
+from dataclasses import dataclass
 from dataclasses import fields
 from datetime import datetime, timezone
 from pathlib import Path
@@ -15,6 +17,13 @@ from automated_builds_pipeline.known_items import catalog_item_names
 from automated_builds_pipeline.proposal import render_proposal
 
 ClassifierMode = Literal["mock", "no_llm_shadow", "deterministic"]
+DiffFocus = Literal["additions", "retirements"]
+
+
+@dataclass(frozen=True)
+class DiffPartitions:
+    additions: dict[str, Any]
+    retirements: dict[str, Any]
 
 
 class Classifier(Protocol):
@@ -37,6 +46,17 @@ NO_LLM_CONFIDENCE = "none"
 NO_LLM_RATIONALE = (
     "Observation-only shadow output; deterministic carry/core/support classification is pending curator review."
 )
+
+
+_PROPOSED_CHANGE_KEYS = (
+    "archetype_updates",
+    "archetype_additions",
+    "archetype_removal_candidates",
+    "item_removal_candidates",
+    "archetype_reshuffles",
+)
+_ADDITION_CHANGE_KEYS = {"archetype_updates", "archetype_additions"}
+_RETIREMENT_CHANGE_KEYS = {"archetype_removal_candidates", "item_removal_candidates"}
 
 
 def generate_diff(
@@ -70,7 +90,7 @@ def generate_diff(
         if _has_reshuffle_signal(row):
             noise.append({"reason": "reshuffle_deferred", "item": row.get("item"), "phase": row.get("phase"), "archetype": row.get("archetype")})
             continue
-        if row.get("threshold_result") == "archetype_remove_candidate":
+        if row.get("threshold_result") in {"archetype_remove_candidate", "retirement_review_candidate"}:
             proposed_changes["archetype_removal_candidates"].append(_archetype_removal_row(row))
         elif row.get("threshold_result") == "remove_candidate":
             proposed_changes["item_removal_candidates"].append(_removal_row(row))
@@ -159,6 +179,50 @@ def generate_diff(
         "weaker_signals": weaker_signals,
         "noise": noise,
     }
+
+
+def partition_diff(diff_json: dict[str, Any]) -> DiffPartitions:
+    """Return addition-focused and retirement-focused views of a full diff.
+
+    The full diff remains the durable artifact. These views preserve the same
+    schema shape for renderers/appliers while keeping additions and retirement
+    evidence from being mixed by downstream PR plumbing.
+    """
+    return DiffPartitions(
+        additions=focused_diff(diff_json, "additions"),
+        retirements=focused_diff(diff_json, "retirements"),
+    )
+
+
+def focused_diff(diff_json: dict[str, Any], focus: DiffFocus) -> dict[str, Any]:
+    if focus == "additions":
+        keep_keys = _ADDITION_CHANGE_KEYS
+        weaker_signals = diff_json.get("weaker_signals", [])
+        noise = diff_json.get("noise", [])
+    elif focus == "retirements":
+        keep_keys = _RETIREMENT_CHANGE_KEYS
+        weaker_signals = []
+        noise = []
+    else:
+        raise ValueError(f"unsupported diff focus: {focus!r}")
+
+    proposed = diff_json.get("proposed_changes", {})
+    proposed_changes = _empty_proposed_changes()
+    if isinstance(proposed, dict):
+        for key in keep_keys:
+            proposed_changes[key] = copy.deepcopy(proposed.get(key, []))
+
+    view = copy.deepcopy(diff_json)
+    view["proposed_changes"] = proposed_changes
+    view["weaker_signals"] = copy.deepcopy(weaker_signals)
+    view["noise"] = copy.deepcopy(noise)
+    view["diff_view"] = {
+        "focus": focus,
+        "source": "partitioned_full_diff",
+        "contains_catalog_writes": _contains_catalog_writes(proposed_changes),
+        "contains_review_only_retirements": _contains_review_only_retirements(proposed_changes),
+    }
+    return view
 
 
 def load_evaluation(path: Path) -> EvaluationResult:
@@ -313,6 +377,16 @@ def _classification_to_diff(classification: ItemClassification, row: dict[str, A
             "source_presence": row.get("source_presence", {}),
             "evidence_by_source": _evidence_by_source(row),
             "evidence_refs": list(row.get("evidence_refs", [])),
+            "retirement_type": row.get("retirement_type"),
+            "catalog_bucket": row.get("catalog_bucket"),
+            "retirement_basis": row.get("retirement_basis"),
+            "actionability": row.get("actionability"),
+            "affected_items": list(row.get("affected_items", [])),
+            "affected_item_details": list(row.get("affected_item_details", [])),
+            "affected_build_items": dict(row.get("affected_build_items", {})),
+            "review_scope": row.get("review_scope"),
+            "review_priority": row.get("review_priority"),
+            "signal_evidence": list(row.get("signal_evidence", [])),
         }
     )
     return emitted
@@ -334,12 +408,67 @@ def _artifact_classification_mode(classifier_mode: ClassifierMode) -> str:
     return classifier_mode
 
 
+def _empty_proposed_changes() -> dict[str, list[Any]]:
+    return {key: [] for key in _PROPOSED_CHANGE_KEYS}
+
+
+def _contains_catalog_writes(proposed_changes: dict[str, list[Any]]) -> bool:
+    if proposed_changes.get("archetype_updates") or proposed_changes.get("archetype_additions"):
+        return True
+    return any(
+        _applier_supported_support_removal(row)
+        for row in proposed_changes.get("item_removal_candidates", [])
+        if isinstance(row, dict)
+    )
+
+
+def _contains_review_only_retirements(proposed_changes: dict[str, list[Any]]) -> bool:
+    for row in proposed_changes.get("archetype_removal_candidates", []):
+        if isinstance(row, dict):
+            return True
+    return any(
+        not _applier_supported_support_removal(row)
+        for row in proposed_changes.get("item_removal_candidates", [])
+        if isinstance(row, dict)
+    )
+
+
+def _applier_supported_support_removal(row: dict[str, Any]) -> bool:
+    return (
+        row.get("catalog_bucket") == "support_items"
+        and row.get("retirement_type") == "support_item"
+        and row.get("actionability") == "item_removal_candidate"
+        and not row.get("freeze_blocked")
+        and "freeze_removals" not in (row.get("removal_blocked_by") or [])
+        and bool(row.get("phase"))
+        and bool(row.get("archetype"))
+        and bool(row.get("item"))
+    )
+
+
 def _removal_row(row: dict[str, Any]) -> dict[str, Any]:
     return {
         "phase": row.get("phase"),
         "archetype": row.get("archetype"),
         "item": row.get("item"),
+        "catalog_location": _catalog_location(row),
+        "catalog_bucket": row.get("catalog_bucket"),
+        "retirement_type": row.get("retirement_type"),
+        "retirement_basis": row.get("retirement_basis"),
+        "actionability": row.get("actionability"),
+        "affected_items": list(row.get("affected_items", [])),
+        "affected_item_details": list(row.get("affected_item_details", [])),
+        "affected_build_items": dict(row.get("affected_build_items", {})),
+        "review_scope": row.get("review_scope"),
+        "review_priority": row.get("review_priority"),
+        "signal_evidence": list(row.get("signal_evidence", [])),
         "reason": row.get("threshold_reason"),
+        "source_presence": dict(row.get("source_presence", {})),
+        "current_patch_evidence": dict(row.get("current_patch_evidence", {})),
+        "canonical_presence": row.get("canonical_presence"),
+        "windows_seen": row.get("windows_seen"),
+        "first_seen_window": row.get("first_seen_window"),
+        "last_seen_window": row.get("last_seen_window"),
         "windows_seen_recently": row.get("windows_seen_recently", 0),
         "removal_blocked_by": list(row.get("removal_blocked_by", [])),
         "freeze_blocked": "freeze_removals" in row.get("removal_blocked_by", []),
@@ -351,11 +480,37 @@ def _archetype_removal_row(row: dict[str, Any]) -> dict[str, Any]:
     return {
         "phase": row.get("phase"),
         "archetype": row.get("archetype"),
+        "item": row.get("item"),
+        "catalog_location": _catalog_location(row),
+        "catalog_bucket": row.get("catalog_bucket"),
+        "retirement_type": row.get("retirement_type"),
+        "retirement_basis": row.get("retirement_basis"),
+        "actionability": row.get("actionability"),
+        "affected_items": list(row.get("affected_items", [])),
+        "affected_item_details": list(row.get("affected_item_details", [])),
+        "affected_build_items": dict(row.get("affected_build_items", {})),
+        "review_scope": row.get("review_scope"),
+        "review_priority": row.get("review_priority"),
+        "signal_evidence": list(row.get("signal_evidence", [])),
         "reason": row.get("threshold_reason"),
+        "source_presence": dict(row.get("source_presence", {})),
+        "current_patch_evidence": dict(row.get("current_patch_evidence", {})),
+        "canonical_presence": row.get("canonical_presence"),
+        "windows_seen": row.get("windows_seen"),
+        "first_seen_window": row.get("first_seen_window"),
         "last_seen_window": row.get("last_seen_window"),
         "removal_blocked_by": list(row.get("removal_blocked_by", [])),
         "freeze_blocked": "freeze_removals" in row.get("removal_blocked_by", []),
         "evidence_refs": list(row.get("evidence_refs", [])),
+    }
+
+
+def _catalog_location(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "phase": row.get("phase"),
+        "archetype": row.get("archetype"),
+        "item": row.get("item"),
+        "bucket": row.get("catalog_bucket"),
     }
 
 

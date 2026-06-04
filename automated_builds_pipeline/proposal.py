@@ -108,14 +108,17 @@ def _removals(lines: list[str], diff: dict[str, Any]) -> None:
         _empty(lines)
         return
     if archetypes:
-        lines.append("### Archetypes")
+        lines.append("### Retirement Reviews")
         for row in archetypes:
-            lines.append(f"- {row.get('phase') or 'unknown'} / {row.get('archetype') or 'unknown'}: {row.get('reason') or 'review'}")
+            lines.append(_retirement_line(row, include_item=True))
+            _affected_build_lines(lines, row)
+            _signal_lines(lines, row)
             _blocks(lines, row)
     if items:
         lines.append("### Items")
         for row in items:
-            lines.append(f"- {row.get('phase') or 'unknown'} / {row.get('archetype') or 'unknown'} / {row.get('item')}: {row.get('reason') or 'review'}")
+            lines.append(_retirement_line(row, include_item=True))
+            _signal_lines(lines, row)
             _blocks(lines, row)
     lines.append("")
 
@@ -172,12 +175,124 @@ def _evidence_lines(lines: list[str], item: dict[str, Any]) -> None:
 
 def _blocks(lines: list[str], row: dict[str, Any]) -> None:
     if row.get("removal_blocked_by"):
-        lines.append(f"  Blocked by: {', '.join(row['removal_blocked_by'])}")
+        lines.append(f"  Secondary/blocking context: {', '.join(row['removal_blocked_by'])}")
     if row.get("freeze_blocked"):
         lines.append("  Removals frozen.")
     refs = row.get("evidence_refs", [])
     if refs:
         lines.append(f"  Absence confirmed by: {', '.join(_ref_label(ref) for ref in refs)}")
+
+
+def _retirement_line(row: dict[str, Any], *, include_item: bool) -> str:
+    fields = [
+        _location(row, include_item=include_item),
+        f"bucket: {row.get('catalog_bucket') or 'unknown'}",
+        f"type: {row.get('retirement_type') or 'review'}",
+        f"basis: {row.get('retirement_basis') or row.get('reason') or 'review'}",
+        f"action: {row.get('actionability') or 'review'}",
+        _current_bazaardb(row),
+        _secondary_context(row),
+        _freeze_state(row),
+        _signal_label(row),
+    ]
+    details = _retirement_review_details(row)
+    if details:
+        fields.append(details)
+    return "- " + " | ".join(field for field in fields if field)
+
+
+def _location(row: dict[str, Any], *, include_item: bool) -> str:
+    pieces = [row.get("phase") or "unknown", row.get("archetype") or "unknown"]
+    if include_item:
+        pieces.append(row.get("item") or "unknown")
+    return " / ".join(str(piece) for piece in pieces)
+
+
+def _current_bazaardb(row: dict[str, Any]) -> str:
+    evidence = row.get("current_patch_evidence")
+    if isinstance(evidence, dict):
+        bazaardb = evidence.get("bazaardb")
+        if isinstance(bazaardb, dict):
+            presence = bazaardb.get("presence")
+            window = bazaardb.get("window_id")
+            if presence:
+                suffix = f" ({window})" if window else ""
+                return f"current BazaarDB: {presence}{suffix}"
+    presence = row.get("source_presence")
+    if isinstance(presence, dict) and presence.get("bazaardb"):
+        return f"current BazaarDB: {presence['bazaardb']}"
+    return ""
+
+
+def _secondary_context(row: dict[str, Any]) -> str:
+    current = row.get("source_presence")
+    if not isinstance(current, dict):
+        return ""
+    present = [
+        source
+        for source, status in sorted(current.items())
+        if source != "bazaardb" and status == "present"
+    ]
+    if present:
+        label = "secondary blocker" if row.get("removal_blocked_by") else "secondary context"
+        return f"{label}: {', '.join(present)}"
+    known = [source for source, status in sorted(current.items()) if source != "bazaardb" and status not in {"skipped", "unknown", None}]
+    if known:
+        return "secondary current: clear"
+    return ""
+
+
+def _freeze_state(row: dict[str, Any]) -> str:
+    if row.get("freeze_blocked") or row.get("actionability") == "freeze_blocked":
+        return "freeze: blocked"
+    return ""
+
+
+def _signal_label(row: dict[str, Any]) -> str:
+    signals = row.get("signal_evidence")
+    if not isinstance(signals, list) or not signals:
+        return ""
+    first = next((signal for signal in signals if isinstance(signal, dict)), None)
+    if not first:
+        return ""
+    label = first.get("id") or first.get("type")
+    return f"signal: {label}" if label else ""
+
+
+def _retirement_review_details(row: dict[str, Any]) -> str:
+    affected = row.get("affected_items", [])
+    if not affected:
+        return ""
+    return f"affected: {', '.join(str(item) for item in affected)}"
+
+
+def _affected_build_lines(lines: list[str], row: dict[str, Any]) -> None:
+    build_items = row.get("affected_build_items")
+    if not isinstance(build_items, dict) or not build_items:
+        return
+    for bucket in ("carry_items", "core_items", "condition_items"):
+        items = build_items.get(bucket)
+        if items:
+            lines.append(f"  {bucket}: {', '.join(str(item) for item in items)}")
+
+
+def _signal_lines(lines: list[str], row: dict[str, Any]) -> None:
+    signals = row.get("signal_evidence")
+    if not isinstance(signals, list) or not signals:
+        return
+    for signal in signals:
+        if not isinstance(signal, dict):
+            continue
+        bits = [
+            str(signal.get("id") or "unknown"),
+            str(signal.get("type") or "signal"),
+            str(signal.get("effective_date") or "unknown-date"),
+        ]
+        if signal.get("replacement_item"):
+            bits.append(f"replacement: {signal['replacement_item']}")
+        if signal.get("source_url"):
+            bits.append(str(signal["source_url"]))
+        lines.append(f"  Signal: {'; '.join(bits)}")
 
 
 def _ref_label(ref: Any) -> str:

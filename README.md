@@ -60,7 +60,7 @@ allowing unknown items through for review.
 
 ## Automated pipeline status
 
-`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification, fetch live sources, evaluate thresholds, persist stats sidecars through auto-merged `automated/stats-sync-<hero>-<run>` PRs in this repo, and open or update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes.
+`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification, fetch live sources, evaluate thresholds, persist stats sidecars through auto-merged `automated/stats-sync-<hero>-<run>` PRs in this repo, and open or update focused additions and retirements proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes.
 
 Promotion was made with an explicit operator waiver in `waivers/live_cron_promotion_waiver_2026-05-18.md`. That waiver bypasses only Gate 1 (2 counted healthy bazaardb patch windows) and Gate 2 (14 calendar days of deterministic output). It does not bypass deterministic classifier readiness, recent malformed/unhealthy bazaardb checks, schema validation, or curator review of coach PRs.
 
@@ -71,6 +71,18 @@ Hosted LLM classification is not part of the live path. Do not require `CLAUDE_A
 The stats sidecar PR step requires a `STATS_PR_TOKEN` secret for `hearn1/bazaar-builds` with Contents and Pull requests write access. Do not use the workflow `GITHUB_TOKEN` for that step: PRs opened by `GITHUB_TOKEN` do not trigger the normal pull request checks needed before the guarded auto-merge. The token actor must also be allowed to bypass branch rules because stats sidecar PRs are merged after checks pass without human review.
 
 See `ROADMAP.md` for active gates and `AGENTS.md` for operator notes.
+
+## Retirement rollout behavior
+
+Stale retirement is intentionally conservative. A catalog item can qualify through the stale path only when the current run includes a healthy BazaarDB patch where the item is absent, the stats sidecar has at least 2 healthy BazaarDB absence windows for that item, and those counted absences span at least 30 calendar days. Unhealthy or skipped BazaarDB runs never count as absence evidence. Current Mobalytics or bazaar-builds.net presence blocks retirement; older secondary-source sightings are retained as context in the supporting-evidence comment but do not block by themselves.
+
+Curated game-change signals live in `game_changes/signals.json` with `schema_version: 1`. Supported signal types are `removed_card`, `renamed_card`, `explicit_invalidation`, `major_nerf`, and `watchlist`. Signal records require `id`, `type`, `item`, `effective_date`, `source_url`, and `note`; optional fields are `hero`, `replacement_item`, `patch`, and structured `metadata`. Unknown record fields are rejected. The default missing `game_changes/signals.json` loads as empty signals, but an explicit `--game-change-signals` path fails closed if it is missing, malformed, or uses an unsupported schema. These signals are curated source-backed metadata, not a scraping or hosted-LLM workflow.
+
+Retirement behavior follows the catalog bucket. `support_items` can become item-level removal candidates. `carry_items`, `core_items`, and `condition_items` create concrete review candidates with affected build context; they do not imply whole-archetype deletion. `universal_utility_items` and `economy_items` are support-like metadata, but they are still review-only until applier support exists. The guarded applier only removes an exact item from an exact archetype `support_items` list. Freeze-blocked, review-only, phase-level, carry/core/condition, utility/economy, and whole-archetype rows are skipped rather than applied.
+
+Coach PR plumbing separates additions and retirements. The pipeline creates focused coach branches named `pipeline/<hero>-additions` and `pipeline/<hero>-retirements` from the same captured coach base commit. Mixed diffs can open both PRs. Retirement partitions that contain only review-only evidence or skipped rows with no catalog byte changes are logged and do not create empty coach PRs. The PR body stays compact; the supporting-evidence comment carries detailed retirement evidence.
+
+Removal freezes remain a safety gate. While a global or hero freeze is active, removal evidence is still surfaced for review, but support removals are marked freeze-blocked and the applier will not mutate the coach catalog. Rollback remains explicit: use `local_dry_run` for artifact-only verification or `implementation` as the off switch. Do not change `pipeline_state.json` for retirement rollout work unless the operator explicitly approves it.
 
 ## Tests
 
@@ -111,6 +123,8 @@ stats sidecars, and never touches `../bazaar_tracker`.  Diff artifacts land in
 
 Run the sweep on `main` (before) and on a feature branch (after) to produce
 the regression evidence table (adds / updates / weaker_signals / applied / skipped).
+
+For retirement changes, use this sweep before rollout or after higher-risk behavior changes to confirm additions and retirements stay partitioned and no unexpected coach catalog mutations occur. The sweep is useful regression evidence, but it is not required for every small docs-only or low-risk change.
 
 **Safety invariant:** the sweep must never reuse `pipeline_state.json`.
 The script enforces this by constructing a temp state file in a

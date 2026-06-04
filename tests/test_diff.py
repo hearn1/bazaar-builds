@@ -4,7 +4,7 @@ import json
 
 from automated_builds_pipeline.classification import ItemClassification
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
-from automated_builds_pipeline.diff import build_arg_parser, generate_diff, main
+from automated_builds_pipeline.diff import build_arg_parser, focused_diff, generate_diff, main, partition_diff
 from automated_builds_pipeline.evaluator import EvaluationResult
 
 
@@ -62,7 +62,7 @@ def test_diff_generator_mock_mode_populates_shape():
     rows = [
         add_row("New Core", existing=True),
         add_row("New Archetype Item", phase="late", archetype="Wide"),
-        {"phase": "mid", "archetype": "Old", "item": "Old Core", "threshold_result": "remove_candidate", "threshold_reason": "bazaardb_absent_4_patches_21_days", "evidence_refs": []},
+        {"phase": "mid", "archetype": "Old", "item": "Old Core", "threshold_result": "remove_candidate", "threshold_reason": "bazaardb_absent_30_days", "evidence_refs": []},
     ]
     catalog = {"items": [{"item": "Existing", "phase": "early", "archetype": "Axe"}]}
 
@@ -92,6 +92,290 @@ def test_diff_generator_mock_mode_populates_shape():
     assert addition["candidate_support"][0]["item"] == "New Archetype Item"
     assert "candidate_pending" not in addition
     assert diff["proposed_changes"]["item_removal_candidates"][0]["item"] == "Old Core"
+
+
+def test_diff_routes_support_retirements_to_item_removal_candidates():
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Old Support",
+            "threshold_result": "remove_candidate",
+            "threshold_reason": "bazaardb_absent_30_days",
+            "catalog_bucket": "support_items",
+            "retirement_type": "support_item",
+            "retirement_basis": "bazaardb_absent_30_days",
+            "actionability": "item_removal_candidate",
+            "affected_items": ["Old Support"],
+            "signal_evidence": [],
+            "source_presence": {
+                "bazaardb": "absent",
+                "mobalytics_meta_builds": "absent",
+                "bazaar_builds_net": "absent",
+            },
+            "current_patch_evidence": {
+                "bazaardb": {
+                    "presence": "absent",
+                    "window_id": "bazaardb:2026-W18",
+                    "observed_at": "2026-05-05T12:00:00Z",
+                }
+            },
+            "canonical_presence": "absent",
+            "windows_seen": 4,
+            "first_seen_window": "bazaardb:2026-W12",
+            "last_seen_window": "bazaardb:2026-W14",
+            "evidence_refs": [],
+        },
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["proposed_changes"]["archetype_removal_candidates"] == []
+    removal = diff["proposed_changes"]["item_removal_candidates"][0]
+    assert removal["item"] == "Old Support"
+    assert removal["catalog_bucket"] == "support_items"
+    assert removal["retirement_type"] == "support_item"
+    assert removal["retirement_basis"] == "bazaardb_absent_30_days"
+    assert removal["actionability"] == "item_removal_candidate"
+    assert removal["affected_items"] == ["Old Support"]
+    assert removal["signal_evidence"] == []
+    assert removal["catalog_location"] == {
+        "phase": "mid",
+        "archetype": "Axe",
+        "item": "Old Support",
+        "bucket": "support_items",
+    }
+    assert removal["source_presence"]["bazaardb"] == "absent"
+    assert removal["current_patch_evidence"]["bazaardb"]["window_id"] == "bazaardb:2026-W18"
+    assert removal["canonical_presence"] == "absent"
+    assert removal["windows_seen"] == 4
+    assert removal["first_seen_window"] == "bazaardb:2026-W12"
+    assert removal["last_seen_window"] == "bazaardb:2026-W14"
+
+
+def test_diff_routes_bucket_review_retirements_away_from_item_removal_candidates():
+    rows = [
+        {
+            "phase": "late",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "threshold_result": "retirement_review_candidate",
+            "threshold_reason": "bazaardb_absent_30_days",
+            "catalog_bucket": "carry_items",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": "bazaardb_absent_30_days",
+            "actionability": "review_required",
+            "affected_items": ["Battle Axe"],
+            "affected_item_details": [
+                {
+                    "item": "Battle Axe",
+                    "catalog_bucket": "carry_items",
+                    "phase": "late",
+                    "archetype": "Axe",
+                }
+            ],
+            "affected_build_items": {
+                "carry_items": ["Battle Axe", "Sawpike"],
+                "core_items": ["Hidden Lake"],
+                "condition_items": ["Chains"],
+            },
+            "review_scope": "whole_build",
+            "review_priority": "normal",
+            "signal_evidence": [],
+            "evidence_refs": [],
+        },
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["proposed_changes"]["item_removal_candidates"] == []
+    review = diff["proposed_changes"]["archetype_removal_candidates"][0]
+    assert review["item"] == "Battle Axe"
+    assert review["catalog_bucket"] == "carry_items"
+    assert review["retirement_type"] == "whole_build_review"
+    assert review["retirement_basis"] == "bazaardb_absent_30_days"
+    assert review["actionability"] == "review_required"
+    assert review["affected_items"] == ["Battle Axe"]
+    assert review["affected_item_details"][0]["catalog_bucket"] == "carry_items"
+    assert review["affected_build_items"] == {
+        "carry_items": ["Battle Axe", "Sawpike"],
+        "core_items": ["Hidden Lake"],
+        "condition_items": ["Chains"],
+    }
+
+
+def test_signal_evidence_flows_to_removal_and_review_rows():
+    signal = {
+        "id": "removed-old-support",
+        "type": "removed_card",
+        "item": "Old Support",
+        "effective_date": "2026-05-01",
+        "source_url": "https://example.test/signal",
+        "note": "removed",
+    }
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Old Support",
+            "catalog_bucket": "support_items",
+            "threshold_result": "remove_candidate",
+            "threshold_reason": "game_change_removed_card",
+            "retirement_type": "support_item",
+            "retirement_basis": "game_change_removed_card",
+            "actionability": "item_removal_candidate",
+            "affected_items": ["Old Support"],
+            "signal_evidence": [signal],
+            "removal_blocked_by": [],
+            "evidence_refs": [],
+        },
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": "carry_items",
+            "threshold_result": "retirement_review_candidate",
+            "threshold_reason": "game_change_explicit_invalidation",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": "game_change_explicit_invalidation",
+            "actionability": "review_required",
+            "affected_items": ["Battle Axe"],
+            "review_scope": "whole_build",
+            "review_priority": "high",
+            "signal_evidence": [{**signal, "id": "invalid-axe", "type": "explicit_invalidation"}],
+            "removal_blocked_by": [],
+            "evidence_refs": [],
+        },
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    item = diff["proposed_changes"]["item_removal_candidates"][0]
+    review = diff["proposed_changes"]["archetype_removal_candidates"][0]
+    assert item["signal_evidence"] == [signal]
+    assert item["retirement_basis"] == "game_change_removed_card"
+    assert review["signal_evidence"][0]["id"] == "invalid-axe"
+    assert review["review_priority"] == "high"
+    assert review["review_scope"] == "whole_build"
+
+
+def test_partition_diff_addition_only_view_keeps_additions_and_weaker_signals():
+    diff = {
+        "hero": "Karnok",
+        "semantic_classification": True,
+        "proposed_changes": {
+            "archetype_updates": [{"phase": "mid", "archetype": "Axe", "missing_items": [{"item": "Sawpike"}]}],
+            "archetype_additions": [{"tag": "Burn", "candidate_phase": "late"}],
+            "archetype_removal_candidates": [],
+            "item_removal_candidates": [],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [{"item": "Maybe Support"}],
+        "noise": [{"reason": "invalid_classifier_item", "item": "Typo"}],
+    }
+
+    parts = partition_diff(diff)
+
+    assert parts.additions["proposed_changes"]["archetype_updates"]
+    assert parts.additions["proposed_changes"]["archetype_additions"]
+    assert parts.additions["proposed_changes"]["item_removal_candidates"] == []
+    assert parts.additions["proposed_changes"]["archetype_removal_candidates"] == []
+    assert parts.additions["weaker_signals"] == [{"item": "Maybe Support"}]
+    assert parts.additions["noise"] == [{"reason": "invalid_classifier_item", "item": "Typo"}]
+    assert parts.additions["diff_view"]["focus"] == "additions"
+    assert parts.additions["diff_view"]["contains_catalog_writes"] is True
+
+
+def test_partition_diff_retirement_only_view_preserves_removal_and_review_rows():
+    support_row = {
+        "phase": "mid",
+        "archetype": "Axe",
+        "item": "Old Support",
+        "catalog_bucket": "support_items",
+        "retirement_type": "support_item",
+        "retirement_basis": "game_change_removed_card",
+        "actionability": "item_removal_candidate",
+        "affected_items": ["Old Support"],
+        "signal_evidence": [{"id": "removed-old-support"}],
+    }
+    review_row = {
+        "phase": "late",
+        "archetype": "Axe",
+        "item": "Battle Axe",
+        "catalog_bucket": "carry_items",
+        "retirement_type": "whole_build_review",
+        "retirement_basis": "bazaardb_absent_30_days",
+        "actionability": "review_required",
+        "affected_items": ["Battle Axe"],
+        "signal_evidence": [{"id": "axe-watch"}],
+    }
+    diff = {
+        "hero": "Karnok",
+        "semantic_classification": True,
+        "proposed_changes": {
+            "archetype_updates": [{"phase": "mid", "archetype": "Axe", "missing_items": [{"item": "Sawpike"}]}],
+            "archetype_additions": [{"tag": "Burn", "candidate_phase": "late"}],
+            "archetype_removal_candidates": [review_row],
+            "item_removal_candidates": [support_row],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [{"item": "Maybe Support"}],
+        "noise": [{"reason": "invalid_classifier_item", "item": "Typo"}],
+    }
+
+    retirement = focused_diff(diff, "retirements")
+
+    assert retirement["proposed_changes"]["archetype_updates"] == []
+    assert retirement["proposed_changes"]["archetype_additions"] == []
+    assert retirement["proposed_changes"]["item_removal_candidates"] == [support_row]
+    assert retirement["proposed_changes"]["archetype_removal_candidates"] == [review_row]
+    assert retirement["weaker_signals"] == []
+    assert retirement["noise"] == []
+    assert retirement["diff_view"]["focus"] == "retirements"
+    assert retirement["diff_view"]["contains_catalog_writes"] is True
+    assert retirement["diff_view"]["contains_review_only_retirements"] is True
+    assert set(support_row) >= {
+        "retirement_type",
+        "catalog_bucket",
+        "retirement_basis",
+        "actionability",
+        "affected_items",
+        "signal_evidence",
+    }
+
+
+def test_partition_diff_review_only_retirement_exposes_non_actionable_metadata():
+    diff = {
+        "hero": "Karnok",
+        "semantic_classification": True,
+        "proposed_changes": {
+            "archetype_updates": [],
+            "archetype_additions": [],
+            "archetype_removal_candidates": [
+                {
+                    "phase": "late",
+                    "archetype": "Axe",
+                    "item": "Battle Axe",
+                    "catalog_bucket": "carry_items",
+                    "retirement_type": "whole_build_review",
+                    "retirement_basis": "bazaardb_absent_30_days",
+                    "actionability": "review_required",
+                    "affected_items": ["Battle Axe"],
+                    "signal_evidence": [],
+                }
+            ],
+            "item_removal_candidates": [],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+    retirement = partition_diff(diff).retirements
+
+    assert retirement["proposed_changes"]["archetype_removal_candidates"][0]["actionability"] == "review_required"
+    assert retirement["diff_view"]["contains_catalog_writes"] is False
+    assert retirement["diff_view"]["contains_review_only_retirements"] is True
 
 
 def test_source_quality_gate_coerces_carry_to_support():
@@ -162,7 +446,7 @@ def test_no_llm_shadow_keeps_removal_rows_but_no_semantic_labels():
             "archetype": "Old",
             "item": "Old Core",
             "threshold_result": "remove_candidate",
-            "threshold_reason": "bazaardb_absent_4_patches_21_days",
+            "threshold_reason": "bazaardb_absent_30_days",
             "evidence_refs": [],
         },
     ]

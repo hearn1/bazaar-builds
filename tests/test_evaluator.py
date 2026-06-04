@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 
 import pytest
 
@@ -13,6 +13,7 @@ from automated_builds_pipeline.evaluator import (
     iter_catalog_items,
     load_catalog_items,
 )
+from automated_builds_pipeline.game_changes import GameChangeSignal, GameChangeSignals
 from automated_builds_pipeline.sources.base import SourceFetchResult
 from automated_builds_pipeline.state import CuratorState, FreezeWindow
 from automated_builds_pipeline.stats import HeroStats, ItemWindowEvidence, WindowObservation, append_window
@@ -59,6 +60,31 @@ def decision_for(evaluation, item):
 
 def row_for(evaluation, item):
     return next(row for row in evaluation.rows if row["item"] == item)
+
+
+def signals(*records: GameChangeSignal) -> GameChangeSignals:
+    return GameChangeSignals(tuple(records))
+
+
+def signal(
+    signal_type: str,
+    item: str,
+    *,
+    signal_id: str = "sig-1",
+    replacement_item: str | None = None,
+) -> GameChangeSignal:
+    return GameChangeSignal(
+        id=signal_id,
+        type=signal_type,
+        item=item,
+        hero="Karnok",
+        effective_date=date(2026, 5, 1),
+        source_url=f"https://example.test/{signal_id}",
+        note=f"{signal_type} note",
+        replacement_item=replacement_item,
+        patch="2026-W18",
+        metadata={"severity": "explicit"},
+    )
 
 
 @pytest.mark.parametrize(
@@ -298,24 +324,212 @@ def test_add_candidate_from_mixed_current_sources():
     assert row["threshold_reason"] == "mobalytics_current_build"
 
 
-def test_remove_candidate_when_bazaardb_absent_four_patches_and_secondaries_clear():
-    stats = history_with_windows("Karnok", "bazaardb", "Old Core", [False, False, False, False])
-
-    evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
-
-    row = row_for(evaluation, "Old Core")
-    assert row["threshold_result"] == "remove_candidate"
-    assert row["threshold_reason"] == "bazaardb_absent_4_patches_21_days"
-
-
-def test_remove_blocked_when_secondary_present():
-    stats = history_with_windows("Karnok", "bazaardb", "Old Core", [False, False, False, False])
+def test_remove_candidate_when_current_healthy_bazaardb_absence_spans_30_days():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
 
     evaluation = evaluate_hero(
         "Karnok",
         [CatalogItem("Old Core", phase="mid")],
         stats,
-        [result("mobalytics_meta_builds", ["Old Core"])],
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "bazaardb_absent_30_days"
+    assert "4_patches" not in row["threshold_reason"]
+    assert "21_days" not in row["threshold_reason"]
+
+
+def test_support_bucket_retirement_is_item_removal_even_with_core_carry_names():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Support Piece", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [
+            CatalogItem(
+                "Support Piece",
+                phase="core phase",
+                archetype="carry archetype",
+                bucket="support_items",
+            )
+        ],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Support Piece")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["catalog_bucket"] == "support_items"
+    assert row["retirement_type"] == "support_item"
+    assert row["retirement_basis"] == "bazaardb_absent_30_days"
+    assert row["actionability"] == "item_removal_candidate"
+    assert row["affected_items"] == ["Support Piece"]
+    assert row["signal_evidence"] == []
+
+
+@pytest.mark.parametrize(
+    ("bucket", "retirement_type", "review_scope"),
+    [
+        ("carry_items", "whole_build_review", "whole_build"),
+        ("core_items", "core_item_review", "core_item"),
+        ("condition_items", "condition_item_review", "condition_item"),
+        ("universal_utility_items", "support_like_phase_item", "phase_item"),
+        ("economy_items", "support_like_phase_item", "phase_item"),
+    ],
+)
+def test_non_support_buckets_create_review_retirement_candidates(bucket, retirement_type, review_scope):
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Retired Item", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Retired Item", phase="mid", archetype="Axe", bucket=bucket)],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Retired Item")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["catalog_bucket"] == bucket
+    assert row["retirement_type"] == retirement_type
+    assert row["retirement_basis"] == "bazaardb_absent_30_days"
+    assert row["actionability"] == "review_required"
+    assert row["affected_items"] == ["Retired Item"]
+    assert row["affected_item_details"] == [
+        {
+            "item": "Retired Item",
+            "catalog_bucket": bucket,
+            "phase": "mid",
+            "archetype": "Axe",
+        }
+    ]
+    assert row["review_scope"] == review_scope
+    assert row["review_priority"] == "normal"
+
+
+def test_carry_retirement_review_includes_commitment_context_without_deletion_action():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Battle Axe", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [
+            CatalogItem("Battle Axe", phase="mid", archetype="Axe", bucket="carry_items"),
+            CatalogItem("Sawpike", phase="mid", archetype="Axe", bucket="carry_items"),
+            CatalogItem("Hidden Lake", phase="mid", archetype="Axe", bucket="core_items"),
+            CatalogItem("Chains", phase="mid", archetype="Axe", bucket="condition_items"),
+            CatalogItem("Bagpipes", phase="mid", archetype="Axe", bucket="support_items"),
+        ],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Battle Axe")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["retirement_type"] == "whole_build_review"
+    assert row["affected_items"] == ["Battle Axe"]
+    assert row["affected_build_items"] == {
+        "carry_items": ["Battle Axe", "Sawpike"],
+        "core_items": ["Hidden Lake"],
+        "condition_items": ["Chains"],
+    }
+    assert row["actionability"] == "review_required"
+
+
+def test_support_bucket_with_secondary_presence_does_not_use_core_carry_name_heuristic():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [
+            CatalogItem(
+                "Established Support",
+                phase="core phase",
+                archetype="carry archetype",
+                bucket="support_items",
+            )
+        ],
+        HeroStats(hero="Karnok"),
+        [
+            result("bazaardb", []),
+            result_with_evidence(
+                "mobalytics_meta_builds",
+                [ItemWindowEvidence(item="Established Support", archetype="carry archetype")],
+            ),
+        ],
+    )
+
+    decision = decision_for(evaluation, "Established Support")
+    row = row_for(evaluation, "Established Support")
+    assert decision.reason == "secondary_present"
+    assert row["threshold_result"] == "no_change"
+    assert row["catalog_bucket"] == "support_items"
+    assert row["retirement_type"] is None
+
+
+@pytest.mark.parametrize("bucket", ["carry_items", "core_items", "condition_items"])
+def test_commitment_buckets_preserve_existing_classification_when_secondary_present(bucket):
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Established Item", phase="mid", archetype="Axe", bucket=bucket)],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", []), result("mobalytics_meta_builds", ["Established Item"])],
+    )
+
+    decision = decision_for(evaluation, "Established Item")
+    row = row_for(evaluation, "Established Item")
+    assert decision.reason == "primary_absent_secondary_present_preserve_existing_classification"
+    assert row["threshold_reason"] == "secondary_present_bazaardb_absent"
+    assert row["catalog_bucket"] == bucket
+
+
+def test_remove_candidate_requires_30_day_absence_span():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(29))],
+    )
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "no_change"
+    assert row["threshold_reason"] == "none"
+
+
+def test_remove_candidate_requires_two_healthy_absence_windows():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "insufficient_history"
+    assert row["threshold_reason"] == "not_enough_windows"
+
+
+@pytest.mark.parametrize("current_results", [[], [result("bazaardb", [], status="unhealthy")]])
+def test_remove_candidate_requires_current_healthy_bazaardb_absence(current_results):
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0, 30])
+
+    evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, current_results)
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "no_change"
+    assert row["threshold_reason"] == "none"
+
+
+def test_remove_blocked_when_current_healthy_secondary_present():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        stats,
+        [
+            result("bazaardb", [], observed_at=observed_at_days(30)),
+            result("mobalytics_meta_builds", ["Old Core"], observed_at=observed_at_days(30)),
+        ],
     )
 
     row = row_for(evaluation, "Old Core")
@@ -323,15 +537,41 @@ def test_remove_blocked_when_secondary_present():
     assert row["threshold_reason"] == "secondary_present_bazaardb_absent"
 
 
-def test_remove_blocked_when_freeze_active():
-    stats = history_with_windows("Karnok", "bazaardb", "Old Core", [False, False, False, False])
+def test_older_secondary_presence_is_context_not_permanent_retirement_block():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
+    append_window(
+        stats,
+        "mobalytics_meta_builds",
+        WindowObservation(
+            window_id="mobalytics_meta_builds:old",
+            observed_at=observed_at_days(1),
+            items=[ItemWindowEvidence(item="Old Core", present=True)],
+        ),
+    )
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "bazaardb_absent_30_days"
+    assert row["windows_seen"] == 1
+    assert row["first_seen_window"] == "mobalytics_meta_builds:old"
+
+
+def test_remove_blocked_when_freeze_active_preserves_candidate_evidence():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
     state = CuratorState(hero_freezes={"karnok": FreezeWindow("2026-05-06T12:00:00Z")})
 
     evaluation = evaluate_hero(
         "Karnok",
         [CatalogItem("Old Core", phase="mid")],
         stats,
-        [],
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
         state,
         now=datetime(2026, 5, 5, 12, tzinfo=timezone.utc),
     )
@@ -340,33 +580,152 @@ def test_remove_blocked_when_freeze_active():
     assert row["threshold_result"] == "blocked"
     assert row["threshold_reason"] == "none"
     assert row["removal_blocked_by"] == ["freeze_removals"]
+    assert row["source_presence"]["bazaardb"] == "absent"
+    assert row["current_patch_evidence"]["bazaardb"]["presence"] == "absent"
+    assert row["current_patch_evidence"]["bazaardb"]["observed_at"] == observed_at_days(30)
 
 
-def test_unhealthy_bazaardb_window_does_not_count_toward_absence_streak():
+def test_removed_support_signal_creates_candidate_without_stale_absence():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        game_change_signals=signals(signal("removed_card", "Old Support", signal_id="removed-old-support")),
+    )
+
+    row = row_for(evaluation, "Old Support")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "game_change_removed_card"
+    assert row["retirement_basis"] == "game_change_removed_card"
+    assert row["catalog_bucket"] == "support_items"
+    assert row["actionability"] == "item_removal_candidate"
+    assert row["signal_evidence"][0]["id"] == "removed-old-support"
+    assert row["signal_evidence"][0]["source_url"] == "https://example.test/removed-old-support"
+
+
+def test_renamed_support_signal_carries_replacement_context():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Name", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(
+            signal("renamed_card", "Old Name", signal_id="rename-old-name", replacement_item="New Name")
+        ),
+    )
+
+    row = row_for(evaluation, "Old Name")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "game_change_renamed_card"
+    assert row["affected_item_details"][0]["replacement_item"] == "New Name"
+    assert row["signal_evidence"][0]["replacement_item"] == "New Name"
+
+
+def test_carry_invalidation_signal_creates_whole_build_review_candidate():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [
+            CatalogItem("Battle Axe", phase="mid", archetype="Axe", bucket="carry_items"),
+            CatalogItem("Hidden Lake", phase="mid", archetype="Axe", bucket="core_items"),
+            CatalogItem("Small Support", phase="mid", archetype="Axe", bucket="support_items"),
+        ],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(signal("explicit_invalidation", "Battle Axe", signal_id="axe-invalid")),
+    )
+
+    row = row_for(evaluation, "Battle Axe")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["threshold_reason"] == "game_change_explicit_invalidation"
+    assert row["retirement_type"] == "whole_build_review"
+    assert row["actionability"] == "review_required"
+    assert row["review_priority"] == "high"
+    assert row["affected_build_items"] == {
+        "carry_items": ["Battle Axe"],
+        "core_items": ["Hidden Lake"],
+    }
+
+
+@pytest.mark.parametrize(
+    ("bucket", "retirement_type", "review_scope"),
+    [
+        ("core_items", "core_item_review", "core_item"),
+        ("condition_items", "condition_item_review", "condition_item"),
+    ],
+)
+def test_core_and_condition_invalidation_signals_are_high_priority_reviews(bucket, retirement_type, review_scope):
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Questionable Item", phase="mid", archetype="Axe", bucket=bucket)],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(signal("explicit_invalidation", "Questionable Item")),
+    )
+
+    row = row_for(evaluation, "Questionable Item")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["retirement_type"] == retirement_type
+    assert row["review_scope"] == review_scope
+    assert row["review_priority"] == "high"
+    assert row["actionability"] == "review_required"
+
+
+def test_major_nerf_signal_creates_watchlist_review_not_removal():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Nerfed Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(signal("major_nerf", "Nerfed Support", signal_id="nerf-support")),
+    )
+
+    row = row_for(evaluation, "Nerfed Support")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["threshold_reason"] == "game_change_major_nerf"
+    assert row["actionability"] == "watchlist_review"
+    assert row["review_priority"] == "watchlist"
+
+
+def test_signal_support_candidate_is_visible_but_freeze_blocked():
+    state = CuratorState(hero_freezes={"karnok": FreezeWindow("2026-05-06T12:00:00Z")})
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        state,
+        now=datetime(2026, 5, 5, 12, tzinfo=timezone.utc),
+        game_change_signals=signals(signal("removed_card", "Old Support")),
+    )
+
+    row = row_for(evaluation, "Old Support")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["actionability"] == "freeze_blocked"
+    assert row["removal_blocked_by"] == ["freeze_removals"]
+    assert row["signal_evidence"][0]["type"] == "removed_card"
+
+
+def test_unhealthy_bazaardb_window_does_not_count_toward_absence_span():
     stats = HeroStats(hero="Karnok")
-    for index, healthy in enumerate([True, True, False, True], start=1):
-        append_window(
-            stats,
-            "bazaardb",
-            WindowObservation(
-                window_id=f"bazaardb:p{index}",
-                observed_at=observed_at_days(index * 7),
-                health_status="healthy" if healthy else "unhealthy",
-                items=[ItemWindowEvidence(item="Old Core", present=False)],
-            ),
+    append_window(
+        stats,
+        "bazaardb",
+        WindowObservation(
+            window_id="bazaardb:unhealthy",
+            observed_at=observed_at_days(0),
+            health_status="unhealthy",
+            items=[ItemWindowEvidence(item="Old Core", present=False)],
         )
+    )
 
-    evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
-
-    row = row_for(evaluation, "Old Core")
-    assert row["threshold_result"] == "insufficient_history"
-    assert row["threshold_reason"] == "not_enough_windows"
-
-
-def test_insufficient_history_returns_insufficient_history_not_no_change():
-    stats = history_with_windows("Karnok", "bazaardb", "Old Core", [False, False])
-
-    evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
 
     row = row_for(evaluation, "Old Core")
     assert row["threshold_result"] == "insufficient_history"
@@ -505,15 +864,23 @@ def test_global_bazaardb_observations_require_catalog_context_for_add_candidates
 
 
 @pytest.mark.parametrize("phase", ["core", "carry"])
-def test_existing_core_and_carry_items_preserved_when_primary_absent_and_secondary_present(phase):
+def test_legacy_phase_names_do_not_preserve_existing_classification_without_bucket(phase):
     evaluation = evaluate_hero(
         "Karnok",
         [CatalogItem("Established Item", phase=phase, archetype=f"{phase} archetype")],
         HeroStats(hero="Karnok"),
-        [result("bazaardb", []), result("mobalytics_meta_builds", ["Established Item"])],
+        [
+            result("bazaardb", []),
+            result_with_evidence(
+                "mobalytics_meta_builds",
+                [ItemWindowEvidence(item="Established Item", archetype=f"{phase} archetype")],
+            ),
+        ],
     )
 
+    decision = decision_for(evaluation, "Established Item")
     row = row_for(evaluation, "Established Item")
+    assert decision.reason == "secondary_present"
     assert row["threshold_result"] == "no_change"
     assert row["threshold_reason"] == "secondary_present_bazaardb_absent"
     assert row["disagreement"] == "secondary_present_bazaardb_absent"
@@ -570,6 +937,21 @@ def test_source_artifact_hydration_accepts_prefetched_output_shape():
 
 def history_with_windows(hero: str, source: str, item: str, present_values: list[bool]) -> HeroStats:
     return history_with_archetype(hero, source, item, present_values, archetype="Observed Archetype")
+
+
+def history_with_absent_windows(hero: str, source: str, item: str, days: list[int]) -> HeroStats:
+    stats = HeroStats(hero=hero)
+    for day in days:
+        append_window(
+            stats,
+            source,
+            WindowObservation(
+                window_id=f"{source}:day-{day}",
+                observed_at=observed_at_days(day),
+                items=[ItemWindowEvidence(item=item, present=False)],
+            ),
+        )
+    return stats
 
 
 def history_with_archetype(
@@ -645,17 +1027,17 @@ def test_catalog_walker_handles_real_tracker_shape(tmp_path):
 
     by_phase = {}
     for item in items:
-        by_phase.setdefault(item.phase, []).append((item.archetype, item.item))
+        by_phase.setdefault(item.phase, []).append((item.archetype, item.item, item.bucket))
 
-    assert (None, "Flying Squirrel") in by_phase["early"]
-    assert (None, "Hunter's Journal") in by_phase["early"]
-    assert ("Axe", "Battle Axe") in by_phase["early_mid"]
-    assert ("Slow - Ammo", "Chains") in by_phase["late"]
-    assert ("Slow - Ammo", "Shotgun") in by_phase["late"]
+    assert (None, "Flying Squirrel", "universal_utility_items") in by_phase["early"]
+    assert (None, "Hunter's Journal", "economy_items") in by_phase["early"]
+    assert ("Axe", "Battle Axe", "carry_items") in by_phase["early_mid"]
+    assert ("Slow - Ammo", "Chains", "condition_items") in by_phase["late"]
+    assert ("Slow - Ammo", "Shotgun", "carry_items") in by_phase["late"]
 
 
 def test_catalog_walker_handles_legacy_items_list_shape():
-    catalog = {"items": [{"item": "Pufferfish", "phase": "early", "archetype": "Axe"}]}
+    catalog = {"items": [{"item": "Pufferfish", "phase": "early", "archetype": "Axe", "bucket": "support_items"}]}
 
     items = list(iter_catalog_items(catalog))
 
@@ -663,6 +1045,15 @@ def test_catalog_walker_handles_legacy_items_list_shape():
     assert items[0].item == "Pufferfish"
     assert items[0].phase == "early"
     assert items[0].archetype == "Axe"
+    assert items[0].bucket == "support_items"
+
+
+def test_catalog_item_from_dict_preserves_bucket():
+    item = CatalogItem.from_dict(
+        {"item": "Pufferfish", "phase": "early", "archetype": "Axe", "bucket": "support_items"}
+    )
+
+    assert item.bucket == "support_items"
 
 
 def test_load_catalog_items_walks_tracker_shape(tmp_path):

@@ -1,6 +1,7 @@
 """Deterministically apply proposed_changes to a player-facing <hero>_builds.json.
 
-Additive only: archetype_additions + archetype_updates. Removal and reshuffle
+Supported writes are intentionally narrow: additive archetype changes plus
+exact archetype support_items retirements. Higher-risk retirement and reshuffle
 buckets are surfaced to the curator via proposal evidence, never auto-applied.
 """
 
@@ -92,7 +93,7 @@ def serialize_catalog(catalog: dict[str, Any]) -> str:
 def apply_proposed_changes(
     catalog: dict[str, Any], diff_json: dict[str, Any]
 ) -> ApplyResult:
-    """Apply additive proposed_changes to a deep copy of ``catalog``.
+    """Apply supported proposed_changes to a deep copy of ``catalog``.
 
     Returns the new catalog plus applied/skipped summaries. The input is never
     mutated. Re-running with an already-applied diff is a byte-stable no-op.
@@ -115,8 +116,15 @@ def apply_proposed_changes(
     for entry in proposed.get("archetype_additions", []) or []:
         _apply_addition(result, entry)
 
-    # item_removal_candidates / archetype_removal_candidates / archetype_reshuffles
-    # are intentionally not applied (additive only).
+    for entry in proposed.get("item_removal_candidates", []) or []:
+        _apply_item_removal(result, entry)
+
+    for entry in proposed.get("archetype_removal_candidates", []) or []:
+        _skip_removal_candidate(result, "archetype_removal_candidate", entry)
+
+    for entry in proposed.get("archetype_reshuffles", []) or []:
+        _skip_removal_candidate(result, "archetype_reshuffle", entry)
+
     return result
 
 
@@ -231,6 +239,93 @@ def _merge_item(
         # pure content changes leave existing key order untouched.
         idx = archetypes.index(arch)
         archetypes[idx] = _reorder_archetype(arch)
+
+
+def _apply_item_removal(result: ApplyResult, entry: dict[str, Any]) -> None:
+    reason = _unsupported_item_removal_reason(entry)
+    if reason is not None:
+        result.skipped.append(
+            f"item_removal {entry.get('item')!r}: {reason}"
+        )
+        return
+
+    phase = entry.get("phase")
+    name = entry.get("archetype")
+    item = str(entry["item"])
+    archetypes = _phase_archetypes(result.catalog, phase)
+    if archetypes is None:
+        result.skipped.append(
+            f"item_removal {item!r} in phase {phase!r}: phase missing or has no archetypes"
+        )
+        return
+    arch = _find_archetype(archetypes, name)
+    if arch is None:
+        result.skipped.append(
+            f"item_removal {item!r} in {name!r}/{phase!r}: archetype not found"
+        )
+        return
+    support_items = arch.get("support_items")
+    if not isinstance(support_items, list):
+        result.skipped.append(
+            f"item_removal {item!r} in {name!r}/{phase!r}: support_items missing or not a list"
+        )
+        return
+    if item not in support_items:
+        result.skipped.append(
+            f"item_removal {item!r} in {name!r}/{phase!r}: item not found in support_items"
+        )
+        return
+
+    support_items.remove(item)
+    result.applied.append(
+        f"{name!r}/{phase!r}: removed {item!r} from support_items"
+    )
+
+
+def _unsupported_item_removal_reason(entry: dict[str, Any]) -> str | None:
+    if entry.get("freeze_blocked") or "freeze_removals" in (
+        entry.get("removal_blocked_by") or []
+    ):
+        return "freeze-blocked retirement candidate is review-only"
+    if entry.get("catalog_bucket") != "support_items":
+        return (
+            f"unsupported catalog_bucket {entry.get('catalog_bucket')!r}; "
+            "only support_items removals are applier-supported"
+        )
+    if entry.get("retirement_type") != "support_item":
+        return (
+            f"unsupported retirement_type {entry.get('retirement_type')!r}; "
+            "only support_item removals are applier-supported"
+        )
+    if entry.get("actionability") != "item_removal_candidate":
+        return f"unsupported actionability {entry.get('actionability')!r}"
+    if not entry.get("phase"):
+        return "missing exact phase"
+    if not entry.get("archetype"):
+        return "missing exact archetype; phase-level removals are not applier-supported"
+    if not entry.get("item"):
+        return "missing item"
+    return None
+
+
+def _skip_removal_candidate(
+    result: ApplyResult, candidate_type: str, entry: dict[str, Any]
+) -> None:
+    item = entry.get("item")
+    phase = entry.get("phase")
+    archetype = entry.get("archetype")
+    catalog_location = entry.get("catalog_location")
+    location_bucket = (
+        catalog_location.get("bucket")
+        if isinstance(catalog_location, dict)
+        else None
+    )
+    bucket = entry.get("catalog_bucket") or location_bucket
+    actionability = entry.get("actionability")
+    result.skipped.append(
+        f"{candidate_type} {item!r} in {archetype!r}/{phase!r}: "
+        f"not applier-supported (bucket={bucket!r}, actionability={actionability!r})"
+    )
 
 
 def _phase_archetypes(catalog: dict[str, Any], phase: Any) -> list[Any] | None:

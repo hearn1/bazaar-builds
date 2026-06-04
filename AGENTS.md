@@ -15,7 +15,7 @@ python -m pip install -r requirements.txt
 python -m pytest -q tests
 ```
 
-Current local verification: 171 tests passing. Use `python -m pytest -q tests`; a bare repo-root pytest can collect generated `artifacts/` directories and fail before the tracked suite runs.
+Current local verification command: use `python -m pytest -q tests`; a bare repo-root pytest can collect generated `artifacts/` directories and fail before the tracked suite runs.
 
 Fetch evidence for a hero. The GitHub repo is `hearn1/bazaar_coach`, but the
 local working checkout in use is the sibling directory `..\bazaar_tracker`;
@@ -60,7 +60,7 @@ python -m automated_builds_pipeline.research.refresh_samples --source bazaardb
 
 ## Current Pipeline Phase
 
-`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification; they fetch sources, evaluate, persist stats sidecars through auto-merged `automated/stats-sync-<hero>-<run>` PRs in this repo, and open/update rolling proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes. Direct pushes to `main` are not used because branch protection requires PRs.
+`pipeline_state.json` is currently `phase: live_cron` with `dry_run: false`. Scheduled runs default to deterministic classification; they fetch sources, evaluate, persist stats sidecars through auto-merged `automated/stats-sync-<hero>-<run>` PRs in this repo, and open/update focused additions and retirements proposal PRs in `hearn1/bazaar_coach` when there are non-empty catalog changes. Direct pushes to `main` are not used because branch protection requires PRs.
 
 The promotion intentionally waives Gate 1 (2 counted healthy bazaardb patch windows) and Gate 2 (14 calendar days of deterministic output). The audit record is `waivers/live_cron_promotion_waiver_2026-05-18.md`, and readiness reporting must surface that waiver. The waiver does not bypass deterministic classifier readiness, recent malformed/unhealthy bazaardb checks, schema validation, or curator review of coach PRs.
 
@@ -77,6 +77,18 @@ Priority order is bazaardb, then Mobalytics, then bazaar-builds.net.
 - `bazaar-builds.net/category/builds/`: dated WordPress post evidence. Use `--fetch-posts`; the 30-day window depends on parsed post dates and a non-empty known-items list.
 
 Unhealthy source runs contribute no absence evidence. Multiple healthy sources in one run are not multiple temporal windows.
+
+## Retirement Policy
+
+Stale retirements require current healthy BazaarDB absence plus at least 2 healthy BazaarDB absence windows spanning 30 calendar days in the stats sidecar. Unhealthy or skipped BazaarDB runs do not count, and current healthy BazaarDB must be present for the run to qualify. Current Mobalytics or bazaar-builds.net presence blocks retirement; older secondary evidence is preserved as context only.
+
+Curated game-change signals live at `game_changes/signals.json` with `schema_version: 1`. Default absence of that file loads empty signals; an explicit `--game-change-signals` path fails closed when missing, malformed, or unsupported. Supported signal types are `removed_card`, `renamed_card`, `explicit_invalidation`, `major_nerf`, and `watchlist`. Signal records must be source-backed via `source_url` and `note`; optional structured `metadata` is allowed, but unknown record fields are rejected. This workflow does not use scraping or hosted LLM classification.
+
+Retirement rows use the shared vocabulary `retirement_type`, `catalog_bucket`, `retirement_basis`, `actionability`, `affected_items`, and `signal_evidence`. `support_items` can become item-level removal material. `carry_items`, `core_items`, and `condition_items` create concrete review candidates and never imply whole-archetype deletion. `universal_utility_items` and `economy_items` are support-like metadata but are review-only until applier support exists.
+
+The guarded applier only removes exact archetype `support_items` entries. Freeze-blocked rows, review-only rows, phase-level rows, whole-archetype rows, and non-support buckets are skipped. Removals remain curator-reviewed coach PRs, and active global or hero freezes keep removal evidence visible while preventing catalog mutation.
+
+Coach PR plumbing partitions additions and retirements onto `pipeline/<hero>-additions` and `pipeline/<hero>-retirements` branches. Retirement-only partitions that have no catalog byte changes, including review-only evidence, are logged without creating empty PRs. Roll back retirement automation by returning to `local_dry_run` for artifact-only runs or `implementation` as the off switch; do not edit `pipeline_state.json` unless Matt explicitly approves.
 
 ## Stats Sidecars
 

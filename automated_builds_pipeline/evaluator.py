@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Optional
 
+from automated_builds_pipeline.game_changes import GameChangeSignal, GameChangeSignals
 from automated_builds_pipeline.sources.base import HEALTHY, SourceFetchResult
 from automated_builds_pipeline.state import CuratorState, load_state
 from automated_builds_pipeline.stats import (
@@ -34,15 +35,15 @@ ADD_BAZAAR_BUILDS_NET_WINDOW_COUNT = 3
 BAZAARDB_STRONG_APPEARANCES = 10
 BAZAARDB_STRONG_FREQUENCY = 0.20
 BAZAARDB_CORE_SAMPLE = 20
-REMOVE_BAZAARDB_ABSENT_PATCHES = 4
-REMOVE_MIN_ABSENT_DAYS = 21
+REMOVE_BAZAARDB_ABSENT_WINDOWS = 2
+REMOVE_MIN_ABSENT_DAYS = 30
 REASON_MAP = {
     "bazaardb_current_strong": "bazaardb_current_patch_strong",
     "bazaardb_2_of_3": "bazaardb_present_2_of_3_patches",
     "mobalytics_current": "mobalytics_current_build",
     "bazaar_builds_net_2_of_3": "bazaar_builds_net_2_of_3_windows",
     "mixed_current_sources": "mobalytics_current_build",
-    "bazaardb_absent_4_patches_21_days_secondaries_clear": "bazaardb_absent_4_patches_21_days",
+    "bazaardb_absent_30_days_secondaries_clear": "bazaardb_absent_30_days",
     "secondary_present": "secondary_present_bazaardb_absent",
     "primary_absent_secondary_present_preserve_existing_classification": "secondary_present_bazaardb_absent",
     "insufficient_history": "not_enough_windows",
@@ -50,6 +51,11 @@ REASON_MAP = {
     "archetype_change_unresolved": "none",
     "below_add_threshold": "none",
     "thresholds_not_met": "none",
+    "game_change_removed_card": "game_change_removed_card",
+    "game_change_renamed_card": "game_change_renamed_card",
+    "game_change_explicit_invalidation": "game_change_explicit_invalidation",
+    "game_change_major_nerf": "game_change_major_nerf",
+    "game_change_watchlist": "game_change_watchlist",
 }
 
 
@@ -66,6 +72,7 @@ class CatalogItem:
             item=str(data["item"]),
             phase=_optional_str(data.get("phase")),
             archetype=_optional_str(data.get("archetype")),
+            bucket=_optional_str(data.get("bucket")),
         )
 
 
@@ -114,6 +121,10 @@ class ThresholdDecision:
     disagreement: Optional[SourceDisagreement] = None
     evidence_refs: list[str] = field(default_factory=list)
     unresolved: list[str] = field(default_factory=list)
+    blocked_by: list[str] = field(default_factory=list)
+    signal_evidence: list[dict[str, Any]] = field(default_factory=list)
+    actionability_override: Optional[str] = None
+    review_priority: Optional[str] = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -140,7 +151,7 @@ class ThresholdDecision:
 
     @property
     def removal_blocked_by(self) -> list[str]:
-        blocked_by = []
+        blocked_by = list(self.blocked_by)
         if self.reason == "freeze_active":
             blocked_by.append("freeze_removals")
         if self.reason in {
@@ -184,6 +195,7 @@ def evaluate_hero(
     state: Optional[CuratorState] = None,
     *,
     now: Optional[datetime] = None,
+    game_change_signals: Optional[GameChangeSignals] = None,
 ) -> EvaluationResult:
     state = state or CuratorState()
     generated_at = _format_utc(now or datetime.now(timezone.utc))
@@ -192,7 +204,9 @@ def evaluate_hero(
     catalog = _catalog_index(catalog_items_list)
     context = _catalog_context(hero, catalog.values())
     commitment_index = _archetype_commitment_index(catalog_items_list)
+    catalog_item_index = _catalog_item_index(catalog_items_list)
     current = _hero_scoped_current(current, context)
+    signals = game_change_signals or GameChangeSignals()
     freeze = state.freeze_status(hero, now)
     freeze_active = freeze.active
     unresolved: list[str] = []
@@ -200,6 +214,7 @@ def evaluate_hero(
         unresolved.append(f"freeze_active:{freeze.scope}:{freeze.until}")
 
     all_items = set(catalog) | _stats_items_for_context(stats, context)
+    all_items.update(signal.item for signal in signals.for_hero(hero) if signal.item in catalog)
     for source_result in current.values():
         all_items.update(item.item for item in source_result.observation.items if item.present)
 
@@ -218,12 +233,23 @@ def evaluate_hero(
                     for rphase, rname in resolved:
                         routed = dataclasses.replace(decision, phase=rphase, archetype=rname)
                         decisions.append(routed)
-                        rows.append(_row_dict(hero, routed, existing, current, stats))
+                        rows.append(_row_dict(hero, routed, existing, current, stats, catalog_item_index))
                     continue
         else:
             decision = _evaluate_existing(item, existing, stats, current, disagreement, freeze_active)
+            for signal_decision in _evaluate_game_change_signals(
+                hero,
+                item,
+                existing,
+                disagreement,
+                current,
+                freeze_active,
+                signals,
+            ):
+                decisions.append(signal_decision)
+                rows.append(_row_dict(hero, signal_decision, existing, current, stats, catalog_item_index))
         decisions.append(decision)
-        rows.append(_row_dict(hero, decision, existing, current, stats))
+        rows.append(_row_dict(hero, decision, existing, current, stats, catalog_item_index))
 
     return EvaluationResult(
         hero=hero,
@@ -323,7 +349,7 @@ def iter_catalog_items(catalog: dict[str, Any]) -> Iterable[CatalogItem]:
             for bucket in ("universal_utility_items", "economy_items"):
                 for item in phase_data.get(bucket, []) or []:
                     if item:
-                        yield CatalogItem(item=str(item), phase=phase_name, archetype=None)
+                        yield CatalogItem(item=str(item), phase=phase_name, archetype=None, bucket=bucket)
 
     raw_items = catalog.get("items")
     if isinstance(raw_items, list):
@@ -407,7 +433,7 @@ def _evaluate_existing(
     if freeze_active:
         return ThresholdDecision(item, "no_change", "freeze_active", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
 
-    if _existing_core_or_carry(existing) and disagreement.classification_ceiling == "support_only":
+    if _preserve_existing_bucket_on_secondary_presence(existing) and disagreement.classification_ceiling == "support_only":
         return ThresholdDecision(item, "no_change", "primary_absent_secondary_present_preserve_existing_classification", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
 
     if _archetype_changed(item, existing, current):
@@ -415,7 +441,7 @@ def _evaluate_existing(
 
     remove_status = _remove_status(item, stats, current)
     if remove_status == "remove_candidate":
-        return ThresholdDecision(item, "remove_candidate", "bazaardb_absent_4_patches_21_days_secondaries_clear", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
+        return ThresholdDecision(item, _retirement_action(existing), "bazaardb_absent_30_days_secondaries_clear", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
     if remove_status == "insufficient_history":
         return ThresholdDecision(item, "no_change", "insufficient_history", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
     if remove_status == "secondary_present":
@@ -424,20 +450,92 @@ def _evaluate_existing(
 
 
 def _remove_status(item: str, stats: HeroStats, current: dict[str, SourceFetchResult]) -> str:
+    if _current_presence(item, current.get(PRIMARY_SOURCE)) is not False:
+        return "no_change"
     if any(_current_presence(item, current.get(source)) is True for source in SECONDARY_SOURCES):
         return "secondary_present"
     rows = _healthy_rows_with_current(stats, current, item, PRIMARY_SOURCE)
-    if len(rows) < REMOVE_BAZAARDB_ABSENT_PATCHES:
+    last_present_index = max((index for index, row in enumerate(rows) if row.present), default=-1)
+    absence_rows = [row for row in rows[last_present_index + 1 :] if not row.present]
+    if len(absence_rows) < REMOVE_BAZAARDB_ABSENT_WINDOWS:
         return "insufficient_history"
-    recent = rows[-REMOVE_BAZAARDB_ABSENT_PATCHES:]
-    if any(row.present for row in recent):
-        return "no_change"
-    observed = [_parse_time(row.observed_at) for row in recent]
+    observed = [_parse_time(row.observed_at) for row in absence_rows]
     if (max(observed) - min(observed)).days < REMOVE_MIN_ABSENT_DAYS:
         return "no_change"
-    if any(_source_has_present_history(stats, source, item) for source in SECONDARY_SOURCES):
-        return "secondary_present"
     return "remove_candidate"
+
+
+def _evaluate_game_change_signals(
+    hero: str,
+    item: str,
+    existing: CatalogItem,
+    disagreement: SourceDisagreement,
+    current: dict[str, SourceFetchResult],
+    freeze_active: bool,
+    signals: GameChangeSignals,
+) -> list[ThresholdDecision]:
+    decisions: list[ThresholdDecision] = []
+    for signal in signals.matching(hero=hero, item=item):
+        action = _signal_retirement_action(signal, existing)
+        if action is None:
+            continue
+        blocked_by = ["freeze_removals"] if freeze_active and action == "remove_candidate" else []
+        decisions.append(
+            ThresholdDecision(
+                item,
+                action,
+                f"game_change_{signal.type}",
+                existing.phase,
+                existing.archetype,
+                disagreement.classification_ceiling,
+                disagreement,
+                _signal_evidence_refs(signal, current),
+                blocked_by=blocked_by,
+                signal_evidence=[_signal_evidence(signal)],
+                actionability_override=_signal_actionability(signal, existing, freeze_active),
+                review_priority=_signal_review_priority(signal, existing),
+            )
+        )
+    return decisions
+
+
+def _signal_retirement_action(signal: GameChangeSignal, existing: CatalogItem) -> Optional[str]:
+    role = _retirement_role(existing.bucket)
+    if signal.type in {"removed_card", "renamed_card"} and role["actionability"] == "item_removal_candidate":
+        return "remove_candidate"
+    if signal.type in {"removed_card", "renamed_card", "explicit_invalidation", "major_nerf", "watchlist"}:
+        return "retirement_review_candidate"
+    return None
+
+
+def _signal_actionability(signal: GameChangeSignal, existing: CatalogItem, freeze_active: bool) -> str:
+    role = _retirement_role(existing.bucket)
+    if freeze_active and signal.type in {"removed_card", "renamed_card"} and role["actionability"] == "item_removal_candidate":
+        return "freeze_blocked"
+    if signal.type in {"major_nerf", "watchlist"}:
+        return "watchlist_review"
+    if signal.type == "explicit_invalidation":
+        return "review_required"
+    return role["actionability"]
+
+
+def _signal_review_priority(signal: GameChangeSignal, existing: CatalogItem) -> str:
+    if signal.type == "explicit_invalidation" and existing.bucket in {"carry_items", "core_items", "condition_items"}:
+        return "high"
+    if signal.type in {"major_nerf", "watchlist"}:
+        return "watchlist"
+    return "normal"
+
+
+def _signal_evidence(signal: GameChangeSignal) -> dict[str, Any]:
+    return signal.to_dict()
+
+
+def _signal_evidence_refs(signal: GameChangeSignal, current: dict[str, SourceFetchResult]) -> list[str]:
+    refs = _evidence_refs(signal.item, current)
+    refs.append(f"game_changes:{signal.id}")
+    refs.append(signal.source_url)
+    return sorted(set(refs))
 
 
 def _healthy_seen_count(
@@ -691,6 +789,15 @@ def _archetype_commitment_index(
     return {key: frozenset(items) for key, items in index.items()}
 
 
+def _catalog_item_index(
+    catalog_items: Iterable[CatalogItem],
+) -> dict[tuple[Optional[str], Optional[str]], list[CatalogItem]]:
+    index: dict[tuple[Optional[str], Optional[str]], list[CatalogItem]] = {}
+    for item in catalog_items:
+        index.setdefault((item.phase, item.archetype), []).append(item)
+    return index
+
+
 def _observed_archetype_labels(item: str, current: dict[str, SourceFetchResult]) -> frozenset[str]:
     """Collect all archetype label parts seen for *item* across healthy sources."""
     parts: set[str] = set()
@@ -758,10 +865,6 @@ def _current_source_support_count(item: str, current: dict[str, SourceFetchResul
     return sum(1 for value in groups if value)
 
 
-def _source_has_present_history(stats: HeroStats, source: str, item: str) -> bool:
-    return any(row.present for row in stats.item_history(item, source))
-
-
 def _evidence_refs(item: str, current: dict[str, SourceFetchResult]) -> list[str]:
     refs: list[str] = []
     for result in current.values():
@@ -779,17 +882,20 @@ def _row_dict(
     existing: Optional[CatalogItem],
     current: dict[str, SourceFetchResult],
     stats: HeroStats,
+    catalog_item_index: dict[tuple[Optional[str], Optional[str]], list[CatalogItem]],
 ) -> dict[str, Any]:
     source_presence = _source_presence(decision.item, current)
     current_patch_evidence = _current_patch_evidence(decision.item, current)
     history = _history_summary(decision.item, stats)
     phase = decision.phase or _observed_phase(decision.item, current) or _default_candidate_phase(decision, existing)
+    retirement = _retirement_metadata(decision, existing, catalog_item_index)
     return {
         "hero": hero,
         "phase": phase,
         "archetype": decision.archetype or _observed_archetype(decision.item, current),
         "archetype_status": _archetype_status(decision, existing),
         "item": decision.item,
+        "catalog_bucket": existing.bucket if existing else None,
         "catalog_membership": "present" if existing else "missing",
         "source_presence": source_presence,
         "current_patch_evidence": current_patch_evidence,
@@ -817,6 +923,7 @@ def _row_dict(
             and decision.classification_ceiling in {"carry_core_support", "support_only"}
         ),
         "evidence_refs": _evidence_ref_objects(decision.evidence_refs),
+        **retirement,
     }
 
 
@@ -970,7 +1077,7 @@ def _latest_numeric(evidence: dict[str, dict[str, Any]], key: str) -> Optional[f
 def _canonical_presence(decision: ThresholdDecision, source_presence: dict[str, str]) -> str:
     if source_presence[PRIMARY_SOURCE] == "present" or decision.threshold_result == "add_candidate":
         return "present"
-    if decision.threshold_result == "remove_candidate":
+    if decision.threshold_result in {"remove_candidate", "archetype_remove_candidate", "retirement_review_candidate"}:
         return "absent"
     if decision.disagreement and decision.disagreement.label != "none":
         return "disputed_present"
@@ -1057,9 +1164,137 @@ def _run_id(generated_at: str) -> str:
     return generated_at.replace("-", "").replace(":", "")
 
 
-def _existing_core_or_carry(item: CatalogItem) -> bool:
-    value = f"{item.phase or ''} {item.archetype or ''}".casefold()
-    return "core" in value or "carry" in value
+def _preserve_existing_bucket_on_secondary_presence(item: CatalogItem) -> bool:
+    return item.bucket in {"carry_items", "core_items", "condition_items"}
+
+
+def _retirement_action(item: CatalogItem) -> str:
+    role = _retirement_role(item.bucket)
+    if role["actionability"] == "item_removal_candidate":
+        return "remove_candidate"
+    return "retirement_review_candidate"
+
+
+def _retirement_metadata(
+    decision: ThresholdDecision,
+    existing: Optional[CatalogItem],
+    catalog_item_index: dict[tuple[Optional[str], Optional[str]], list[CatalogItem]],
+) -> dict[str, Any]:
+    if existing is None or decision.threshold_result not in {
+        "remove_candidate",
+        "archetype_remove_candidate",
+        "retirement_review_candidate",
+    }:
+        return {
+            "retirement_type": None,
+            "retirement_basis": None,
+            "actionability": None,
+            "affected_items": [],
+            "affected_item_details": [],
+            "affected_build_items": {},
+            "review_scope": None,
+            "review_priority": None,
+            "signal_evidence": [],
+        }
+    role = _retirement_role(existing.bucket)
+    actionability = decision.actionability_override or role["actionability"]
+    affected_build_items = (
+        _affected_build_items(existing, catalog_item_index)
+        if actionability != "item_removal_candidate"
+        else {}
+    )
+    affected_detail = {
+        "item": decision.item,
+        "catalog_bucket": existing.bucket,
+        "phase": existing.phase,
+        "archetype": existing.archetype,
+    }
+    replacement = _replacement_item(decision.signal_evidence)
+    if replacement:
+        affected_detail["replacement_item"] = replacement
+    return {
+        "retirement_type": role["retirement_type"],
+        "retirement_basis": decision.threshold_reason,
+        "actionability": actionability,
+        "affected_items": [decision.item],
+        "affected_item_details": [affected_detail],
+        "affected_build_items": affected_build_items,
+        "review_scope": role["review_scope"],
+        "review_priority": decision.review_priority or "normal",
+        "signal_evidence": list(decision.signal_evidence),
+    }
+
+
+def _replacement_item(signal_evidence: list[dict[str, Any]]) -> Optional[str]:
+    for signal in signal_evidence:
+        replacement = signal.get("replacement_item")
+        if replacement:
+            return str(replacement)
+    return None
+
+
+def _retirement_role(bucket: Optional[str]) -> dict[str, str]:
+    roles = {
+        "support_items": {
+            "retirement_type": "support_item",
+            "actionability": "item_removal_candidate",
+            "review_scope": "support_item",
+        },
+        "carry_items": {
+            "retirement_type": "whole_build_review",
+            "actionability": "review_required",
+            "review_scope": "whole_build",
+        },
+        "core_items": {
+            "retirement_type": "core_item_review",
+            "actionability": "review_required",
+            "review_scope": "core_item",
+        },
+        "condition_items": {
+            "retirement_type": "condition_item_review",
+            "actionability": "review_required",
+            "review_scope": "condition_item",
+        },
+        "universal_utility_items": {
+            "retirement_type": "support_like_phase_item",
+            "actionability": "review_required",
+            "review_scope": "phase_item",
+        },
+        "economy_items": {
+            "retirement_type": "support_like_phase_item",
+            "actionability": "review_required",
+            "review_scope": "phase_item",
+        },
+    }
+    return roles.get(
+        bucket,
+        {
+            "retirement_type": "catalog_item",
+            "actionability": "item_removal_candidate",
+            "review_scope": "catalog_item",
+        },
+    )
+
+
+def _affected_build_items(
+    existing: CatalogItem,
+    catalog_item_index: dict[tuple[Optional[str], Optional[str]], list[CatalogItem]],
+) -> dict[str, list[str]]:
+    if existing.archetype is None:
+        return {
+            existing.bucket or "catalog_items": [existing.item],
+        }
+    grouped: dict[str, list[str]] = {
+        "carry_items": [],
+        "core_items": [],
+        "condition_items": [],
+    }
+    for item in catalog_item_index.get((existing.phase, existing.archetype), []):
+        if item.bucket in grouped and item.item not in grouped[item.bucket]:
+            grouped[item.bucket].append(item.item)
+    if existing.bucket in grouped and existing.item not in grouped[existing.bucket]:
+        grouped[existing.bucket].append(existing.item)
+    return {bucket: items for bucket, items in grouped.items() if items}
 
 
 def _archetype_changed(item: str, existing: CatalogItem, current: dict[str, SourceFetchResult]) -> bool:

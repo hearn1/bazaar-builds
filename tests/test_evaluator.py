@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 
 import pytest
 
@@ -13,6 +13,7 @@ from automated_builds_pipeline.evaluator import (
     iter_catalog_items,
     load_catalog_items,
 )
+from automated_builds_pipeline.game_changes import GameChangeSignal, GameChangeSignals
 from automated_builds_pipeline.sources.base import SourceFetchResult
 from automated_builds_pipeline.state import CuratorState, FreezeWindow
 from automated_builds_pipeline.stats import HeroStats, ItemWindowEvidence, WindowObservation, append_window
@@ -59,6 +60,31 @@ def decision_for(evaluation, item):
 
 def row_for(evaluation, item):
     return next(row for row in evaluation.rows if row["item"] == item)
+
+
+def signals(*records: GameChangeSignal) -> GameChangeSignals:
+    return GameChangeSignals(tuple(records))
+
+
+def signal(
+    signal_type: str,
+    item: str,
+    *,
+    signal_id: str = "sig-1",
+    replacement_item: str | None = None,
+) -> GameChangeSignal:
+    return GameChangeSignal(
+        id=signal_id,
+        type=signal_type,
+        item=item,
+        hero="Karnok",
+        effective_date=date(2026, 5, 1),
+        source_url=f"https://example.test/{signal_id}",
+        note=f"{signal_type} note",
+        replacement_item=replacement_item,
+        patch="2026-W18",
+        metadata={"severity": "explicit"},
+    )
 
 
 @pytest.mark.parametrize(
@@ -557,6 +583,128 @@ def test_remove_blocked_when_freeze_active_preserves_candidate_evidence():
     assert row["source_presence"]["bazaardb"] == "absent"
     assert row["current_patch_evidence"]["bazaardb"]["presence"] == "absent"
     assert row["current_patch_evidence"]["bazaardb"]["observed_at"] == observed_at_days(30)
+
+
+def test_removed_support_signal_creates_candidate_without_stale_absence():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        game_change_signals=signals(signal("removed_card", "Old Support", signal_id="removed-old-support")),
+    )
+
+    row = row_for(evaluation, "Old Support")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "game_change_removed_card"
+    assert row["retirement_basis"] == "game_change_removed_card"
+    assert row["catalog_bucket"] == "support_items"
+    assert row["actionability"] == "item_removal_candidate"
+    assert row["signal_evidence"][0]["id"] == "removed-old-support"
+    assert row["signal_evidence"][0]["source_url"] == "https://example.test/removed-old-support"
+
+
+def test_renamed_support_signal_carries_replacement_context():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Name", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(
+            signal("renamed_card", "Old Name", signal_id="rename-old-name", replacement_item="New Name")
+        ),
+    )
+
+    row = row_for(evaluation, "Old Name")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "game_change_renamed_card"
+    assert row["affected_item_details"][0]["replacement_item"] == "New Name"
+    assert row["signal_evidence"][0]["replacement_item"] == "New Name"
+
+
+def test_carry_invalidation_signal_creates_whole_build_review_candidate():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [
+            CatalogItem("Battle Axe", phase="mid", archetype="Axe", bucket="carry_items"),
+            CatalogItem("Hidden Lake", phase="mid", archetype="Axe", bucket="core_items"),
+            CatalogItem("Small Support", phase="mid", archetype="Axe", bucket="support_items"),
+        ],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(signal("explicit_invalidation", "Battle Axe", signal_id="axe-invalid")),
+    )
+
+    row = row_for(evaluation, "Battle Axe")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["threshold_reason"] == "game_change_explicit_invalidation"
+    assert row["retirement_type"] == "whole_build_review"
+    assert row["actionability"] == "review_required"
+    assert row["review_priority"] == "high"
+    assert row["affected_build_items"] == {
+        "carry_items": ["Battle Axe"],
+        "core_items": ["Hidden Lake"],
+    }
+
+
+@pytest.mark.parametrize(
+    ("bucket", "retirement_type", "review_scope"),
+    [
+        ("core_items", "core_item_review", "core_item"),
+        ("condition_items", "condition_item_review", "condition_item"),
+    ],
+)
+def test_core_and_condition_invalidation_signals_are_high_priority_reviews(bucket, retirement_type, review_scope):
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Questionable Item", phase="mid", archetype="Axe", bucket=bucket)],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(signal("explicit_invalidation", "Questionable Item")),
+    )
+
+    row = row_for(evaluation, "Questionable Item")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["retirement_type"] == retirement_type
+    assert row["review_scope"] == review_scope
+    assert row["review_priority"] == "high"
+    assert row["actionability"] == "review_required"
+
+
+def test_major_nerf_signal_creates_watchlist_review_not_removal():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Nerfed Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(signal("major_nerf", "Nerfed Support", signal_id="nerf-support")),
+    )
+
+    row = row_for(evaluation, "Nerfed Support")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["threshold_reason"] == "game_change_major_nerf"
+    assert row["actionability"] == "watchlist_review"
+    assert row["review_priority"] == "watchlist"
+
+
+def test_signal_support_candidate_is_visible_but_freeze_blocked():
+    state = CuratorState(hero_freezes={"karnok": FreezeWindow("2026-05-06T12:00:00Z")})
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        state,
+        now=datetime(2026, 5, 5, 12, tzinfo=timezone.utc),
+        game_change_signals=signals(signal("removed_card", "Old Support")),
+    )
+
+    row = row_for(evaluation, "Old Support")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["actionability"] == "freeze_blocked"
+    assert row["removal_blocked_by"] == ["freeze_removals"]
+    assert row["signal_evidence"][0]["type"] == "removed_card"
 
 
 def test_unhealthy_bazaardb_window_does_not_count_toward_absence_span():

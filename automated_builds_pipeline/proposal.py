@@ -116,11 +116,13 @@ def _removals(lines: list[str], diff: dict[str, Any]) -> None:
                 f"{row.get('retirement_type') or 'review'} ({row.get('reason') or 'review'}){details}"
             )
             _affected_build_lines(lines, row)
+            _signal_lines(lines, row)
             _blocks(lines, row)
     if items:
         lines.append("### Items")
         for row in items:
             lines.append(f"- {row.get('phase') or 'unknown'} / {row.get('archetype') or 'unknown'} / {row.get('item')}: {row.get('reason') or 'review'}")
+            _signal_lines(lines, row)
             _blocks(lines, row)
     lines.append("")
 
@@ -200,6 +202,25 @@ def _affected_build_lines(lines: list[str], row: dict[str, Any]) -> None:
         items = build_items.get(bucket)
         if items:
             lines.append(f"  {bucket}: {', '.join(str(item) for item in items)}")
+
+
+def _signal_lines(lines: list[str], row: dict[str, Any]) -> None:
+    signals = row.get("signal_evidence")
+    if not isinstance(signals, list) or not signals:
+        return
+    for signal in signals:
+        if not isinstance(signal, dict):
+            continue
+        bits = [
+            str(signal.get("id") or "unknown"),
+            str(signal.get("type") or "signal"),
+            str(signal.get("effective_date") or "unknown-date"),
+        ]
+        if signal.get("replacement_item"):
+            bits.append(f"replacement: {signal['replacement_item']}")
+        if signal.get("source_url"):
+            bits.append(str(signal["source_url"]))
+        lines.append(f"  Signal: {'; '.join(bits)}")
 
 
 def _ref_label(ref: Any) -> str:

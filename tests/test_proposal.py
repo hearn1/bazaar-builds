@@ -179,3 +179,42 @@ def test_renderer_shows_retirement_review_affected_commitment_pieces():
     assert "carry_items: Battle Axe, Sawpike" in markdown
     assert "core_items: Hidden Lake" in markdown
     assert "condition_items: Chains" in markdown
+
+
+def test_renderer_shows_game_change_signal_metadata_for_retirements():
+    diff = {
+        "hero": "Karnok",
+        "source_window": {"start": "2026-05-01", "end": "2026-05-05", "n_windows_history": 3},
+        "freeze_state": {"removals_frozen": False, "patch_label": None},
+        "source_health": [],
+        "proposed_changes": {
+            "archetype_updates": [],
+            "archetype_additions": [],
+            "archetype_removal_candidates": [],
+            "item_removal_candidates": [
+                {
+                    "phase": "mid",
+                    "archetype": "Axe",
+                    "item": "Old Support",
+                    "reason": "game_change_renamed_card",
+                    "signal_evidence": [
+                        {
+                            "id": "rename-old-support",
+                            "type": "renamed_card",
+                            "effective_date": "2026-05-01",
+                            "replacement_item": "New Support",
+                            "source_url": "https://example.test/signal",
+                        }
+                    ],
+                }
+            ],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+    markdown = render_proposal(diff)
+
+    assert "Old Support: game_change_renamed_card" in markdown
+    assert "Signal: rename-old-support; renamed_card; 2026-05-01; replacement: New Support; https://example.test/signal" in markdown

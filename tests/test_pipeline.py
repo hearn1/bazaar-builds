@@ -6,6 +6,7 @@ import pytest
 from automated_builds_pipeline import pipeline
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.evaluator import EvaluationResult
+from automated_builds_pipeline.game_changes import GameChangeSignals
 from automated_builds_pipeline.hero_items import HeroItemOwnership
 from automated_builds_pipeline.sources.base import SourceFetchResult
 from automated_builds_pipeline.stats import (
@@ -196,9 +197,10 @@ def patch_fetchers(monkeypatch, *, bazaardb_results: list[SourceFetchResult] | N
 
 
 def patch_evaluator(monkeypatch, captured):
-    def fake_evaluate(hero, catalog_items, stats, source_results, state):
+    def fake_evaluate(hero, catalog_items, stats, source_results, state, **kwargs):
         captured["source_results"] = list(source_results)
         captured["state"] = state
+        captured["game_change_signals"] = kwargs.get("game_change_signals")
         return EvaluationResult(
             hero=hero,
             freeze_active=state.freeze_status(hero).active,
@@ -816,6 +818,58 @@ def test_freeze_state_is_passed_to_evaluator(monkeypatch, tmp_path):
     )
 
     assert captured["state"].freeze_status("Karnok").active is True
+
+
+def test_default_game_change_signals_are_loaded_for_evaluator(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch)
+    loaded = GameChangeSignals()
+    monkeypatch.setattr(pipeline, "load_default_signals", lambda: loaded)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    assert captured["game_change_signals"] is loaded
+
+
+def test_explicit_game_change_signal_path_is_loaded_for_evaluator(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    signal_path = tmp_path / "signals.json"
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch)
+    loaded = GameChangeSignals()
+
+    def fake_load_signals(path):
+        assert path == signal_path
+        return loaded
+
+    monkeypatch.setattr(pipeline, "load_default_signals", lambda: pytest.fail("should load explicit path"))
+    monkeypatch.setattr(pipeline, "load_signals", fake_load_signals)
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+        game_change_signal_path=signal_path,
+    )
+
+    assert captured["game_change_signals"] is loaded
 
 
 def semantic_update_diff() -> dict:

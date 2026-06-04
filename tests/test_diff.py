@@ -174,9 +174,61 @@ def test_diff_routes_bucket_review_retirements_away_from_item_removal_candidates
         "core_items": ["Hidden Lake"],
         "condition_items": ["Chains"],
     }
+
+
+def test_signal_evidence_flows_to_removal_and_review_rows():
+    signal = {
+        "id": "removed-old-support",
+        "type": "removed_card",
+        "item": "Old Support",
+        "effective_date": "2026-05-01",
+        "source_url": "https://example.test/signal",
+        "note": "removed",
+    }
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Old Support",
+            "catalog_bucket": "support_items",
+            "threshold_result": "remove_candidate",
+            "threshold_reason": "game_change_removed_card",
+            "retirement_type": "support_item",
+            "retirement_basis": "game_change_removed_card",
+            "actionability": "item_removal_candidate",
+            "affected_items": ["Old Support"],
+            "signal_evidence": [signal],
+            "removal_blocked_by": [],
+            "evidence_refs": [],
+        },
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": "carry_items",
+            "threshold_result": "retirement_review_candidate",
+            "threshold_reason": "game_change_explicit_invalidation",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": "game_change_explicit_invalidation",
+            "actionability": "review_required",
+            "affected_items": ["Battle Axe"],
+            "review_scope": "whole_build",
+            "review_priority": "high",
+            "signal_evidence": [{**signal, "id": "invalid-axe", "type": "explicit_invalidation"}],
+            "removal_blocked_by": [],
+            "evidence_refs": [],
+        },
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    item = diff["proposed_changes"]["item_removal_candidates"][0]
+    review = diff["proposed_changes"]["archetype_removal_candidates"][0]
+    assert item["signal_evidence"] == [signal]
+    assert item["retirement_basis"] == "game_change_removed_card"
+    assert review["signal_evidence"][0]["id"] == "invalid-axe"
+    assert review["review_priority"] == "high"
     assert review["review_scope"] == "whole_build"
-    assert review["review_priority"] == "normal"
-    assert review["signal_evidence"] == []
 
 
 def test_source_quality_gate_coerces_carry_to_support():

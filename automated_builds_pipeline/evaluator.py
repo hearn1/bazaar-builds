@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Optional
 
+from automated_builds_pipeline.game_changes import GameChangeSignal, GameChangeSignals
 from automated_builds_pipeline.sources.base import HEALTHY, SourceFetchResult
 from automated_builds_pipeline.state import CuratorState, load_state
 from automated_builds_pipeline.stats import (
@@ -50,6 +51,11 @@ REASON_MAP = {
     "archetype_change_unresolved": "none",
     "below_add_threshold": "none",
     "thresholds_not_met": "none",
+    "game_change_removed_card": "game_change_removed_card",
+    "game_change_renamed_card": "game_change_renamed_card",
+    "game_change_explicit_invalidation": "game_change_explicit_invalidation",
+    "game_change_major_nerf": "game_change_major_nerf",
+    "game_change_watchlist": "game_change_watchlist",
 }
 
 
@@ -115,6 +121,10 @@ class ThresholdDecision:
     disagreement: Optional[SourceDisagreement] = None
     evidence_refs: list[str] = field(default_factory=list)
     unresolved: list[str] = field(default_factory=list)
+    blocked_by: list[str] = field(default_factory=list)
+    signal_evidence: list[dict[str, Any]] = field(default_factory=list)
+    actionability_override: Optional[str] = None
+    review_priority: Optional[str] = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -141,7 +151,7 @@ class ThresholdDecision:
 
     @property
     def removal_blocked_by(self) -> list[str]:
-        blocked_by = []
+        blocked_by = list(self.blocked_by)
         if self.reason == "freeze_active":
             blocked_by.append("freeze_removals")
         if self.reason in {
@@ -185,6 +195,7 @@ def evaluate_hero(
     state: Optional[CuratorState] = None,
     *,
     now: Optional[datetime] = None,
+    game_change_signals: Optional[GameChangeSignals] = None,
 ) -> EvaluationResult:
     state = state or CuratorState()
     generated_at = _format_utc(now or datetime.now(timezone.utc))
@@ -195,6 +206,7 @@ def evaluate_hero(
     commitment_index = _archetype_commitment_index(catalog_items_list)
     catalog_item_index = _catalog_item_index(catalog_items_list)
     current = _hero_scoped_current(current, context)
+    signals = game_change_signals or GameChangeSignals()
     freeze = state.freeze_status(hero, now)
     freeze_active = freeze.active
     unresolved: list[str] = []
@@ -202,6 +214,7 @@ def evaluate_hero(
         unresolved.append(f"freeze_active:{freeze.scope}:{freeze.until}")
 
     all_items = set(catalog) | _stats_items_for_context(stats, context)
+    all_items.update(signal.item for signal in signals.for_hero(hero) if signal.item in catalog)
     for source_result in current.values():
         all_items.update(item.item for item in source_result.observation.items if item.present)
 
@@ -224,6 +237,17 @@ def evaluate_hero(
                     continue
         else:
             decision = _evaluate_existing(item, existing, stats, current, disagreement, freeze_active)
+            for signal_decision in _evaluate_game_change_signals(
+                hero,
+                item,
+                existing,
+                disagreement,
+                current,
+                freeze_active,
+                signals,
+            ):
+                decisions.append(signal_decision)
+                rows.append(_row_dict(hero, signal_decision, existing, current, stats, catalog_item_index))
         decisions.append(decision)
         rows.append(_row_dict(hero, decision, existing, current, stats, catalog_item_index))
 
@@ -439,6 +463,79 @@ def _remove_status(item: str, stats: HeroStats, current: dict[str, SourceFetchRe
     if (max(observed) - min(observed)).days < REMOVE_MIN_ABSENT_DAYS:
         return "no_change"
     return "remove_candidate"
+
+
+def _evaluate_game_change_signals(
+    hero: str,
+    item: str,
+    existing: CatalogItem,
+    disagreement: SourceDisagreement,
+    current: dict[str, SourceFetchResult],
+    freeze_active: bool,
+    signals: GameChangeSignals,
+) -> list[ThresholdDecision]:
+    decisions: list[ThresholdDecision] = []
+    for signal in signals.matching(hero=hero, item=item):
+        action = _signal_retirement_action(signal, existing)
+        if action is None:
+            continue
+        blocked_by = ["freeze_removals"] if freeze_active and action == "remove_candidate" else []
+        decisions.append(
+            ThresholdDecision(
+                item,
+                action,
+                f"game_change_{signal.type}",
+                existing.phase,
+                existing.archetype,
+                disagreement.classification_ceiling,
+                disagreement,
+                _signal_evidence_refs(signal, current),
+                blocked_by=blocked_by,
+                signal_evidence=[_signal_evidence(signal)],
+                actionability_override=_signal_actionability(signal, existing, freeze_active),
+                review_priority=_signal_review_priority(signal, existing),
+            )
+        )
+    return decisions
+
+
+def _signal_retirement_action(signal: GameChangeSignal, existing: CatalogItem) -> Optional[str]:
+    role = _retirement_role(existing.bucket)
+    if signal.type in {"removed_card", "renamed_card"} and role["actionability"] == "item_removal_candidate":
+        return "remove_candidate"
+    if signal.type in {"removed_card", "renamed_card", "explicit_invalidation", "major_nerf", "watchlist"}:
+        return "retirement_review_candidate"
+    return None
+
+
+def _signal_actionability(signal: GameChangeSignal, existing: CatalogItem, freeze_active: bool) -> str:
+    role = _retirement_role(existing.bucket)
+    if freeze_active and signal.type in {"removed_card", "renamed_card"} and role["actionability"] == "item_removal_candidate":
+        return "freeze_blocked"
+    if signal.type in {"major_nerf", "watchlist"}:
+        return "watchlist_review"
+    if signal.type == "explicit_invalidation":
+        return "review_required"
+    return role["actionability"]
+
+
+def _signal_review_priority(signal: GameChangeSignal, existing: CatalogItem) -> str:
+    if signal.type == "explicit_invalidation" and existing.bucket in {"carry_items", "core_items", "condition_items"}:
+        return "high"
+    if signal.type in {"major_nerf", "watchlist"}:
+        return "watchlist"
+    return "normal"
+
+
+def _signal_evidence(signal: GameChangeSignal) -> dict[str, Any]:
+    return signal.to_dict()
+
+
+def _signal_evidence_refs(signal: GameChangeSignal, current: dict[str, SourceFetchResult]) -> list[str]:
+    refs = _evidence_refs(signal.item, current)
+    refs.append(f"game_changes:{signal.id}")
+    refs.append(signal.source_url)
+    return sorted(set(refs))
 
 
 def _healthy_seen_count(
@@ -1100,29 +1197,40 @@ def _retirement_metadata(
             "signal_evidence": [],
         }
     role = _retirement_role(existing.bucket)
+    actionability = decision.actionability_override or role["actionability"]
     affected_build_items = (
         _affected_build_items(existing, catalog_item_index)
-        if role["actionability"] == "review_required"
+        if actionability != "item_removal_candidate"
         else {}
     )
+    affected_detail = {
+        "item": decision.item,
+        "catalog_bucket": existing.bucket,
+        "phase": existing.phase,
+        "archetype": existing.archetype,
+    }
+    replacement = _replacement_item(decision.signal_evidence)
+    if replacement:
+        affected_detail["replacement_item"] = replacement
     return {
         "retirement_type": role["retirement_type"],
         "retirement_basis": decision.threshold_reason,
-        "actionability": role["actionability"],
+        "actionability": actionability,
         "affected_items": [decision.item],
-        "affected_item_details": [
-            {
-                "item": decision.item,
-                "catalog_bucket": existing.bucket,
-                "phase": existing.phase,
-                "archetype": existing.archetype,
-            }
-        ],
+        "affected_item_details": [affected_detail],
         "affected_build_items": affected_build_items,
         "review_scope": role["review_scope"],
-        "review_priority": "normal",
-        "signal_evidence": [],
+        "review_priority": decision.review_priority or "normal",
+        "signal_evidence": list(decision.signal_evidence),
     }
+
+
+def _replacement_item(signal_evidence: list[dict[str, Any]]) -> Optional[str]:
+    for signal in signal_evidence:
+        replacement = signal.get("replacement_item")
+        if replacement:
+            return str(replacement)
+    return None
 
 
 def _retirement_role(bucket: Optional[str]) -> dict[str, str]:

@@ -149,3 +149,37 @@ def test_retirement_review_candidates_include_affected_item_history():
 
     assert "### Axe / Battle Axe" in rendered
     assert "| bazaardb | bazaardb:Apr 29 | no | - | - |" in rendered
+
+
+def test_supporting_comment_includes_game_change_signal_metadata():
+    stats = HeroStats(hero="Karnok")
+    add_row(stats, "bazaardb", "Apr 29", item="Old Support", present=False)
+    diff = {
+        "hero": "Karnok",
+        "window_id": "May 06",
+        "proposed_changes": {
+            "archetype_updates": [],
+            "archetype_additions": [],
+            "item_removal_candidates": [
+                {
+                    "archetype": "Axe",
+                    "item": "Old Support",
+                    "signal_evidence": [
+                        {
+                            "id": "rename-old-support",
+                            "type": "renamed_card",
+                            "effective_date": "2026-05-01",
+                            "replacement_item": "New Support",
+                            "source_url": "https://example.test/signal",
+                        }
+                    ],
+                }
+            ],
+            "archetype_removal_candidates": [],
+        },
+    }
+
+    rendered = render_pr_comment(diff, stats)
+
+    assert "**Game-change signals**" in rendered
+    assert "- rename-old-support; renamed_card; 2026-05-01; replacement: New Support; https://example.test/signal" in rendered

@@ -17,6 +17,7 @@ from typing import Any, Callable, Literal, Optional
 from automated_builds_pipeline import applier, diff
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.evaluator import load_catalog_items, evaluate_hero
+from automated_builds_pipeline.game_changes import load_default_signals, load_signals
 from automated_builds_pipeline.hero_items import HeroItemOwnership, load_hero_item_ownership
 from automated_builds_pipeline.pr_comment import render_pr_comment
 from automated_builds_pipeline.proposal import render_proposal
@@ -65,6 +66,7 @@ def run(
     no_bazaardb: bool = False,
     classifier_mode: ClassifierMode = "deterministic",
     promote_cross_source: bool = False,
+    game_change_signal_path: Optional[Path] = None,
     pr_action: Optional[PrAction] = None,
 ) -> PipelineResult:
     state = load_state(state_file)
@@ -83,7 +85,19 @@ def run(
     stats = load_stats(hero, stats_dir)
     catalog_path = _catalog_path(hero, tracker_repo)
     catalog_items = load_catalog_items(catalog_path)
-    evaluation = evaluate_hero(hero, catalog_items, stats, current_run, state)
+    game_change_signals = (
+        load_signals(game_change_signal_path)
+        if game_change_signal_path is not None
+        else load_default_signals()
+    )
+    evaluation = evaluate_hero(
+        hero,
+        catalog_items,
+        stats,
+        current_run,
+        state,
+        game_change_signals=game_change_signals,
+    )
 
     stats.last_classifier_mode = classifier_mode
     if classifier_mode in REAL_CLASSIFIER_MODES and stats.classifier_started_at is None:
@@ -250,6 +264,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--output-dir", type=Path, required=True)
     run_parser.add_argument("--bazaardb-retries", type=int, default=2)
     run_parser.add_argument("--no-bazaardb", action="store_true")
+    run_parser.add_argument("--game-change-signals", type=Path, default=None)
     run_parser.add_argument(
         "--classifier-mode",
         choices=("no_llm_shadow", "deterministic"),
@@ -282,6 +297,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             no_bazaardb=args.no_bazaardb,
             classifier_mode=args.classifier_mode,
             promote_cross_source=args.promote_cross_source,
+            game_change_signal_path=args.game_change_signals,
         )
         return 0
     return 2

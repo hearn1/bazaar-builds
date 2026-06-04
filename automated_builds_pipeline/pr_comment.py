@@ -13,6 +13,7 @@ from automated_builds_pipeline.stats import HeroStats, SUPPORTED_SOURCES, Window
 class EvidenceTarget:
     archetype: Optional[str]
     item: Optional[str] = None
+    signal_evidence: tuple[dict[str, Any], ...] = ()
 
 
 def render_pr_comment(diff: dict, stats: HeroStats, *, history_windows: int = 6) -> str:
@@ -28,6 +29,10 @@ def render_pr_comment(diff: dict, stats: HeroStats, *, history_windows: int = 6)
     for target in targets:
         lines.extend(["", f"### {_heading(target)}", "", "**Trajectory** (last K windows per source, K = history_windows parameter):", ""])
         lines.extend(_trajectory_table(target, stats, history_windows))
+        signal_lines = _signal_lines(target)
+        if signal_lines:
+            lines.extend(["", "**Game-change signals**:", ""])
+            lines.extend(signal_lines)
         if target.item is not None:
             cross_archetypes = _cross_archetype_usage(target.item, stats, history_windows)
             if len(cross_archetypes) >= 2:
@@ -55,7 +60,13 @@ def _evidence_targets(diff: dict) -> list[EvidenceTarget]:
             targets.append(EvidenceTarget(archetype=archetype, item=_str_or_none(item.get("item"))))
 
     for removal in _dict_rows(proposed.get("item_removal_candidates")):
-        targets.append(EvidenceTarget(archetype=_str_or_none(removal.get("archetype")), item=_str_or_none(removal.get("item"))))
+        targets.append(
+            EvidenceTarget(
+                archetype=_str_or_none(removal.get("archetype")),
+                item=_str_or_none(removal.get("item")),
+                signal_evidence=_signal_evidence(removal),
+            )
+        )
 
     for removal in _dict_rows(proposed.get("archetype_removal_candidates")):
         archetype = _str_or_none(removal.get("archetype"))
@@ -66,9 +77,9 @@ def _evidence_targets(diff: dict) -> list[EvidenceTarget]:
         ] if isinstance(removal.get("affected_items"), list) else []
         item = _str_or_none(removal.get("item"))
         for affected in affected_items or ([item] if item else []):
-            targets.append(EvidenceTarget(archetype=archetype, item=affected))
+            targets.append(EvidenceTarget(archetype=archetype, item=affected, signal_evidence=_signal_evidence(removal)))
         if not affected_items and item is None:
-            targets.append(EvidenceTarget(archetype=archetype))
+            targets.append(EvidenceTarget(archetype=archetype, signal_evidence=_signal_evidence(removal)))
 
     return [target for target in targets if target.archetype or target.item]
 
@@ -106,6 +117,26 @@ def _item_history(stats: HeroStats, item: str, source: str, history_windows: int
 
 def _dict_rows(value: Any) -> list[dict[str, Any]]:
     return [row for row in value if isinstance(row, dict)] if isinstance(value, list) else []
+
+
+def _signal_evidence(row: dict[str, Any]) -> tuple[dict[str, Any], ...]:
+    return tuple(signal for signal in row.get("signal_evidence", []) if isinstance(signal, dict))
+
+
+def _signal_lines(target: EvidenceTarget) -> list[str]:
+    lines: list[str] = []
+    for signal in target.signal_evidence:
+        bits = [
+            str(signal.get("id") or "unknown"),
+            str(signal.get("type") or "signal"),
+            str(signal.get("effective_date") or "unknown-date"),
+        ]
+        if signal.get("replacement_item"):
+            bits.append(f"replacement: {signal['replacement_item']}")
+        if signal.get("source_url"):
+            bits.append(str(signal["source_url"]))
+        lines.append(f"- {'; '.join(bits)}")
+    return lines
 
 
 def _heading(target: EvidenceTarget) -> str:

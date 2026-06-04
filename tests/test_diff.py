@@ -108,6 +108,22 @@ def test_diff_routes_support_retirements_to_item_removal_candidates():
             "actionability": "item_removal_candidate",
             "affected_items": ["Old Support"],
             "signal_evidence": [],
+            "source_presence": {
+                "bazaardb": "absent",
+                "mobalytics_meta_builds": "absent",
+                "bazaar_builds_net": "absent",
+            },
+            "current_patch_evidence": {
+                "bazaardb": {
+                    "presence": "absent",
+                    "window_id": "bazaardb:2026-W18",
+                    "observed_at": "2026-05-05T12:00:00Z",
+                }
+            },
+            "canonical_presence": "absent",
+            "windows_seen": 4,
+            "first_seen_window": "bazaardb:2026-W12",
+            "last_seen_window": "bazaardb:2026-W14",
             "evidence_refs": [],
         },
     ]
@@ -123,6 +139,18 @@ def test_diff_routes_support_retirements_to_item_removal_candidates():
     assert removal["actionability"] == "item_removal_candidate"
     assert removal["affected_items"] == ["Old Support"]
     assert removal["signal_evidence"] == []
+    assert removal["catalog_location"] == {
+        "phase": "mid",
+        "archetype": "Axe",
+        "item": "Old Support",
+        "bucket": "support_items",
+    }
+    assert removal["source_presence"]["bazaardb"] == "absent"
+    assert removal["current_patch_evidence"]["bazaardb"]["window_id"] == "bazaardb:2026-W18"
+    assert removal["canonical_presence"] == "absent"
+    assert removal["windows_seen"] == 4
+    assert removal["first_seen_window"] == "bazaardb:2026-W12"
+    assert removal["last_seen_window"] == "bazaardb:2026-W14"
 
 
 def test_diff_routes_bucket_review_retirements_away_from_item_removal_candidates():

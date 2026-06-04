@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import dataclass
+from datetime import datetime, timezone
+import json
 from typing import Any, Optional
 
 from automated_builds_pipeline.stats import HeroStats, SUPPORTED_SOURCES, WindowItemStats
@@ -14,6 +16,7 @@ class EvidenceTarget:
     archetype: Optional[str]
     item: Optional[str] = None
     signal_evidence: tuple[dict[str, Any], ...] = ()
+    row: Optional[dict[str, Any]] = None
 
 
 def render_pr_comment(diff: dict, stats: HeroStats, *, history_windows: int = 6) -> str:
@@ -29,6 +32,14 @@ def render_pr_comment(diff: dict, stats: HeroStats, *, history_windows: int = 6)
     for target in targets:
         lines.extend(["", f"### {_heading(target)}", "", "**Trajectory** (last K windows per source, K = history_windows parameter):", ""])
         lines.extend(_trajectory_table(target, stats, history_windows))
+        detail_lines = _retirement_detail_lines(target, stats)
+        if detail_lines:
+            lines.extend(["", "**Retirement context**:", ""])
+            lines.extend(detail_lines)
+        ref_lines = _source_ref_lines(target, stats, history_windows)
+        if ref_lines:
+            lines.extend(["", "**Source refs**:", ""])
+            lines.extend(ref_lines)
         signal_lines = _signal_lines(target)
         if signal_lines:
             lines.extend(["", "**Game-change signals**:", ""])
@@ -65,6 +76,7 @@ def _evidence_targets(diff: dict) -> list[EvidenceTarget]:
                 archetype=_str_or_none(removal.get("archetype")),
                 item=_str_or_none(removal.get("item")),
                 signal_evidence=_signal_evidence(removal),
+                row=removal,
             )
         )
 
@@ -77,9 +89,16 @@ def _evidence_targets(diff: dict) -> list[EvidenceTarget]:
         ] if isinstance(removal.get("affected_items"), list) else []
         item = _str_or_none(removal.get("item"))
         for affected in affected_items or ([item] if item else []):
-            targets.append(EvidenceTarget(archetype=archetype, item=affected, signal_evidence=_signal_evidence(removal)))
+            targets.append(
+                EvidenceTarget(
+                    archetype=archetype,
+                    item=affected,
+                    signal_evidence=_signal_evidence(removal),
+                    row=removal,
+                )
+            )
         if not affected_items and item is None:
-            targets.append(EvidenceTarget(archetype=archetype, signal_evidence=_signal_evidence(removal)))
+            targets.append(EvidenceTarget(archetype=archetype, signal_evidence=_signal_evidence(removal), row=removal))
 
     return [target for target in targets if target.archetype or target.item]
 
@@ -98,6 +117,145 @@ def _trajectory_table(target: EvidenceTarget, stats: HeroStats, history_windows:
                 f"| {source} | {row.window_id} | {_present(row)} | {_frequency(row)} | {_sample(row)} |"
             )
     return lines
+
+
+def _retirement_detail_lines(target: EvidenceTarget, stats: HeroStats) -> list[str]:
+    row = target.row
+    if not row:
+        return []
+    lines = [
+        f"- Location: {_heading(target)}",
+        f"- Catalog bucket: {row.get('catalog_bucket') or 'unknown'}",
+        f"- Retirement type: {row.get('retirement_type') or 'review'}",
+        f"- Retirement basis: {row.get('retirement_basis') or row.get('reason') or 'review'}",
+        f"- Actionability: {row.get('actionability') or 'review'}",
+    ]
+    bazaardb = _current_source_line(row, "bazaardb")
+    if bazaardb:
+        lines.append(f"- Current BazaarDB: {bazaardb}")
+    secondary = _current_secondary_line(row)
+    if secondary:
+        lines.append(f"- Current secondary sources: {secondary}")
+    if row.get("freeze_blocked") or row.get("actionability") == "freeze_blocked":
+        lines.append("- Freeze state: blocked by removal freeze; visible for review only.")
+    if target.item:
+        span = _absence_span_line(stats, target.item)
+        if span:
+            lines.append(f"- BazaarDB absence span: {span}")
+        secondary_history = _older_secondary_history_lines(stats, target.item)
+        if secondary_history:
+            lines.append("- Older secondary history is context, not a permanent blocker:")
+            lines.extend(f"  - {line}" for line in secondary_history)
+    affected = _affected_item_lines(row)
+    if affected:
+        lines.append("- Affected catalog pieces:")
+        lines.extend(f"  - {line}" for line in affected)
+    return lines
+
+
+def _current_source_line(row: dict[str, Any], source: str) -> str:
+    evidence = row.get("current_patch_evidence")
+    if isinstance(evidence, dict):
+        source_evidence = evidence.get(source)
+        if isinstance(source_evidence, dict):
+            presence = source_evidence.get("presence")
+            if presence:
+                pieces = [str(presence)]
+                if source_evidence.get("window_id"):
+                    pieces.append(str(source_evidence["window_id"]))
+                if source_evidence.get("observed_at"):
+                    pieces.append(str(source_evidence["observed_at"]))
+                return " / ".join(pieces)
+    presence = row.get("source_presence")
+    if isinstance(presence, dict) and presence.get(source):
+        return str(presence[source])
+    return ""
+
+
+def _current_secondary_line(row: dict[str, Any]) -> str:
+    source_presence = row.get("source_presence")
+    if not isinstance(source_presence, dict):
+        return ""
+    present = [
+        source
+        for source, status in sorted(source_presence.items())
+        if source != "bazaardb" and status == "present"
+    ]
+    blockers = [source for source in present if source in set(row.get("removal_blocked_by", []))]
+    if blockers:
+        return f"blocker: {', '.join(blockers)}"
+    if present:
+        return f"context: {', '.join(present)}"
+    clear = [
+        source
+        for source, status in sorted(source_presence.items())
+        if source != "bazaardb" and status == "absent"
+    ]
+    if clear:
+        return f"clear in current healthy windows: {', '.join(clear)}"
+    return ""
+
+
+def _absence_span_line(stats: HeroStats, item: str) -> str:
+    rows = stats.item_history(item, "bazaardb")
+    last_present_index = max((index for index, row in enumerate(rows) if row.present), default=-1)
+    absence_rows = [row for row in rows[last_present_index + 1 :] if not row.present]
+    if not absence_rows:
+        return ""
+    start = _parse_time(absence_rows[0].observed_at)
+    end = _parse_time(absence_rows[-1].observed_at)
+    if start and end:
+        days = (end - start).days
+        return f"{absence_rows[0].window_id} to {absence_rows[-1].window_id} ({days} days, {len(absence_rows)} windows)"
+    return f"{absence_rows[0].window_id} to {absence_rows[-1].window_id} ({len(absence_rows)} windows)"
+
+
+def _older_secondary_history_lines(stats: HeroStats, item: str) -> list[str]:
+    lines: list[str] = []
+    for source in sorted(SUPPORTED_SOURCES - {"bazaardb", "in_house_tracker"}):
+        rows = stats.item_history(item, source)
+        present_rows = [row for row in rows if row.present]
+        if not present_rows:
+            continue
+        latest = rows[-1] if rows else None
+        if latest and latest.present:
+            continue
+        last_present = present_rows[-1]
+        lines.append(f"{source}: last present {last_present.window_id} ({last_present.observed_at})")
+    return lines
+
+
+def _affected_item_lines(row: dict[str, Any]) -> list[str]:
+    lines: list[str] = []
+    details = row.get("affected_item_details")
+    if isinstance(details, list):
+        for detail in details:
+            if not isinstance(detail, dict):
+                continue
+            item = detail.get("item") or "unknown"
+            bucket = detail.get("catalog_bucket") or "unknown"
+            location = " / ".join(str(piece) for piece in [detail.get("phase") or "unknown", detail.get("archetype") or "unknown"])
+            replacement = f" -> {detail['replacement_item']}" if detail.get("replacement_item") else ""
+            lines.append(f"{location} / {item}{replacement} ({bucket})")
+    build_items = row.get("affected_build_items")
+    if isinstance(build_items, dict):
+        for bucket in ("carry_items", "core_items", "condition_items"):
+            items = build_items.get(bucket)
+            if items:
+                lines.append(f"{bucket}: {', '.join(str(item) for item in items)}")
+    return lines
+
+
+def _source_ref_lines(target: EvidenceTarget, stats: HeroStats, history_windows: int) -> list[str]:
+    refs: list[str] = []
+    row = target.row or {}
+    for ref in row.get("evidence_refs", []):
+        refs.append(_ref_label(ref))
+    if target.item:
+        for source in sorted(SUPPORTED_SOURCES):
+            for history_row in _item_history(stats, target.item, source, history_windows):
+                refs.extend(str(ref) for ref in history_row.evidence_refs)
+    return [f"- {ref}" for ref in sorted(set(refs)) if ref]
 
 
 def _cross_archetype_usage(item: str, stats: HeroStats, history_windows: int) -> Counter[str]:
@@ -126,16 +284,10 @@ def _signal_evidence(row: dict[str, Any]) -> tuple[dict[str, Any], ...]:
 def _signal_lines(target: EvidenceTarget) -> list[str]:
     lines: list[str] = []
     for signal in target.signal_evidence:
-        bits = [
-            str(signal.get("id") or "unknown"),
-            str(signal.get("type") or "signal"),
-            str(signal.get("effective_date") or "unknown-date"),
-        ]
-        if signal.get("replacement_item"):
-            bits.append(f"replacement: {signal['replacement_item']}")
-        if signal.get("source_url"):
-            bits.append(str(signal["source_url"]))
-        lines.append(f"- {'; '.join(bits)}")
+        lines.append(f"- `{signal.get('id') or 'unknown'}`")
+        lines.append("  ```json")
+        lines.extend(f"  {line}" for line in json.dumps(signal, indent=2, sort_keys=True).splitlines())
+        lines.append("  ```")
     return lines
 
 
@@ -161,6 +313,22 @@ def _sample(row: WindowItemStats) -> str:
 
 def _str_or_none(value: Any) -> Optional[str]:
     return str(value) if value is not None else None
+
+
+def _ref_label(ref: Any) -> str:
+    if isinstance(ref, dict):
+        return str(ref.get("summary") or ref.get("artifact_ref") or ref.get("source") or ref)
+    return str(ref)
+
+
+def _parse_time(value: str) -> Optional[datetime]:
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
 
 
 def _window_id(diff: dict) -> str:

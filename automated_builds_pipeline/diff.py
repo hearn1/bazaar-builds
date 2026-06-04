@@ -349,6 +349,7 @@ def _removal_row(row: dict[str, Any]) -> dict[str, Any]:
         "phase": row.get("phase"),
         "archetype": row.get("archetype"),
         "item": row.get("item"),
+        "catalog_location": _catalog_location(row),
         "catalog_bucket": row.get("catalog_bucket"),
         "retirement_type": row.get("retirement_type"),
         "retirement_basis": row.get("retirement_basis"),
@@ -360,6 +361,12 @@ def _removal_row(row: dict[str, Any]) -> dict[str, Any]:
         "review_priority": row.get("review_priority"),
         "signal_evidence": list(row.get("signal_evidence", [])),
         "reason": row.get("threshold_reason"),
+        "source_presence": dict(row.get("source_presence", {})),
+        "current_patch_evidence": dict(row.get("current_patch_evidence", {})),
+        "canonical_presence": row.get("canonical_presence"),
+        "windows_seen": row.get("windows_seen"),
+        "first_seen_window": row.get("first_seen_window"),
+        "last_seen_window": row.get("last_seen_window"),
         "windows_seen_recently": row.get("windows_seen_recently", 0),
         "removal_blocked_by": list(row.get("removal_blocked_by", [])),
         "freeze_blocked": "freeze_removals" in row.get("removal_blocked_by", []),
@@ -372,6 +379,7 @@ def _archetype_removal_row(row: dict[str, Any]) -> dict[str, Any]:
         "phase": row.get("phase"),
         "archetype": row.get("archetype"),
         "item": row.get("item"),
+        "catalog_location": _catalog_location(row),
         "catalog_bucket": row.get("catalog_bucket"),
         "retirement_type": row.get("retirement_type"),
         "retirement_basis": row.get("retirement_basis"),
@@ -383,10 +391,24 @@ def _archetype_removal_row(row: dict[str, Any]) -> dict[str, Any]:
         "review_priority": row.get("review_priority"),
         "signal_evidence": list(row.get("signal_evidence", [])),
         "reason": row.get("threshold_reason"),
+        "source_presence": dict(row.get("source_presence", {})),
+        "current_patch_evidence": dict(row.get("current_patch_evidence", {})),
+        "canonical_presence": row.get("canonical_presence"),
+        "windows_seen": row.get("windows_seen"),
+        "first_seen_window": row.get("first_seen_window"),
         "last_seen_window": row.get("last_seen_window"),
         "removal_blocked_by": list(row.get("removal_blocked_by", [])),
         "freeze_blocked": "freeze_removals" in row.get("removal_blocked_by", []),
         "evidence_refs": list(row.get("evidence_refs", [])),
+    }
+
+
+def _catalog_location(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "phase": row.get("phase"),
+        "archetype": row.get("archetype"),
+        "item": row.get("item"),
+        "bucket": row.get("catalog_bucket"),
     }
 
 

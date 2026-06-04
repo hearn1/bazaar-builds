@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
+from dataclasses import dataclass
 from dataclasses import fields
 from datetime import datetime, timezone
 from pathlib import Path
@@ -15,6 +17,13 @@ from automated_builds_pipeline.known_items import catalog_item_names
 from automated_builds_pipeline.proposal import render_proposal
 
 ClassifierMode = Literal["mock", "no_llm_shadow", "deterministic"]
+DiffFocus = Literal["additions", "retirements"]
+
+
+@dataclass(frozen=True)
+class DiffPartitions:
+    additions: dict[str, Any]
+    retirements: dict[str, Any]
 
 
 class Classifier(Protocol):
@@ -37,6 +46,17 @@ NO_LLM_CONFIDENCE = "none"
 NO_LLM_RATIONALE = (
     "Observation-only shadow output; deterministic carry/core/support classification is pending curator review."
 )
+
+
+_PROPOSED_CHANGE_KEYS = (
+    "archetype_updates",
+    "archetype_additions",
+    "archetype_removal_candidates",
+    "item_removal_candidates",
+    "archetype_reshuffles",
+)
+_ADDITION_CHANGE_KEYS = {"archetype_updates", "archetype_additions"}
+_RETIREMENT_CHANGE_KEYS = {"archetype_removal_candidates", "item_removal_candidates"}
 
 
 def generate_diff(
@@ -159,6 +179,50 @@ def generate_diff(
         "weaker_signals": weaker_signals,
         "noise": noise,
     }
+
+
+def partition_diff(diff_json: dict[str, Any]) -> DiffPartitions:
+    """Return addition-focused and retirement-focused views of a full diff.
+
+    The full diff remains the durable artifact. These views preserve the same
+    schema shape for renderers/appliers while keeping additions and retirement
+    evidence from being mixed by downstream PR plumbing.
+    """
+    return DiffPartitions(
+        additions=focused_diff(diff_json, "additions"),
+        retirements=focused_diff(diff_json, "retirements"),
+    )
+
+
+def focused_diff(diff_json: dict[str, Any], focus: DiffFocus) -> dict[str, Any]:
+    if focus == "additions":
+        keep_keys = _ADDITION_CHANGE_KEYS
+        weaker_signals = diff_json.get("weaker_signals", [])
+        noise = diff_json.get("noise", [])
+    elif focus == "retirements":
+        keep_keys = _RETIREMENT_CHANGE_KEYS
+        weaker_signals = []
+        noise = []
+    else:
+        raise ValueError(f"unsupported diff focus: {focus!r}")
+
+    proposed = diff_json.get("proposed_changes", {})
+    proposed_changes = _empty_proposed_changes()
+    if isinstance(proposed, dict):
+        for key in keep_keys:
+            proposed_changes[key] = copy.deepcopy(proposed.get(key, []))
+
+    view = copy.deepcopy(diff_json)
+    view["proposed_changes"] = proposed_changes
+    view["weaker_signals"] = copy.deepcopy(weaker_signals)
+    view["noise"] = copy.deepcopy(noise)
+    view["diff_view"] = {
+        "focus": focus,
+        "source": "partitioned_full_diff",
+        "contains_catalog_writes": _contains_catalog_writes(proposed_changes),
+        "contains_review_only_retirements": _contains_review_only_retirements(proposed_changes),
+    }
+    return view
 
 
 def load_evaluation(path: Path) -> EvaluationResult:
@@ -342,6 +406,44 @@ def _artifact_classification_mode(classifier_mode: ClassifierMode) -> str:
     if classifier_mode == "no_llm_shadow":
         return NO_LLM_CLASSIFICATION_MODE
     return classifier_mode
+
+
+def _empty_proposed_changes() -> dict[str, list[Any]]:
+    return {key: [] for key in _PROPOSED_CHANGE_KEYS}
+
+
+def _contains_catalog_writes(proposed_changes: dict[str, list[Any]]) -> bool:
+    if proposed_changes.get("archetype_updates") or proposed_changes.get("archetype_additions"):
+        return True
+    return any(
+        _applier_supported_support_removal(row)
+        for row in proposed_changes.get("item_removal_candidates", [])
+        if isinstance(row, dict)
+    )
+
+
+def _contains_review_only_retirements(proposed_changes: dict[str, list[Any]]) -> bool:
+    for row in proposed_changes.get("archetype_removal_candidates", []):
+        if isinstance(row, dict):
+            return True
+    return any(
+        not _applier_supported_support_removal(row)
+        for row in proposed_changes.get("item_removal_candidates", [])
+        if isinstance(row, dict)
+    )
+
+
+def _applier_supported_support_removal(row: dict[str, Any]) -> bool:
+    return (
+        row.get("catalog_bucket") == "support_items"
+        and row.get("retirement_type") == "support_item"
+        and row.get("actionability") == "item_removal_candidate"
+        and not row.get("freeze_blocked")
+        and "freeze_removals" not in (row.get("removal_blocked_by") or [])
+        and bool(row.get("phase"))
+        and bool(row.get("archetype"))
+        and bool(row.get("item"))
+    )
 
 
 def _removal_row(row: dict[str, Any]) -> dict[str, Any]:

@@ -1,3 +1,4 @@
+from automated_builds_pipeline.diff import partition_diff
 from automated_builds_pipeline.pr_comment import render_pr_comment
 from automated_builds_pipeline.stats import HeroStats, ItemWindowEvidence, WindowObservation, append_window
 
@@ -296,3 +297,45 @@ def test_retirement_supporting_comment_includes_absence_span_secondary_context_r
     assert "- https://bazaardb.gg/run/meta/may05" in rendered
     assert "- https://mobalytics.gg/the-bazaar/guides/meta-builds" in rendered
     assert "- game_changes:axe-watch" in rendered
+
+
+def test_partitioned_supporting_comments_filter_additions_and_retirements():
+    stats = HeroStats(hero="Karnok")
+    add_row(stats, "bazaardb", "May 05", item="Pufferfish", present=True)
+    add_row(stats, "bazaardb", "May 05", item="Battle Axe", present=False)
+    diff = {
+        "hero": "Karnok",
+        "window_id": "May 06",
+        "proposed_changes": {
+            "archetype_updates": [
+                {
+                    "archetype": "Axe",
+                    "missing_items": [{"item": "Pufferfish"}],
+                }
+            ],
+            "archetype_additions": [],
+            "item_removal_candidates": [],
+            "archetype_removal_candidates": [
+                {
+                    "archetype": "Axe",
+                    "item": "Battle Axe",
+                    "affected_items": ["Battle Axe"],
+                    "retirement_type": "whole_build_review",
+                    "actionability": "review_required",
+                }
+            ],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+    parts = partition_diff(diff)
+    addition_comment = render_pr_comment(parts.additions, stats)
+    retirement_comment = render_pr_comment(parts.retirements, stats)
+
+    assert "### Axe / Pufferfish" in addition_comment
+    assert "Battle Axe" not in addition_comment
+    assert "### Axe / Battle Axe" in retirement_comment
+    assert "Pufferfish" not in retirement_comment
+    assert "- Actionability: review_required" in retirement_comment

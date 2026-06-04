@@ -901,6 +901,73 @@ def semantic_update_diff() -> dict:
     }
 
 
+def semantic_mixed_addition_retirement_diff() -> dict:
+    payload = semantic_update_diff()
+    payload["proposed_changes"]["item_removal_candidates"] = [
+        {
+            "phase": "early_mid",
+            "archetype": "Axe",
+            "item": "Bagpipes",
+            "catalog_bucket": "support_items",
+            "retirement_type": "support_item",
+            "retirement_basis": "game_change_removed_card",
+            "actionability": "item_removal_candidate",
+            "removal_blocked_by": [],
+            "freeze_blocked": False,
+        }
+    ]
+    payload["proposed_changes"]["archetype_removal_candidates"] = [
+        {
+            "phase": "early_mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": "carry_items",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": "bazaardb_absent_30_days",
+            "actionability": "review_required",
+            "affected_items": ["Battle Axe"],
+        }
+    ]
+    return payload
+
+
+def test_partitioned_application_applies_additions_and_support_retirements():
+    catalog = base_catalog()
+    catalog["game_phases"]["early_mid"]["archetypes"][0]["support_items"] = ["Bagpipes"]
+
+    result = pipeline._apply_partitioned_diff(catalog, semantic_mixed_addition_retirement_diff())
+    axe = result.catalog["game_phases"]["early_mid"]["archetypes"][0]
+
+    assert axe["carry_items"] == ["Battle Axe", "Sawpike"]
+    assert axe["support_items"] == []
+    assert any("added 'Sawpike'" in row for row in result.applied)
+    assert any("removed 'Bagpipes'" in row for row in result.applied)
+    assert any("archetype_removal_candidate 'Battle Axe'" in row for row in result.skipped)
+    assert any("actionability='review_required'" in row for row in result.skipped)
+
+
+def test_partitioned_application_review_only_retirement_surfaces_skip_reason():
+    diff_json = minimal_diff_payload()
+    diff_json["semantic_classification"] = True
+    diff_json["proposed_changes"]["archetype_removal_candidates"] = [
+        {
+            "phase": "early_mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": "carry_items",
+            "retirement_type": "whole_build_review",
+            "actionability": "review_required",
+        }
+    ]
+
+    result = pipeline._apply_partitioned_diff(base_catalog(), diff_json)
+
+    assert result.changed is False
+    assert result.applied == []
+    assert any("archetype_removal_candidate 'Battle Axe'" in row for row in result.skipped)
+    assert any("actionability='review_required'" in row for row in result.skipped)
+
+
 def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch, tmp_path):
     state_file = tmp_path / "pipeline_state.json"
     write_state(state_file, "live_cron")
@@ -953,6 +1020,35 @@ def test_apply_catalog_pr_stages_only_catalog_and_uses_proposal_body(monkeypatch
     assert all("automated_builds_proposals" not in str(part) for a in run_calls for part in a)
     assert len(comment_calls) == 1
     assert comment_calls[0][4] == "pipeline/Karnok"
+
+
+def test_local_dry_run_artifacts_remain_full_mixed_diff(monkeypatch, tmp_path):
+    state_file = tmp_path / "pipeline_state.json"
+    write_state(state_file, "local_dry_run")
+    tracker = make_tracker(tmp_path)
+    patch_fetchers(monkeypatch)
+    captured = {}
+    patch_evaluator(monkeypatch, captured)
+    patch_diff(monkeypatch, semantic_mixed_addition_retirement_diff())
+
+    pipeline.run(
+        hero="Karnok",
+        state_file=state_file,
+        tracker_repo=tracker,
+        stats_dir=tmp_path / "stats",
+        output_dir=tmp_path / "artifacts",
+    )
+
+    artifact = json.loads((tmp_path / "artifacts" / "Karnok_diff.json").read_text(encoding="utf-8"))
+    proposal = (tmp_path / "artifacts" / "Karnok_build_update_proposal.md").read_text(encoding="utf-8")
+
+    assert "diff_view" not in artifact
+    assert artifact["proposed_changes"]["archetype_updates"]
+    assert artifact["proposed_changes"]["item_removal_candidates"]
+    assert artifact["proposed_changes"]["archetype_removal_candidates"]
+    assert "Sawpike" in proposal
+    assert "Bagpipes" in proposal
+    assert "Battle Axe" in proposal
 
 
 def test_apply_catalog_pr_idempotent_noop_skips_commit_and_pr(monkeypatch, tmp_path):

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from automated_builds_pipeline.diff import partition_diff
 from automated_builds_pipeline.proposal import render_proposal
 
 
@@ -271,3 +272,48 @@ def test_renderer_shows_compact_retirement_ux_fields_and_blocked_state():
     ) in markdown
     assert "Secondary/blocking context: mobalytics_meta_builds, freeze_removals" in markdown
     assert "Removals frozen." in markdown
+
+
+def test_partitioned_proposal_views_filter_additions_and_retirements():
+    item = {
+        "item": "Pufferfish",
+        "llm_classification": "core",
+        "llm_confidence": "high",
+        "llm_rationale": "bazaardb confirms",
+    }
+    diff = {
+        "hero": "Karnok",
+        "source_window": {"start": "2026-05-01", "end": "2026-05-05", "n_windows_history": 3},
+        "freeze_state": {"removals_frozen": False, "patch_label": None},
+        "source_health": [],
+        "proposed_changes": {
+            "archetype_updates": [{"phase": "early_mid", "archetype": "Axe", "missing_items": [item]}],
+            "archetype_additions": [],
+            "archetype_removal_candidates": [
+                {
+                    "phase": "late",
+                    "archetype": "Axe",
+                    "item": "Battle Axe",
+                    "catalog_bucket": "carry_items",
+                    "retirement_type": "whole_build_review",
+                    "retirement_basis": "bazaardb_absent_30_days",
+                    "actionability": "review_required",
+                    "affected_items": ["Battle Axe"],
+                }
+            ],
+            "item_removal_candidates": [],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [{"phase": "early_mid", "archetype": "Axe", **item}],
+        "noise": [],
+    }
+
+    parts = partition_diff(diff)
+    addition_markdown = render_proposal(parts.additions)
+    retirement_markdown = render_proposal(parts.retirements)
+
+    assert "Pufferfish" in addition_markdown
+    assert "Battle Axe" not in addition_markdown
+    assert "Battle Axe" in retirement_markdown
+    assert "Pufferfish" not in retirement_markdown
+    assert "### Retirement Reviews" in retirement_markdown

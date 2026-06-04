@@ -168,7 +168,7 @@ def apply_catalog_pr(
     applier.ensure_supported_schema_version(catalog)
     applier.validate_catalog(catalog, schema)
 
-    result = applier.apply_proposed_changes(catalog, diff_json)
+    result = _apply_partitioned_diff(catalog, diff_json)
 
     # Fail closed: never write/commit/PR an invalid catalog. Aborts before any
     # git mutation.
@@ -251,6 +251,28 @@ def _post_pr_comment(
             cwd=tracker_repo,
             check=True,
         )
+
+
+def _apply_partitioned_diff(
+    catalog: dict[str, Any], diff_json: dict[str, Any]
+) -> applier.ApplyResult:
+    if not diff_json.get("semantic_classification"):
+        return applier.apply_proposed_changes(catalog, diff_json)
+
+    partitions = diff.partition_diff(diff_json)
+    current_catalog = catalog
+    applied: list[str] = []
+    skipped: list[str] = []
+    for view in (partitions.additions, partitions.retirements):
+        result = applier.apply_proposed_changes(current_catalog, view)
+        current_catalog = result.catalog
+        applied.extend(result.applied)
+        skipped.extend(result.skipped)
+    return applier.ApplyResult(
+        catalog=current_catalog,
+        applied=applied,
+        skipped=skipped,
+    )
 
 
 def build_arg_parser() -> argparse.ArgumentParser:

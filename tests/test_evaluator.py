@@ -298,24 +298,73 @@ def test_add_candidate_from_mixed_current_sources():
     assert row["threshold_reason"] == "mobalytics_current_build"
 
 
-def test_remove_candidate_when_bazaardb_absent_four_patches_and_secondaries_clear():
-    stats = history_with_windows("Karnok", "bazaardb", "Old Core", [False, False, False, False])
-
-    evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
-
-    row = row_for(evaluation, "Old Core")
-    assert row["threshold_result"] == "remove_candidate"
-    assert row["threshold_reason"] == "bazaardb_absent_4_patches_21_days"
-
-
-def test_remove_blocked_when_secondary_present():
-    stats = history_with_windows("Karnok", "bazaardb", "Old Core", [False, False, False, False])
+def test_remove_candidate_when_current_healthy_bazaardb_absence_spans_30_days():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
 
     evaluation = evaluate_hero(
         "Karnok",
         [CatalogItem("Old Core", phase="mid")],
         stats,
-        [result("mobalytics_meta_builds", ["Old Core"])],
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "bazaardb_absent_30_days"
+    assert "4_patches" not in row["threshold_reason"]
+    assert "21_days" not in row["threshold_reason"]
+
+
+def test_remove_candidate_requires_30_day_absence_span():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(29))],
+    )
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "no_change"
+    assert row["threshold_reason"] == "none"
+
+
+def test_remove_candidate_requires_two_healthy_absence_windows():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "insufficient_history"
+    assert row["threshold_reason"] == "not_enough_windows"
+
+
+@pytest.mark.parametrize("current_results", [[], [result("bazaardb", [], status="unhealthy")]])
+def test_remove_candidate_requires_current_healthy_bazaardb_absence(current_results):
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0, 30])
+
+    evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, current_results)
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "no_change"
+    assert row["threshold_reason"] == "none"
+
+
+def test_remove_blocked_when_current_healthy_secondary_present():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        stats,
+        [
+            result("bazaardb", [], observed_at=observed_at_days(30)),
+            result("mobalytics_meta_builds", ["Old Core"], observed_at=observed_at_days(30)),
+        ],
     )
 
     row = row_for(evaluation, "Old Core")
@@ -323,15 +372,41 @@ def test_remove_blocked_when_secondary_present():
     assert row["threshold_reason"] == "secondary_present_bazaardb_absent"
 
 
-def test_remove_blocked_when_freeze_active():
-    stats = history_with_windows("Karnok", "bazaardb", "Old Core", [False, False, False, False])
+def test_older_secondary_presence_is_context_not_permanent_retirement_block():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
+    append_window(
+        stats,
+        "mobalytics_meta_builds",
+        WindowObservation(
+            window_id="mobalytics_meta_builds:old",
+            observed_at=observed_at_days(1),
+            items=[ItemWindowEvidence(item="Old Core", present=True)],
+        ),
+    )
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Old Core")
+    assert row["threshold_result"] == "remove_candidate"
+    assert row["threshold_reason"] == "bazaardb_absent_30_days"
+    assert row["windows_seen"] == 1
+    assert row["first_seen_window"] == "mobalytics_meta_builds:old"
+
+
+def test_remove_blocked_when_freeze_active_preserves_candidate_evidence():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Core", [0])
     state = CuratorState(hero_freezes={"karnok": FreezeWindow("2026-05-06T12:00:00Z")})
 
     evaluation = evaluate_hero(
         "Karnok",
         [CatalogItem("Old Core", phase="mid")],
         stats,
-        [],
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
         state,
         now=datetime(2026, 5, 5, 12, tzinfo=timezone.utc),
     )
@@ -340,33 +415,30 @@ def test_remove_blocked_when_freeze_active():
     assert row["threshold_result"] == "blocked"
     assert row["threshold_reason"] == "none"
     assert row["removal_blocked_by"] == ["freeze_removals"]
+    assert row["source_presence"]["bazaardb"] == "absent"
+    assert row["current_patch_evidence"]["bazaardb"]["presence"] == "absent"
+    assert row["current_patch_evidence"]["bazaardb"]["observed_at"] == observed_at_days(30)
 
 
-def test_unhealthy_bazaardb_window_does_not_count_toward_absence_streak():
+def test_unhealthy_bazaardb_window_does_not_count_toward_absence_span():
     stats = HeroStats(hero="Karnok")
-    for index, healthy in enumerate([True, True, False, True], start=1):
-        append_window(
-            stats,
-            "bazaardb",
-            WindowObservation(
-                window_id=f"bazaardb:p{index}",
-                observed_at=observed_at_days(index * 7),
-                health_status="healthy" if healthy else "unhealthy",
-                items=[ItemWindowEvidence(item="Old Core", present=False)],
-            ),
+    append_window(
+        stats,
+        "bazaardb",
+        WindowObservation(
+            window_id="bazaardb:unhealthy",
+            observed_at=observed_at_days(0),
+            health_status="unhealthy",
+            items=[ItemWindowEvidence(item="Old Core", present=False)],
         )
+    )
 
-    evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
-
-    row = row_for(evaluation, "Old Core")
-    assert row["threshold_result"] == "insufficient_history"
-    assert row["threshold_reason"] == "not_enough_windows"
-
-
-def test_insufficient_history_returns_insufficient_history_not_no_change():
-    stats = history_with_windows("Karnok", "bazaardb", "Old Core", [False, False])
-
-    evaluation = evaluate_hero("Karnok", [CatalogItem("Old Core", phase="mid")], stats, [])
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Core", phase="mid")],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
 
     row = row_for(evaluation, "Old Core")
     assert row["threshold_result"] == "insufficient_history"
@@ -570,6 +642,21 @@ def test_source_artifact_hydration_accepts_prefetched_output_shape():
 
 def history_with_windows(hero: str, source: str, item: str, present_values: list[bool]) -> HeroStats:
     return history_with_archetype(hero, source, item, present_values, archetype="Observed Archetype")
+
+
+def history_with_absent_windows(hero: str, source: str, item: str, days: list[int]) -> HeroStats:
+    stats = HeroStats(hero=hero)
+    for day in days:
+        append_window(
+            stats,
+            source,
+            WindowObservation(
+                window_id=f"{source}:day-{day}",
+                observed_at=observed_at_days(day),
+                items=[ItemWindowEvidence(item=item, present=False)],
+            ),
+        )
+    return stats
 
 
 def history_with_archetype(

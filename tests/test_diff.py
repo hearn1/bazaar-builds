@@ -62,7 +62,7 @@ def test_diff_generator_mock_mode_populates_shape():
     rows = [
         add_row("New Core", existing=True),
         add_row("New Archetype Item", phase="late", archetype="Wide"),
-        {"phase": "mid", "archetype": "Old", "item": "Old Core", "threshold_result": "remove_candidate", "threshold_reason": "bazaardb_absent_4_patches_21_days", "evidence_refs": []},
+        {"phase": "mid", "archetype": "Old", "item": "Old Core", "threshold_result": "remove_candidate", "threshold_reason": "bazaardb_absent_30_days", "evidence_refs": []},
     ]
     catalog = {"items": [{"item": "Existing", "phase": "early", "archetype": "Axe"}]}
 
@@ -162,7 +162,7 @@ def test_no_llm_shadow_keeps_removal_rows_but_no_semantic_labels():
             "archetype": "Old",
             "item": "Old Core",
             "threshold_result": "remove_candidate",
-            "threshold_reason": "bazaardb_absent_4_patches_21_days",
+            "threshold_reason": "bazaardb_absent_30_days",
             "evidence_refs": [],
         },
     ]

@@ -34,15 +34,15 @@ ADD_BAZAAR_BUILDS_NET_WINDOW_COUNT = 3
 BAZAARDB_STRONG_APPEARANCES = 10
 BAZAARDB_STRONG_FREQUENCY = 0.20
 BAZAARDB_CORE_SAMPLE = 20
-REMOVE_BAZAARDB_ABSENT_PATCHES = 4
-REMOVE_MIN_ABSENT_DAYS = 21
+REMOVE_BAZAARDB_ABSENT_WINDOWS = 2
+REMOVE_MIN_ABSENT_DAYS = 30
 REASON_MAP = {
     "bazaardb_current_strong": "bazaardb_current_patch_strong",
     "bazaardb_2_of_3": "bazaardb_present_2_of_3_patches",
     "mobalytics_current": "mobalytics_current_build",
     "bazaar_builds_net_2_of_3": "bazaar_builds_net_2_of_3_windows",
     "mixed_current_sources": "mobalytics_current_build",
-    "bazaardb_absent_4_patches_21_days_secondaries_clear": "bazaardb_absent_4_patches_21_days",
+    "bazaardb_absent_30_days_secondaries_clear": "bazaardb_absent_30_days",
     "secondary_present": "secondary_present_bazaardb_absent",
     "primary_absent_secondary_present_preserve_existing_classification": "secondary_present_bazaardb_absent",
     "insufficient_history": "not_enough_windows",
@@ -415,7 +415,7 @@ def _evaluate_existing(
 
     remove_status = _remove_status(item, stats, current)
     if remove_status == "remove_candidate":
-        return ThresholdDecision(item, "remove_candidate", "bazaardb_absent_4_patches_21_days_secondaries_clear", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
+        return ThresholdDecision(item, "remove_candidate", "bazaardb_absent_30_days_secondaries_clear", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
     if remove_status == "insufficient_history":
         return ThresholdDecision(item, "no_change", "insufficient_history", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
     if remove_status == "secondary_present":
@@ -424,19 +424,18 @@ def _evaluate_existing(
 
 
 def _remove_status(item: str, stats: HeroStats, current: dict[str, SourceFetchResult]) -> str:
+    if _current_presence(item, current.get(PRIMARY_SOURCE)) is not False:
+        return "no_change"
     if any(_current_presence(item, current.get(source)) is True for source in SECONDARY_SOURCES):
         return "secondary_present"
     rows = _healthy_rows_with_current(stats, current, item, PRIMARY_SOURCE)
-    if len(rows) < REMOVE_BAZAARDB_ABSENT_PATCHES:
+    last_present_index = max((index for index, row in enumerate(rows) if row.present), default=-1)
+    absence_rows = [row for row in rows[last_present_index + 1 :] if not row.present]
+    if len(absence_rows) < REMOVE_BAZAARDB_ABSENT_WINDOWS:
         return "insufficient_history"
-    recent = rows[-REMOVE_BAZAARDB_ABSENT_PATCHES:]
-    if any(row.present for row in recent):
-        return "no_change"
-    observed = [_parse_time(row.observed_at) for row in recent]
+    observed = [_parse_time(row.observed_at) for row in absence_rows]
     if (max(observed) - min(observed)).days < REMOVE_MIN_ABSENT_DAYS:
         return "no_change"
-    if any(_source_has_present_history(stats, source, item) for source in SECONDARY_SOURCES):
-        return "secondary_present"
     return "remove_candidate"
 
 
@@ -756,10 +755,6 @@ def _current_source_support_count(item: str, current: dict[str, SourceFetchResul
         _current_presence(item, current.get("bazaar_builds_net")) is True,
     ]
     return sum(1 for value in groups if value)
-
-
-def _source_has_present_history(stats: HeroStats, source: str, item: str) -> bool:
-    return any(row.present for row in stats.item_history(item, source))
 
 
 def _evidence_refs(item: str, current: dict[str, SourceFetchResult]) -> list[str]:

@@ -58,7 +58,17 @@ def _evidence_targets(diff: dict) -> list[EvidenceTarget]:
         targets.append(EvidenceTarget(archetype=_str_or_none(removal.get("archetype")), item=_str_or_none(removal.get("item"))))
 
     for removal in _dict_rows(proposed.get("archetype_removal_candidates")):
-        targets.append(EvidenceTarget(archetype=_str_or_none(removal.get("archetype"))))
+        archetype = _str_or_none(removal.get("archetype"))
+        affected_items = [
+            _str_or_none(item)
+            for item in removal.get("affected_items", [])
+            if _str_or_none(item) is not None
+        ] if isinstance(removal.get("affected_items"), list) else []
+        item = _str_or_none(removal.get("item"))
+        for affected in affected_items or ([item] if item else []):
+            targets.append(EvidenceTarget(archetype=archetype, item=affected))
+        if not affected_items and item is None:
+            targets.append(EvidenceTarget(archetype=archetype))
 
     return [target for target in targets if target.archetype or target.item]
 

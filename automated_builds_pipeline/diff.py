@@ -70,7 +70,7 @@ def generate_diff(
         if _has_reshuffle_signal(row):
             noise.append({"reason": "reshuffle_deferred", "item": row.get("item"), "phase": row.get("phase"), "archetype": row.get("archetype")})
             continue
-        if row.get("threshold_result") == "archetype_remove_candidate":
+        if row.get("threshold_result") in {"archetype_remove_candidate", "retirement_review_candidate"}:
             proposed_changes["archetype_removal_candidates"].append(_archetype_removal_row(row))
         elif row.get("threshold_result") == "remove_candidate":
             proposed_changes["item_removal_candidates"].append(_removal_row(row))
@@ -318,6 +318,10 @@ def _classification_to_diff(classification: ItemClassification, row: dict[str, A
             "retirement_basis": row.get("retirement_basis"),
             "actionability": row.get("actionability"),
             "affected_items": list(row.get("affected_items", [])),
+            "affected_item_details": list(row.get("affected_item_details", [])),
+            "affected_build_items": dict(row.get("affected_build_items", {})),
+            "review_scope": row.get("review_scope"),
+            "review_priority": row.get("review_priority"),
             "signal_evidence": list(row.get("signal_evidence", [])),
         }
     )
@@ -350,6 +354,10 @@ def _removal_row(row: dict[str, Any]) -> dict[str, Any]:
         "retirement_basis": row.get("retirement_basis"),
         "actionability": row.get("actionability"),
         "affected_items": list(row.get("affected_items", [])),
+        "affected_item_details": list(row.get("affected_item_details", [])),
+        "affected_build_items": dict(row.get("affected_build_items", {})),
+        "review_scope": row.get("review_scope"),
+        "review_priority": row.get("review_priority"),
         "signal_evidence": list(row.get("signal_evidence", [])),
         "reason": row.get("threshold_reason"),
         "windows_seen_recently": row.get("windows_seen_recently", 0),
@@ -369,6 +377,10 @@ def _archetype_removal_row(row: dict[str, Any]) -> dict[str, Any]:
         "retirement_basis": row.get("retirement_basis"),
         "actionability": row.get("actionability"),
         "affected_items": list(row.get("affected_items", [])),
+        "affected_item_details": list(row.get("affected_item_details", [])),
+        "affected_build_items": dict(row.get("affected_build_items", {})),
+        "review_scope": row.get("review_scope"),
+        "review_priority": row.get("review_priority"),
         "signal_evidence": list(row.get("signal_evidence", [])),
         "reason": row.get("threshold_reason"),
         "last_seen_window": row.get("last_seen_window"),

@@ -131,13 +131,28 @@ def test_diff_routes_bucket_review_retirements_away_from_item_removal_candidates
             "phase": "late",
             "archetype": "Axe",
             "item": "Battle Axe",
-            "threshold_result": "archetype_remove_candidate",
+            "threshold_result": "retirement_review_candidate",
             "threshold_reason": "bazaardb_absent_30_days",
             "catalog_bucket": "carry_items",
             "retirement_type": "whole_build_review",
             "retirement_basis": "bazaardb_absent_30_days",
             "actionability": "review_required",
             "affected_items": ["Battle Axe"],
+            "affected_item_details": [
+                {
+                    "item": "Battle Axe",
+                    "catalog_bucket": "carry_items",
+                    "phase": "late",
+                    "archetype": "Axe",
+                }
+            ],
+            "affected_build_items": {
+                "carry_items": ["Battle Axe", "Sawpike"],
+                "core_items": ["Hidden Lake"],
+                "condition_items": ["Chains"],
+            },
+            "review_scope": "whole_build",
+            "review_priority": "normal",
             "signal_evidence": [],
             "evidence_refs": [],
         },
@@ -153,6 +168,14 @@ def test_diff_routes_bucket_review_retirements_away_from_item_removal_candidates
     assert review["retirement_basis"] == "bazaardb_absent_30_days"
     assert review["actionability"] == "review_required"
     assert review["affected_items"] == ["Battle Axe"]
+    assert review["affected_item_details"][0]["catalog_bucket"] == "carry_items"
+    assert review["affected_build_items"] == {
+        "carry_items": ["Battle Axe", "Sawpike"],
+        "core_items": ["Hidden Lake"],
+        "condition_items": ["Chains"],
+    }
+    assert review["review_scope"] == "whole_build"
+    assert review["review_priority"] == "normal"
     assert review["signal_evidence"] == []
 
 

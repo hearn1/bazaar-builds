@@ -108,9 +108,14 @@ def _removals(lines: list[str], diff: dict[str, Any]) -> None:
         _empty(lines)
         return
     if archetypes:
-        lines.append("### Archetypes")
+        lines.append("### Retirement Reviews")
         for row in archetypes:
-            lines.append(f"- {row.get('phase') or 'unknown'} / {row.get('archetype') or 'unknown'}: {row.get('reason') or 'review'}")
+            details = _retirement_review_details(row)
+            lines.append(
+                f"- {row.get('phase') or 'unknown'} / {row.get('archetype') or 'unknown'}: "
+                f"{row.get('retirement_type') or 'review'} ({row.get('reason') or 'review'}){details}"
+            )
+            _affected_build_lines(lines, row)
             _blocks(lines, row)
     if items:
         lines.append("### Items")
@@ -178,6 +183,23 @@ def _blocks(lines: list[str], row: dict[str, Any]) -> None:
     refs = row.get("evidence_refs", [])
     if refs:
         lines.append(f"  Absence confirmed by: {', '.join(_ref_label(ref) for ref in refs)}")
+
+
+def _retirement_review_details(row: dict[str, Any]) -> str:
+    affected = row.get("affected_items", [])
+    if not affected:
+        return ""
+    return f"; affected: {', '.join(str(item) for item in affected)}"
+
+
+def _affected_build_lines(lines: list[str], row: dict[str, Any]) -> None:
+    build_items = row.get("affected_build_items")
+    if not isinstance(build_items, dict) or not build_items:
+        return
+    for bucket in ("carry_items", "core_items", "condition_items"):
+        items = build_items.get(bucket)
+        if items:
+            lines.append(f"  {bucket}: {', '.join(str(item) for item in items)}")
 
 
 def _ref_label(ref: Any) -> str:

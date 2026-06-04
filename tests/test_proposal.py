@@ -139,3 +139,43 @@ def test_renderer_warns_for_no_llm_shadow_and_lists_pending_candidates():
     assert "operational evidence only" in markdown
     assert "Pending semantic classification:" in markdown
     assert "classification_pending (none)" in markdown
+
+
+def test_renderer_shows_retirement_review_affected_commitment_pieces():
+    diff = {
+        "hero": "Karnok",
+        "source_window": {"start": "2026-05-01", "end": "2026-05-05", "n_windows_history": 3},
+        "freeze_state": {"removals_frozen": False, "patch_label": None},
+        "source_health": [],
+        "proposed_changes": {
+            "archetype_updates": [],
+            "archetype_additions": [],
+            "archetype_removal_candidates": [
+                {
+                    "phase": "mid",
+                    "archetype": "Axe",
+                    "item": "Battle Axe",
+                    "reason": "bazaardb_absent_30_days",
+                    "retirement_type": "whole_build_review",
+                    "affected_items": ["Battle Axe"],
+                    "affected_build_items": {
+                        "carry_items": ["Battle Axe", "Sawpike"],
+                        "core_items": ["Hidden Lake"],
+                        "condition_items": ["Chains"],
+                    },
+                }
+            ],
+            "item_removal_candidates": [],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+    markdown = render_proposal(diff)
+
+    assert "### Retirement Reviews" in markdown
+    assert "whole_build_review (bazaardb_absent_30_days); affected: Battle Axe" in markdown
+    assert "carry_items: Battle Axe, Sawpike" in markdown
+    assert "core_items: Hidden Lake" in markdown
+    assert "condition_items: Chains" in markdown

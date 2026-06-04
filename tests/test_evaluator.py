@@ -343,16 +343,16 @@ def test_support_bucket_retirement_is_item_removal_even_with_core_carry_names():
 
 
 @pytest.mark.parametrize(
-    ("bucket", "retirement_type"),
+    ("bucket", "retirement_type", "review_scope"),
     [
-        ("carry_items", "whole_build_review"),
-        ("core_items", "core_item_review"),
-        ("condition_items", "condition_item_review"),
-        ("universal_utility_items", "support_like_phase_item"),
-        ("economy_items", "support_like_phase_item"),
+        ("carry_items", "whole_build_review", "whole_build"),
+        ("core_items", "core_item_review", "core_item"),
+        ("condition_items", "condition_item_review", "condition_item"),
+        ("universal_utility_items", "support_like_phase_item", "phase_item"),
+        ("economy_items", "support_like_phase_item", "phase_item"),
     ],
 )
-def test_non_support_buckets_create_review_retirement_candidates(bucket, retirement_type):
+def test_non_support_buckets_create_review_retirement_candidates(bucket, retirement_type, review_scope):
     stats = history_with_absent_windows("Karnok", "bazaardb", "Retired Item", [0])
 
     evaluation = evaluate_hero(
@@ -363,12 +363,50 @@ def test_non_support_buckets_create_review_retirement_candidates(bucket, retirem
     )
 
     row = row_for(evaluation, "Retired Item")
-    assert row["threshold_result"] == "archetype_remove_candidate"
+    assert row["threshold_result"] == "retirement_review_candidate"
     assert row["catalog_bucket"] == bucket
     assert row["retirement_type"] == retirement_type
     assert row["retirement_basis"] == "bazaardb_absent_30_days"
     assert row["actionability"] == "review_required"
     assert row["affected_items"] == ["Retired Item"]
+    assert row["affected_item_details"] == [
+        {
+            "item": "Retired Item",
+            "catalog_bucket": bucket,
+            "phase": "mid",
+            "archetype": "Axe",
+        }
+    ]
+    assert row["review_scope"] == review_scope
+    assert row["review_priority"] == "normal"
+
+
+def test_carry_retirement_review_includes_commitment_context_without_deletion_action():
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Battle Axe", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [
+            CatalogItem("Battle Axe", phase="mid", archetype="Axe", bucket="carry_items"),
+            CatalogItem("Sawpike", phase="mid", archetype="Axe", bucket="carry_items"),
+            CatalogItem("Hidden Lake", phase="mid", archetype="Axe", bucket="core_items"),
+            CatalogItem("Chains", phase="mid", archetype="Axe", bucket="condition_items"),
+            CatalogItem("Bagpipes", phase="mid", archetype="Axe", bucket="support_items"),
+        ],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+    )
+
+    row = row_for(evaluation, "Battle Axe")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["retirement_type"] == "whole_build_review"
+    assert row["affected_items"] == ["Battle Axe"]
+    assert row["affected_build_items"] == {
+        "carry_items": ["Battle Axe", "Sawpike"],
+        "core_items": ["Hidden Lake"],
+        "condition_items": ["Chains"],
+    }
+    assert row["actionability"] == "review_required"
 
 
 def test_support_bucket_with_secondary_presence_does_not_use_core_carry_name_heuristic():

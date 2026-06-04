@@ -193,6 +193,7 @@ def evaluate_hero(
     catalog = _catalog_index(catalog_items_list)
     context = _catalog_context(hero, catalog.values())
     commitment_index = _archetype_commitment_index(catalog_items_list)
+    catalog_item_index = _catalog_item_index(catalog_items_list)
     current = _hero_scoped_current(current, context)
     freeze = state.freeze_status(hero, now)
     freeze_active = freeze.active
@@ -219,12 +220,12 @@ def evaluate_hero(
                     for rphase, rname in resolved:
                         routed = dataclasses.replace(decision, phase=rphase, archetype=rname)
                         decisions.append(routed)
-                        rows.append(_row_dict(hero, routed, existing, current, stats))
+                        rows.append(_row_dict(hero, routed, existing, current, stats, catalog_item_index))
                     continue
         else:
             decision = _evaluate_existing(item, existing, stats, current, disagreement, freeze_active)
         decisions.append(decision)
-        rows.append(_row_dict(hero, decision, existing, current, stats))
+        rows.append(_row_dict(hero, decision, existing, current, stats, catalog_item_index))
 
     return EvaluationResult(
         hero=hero,
@@ -691,6 +692,15 @@ def _archetype_commitment_index(
     return {key: frozenset(items) for key, items in index.items()}
 
 
+def _catalog_item_index(
+    catalog_items: Iterable[CatalogItem],
+) -> dict[tuple[Optional[str], Optional[str]], list[CatalogItem]]:
+    index: dict[tuple[Optional[str], Optional[str]], list[CatalogItem]] = {}
+    for item in catalog_items:
+        index.setdefault((item.phase, item.archetype), []).append(item)
+    return index
+
+
 def _observed_archetype_labels(item: str, current: dict[str, SourceFetchResult]) -> frozenset[str]:
     """Collect all archetype label parts seen for *item* across healthy sources."""
     parts: set[str] = set()
@@ -775,12 +785,13 @@ def _row_dict(
     existing: Optional[CatalogItem],
     current: dict[str, SourceFetchResult],
     stats: HeroStats,
+    catalog_item_index: dict[tuple[Optional[str], Optional[str]], list[CatalogItem]],
 ) -> dict[str, Any]:
     source_presence = _source_presence(decision.item, current)
     current_patch_evidence = _current_patch_evidence(decision.item, current)
     history = _history_summary(decision.item, stats)
     phase = decision.phase or _observed_phase(decision.item, current) or _default_candidate_phase(decision, existing)
-    retirement = _retirement_metadata(decision, existing)
+    retirement = _retirement_metadata(decision, existing, catalog_item_index)
     return {
         "hero": hero,
         "phase": phase,
@@ -969,7 +980,7 @@ def _latest_numeric(evidence: dict[str, dict[str, Any]], key: str) -> Optional[f
 def _canonical_presence(decision: ThresholdDecision, source_presence: dict[str, str]) -> str:
     if source_presence[PRIMARY_SOURCE] == "present" or decision.threshold_result == "add_candidate":
         return "present"
-    if decision.threshold_result in {"remove_candidate", "archetype_remove_candidate"}:
+    if decision.threshold_result in {"remove_candidate", "archetype_remove_candidate", "retirement_review_candidate"}:
         return "absent"
     if decision.disagreement and decision.disagreement.label != "none":
         return "disputed_present"
@@ -1064,27 +1075,52 @@ def _retirement_action(item: CatalogItem) -> str:
     role = _retirement_role(item.bucket)
     if role["actionability"] == "item_removal_candidate":
         return "remove_candidate"
-    return "archetype_remove_candidate"
+    return "retirement_review_candidate"
 
 
 def _retirement_metadata(
     decision: ThresholdDecision,
     existing: Optional[CatalogItem],
+    catalog_item_index: dict[tuple[Optional[str], Optional[str]], list[CatalogItem]],
 ) -> dict[str, Any]:
-    if existing is None or decision.threshold_result not in {"remove_candidate", "archetype_remove_candidate"}:
+    if existing is None or decision.threshold_result not in {
+        "remove_candidate",
+        "archetype_remove_candidate",
+        "retirement_review_candidate",
+    }:
         return {
             "retirement_type": None,
             "retirement_basis": None,
             "actionability": None,
             "affected_items": [],
+            "affected_item_details": [],
+            "affected_build_items": {},
+            "review_scope": None,
+            "review_priority": None,
             "signal_evidence": [],
         }
     role = _retirement_role(existing.bucket)
+    affected_build_items = (
+        _affected_build_items(existing, catalog_item_index)
+        if role["actionability"] == "review_required"
+        else {}
+    )
     return {
         "retirement_type": role["retirement_type"],
         "retirement_basis": decision.threshold_reason,
         "actionability": role["actionability"],
         "affected_items": [decision.item],
+        "affected_item_details": [
+            {
+                "item": decision.item,
+                "catalog_bucket": existing.bucket,
+                "phase": existing.phase,
+                "archetype": existing.archetype,
+            }
+        ],
+        "affected_build_items": affected_build_items,
+        "review_scope": role["review_scope"],
+        "review_priority": "normal",
         "signal_evidence": [],
     }
 
@@ -1094,26 +1130,32 @@ def _retirement_role(bucket: Optional[str]) -> dict[str, str]:
         "support_items": {
             "retirement_type": "support_item",
             "actionability": "item_removal_candidate",
+            "review_scope": "support_item",
         },
         "carry_items": {
             "retirement_type": "whole_build_review",
             "actionability": "review_required",
+            "review_scope": "whole_build",
         },
         "core_items": {
             "retirement_type": "core_item_review",
             "actionability": "review_required",
+            "review_scope": "core_item",
         },
         "condition_items": {
             "retirement_type": "condition_item_review",
             "actionability": "review_required",
+            "review_scope": "condition_item",
         },
         "universal_utility_items": {
             "retirement_type": "support_like_phase_item",
             "actionability": "review_required",
+            "review_scope": "phase_item",
         },
         "economy_items": {
             "retirement_type": "support_like_phase_item",
             "actionability": "review_required",
+            "review_scope": "phase_item",
         },
     }
     return roles.get(
@@ -1121,8 +1163,30 @@ def _retirement_role(bucket: Optional[str]) -> dict[str, str]:
         {
             "retirement_type": "catalog_item",
             "actionability": "item_removal_candidate",
+            "review_scope": "catalog_item",
         },
     )
+
+
+def _affected_build_items(
+    existing: CatalogItem,
+    catalog_item_index: dict[tuple[Optional[str], Optional[str]], list[CatalogItem]],
+) -> dict[str, list[str]]:
+    if existing.archetype is None:
+        return {
+            existing.bucket or "catalog_items": [existing.item],
+        }
+    grouped: dict[str, list[str]] = {
+        "carry_items": [],
+        "core_items": [],
+        "condition_items": [],
+    }
+    for item in catalog_item_index.get((existing.phase, existing.archetype), []):
+        if item.bucket in grouped and item.item not in grouped[item.bucket]:
+            grouped[item.bucket].append(item.item)
+    if existing.bucket in grouped and existing.item not in grouped[existing.bucket]:
+        grouped[existing.bucket].append(existing.item)
+    return {bucket: items for bucket, items in grouped.items() if items}
 
 
 def _archetype_changed(item: str, existing: CatalogItem, current: dict[str, SourceFetchResult]) -> bool:

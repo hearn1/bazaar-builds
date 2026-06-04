@@ -66,6 +66,7 @@ class CatalogItem:
             item=str(data["item"]),
             phase=_optional_str(data.get("phase")),
             archetype=_optional_str(data.get("archetype")),
+            bucket=_optional_str(data.get("bucket")),
         )
 
 
@@ -323,7 +324,7 @@ def iter_catalog_items(catalog: dict[str, Any]) -> Iterable[CatalogItem]:
             for bucket in ("universal_utility_items", "economy_items"):
                 for item in phase_data.get(bucket, []) or []:
                     if item:
-                        yield CatalogItem(item=str(item), phase=phase_name, archetype=None)
+                        yield CatalogItem(item=str(item), phase=phase_name, archetype=None, bucket=bucket)
 
     raw_items = catalog.get("items")
     if isinstance(raw_items, list):
@@ -407,7 +408,7 @@ def _evaluate_existing(
     if freeze_active:
         return ThresholdDecision(item, "no_change", "freeze_active", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
 
-    if _existing_core_or_carry(existing) and disagreement.classification_ceiling == "support_only":
+    if _preserve_existing_bucket_on_secondary_presence(existing) and disagreement.classification_ceiling == "support_only":
         return ThresholdDecision(item, "no_change", "primary_absent_secondary_present_preserve_existing_classification", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
 
     if _archetype_changed(item, existing, current):
@@ -415,7 +416,7 @@ def _evaluate_existing(
 
     remove_status = _remove_status(item, stats, current)
     if remove_status == "remove_candidate":
-        return ThresholdDecision(item, "remove_candidate", "bazaardb_absent_30_days_secondaries_clear", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
+        return ThresholdDecision(item, _retirement_action(existing), "bazaardb_absent_30_days_secondaries_clear", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
     if remove_status == "insufficient_history":
         return ThresholdDecision(item, "no_change", "insufficient_history", existing.phase, existing.archetype, disagreement.classification_ceiling, disagreement, evidence_refs)
     if remove_status == "secondary_present":
@@ -779,12 +780,14 @@ def _row_dict(
     current_patch_evidence = _current_patch_evidence(decision.item, current)
     history = _history_summary(decision.item, stats)
     phase = decision.phase or _observed_phase(decision.item, current) or _default_candidate_phase(decision, existing)
+    retirement = _retirement_metadata(decision, existing)
     return {
         "hero": hero,
         "phase": phase,
         "archetype": decision.archetype or _observed_archetype(decision.item, current),
         "archetype_status": _archetype_status(decision, existing),
         "item": decision.item,
+        "catalog_bucket": existing.bucket if existing else None,
         "catalog_membership": "present" if existing else "missing",
         "source_presence": source_presence,
         "current_patch_evidence": current_patch_evidence,
@@ -812,6 +815,7 @@ def _row_dict(
             and decision.classification_ceiling in {"carry_core_support", "support_only"}
         ),
         "evidence_refs": _evidence_ref_objects(decision.evidence_refs),
+        **retirement,
     }
 
 
@@ -965,7 +969,7 @@ def _latest_numeric(evidence: dict[str, dict[str, Any]], key: str) -> Optional[f
 def _canonical_presence(decision: ThresholdDecision, source_presence: dict[str, str]) -> str:
     if source_presence[PRIMARY_SOURCE] == "present" or decision.threshold_result == "add_candidate":
         return "present"
-    if decision.threshold_result == "remove_candidate":
+    if decision.threshold_result in {"remove_candidate", "archetype_remove_candidate"}:
         return "absent"
     if decision.disagreement and decision.disagreement.label != "none":
         return "disputed_present"
@@ -1052,9 +1056,73 @@ def _run_id(generated_at: str) -> str:
     return generated_at.replace("-", "").replace(":", "")
 
 
-def _existing_core_or_carry(item: CatalogItem) -> bool:
-    value = f"{item.phase or ''} {item.archetype or ''}".casefold()
-    return "core" in value or "carry" in value
+def _preserve_existing_bucket_on_secondary_presence(item: CatalogItem) -> bool:
+    return item.bucket in {"carry_items", "core_items", "condition_items"}
+
+
+def _retirement_action(item: CatalogItem) -> str:
+    role = _retirement_role(item.bucket)
+    if role["actionability"] == "item_removal_candidate":
+        return "remove_candidate"
+    return "archetype_remove_candidate"
+
+
+def _retirement_metadata(
+    decision: ThresholdDecision,
+    existing: Optional[CatalogItem],
+) -> dict[str, Any]:
+    if existing is None or decision.threshold_result not in {"remove_candidate", "archetype_remove_candidate"}:
+        return {
+            "retirement_type": None,
+            "retirement_basis": None,
+            "actionability": None,
+            "affected_items": [],
+            "signal_evidence": [],
+        }
+    role = _retirement_role(existing.bucket)
+    return {
+        "retirement_type": role["retirement_type"],
+        "retirement_basis": decision.threshold_reason,
+        "actionability": role["actionability"],
+        "affected_items": [decision.item],
+        "signal_evidence": [],
+    }
+
+
+def _retirement_role(bucket: Optional[str]) -> dict[str, str]:
+    roles = {
+        "support_items": {
+            "retirement_type": "support_item",
+            "actionability": "item_removal_candidate",
+        },
+        "carry_items": {
+            "retirement_type": "whole_build_review",
+            "actionability": "review_required",
+        },
+        "core_items": {
+            "retirement_type": "core_item_review",
+            "actionability": "review_required",
+        },
+        "condition_items": {
+            "retirement_type": "condition_item_review",
+            "actionability": "review_required",
+        },
+        "universal_utility_items": {
+            "retirement_type": "support_like_phase_item",
+            "actionability": "review_required",
+        },
+        "economy_items": {
+            "retirement_type": "support_like_phase_item",
+            "actionability": "review_required",
+        },
+    }
+    return roles.get(
+        bucket,
+        {
+            "retirement_type": "catalog_item",
+            "actionability": "item_removal_candidate",
+        },
+    )
 
 
 def _archetype_changed(item: str, existing: CatalogItem, current: dict[str, SourceFetchResult]) -> bool:

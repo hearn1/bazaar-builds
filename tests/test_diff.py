@@ -94,6 +94,68 @@ def test_diff_generator_mock_mode_populates_shape():
     assert diff["proposed_changes"]["item_removal_candidates"][0]["item"] == "Old Core"
 
 
+def test_diff_routes_support_retirements_to_item_removal_candidates():
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Old Support",
+            "threshold_result": "remove_candidate",
+            "threshold_reason": "bazaardb_absent_30_days",
+            "catalog_bucket": "support_items",
+            "retirement_type": "support_item",
+            "retirement_basis": "bazaardb_absent_30_days",
+            "actionability": "item_removal_candidate",
+            "affected_items": ["Old Support"],
+            "signal_evidence": [],
+            "evidence_refs": [],
+        },
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["proposed_changes"]["archetype_removal_candidates"] == []
+    removal = diff["proposed_changes"]["item_removal_candidates"][0]
+    assert removal["item"] == "Old Support"
+    assert removal["catalog_bucket"] == "support_items"
+    assert removal["retirement_type"] == "support_item"
+    assert removal["retirement_basis"] == "bazaardb_absent_30_days"
+    assert removal["actionability"] == "item_removal_candidate"
+    assert removal["affected_items"] == ["Old Support"]
+    assert removal["signal_evidence"] == []
+
+
+def test_diff_routes_bucket_review_retirements_away_from_item_removal_candidates():
+    rows = [
+        {
+            "phase": "late",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "threshold_result": "archetype_remove_candidate",
+            "threshold_reason": "bazaardb_absent_30_days",
+            "catalog_bucket": "carry_items",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": "bazaardb_absent_30_days",
+            "actionability": "review_required",
+            "affected_items": ["Battle Axe"],
+            "signal_evidence": [],
+            "evidence_refs": [],
+        },
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["proposed_changes"]["item_removal_candidates"] == []
+    review = diff["proposed_changes"]["archetype_removal_candidates"][0]
+    assert review["item"] == "Battle Axe"
+    assert review["catalog_bucket"] == "carry_items"
+    assert review["retirement_type"] == "whole_build_review"
+    assert review["retirement_basis"] == "bazaardb_absent_30_days"
+    assert review["actionability"] == "review_required"
+    assert review["affected_items"] == ["Battle Axe"]
+    assert review["signal_evidence"] == []
+
+
 def test_source_quality_gate_coerces_carry_to_support():
     classifier = StaticClassifier([ItemClassification("Secondary Item", "carry", "high", "would carry", "top_line")])
 

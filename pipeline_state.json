@@ -1,9 +1,9 @@
 {
   "dry_run": false,
-  "expected_bazaardb_patch_label": null,
+  "expected_bazaardb_patch_label": "15.1 (Jun 4)",
   "freeze_removals_until": null,
   "hero_freezes": {},
-  "patch_label": null,
+  "patch_label": "15.1 (Jun 4)",
   "phase": "live_cron",
   "schema_version": 1
 }

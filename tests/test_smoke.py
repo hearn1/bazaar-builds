@@ -64,7 +64,7 @@ def test_smoke_treats_unconfigured_articles_skipped_as_green(tmp_path):
 # --- known-items / builds-subdir tests (Fixes #108) ---
 
 _DB_NAMES_FILE = (
-    "[DB] Initialized at C:\\bazaar_tracker\\bazaar_runs.db\n"
+    "[DB] Initialized at C:\\bazaar_coach\\bazaar_runs.db\n"
     '["Pufferfish", "Anaconda"]\n'
 )
 

@@ -25,7 +25,7 @@ Usage
                                     [--output-dir PATH]
                                     [--no-bazaardb]
 
-Defaults: all 7 heroes, tracker at ``../bazaar_tracker``, stats at
+Defaults: all 7 heroes, tracker at ``../bazaar_coach``, stats at
 ``./stats``, output at ``./artifacts/verify``.
 """
 
@@ -255,8 +255,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--tracker-repo",
         type=Path,
-        default=_HERE.parent / "bazaar_tracker",
-        help="Path to local bazaar_tracker checkout (default: ../bazaar_tracker)",
+        default=_HERE.parent / "bazaar_coach",
+        help="Path to local bazaar_coach checkout (default: ../bazaar_coach)",
     )
     parser.add_argument(
         "--stats-dir",

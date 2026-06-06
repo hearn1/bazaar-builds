@@ -40,7 +40,7 @@ def _pipeline_state(lines: list[str], diff: dict[str, Any]) -> None:
         lines.append(
             f"- Warning: {invalid_names} item name(s) were dropped as invalid_classifier_item; "
             f"the coach card_cache_names.txt may be stale (regenerate via "
-            f"tracker.py refresh-images)."
+            f"coach.py refresh-images)."
         )
     health = diff.get("source_health", [])
     if health:

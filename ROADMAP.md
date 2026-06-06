@@ -38,7 +38,7 @@ Coach catalog proposals are partitioned by intent. Additions use `pipeline/<hero
 Rollout gates before broad retirement trust:
 - Run `python -m pytest -q tests` for the tracked local suite. Do not use bare repo-root pytest.
 - For higher-risk retirement changes or before expanding applier scope, run the 7-hero `local_dry_run` sweep with temporary state and compare adds, updates, weaker signals, applied rows, and skipped rows before/after.
-- Confirm no coach catalogs or `card_cache_names.txt` are vendored into this repo; use the sibling `../bazaar_tracker` or `bazaar_coach` checkout.
+- Confirm no coach catalogs or `card_cache_names.txt` are vendored into this repo; use the sibling `../bazaar_coach` checkout.
 - Keep `pipeline_state.json` unchanged unless Matt explicitly approves a phase or freeze-state change.
 
 ## Semantic Classifier Strategy - Open

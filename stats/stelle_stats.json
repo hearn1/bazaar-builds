@@ -1,8 +1,39 @@
 {
   "classifier_started_at": "2026-05-18T13:37:52Z",
-  "generated_at": "2026-05-30T22:10:36Z",
+  "generated_at": "2026-06-05T09:38:20Z",
   "hero": "Stelle",
   "items": {
+    "Abducted Cow": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Common",
+                "section_title": "End Game Build Breakdown",
+                "slug": "abducted-cow"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Aerial Turret": {
       "per_source": {
         "bazaar_builds_net": {
@@ -291,6 +322,66 @@
         }
       }
     },
+    "Azakan Stew": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 3,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.33,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Balloon Engine": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Example Early Game Path",
+                "slug": "balloon-engine"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Banu Leaves": {
       "per_source": {
         "bazaardb": {
@@ -560,7 +651,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 6,
@@ -612,10 +703,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 7,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -743,6 +851,35 @@
         }
       }
     },
+    "Blue Gumball": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Boa Constrictor": {
       "per_source": {
         "bazaardb": {
@@ -833,6 +970,93 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Bomb Voyage": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.14,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 7,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Boom Boom Bot": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 3,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Boosted Saucer": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 23,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.61,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -932,11 +1156,40 @@
         }
       }
     },
+    "Burnacuda": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 4,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.4,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Buster": {
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 69,
@@ -955,10 +1208,28 @@
               "rank": 2,
               "sample_count": 69,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 7,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 7,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -966,7 +1237,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 7,
@@ -1001,10 +1272,56 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 4,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.44,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
+        }
+      }
+    },
+    "Cannonade": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 2,
+              "archetype": "Holsters / Zoarcid / Burnacuda",
+              "archetypes_seen": [
+                "Holsters / Zoarcid / Burnacuda"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.18,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -1180,7 +1497,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -1401,10 +1718,120 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Chicken Cannon",
+              "archetypes_seen": [
+                "Chicken Cannon"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Chicken Cannon (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d5dd20ef-31ad-4eb7-af8d-3a42eb3008d3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "chicken-cannon",
+                              "isShowLabel": true,
+                              "label": "Chicken Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has finally emerged as a solid contender after the latest buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/f206ba7b-5496-46fd-abe8-bca5cfebbf2d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "pogo-stick",
+                              "isShowLabel": true,
+                              "label": "Pogo Stick",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/17fe0a7a-6432-49ec-a931-9237482bc8f2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "windbreaker",
+                              "isShowLabel": true,
+                              "label": "Windbreaker",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". The combination of improved Shield scaling plus a lower Cooldown has led to new viable setups, creating a fresh take on the Shield conversion archetype.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -1483,6 +1910,37 @@
         }
       }
     },
+    "Clockwork Disc": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Example Early Game Path",
+                "slug": "clockwork-disc"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Coffee": {
       "per_source": {
         "bazaardb": {
@@ -1526,6 +1984,35 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Corkscrew": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -1748,6 +2235,35 @@
         }
       }
     },
+    "Dragon Steak": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Dragonmelon": {
       "per_source": {
         "bazaardb": {
@@ -1770,6 +2286,36 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Drone Crusher": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 38,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 38,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
           "windows_observed": 1,
@@ -1856,7 +2402,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 11,
@@ -1908,10 +2454,27 @@
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market / Trail Mix / Bread Knife",
+              "archetypes_seen": [
+                "Farmer's Market / Trail Mix / Bread Knife"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -2090,7 +2653,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 4,
@@ -2108,14 +2671,31 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 2,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.29,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -2418,10 +2998,161 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -2625,6 +3356,68 @@
         }
       }
     },
+    "Final Flame": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Vanessa, Dooley, Mak, Pygmalien, Stelle, Jules",
+                "section_title": "Example Early Game Path",
+                "slug": "final-flame"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Flame Jet Drone": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Example Early Game Path",
+                "slug": "flame-jet-drone"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Flare": {
       "per_source": {
         "bazaardb": {
@@ -2675,7 +3468,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 9,
@@ -2693,10 +3486,27 @@
               "present": true,
               "rank": 6,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.14,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -3010,7 +3820,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 69,
@@ -3029,6 +3839,51 @@
               "rank": 3,
               "sample_count": 69,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 7,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 7,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 2,
+          "windows_seen": 2
+        },
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Example Early Game Path",
+                "slug": "freefall-simulator"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
             }
           ],
           "windows_observed": 1,
@@ -3366,7 +4221,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 12,
@@ -3418,10 +4273,87 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 6,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.16,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
+        }
+      }
+    },
+    "Grabinator": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "End Game Build Breakdown",
+                "slug": "grabinator"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Grater": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -3475,7 +4407,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 7,
@@ -3493,10 +4425,27 @@
               "present": true,
               "rank": 15,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 2,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.2,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -3525,6 +4474,37 @@
               "rank": 12,
               "sample_count": 2,
               "window_id": "bazaar_builds_net:2026-W22"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Hammer": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "End Game Build Breakdown",
+                "slug": "hammer"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 10,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
             }
           ],
           "windows_observed": 1,
@@ -3926,6 +4906,35 @@
         }
       }
     },
+    "Honeycomb": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market / Trail Mix / Bread Knife",
+              "archetypes_seen": [
+                "Farmer's Market / Trail Mix / Bread Knife"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Hot Sauce": {
       "per_source": {
         "bazaardb": {
@@ -4214,6 +5223,35 @@
         }
       }
     },
+    "Hydrogen Tank": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 6,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.16,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 13,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Ice 9000": {
       "per_source": {
         "bazaar_builds_net": {
@@ -4250,7 +5288,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 5,
@@ -4268,14 +5306,31 @@
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.14,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -4578,10 +5633,161 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -4652,7 +5858,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 16,
@@ -4704,10 +5910,27 @@
               "present": true,
               "rank": 7,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.33,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -5100,7 +6323,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -5277,10 +6500,98 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -5288,7 +6599,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 12,
@@ -5306,6 +6617,50 @@
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 4,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 2,
+          "windows_seen": 2
+        },
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Mid Game Pre-Pivot Pickups",
+                "slug": "joystick"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
             }
           ],
           "windows_observed": 1,
@@ -5363,7 +6718,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 9,
@@ -5398,10 +6753,27 @@
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -5438,7 +6810,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 4,
@@ -5473,10 +6845,27 @@
               "present": true,
               "rank": 12,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Hunter's Pack / Hidden Lake / Lost Blade",
+              "archetypes_seen": [
+                "Hunter's Pack / Hidden Lake / Lost Blade"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.13,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -5512,7 +6901,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -5689,10 +7078,127 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
+        }
+      }
+    },
+    "Laurel's Bouncy Ball": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market / Trail Mix / Bread Knife",
+              "archetypes_seen": [
+                "Farmer's Market / Trail Mix / Bread Knife"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -5744,9 +7250,61 @@
     },
     "LavaRoller": {
       "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 10,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.26,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "End Game Build Breakdown",
+                "slug": "lavaroller"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -6049,10 +7607,161 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -6137,7 +7846,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 3,
@@ -6189,14 +7898,31 @@
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.14,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 4,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -6373,10 +8099,98 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -6430,7 +8244,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 11,
@@ -6448,10 +8262,27 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.43,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -6522,7 +8353,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 26)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 7,
@@ -6540,6 +8371,54 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 2,
+          "windows_seen": 2
+        }
+      }
+    },
+    "Marshalling Lights": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Example Early Game Path",
+                "slug": "marshalling-lights"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
             }
           ],
           "windows_observed": 1,
@@ -6827,9 +8706,61 @@
     },
     "Ni-Kola": {
       "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 2,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.05,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 10,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Mid Game Pre-Pivot Pickups",
+                "slug": "ni-kola"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -7132,10 +9063,161 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -7364,6 +9446,66 @@
         }
       }
     },
+    "Oni Mask": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 2,
+              "archetype": "Holsters / Zoarcid / Burnacuda",
+              "archetypes_seen": [
+                "Holsters / Zoarcid / Burnacuda"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.18,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Orbital Polisher": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Mid Game Pre-Pivot Pickups",
+                "slug": "orbital-polisher"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Ornithopter": {
       "per_source": {
         "bazaar_builds_net": {
@@ -7416,7 +9558,7 @@
         },
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 63,
@@ -7470,14 +9612,31 @@
               "rank": 3,
               "sample_count": 93,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.43,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -7654,10 +9813,98 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -7757,7 +10004,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 28,
@@ -7775,6 +10022,51 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 38,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 38,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 2,
+          "windows_seen": 2
+        },
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "End Game Build Breakdown",
+                "slug": "parts-picker"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
             }
           ],
           "windows_observed": 1,
@@ -7782,7 +10074,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -8085,10 +10377,161 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -8202,7 +10645,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 9,
@@ -8254,10 +10697,27 @@
               "present": true,
               "rank": 5,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 2,
+              "archetype": "Holsters / Zoarcid / Burnacuda",
+              "archetypes_seen": [
+                "Holsters / Zoarcid / Burnacuda"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.18,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -8372,6 +10832,35 @@
         }
       }
     },
+    "Pizza": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Pocket Knife": {
       "per_source": {
         "bazaardb": {
@@ -8422,7 +10911,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 24,
@@ -8440,14 +10929,31 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.43,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -8668,10 +11174,120 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Chicken Cannon",
+              "archetypes_seen": [
+                "Chicken Cannon"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Chicken Cannon (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d5dd20ef-31ad-4eb7-af8d-3a42eb3008d3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "chicken-cannon",
+                              "isShowLabel": true,
+                              "label": "Chicken Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has finally emerged as a solid contender after the latest buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/f206ba7b-5496-46fd-abe8-bca5cfebbf2d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "pogo-stick",
+                              "isShowLabel": true,
+                              "label": "Pogo Stick",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/17fe0a7a-6432-49ec-a931-9237482bc8f2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "windbreaker",
+                              "isShowLabel": true,
+                              "label": "Windbreaker",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". The combination of improved Shield scaling plus a lower Cooldown has led to new viable setups, creating a fresh take on the Shield conversion archetype.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -8805,7 +11421,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -8982,10 +11598,98 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -9132,9 +11836,34 @@
     },
     "Radar Dome": {
       "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Hunter's Pack / Flying Squirrel / Runic Claymore",
+              "archetypes_seen": [
+                "Hunter's Pack / Flying Squirrel / Runic Claymore"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.06,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 11,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -9355,10 +12084,120 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Chicken Cannon",
+              "archetypes_seen": [
+                "Chicken Cannon"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Chicken Cannon (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d5dd20ef-31ad-4eb7-af8d-3a42eb3008d3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "chicken-cannon",
+                              "isShowLabel": true,
+                              "label": "Chicken Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has finally emerged as a solid contender after the latest buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/f206ba7b-5496-46fd-abe8-bca5cfebbf2d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "pogo-stick",
+                              "isShowLabel": true,
+                              "label": "Pogo Stick",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/17fe0a7a-6432-49ec-a931-9237482bc8f2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "windbreaker",
+                              "isShowLabel": true,
+                              "label": "Windbreaker",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". The combination of improved Shield scaling plus a lower Cooldown has led to new viable setups, creating a fresh take on the Shield conversion archetype.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -9475,7 +12314,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 7,
@@ -9510,10 +12349,56 @@
               "present": true,
               "rank": 13,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 2,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.22,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
+        }
+      }
+    },
+    "Relay Drone": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 7,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.18,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -9521,7 +12406,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:14.1 (Hotfix May 14)",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 69,
@@ -9540,14 +12425,32 @@
               "rank": 1,
               "sample_count": 69,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 7,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 7,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -9850,10 +12753,161 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -9957,6 +13011,66 @@
               "present": true,
               "rank": 2,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Rocket Boots": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Common",
+                "section_title": "Example Early Game Path",
+                "slug": "rocket-boots"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 10,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Rocket Drone": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 2,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.05,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
           "windows_observed": 1,
@@ -10082,6 +13196,37 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Salamander Pup": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Common",
+                "section_title": "Example Early Game Path",
+                "slug": "salamander-pup"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 9,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -10344,6 +13489,35 @@
         }
       }
     },
+    "Seeker Probe": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 4,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Self Promotion": {
       "per_source": {
         "bazaar_builds_net": {
@@ -10419,6 +13593,35 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Sextant": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -10931,7 +14134,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:May 14:nopatch",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 4,
@@ -10949,10 +14152,27 @@
               "present": true,
               "rank": 8,
               "window_id": "bazaardb:May 14:nopatch"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Holsters / Zoarcid / Burnacuda",
+              "archetypes_seen": [
+                "Holsters / Zoarcid / Burnacuda"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.09,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -11000,6 +14220,62 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Smoke Detector": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 3,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.08,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 8,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Mid Game Pre-Pivot Pickups",
+                "slug": "smoke-detector"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -11205,6 +14481,35 @@
           ],
           "windows_observed": 3,
           "windows_seen": 3
+        }
+      }
+    },
+    "Spark Plug": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Hunter's Pack / Hidden Lake / Lost Blade",
+              "archetypes_seen": [
+                "Hunter's Pack / Hidden Lake / Lost Blade"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.13,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -11438,11 +14743,40 @@
         }
       }
     },
+    "Stelle's Workshop": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 5,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.13,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Strawberries": {
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 8,
@@ -11494,10 +14828,27 @@
               "present": true,
               "rank": 4,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.33,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 14,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -11597,7 +14948,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 14)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 4,
@@ -11632,10 +14983,27 @@
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 15,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -11643,7 +15011,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 3,
@@ -11695,14 +15063,32 @@
               "present": true,
               "rank": 10,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 38,
+              "archetype": "Drone Crusher / Parts Picker / Targeting Drone",
+              "archetypes_seen": [
+                "Drone Crusher / Parts Picker / Targeting Drone"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "CORE ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 38,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -12005,10 +15391,161 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -12055,6 +15592,68 @@
           ],
           "windows_observed": 2,
           "windows_seen": 2
+        }
+      }
+    },
+    "Tethers": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "Example Early Game Path",
+                "slug": "tethers"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "The Big One": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "End Game Build Breakdown",
+                "slug": "the-big-one"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -12237,7 +15836,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 12,
@@ -12289,10 +15888,56 @@
               "present": true,
               "rank": 3,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Zarlic / Meat Tenderizer / Sorbet",
+              "archetypes_seen": [
+                "Zarlic / Meat Tenderizer / Sorbet"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.11,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
+        }
+      }
+    },
+    "Ulu Knife": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.1,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 5,
+              "window_id": "bazaardb:15.0 (Jun 3)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -12300,7 +15945,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 6,
@@ -12352,10 +15997,27 @@
               "present": true,
               "rank": 11,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 3,
+              "archetype": "Zarlic / Spice Rack / Instant Noodles",
+              "archetypes_seen": [
+                "Zarlic / Spice Rack / Instant Noodles"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.3,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 12,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -12363,7 +16025,7 @@
       "per_source": {
         "bazaardb": {
           "first_seen_window": "bazaardb:May 14:nopatch",
-          "last_seen_window": "bazaardb:14.1 (Hotfix May 26)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
           "per_window": [
             {
               "appearances": 5,
@@ -12415,10 +16077,27 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 26)"
+            },
+            {
+              "appearances": 2,
+              "archetype": "Narwhal / Piranha / Tortuga",
+              "archetypes_seen": [
+                "Narwhal / Piranha / Tortuga"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.2,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 9,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -12490,6 +16169,35 @@
               "present": true,
               "rank": 14,
               "window_id": "bazaardb:May 14:nopatch"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Void Disruptor": {
+      "per_source": {
+        "bazaardb": {
+          "first_seen_window": "bazaardb:15.0 (Jun 3)",
+          "last_seen_window": "bazaardb:15.0 (Jun 3)",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Repair Drone / Buster / Freefall Simulator",
+              "archetypes_seen": [
+                "Repair Drone / Buster / Freefall Simulator"
+              ],
+              "evidence_refs": [],
+              "frequency": 0.14,
+              "metadata": {
+                "patch_notes_url": "/patchnotes",
+                "section": "SUPPORTING ITEMS"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 6,
+              "window_id": "bazaardb:15.0 (Jun 3)"
             }
           ],
           "windows_observed": 1,
@@ -12702,7 +16410,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v557",
+          "last_seen_window": "mobalytics_meta_builds:v561",
           "per_window": [
             {
               "appearances": 1,
@@ -12923,10 +16631,120 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v557"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Chicken Cannon",
+              "archetypes_seen": [
+                "Chicken Cannon"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Chicken Cannon (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d5dd20ef-31ad-4eb7-af8d-3a42eb3008d3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "chicken-cannon",
+                              "isShowLabel": true,
+                              "label": "Chicken Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has finally emerged as a solid contender after the latest buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/f206ba7b-5496-46fd-abe8-bca5cfebbf2d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "pogo-stick",
+                              "isShowLabel": true,
+                              "label": "Pogo Stick",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/17fe0a7a-6432-49ec-a931-9237482bc8f2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "windbreaker",
+                              "isShowLabel": true,
+                              "label": "Windbreaker",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". The combination of improved Shield scaling plus a lower Cooldown has led to new viable setups, creating a fresh take on the Shield conversion archetype.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v561"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -12981,6 +16799,37 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:14.1 (Hotfix May 14)"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "Wrench": {
+      "per_source": {
+        "mobalytics_build_articles": {
+          "first_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "last_seen_window": "mobalytics_build_articles:lavaroller-stelle-kripp",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "lavaroller-stelle-kripp",
+              "archetypes_seen": [
+                "lavaroller-stelle-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Stelle",
+                "section_title": "End Game Build Breakdown",
+                "slug": "wrench"
+              },
+              "observed_at": "2026-06-05T09:37:58Z",
+              "present": true,
+              "rank": 11,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
             }
           ],
           "windows_observed": 1,
@@ -13140,6 +16989,12 @@
         "health_status": "healthy",
         "observed_at": "2026-05-30T22:10:02Z",
         "window_id": "bazaar_builds_net:2026-W22"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-05T09:37:58Z",
+        "window_id": "bazaar_builds_net:2026-W23"
       }
     ],
     "bazaardb": [
@@ -13166,6 +17021,14 @@
         "health_status": "healthy",
         "observed_at": "2026-05-30T22:10:02Z",
         "window_id": "bazaardb:14.1 (Hotfix May 26)"
+      },
+      {
+        "details": [
+          "filtered 96 item(s) not owned by Stelle"
+        ],
+        "health_status": "healthy",
+        "observed_at": "2026-06-05T09:37:58Z",
+        "window_id": "bazaardb:15.0 (Jun 3)"
       }
     ],
     "mobalytics_build_articles": [
@@ -13176,6 +17039,14 @@
         "health_status": "skipped",
         "observed_at": "2026-05-30T22:10:02Z",
         "window_id": "mobalytics_build_articles:skipped"
+      },
+      {
+        "details": [
+          "filtered 1 item(s) not owned by Stelle"
+        ],
+        "health_status": "healthy",
+        "observed_at": "2026-06-05T09:37:58Z",
+        "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
       }
     ],
     "mobalytics_meta_builds": [
@@ -13192,6 +17063,14 @@
         "health_status": "healthy",
         "observed_at": "2026-05-30T22:10:02Z",
         "window_id": "mobalytics_meta_builds:v557"
+      },
+      {
+        "details": [
+          "filtered 1 item(s) not owned by Stelle"
+        ],
+        "health_status": "healthy",
+        "observed_at": "2026-06-05T09:37:58Z",
+        "window_id": "mobalytics_meta_builds:v561"
       }
     ]
   }

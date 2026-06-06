@@ -10,6 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check out bazaar_coach
+        uses: actions/checkout@v4
+        with:
+          repository: hearn1/bazaar_coach
+          path: bazaar_coach
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
@@ -17,18 +23,12 @@ jobs:
       - name: Install jsonschema
         run: pip install jsonschema
 
-      - name: Validate *_builds.json against coach schema
+      - name: Validate coach catalogs against schema
         run: |
           python - <<'EOF'
           import json
           import sys
-          import urllib.request
           from pathlib import Path
-
-          # Coach repo PR #85 (Consolidate build catalogs into builds/) moved
-          # builds_schema.json into the builds/ subdirectory alongside the
-          # <hero>_builds.json files.
-          SCHEMA_URL = "https://raw.githubusercontent.com/hearn1/bazaar_coach/main/builds/builds_schema.json"
 
           try:
               import jsonschema
@@ -36,17 +36,24 @@ jobs:
               print("jsonschema not installed", file=sys.stderr)
               sys.exit(1)
 
-          print(f"Fetching schema from {SCHEMA_URL}")
-          with urllib.request.urlopen(SCHEMA_URL) as resp:
-              schema = json.loads(resp.read())
+          root = Path("bazaar_coach/builds")
+          schema_path = root / "builds_schema.json"
+          catalog_paths = sorted(root.glob("*_builds.json"))
 
-          catalogs = list(Path(".").glob("*_builds.json"))
-          if not catalogs:
-              print("No *_builds.json files found — nothing to validate.")
-              sys.exit(0)
+          if not schema_path.is_file():
+              print(f"missing coach schema at {schema_path}", file=sys.stderr)
+              sys.exit(1)
 
+          if not catalog_paths:
+              print(
+                  "no coach catalogs found — expected *_builds.json in bazaar_coach/builds/",
+                  file=sys.stderr,
+              )
+              sys.exit(1)
+
+          schema = json.loads(schema_path.read_text(encoding="utf-8"))
           errors = []
-          for path in sorted(catalogs):
+          for path in catalog_paths:
               print(f"Validating {path} ...", end=" ")
               try:
                   data = json.loads(path.read_text(encoding="utf-8"))
@@ -65,5 +72,5 @@ jobs:
                   print(f"  {path}: {msg}", file=sys.stderr)
               sys.exit(1)
 
-          print(f"\nAll {len(catalogs)} catalog(s) valid.")
+          print(f"\nAll {len(catalog_paths)} catalog(s) valid.")
           EOF

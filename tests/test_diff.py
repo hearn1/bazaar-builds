@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 
+import pytest
+
 from automated_builds_pipeline.classification import ItemClassification
 from automated_builds_pipeline.deterministic_classifier import DeterministicClassifier
 from automated_builds_pipeline.diff import build_arg_parser, focused_diff, generate_diff, main, partition_diff
@@ -747,3 +749,280 @@ def test_cross_source_promotion_rationale_includes_marker():
     assert "cross-source agreement" in item["llm_rationale"].lower(), (
         f"Expected 'cross-source agreement' in rationale, got: {item['llm_rationale']}"
     )
+
+
+def test_support_item_removal_preserves_full_signal_evidence_fields():
+    signal = {
+        "id": "removed-old-support",
+        "type": "removed_card",
+        "item": "Old Support",
+        "hero": "Karnok",
+        "replacement_item": None,
+        "effective_date": "2026-05-01",
+        "source_url": "https://example.test/removed",
+        "note": "Item was removed from the game.",
+        "metadata": {"confidence": "high", "uncertainty_note": None},
+    }
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Old Support",
+            "catalog_bucket": "support_items",
+            "threshold_result": "remove_candidate",
+            "threshold_reason": "game_change_removed_card",
+            "retirement_type": "support_item",
+            "retirement_basis": "game_change_removed_card",
+            "actionability": "item_removal_candidate",
+            "review_priority": "high",
+            "affected_items": ["Old Support"],
+            "signal_evidence": [signal],
+            "removal_blocked_by": [],
+            "evidence_refs": [
+                {"source": "game_changes:removed-old-support", "summary": "game_changes:removed-old-support"},
+                {"source": "url", "summary": "https://example.test/removed"},
+            ],
+        }
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    removal = diff["proposed_changes"]["item_removal_candidates"][0]
+    assert removal["item"] == "Old Support"
+    assert removal["catalog_location"] == {"phase": "mid", "archetype": "Axe", "item": "Old Support", "bucket": "support_items"}
+    assert removal["catalog_bucket"] == "support_items"
+    assert removal["actionability"] == "item_removal_candidate"
+    assert removal["review_priority"] == "high"
+    assert removal["signal_evidence"] == [signal]
+
+    sig = removal["signal_evidence"][0]
+    assert sig["id"] == "removed-old-support"
+    assert sig["type"] == "removed_card"
+    assert sig["item"] == "Old Support"
+    assert sig["hero"] == "Karnok"
+    assert sig["effective_date"] == "2026-05-01"
+    assert sig["source_url"] == "https://example.test/removed"
+    assert sig["note"] == "Item was removed from the game."
+    assert sig["metadata"] == {"confidence": "high", "uncertainty_note": None}
+
+    ref_summaries = [r.get("summary", "") for r in removal["evidence_refs"]]
+    assert any("game_changes:removed-old-support" in s for s in ref_summaries)
+    assert any("https://example.test/removed" in s for s in ref_summaries)
+
+
+@pytest.mark.parametrize("catalog_bucket", ["carry_items", "core_items", "condition_items"])
+def test_carry_core_condition_signal_routes_to_archetype_review_bucket(catalog_bucket):
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": catalog_bucket,
+            "threshold_result": "retirement_review_candidate",
+            "threshold_reason": "game_change_explicit_invalidation",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": "game_change_explicit_invalidation",
+            "actionability": "review_required",
+            "affected_items": ["Battle Axe"],
+            "affected_build_items": {
+                "carry_items": ["Battle Axe"],
+                "core_items": ["Hidden Lake"],
+                "condition_items": ["Chains"],
+            },
+            "review_scope": "whole_build",
+            "review_priority": "high",
+            "signal_evidence": [
+                {
+                    "id": "invalidate-axe",
+                    "type": "explicit_invalidation",
+                    "item": "Battle Axe",
+                    "effective_date": "2026-05-01",
+                    "source_url": "https://example.test/signal",
+                }
+            ],
+            "removal_blocked_by": [],
+            "evidence_refs": [],
+        }
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["proposed_changes"]["item_removal_candidates"] == []
+    review = diff["proposed_changes"]["archetype_removal_candidates"][0]
+    assert review["item"] == "Battle Axe"
+    assert review["catalog_bucket"] == catalog_bucket
+    assert review["actionability"] == "review_required"
+    assert review["affected_build_items"]["carry_items"] == ["Battle Axe"]
+    sig = review["signal_evidence"][0]
+    assert sig["id"] == "invalidate-axe"
+    assert sig["type"] == "explicit_invalidation"
+
+
+def test_rename_signal_replacement_item_survives_diff():
+    signal = {
+        "id": "rename-old-support",
+        "type": "renamed_card",
+        "item": "Old Support",
+        "replacement_item": "New Support",
+        "effective_date": "2026-05-01",
+        "source_url": "https://example.test/rename",
+        "note": "Old Support renamed to New Support.",
+    }
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Old Support",
+            "catalog_bucket": "support_items",
+            "threshold_result": "remove_candidate",
+            "threshold_reason": "game_change_renamed_card",
+            "retirement_type": "support_item",
+            "retirement_basis": "game_change_renamed_card",
+            "actionability": "item_removal_candidate",
+            "affected_items": ["Old Support"],
+            "signal_evidence": [signal],
+            "removal_blocked_by": [],
+            "evidence_refs": [],
+        }
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    removal = diff["proposed_changes"]["item_removal_candidates"][0]
+    sig = removal["signal_evidence"][0]
+    assert sig["replacement_item"] == "New Support"
+    assert sig["type"] == "renamed_card"
+    assert sig["note"] == "Old Support renamed to New Support."
+
+
+@pytest.mark.parametrize("signal_type,actionability", [
+    ("major_nerf", "review_required"),
+    ("explicit_invalidation", "review_required"),
+    ("watchlist", "watchlist_review"),
+])
+def test_review_only_signal_types_not_deletion_instructions(signal_type, actionability):
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Battle Axe",
+            "catalog_bucket": "carry_items",
+            "threshold_result": "retirement_review_candidate",
+            "threshold_reason": f"game_change_{signal_type}",
+            "retirement_type": "whole_build_review",
+            "retirement_basis": f"game_change_{signal_type}",
+            "actionability": actionability,
+            "affected_items": ["Battle Axe"],
+            "review_scope": "whole_build",
+            "review_priority": "normal",
+            "signal_evidence": [
+                {
+                    "id": f"{signal_type}-axe",
+                    "type": signal_type,
+                    "item": "Battle Axe",
+                    "effective_date": "2026-05-01",
+                }
+            ],
+            "removal_blocked_by": [],
+            "evidence_refs": [],
+        }
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    assert diff["proposed_changes"]["item_removal_candidates"] == []
+    review = diff["proposed_changes"]["archetype_removal_candidates"][0]
+    assert review["actionability"] == actionability
+    assert review["actionability"] != "item_removal_candidate"
+    sig = review["signal_evidence"][0]
+    assert sig["type"] == signal_type
+
+
+def test_secondary_source_context_survives_signal_driven_removal_diff():
+    rows = [
+        {
+            "phase": "mid",
+            "archetype": "Axe",
+            "item": "Old Support",
+            "catalog_bucket": "support_items",
+            "threshold_result": "remove_candidate",
+            "threshold_reason": "game_change_removed_card",
+            "retirement_type": "support_item",
+            "retirement_basis": "game_change_removed_card",
+            "actionability": "item_removal_candidate",
+            "affected_items": ["Old Support"],
+            "signal_evidence": [
+                {
+                    "id": "removed-old-support",
+                    "type": "removed_card",
+                    "item": "Old Support",
+                    "effective_date": "2026-05-01",
+                    "source_url": "https://example.test/signal",
+                }
+            ],
+            "source_presence": {
+                "bazaardb": "absent",
+                "mobalytics_meta_builds": "present",
+            },
+            "removal_blocked_by": [],
+            "evidence_refs": [],
+        }
+    ]
+
+    diff = generate_diff("Karnok", evaluation(rows), {"items": []}, StaticClassifier([]), mock_mode=True)
+
+    removal = diff["proposed_changes"]["item_removal_candidates"][0]
+    assert removal["source_presence"]["bazaardb"] == "absent"
+    assert removal["source_presence"]["mobalytics_meta_builds"] == "present"
+    assert removal["signal_evidence"][0]["id"] == "removed-old-support"
+
+
+def test_focused_retirement_diff_preserves_full_signal_evidence_fields():
+    signal = {
+        "id": "removed-old-support",
+        "type": "removed_card",
+        "item": "Old Support",
+        "hero": "Karnok",
+        "replacement_item": None,
+        "effective_date": "2026-05-01",
+        "source_url": "https://example.test/removed",
+        "note": "Item was removed from the game.",
+        "metadata": {"confidence": "high"},
+    }
+    diff = {
+        "hero": "Karnok",
+        "semantic_classification": True,
+        "proposed_changes": {
+            "archetype_updates": [],
+            "archetype_additions": [],
+            "archetype_removal_candidates": [],
+            "item_removal_candidates": [
+                {
+                    "phase": "mid",
+                    "archetype": "Axe",
+                    "item": "Old Support",
+                    "catalog_bucket": "support_items",
+                    "retirement_type": "support_item",
+                    "retirement_basis": "game_change_removed_card",
+                    "actionability": "item_removal_candidate",
+                    "affected_items": ["Old Support"],
+                    "signal_evidence": [signal],
+                }
+            ],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+    retirement = focused_diff(diff, "retirements")
+    sig = retirement["proposed_changes"]["item_removal_candidates"][0]["signal_evidence"][0]
+
+    assert sig["id"] == "removed-old-support"
+    assert sig["type"] == "removed_card"
+    assert sig["item"] == "Old Support"
+    assert sig["hero"] == "Karnok"
+    assert sig["effective_date"] == "2026-05-01"
+    assert sig["source_url"] == "https://example.test/removed"
+    assert sig["note"] == "Item was removed from the game."
+    assert sig["metadata"] == {"confidence": "high"}

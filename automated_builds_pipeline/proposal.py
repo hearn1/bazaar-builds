@@ -293,6 +293,14 @@ def _signal_lines(lines: list[str], row: dict[str, Any]) -> None:
         if signal.get("source_url"):
             bits.append(str(signal["source_url"]))
         lines.append(f"  Signal: {'; '.join(bits)}")
+        if signal.get("note"):
+            lines.append(f"  Note: {signal['note']}")
+        meta = signal.get("metadata")
+        if isinstance(meta, dict):
+            if meta.get("confidence"):
+                lines.append(f"  Confidence: {meta['confidence']}")
+            if meta.get("uncertainty_note"):
+                lines.append(f"  Uncertainty: {meta['uncertainty_note']}")
 
 
 def _ref_label(ref: Any) -> str:

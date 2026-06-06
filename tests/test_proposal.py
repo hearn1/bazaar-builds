@@ -317,3 +317,75 @@ def test_partitioned_proposal_views_filter_additions_and_retirements():
     assert "Battle Axe" in retirement_markdown
     assert "Pufferfish" not in retirement_markdown
     assert "### Retirement Reviews" in retirement_markdown
+
+
+def _removal_diff(signal: dict) -> dict:
+    return {
+        "hero": "Karnok",
+        "source_window": {"start": "2026-05-01", "end": "2026-05-05", "n_windows_history": 3},
+        "freeze_state": {"removals_frozen": False, "patch_label": None},
+        "source_health": [],
+        "proposed_changes": {
+            "archetype_updates": [],
+            "archetype_additions": [],
+            "archetype_removal_candidates": [],
+            "item_removal_candidates": [
+                {
+                    "phase": "mid",
+                    "archetype": "Axe",
+                    "item": "Old Support",
+                    "signal_evidence": [signal],
+                }
+            ],
+            "archetype_reshuffles": [],
+        },
+        "weaker_signals": [],
+        "noise": [],
+    }
+
+
+def test_signal_note_renders_in_proposal_markdown():
+    diff = _removal_diff({
+        "id": "removed-old-support",
+        "type": "removed_card",
+        "effective_date": "2026-05-01",
+        "source_url": "https://example.test/signal",
+        "note": "Item was removed from the game.",
+    })
+
+    markdown = render_proposal(diff)
+
+    assert "https://example.test/signal" in markdown
+    assert "Note: Item was removed from the game." in markdown
+
+
+def test_signal_confidence_uncertainty_renders_in_proposal_markdown():
+    diff = _removal_diff({
+        "id": "removed-old-support",
+        "type": "removed_card",
+        "effective_date": "2026-05-01",
+        "metadata": {
+            "confidence": "low",
+            "uncertainty_note": "Source wording is ambiguous.",
+        },
+    })
+
+    markdown = render_proposal(diff)
+
+    assert "Confidence: low" in markdown
+    assert "Uncertainty: Source wording is ambiguous." in markdown
+
+
+def test_signal_metadata_without_optional_fields_renders_cleanly():
+    diff = _removal_diff({
+        "id": "removed-old-support",
+        "type": "removed_card",
+        "effective_date": "2026-05-01",
+    })
+
+    markdown = render_proposal(diff)
+
+    assert "Signal: removed-old-support" in markdown
+    assert "Note:" not in markdown
+    assert "Confidence:" not in markdown
+    assert "Uncertainty:" not in markdown

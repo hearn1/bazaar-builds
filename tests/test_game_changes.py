@@ -36,6 +36,24 @@ def valid_payload():
     }
 
 
+def _make_signal(**overrides):
+    """Build a minimal valid signal dict with optional field overrides."""
+    base = {
+        "id": "test-signal-2026-06-01",
+        "type": "removed_card",
+        "item": "Test Item",
+        "effective_date": "2026-06-01",
+        "source_url": "https://example.test/source",
+        "note": "Test note.",
+    }
+    base.update(overrides)
+    return base
+
+
+def _make_doc(*signals):
+    return {"schema_version": 1, "signals": list(signals)}
+
+
 def test_loads_valid_signal_file(tmp_path):
     path = tmp_path / "signals.json"
     write_signals(path, valid_payload())
@@ -177,3 +195,155 @@ def test_source_refs_and_notes_preserved_in_serialized_form():
     assert serialized["source_url"] == "https://example.test/patch-notes"
     assert serialized["note"] == "Old Support was removed from the live item pool."
     assert serialized["effective_date"] == "2026-05-01"
+
+
+# ---- valid parse for every signal type ----
+
+
+@pytest.mark.parametrize(
+    "signal_type",
+    ["removed_card", "renamed_card", "explicit_invalidation", "major_nerf", "watchlist"],
+)
+def test_valid_parse_for_every_signal_type(signal_type):
+    signal = _make_signal(type=signal_type, id=f"{signal_type}-2026-06-01")
+    signals = parse_signals(_make_doc(signal))
+
+    assert len(signals.signals) == 1
+    s = signals.signals[0]
+    assert s.type == signal_type
+    assert s.item == "Test Item"
+    assert s.source_url == "https://example.test/source"
+    assert s.note == "Test note."
+    assert s.effective_date_iso == "2026-06-01"
+    assert s.to_dict()["type"] == signal_type
+
+
+# ---- metadata preservation ----
+
+
+def test_metadata_recommended_keys_survive_parse_and_serialization():
+    metadata = {
+        "source_kind": "patch_notes",
+        "source_title": "Patch 1.2 Notes",
+        "source_accessed_at": "2026-06-01T10:00:00Z",
+        "confidence": "high",
+        "status": "confirmed",
+        "uncertainty_note": "None identified.",
+    }
+    signal = _make_signal(metadata=metadata)
+    signals = parse_signals(_make_doc(signal))
+
+    s = signals.signals[0]
+    assert isinstance(s.metadata, dict)
+    assert s.metadata == metadata
+    assert s.to_dict()["metadata"] == metadata
+
+
+# ---- rename coverage ----
+
+
+def test_renamed_card_without_replacement_item_is_accepted():
+    signal = _make_signal(type="renamed_card")
+    signals = parse_signals(_make_doc(signal))
+
+    assert signals.signals[0].replacement_item is None
+
+
+# ---- empty signals ----
+
+
+def test_empty_signals_array_parses_successfully():
+    signals = parse_signals({"schema_version": 1, "signals": []})
+
+    assert signals.signals == ()
+
+
+# ---- required field enforcement (table-driven) ----
+
+
+@pytest.mark.parametrize("field", ["id", "type", "item", "effective_date", "source_url", "note"])
+def test_each_missing_required_field_fails_closed(field):
+    signal = _make_signal()
+    del signal[field]
+
+    with pytest.raises(GameChangeSignalError):
+        parse_signals(_make_doc(signal))
+
+
+@pytest.mark.parametrize("field", ["id", "item", "source_url", "note"])
+def test_empty_required_string_fails_closed(field):
+    signal = _make_signal(**{field: ""})
+
+    with pytest.raises(GameChangeSignalError, match=f"{field} must be a non-empty string"):
+        parse_signals(_make_doc(signal))
+
+
+# ---- unknown fields fail closed ----
+
+
+def test_unknown_top_level_field_rejected():
+    doc = {"schema_version": 1, "signals": [], "extra_field": True}
+
+    with pytest.raises(GameChangeSignalError, match="unknown top-level fields: extra_field"):
+        parse_signals(doc)
+
+
+# ---- date validation ----
+
+
+@pytest.mark.parametrize("bad_date", ["2026-99-99", "not-a-date"])
+def test_invalid_effective_date_fails_closed(bad_date):
+    signal = _make_signal(effective_date=bad_date)
+
+    with pytest.raises(GameChangeSignalError, match="effective_date must be an ISO date"):
+        parse_signals(_make_doc(signal))
+
+
+# ---- malformed document shapes ----
+
+
+def test_document_is_list_fails_closed():
+    with pytest.raises(GameChangeSignalError, match="signal document must be a JSON object"):
+        parse_signals([])
+
+
+def test_signals_key_missing_fails_closed():
+    with pytest.raises(GameChangeSignalError, match="signals must be a list"):
+        parse_signals({"schema_version": 1})
+
+
+def test_signals_not_list_fails_closed():
+    with pytest.raises(GameChangeSignalError, match="signals must be a list"):
+        parse_signals({"schema_version": 1, "signals": {"key": "value"}})
+
+
+def test_signal_record_not_object_fails_closed():
+    with pytest.raises(GameChangeSignalError, match="must be an object"):
+        parse_signals({"schema_version": 1, "signals": ["not-an-object"]})
+
+
+@pytest.mark.parametrize("field", ["hero", "replacement_item", "patch"])
+def test_empty_optional_string_fails_closed(field):
+    signal = _make_signal(**{field: ""})
+
+    with pytest.raises(GameChangeSignalError, match=f"{field} must be a non-empty string when present"):
+        parse_signals(_make_doc(signal))
+
+
+# ---- matching helpers ----
+
+
+def test_matching_invalid_signal_type_filter_raises():
+    signals = parse_signals({"schema_version": 1, "signals": []})
+
+    with pytest.raises(GameChangeSignalError, match="Unknown signal type filter"):
+        signals.matching(signal_types={"invalid_type"})
+
+
+def test_for_item_matching_is_case_insensitive():
+    signal = _make_signal(item="Shiny Sword")
+    signals = parse_signals(_make_doc(signal))
+
+    assert len(signals.for_item("shiny sword")) == 1
+    assert len(signals.for_item("SHINY SWORD")) == 1
+    assert signals.for_item("Other Item") == []

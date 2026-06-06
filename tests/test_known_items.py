@@ -9,7 +9,7 @@ from automated_builds_pipeline.deterministic_classifier import DeterministicClas
 def test_json_array_names_file_with_stray_db_line(tmp_path: Path) -> None:
     path = tmp_path / "card_cache_names.txt"
     path.write_text(
-        "[DB] Initialized at C:\\Users\\Matt\\Desktop\\bazaar_tracker\\bazaar_runs.db\n"
+        "[DB] Initialized at C:\\Users\\Matt\\Desktop\\bazaar_coach\\bazaar_runs.db\n"
         "[\n"
         '  " Wish for Immortality (2nd Wish)",\n'
         '  "Atlas Stone",\n'
@@ -91,7 +91,7 @@ _SAMPLE_CATALOG = {
 }
 
 _DB_PREAMBLE = (
-    "[DB] Initialized at C:\\Users\\Matt\\Desktop\\bazaar_tracker\\bazaar_runs.db\n"
+    "[DB] Initialized at C:\\Users\\Matt\\Desktop\\bazaar_coach\\bazaar_runs.db\n"
     '["Atlas Stone", "Fogshroom"]\n'
 )
 

@@ -1,3 +1,8 @@
+# Required secrets:
+# - TRACKER_PR_TOKEN: legacy-named PAT scoped to hearn1/bazaar_coach with
+#   Contents: Read (for checkout). The secret retains its old name; the PAT
+#   must grant access to bazaar_coach.
+
 name: Live sources smoke
 
 permissions:

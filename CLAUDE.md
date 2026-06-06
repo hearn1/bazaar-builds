@@ -19,17 +19,17 @@ Use `python -m pytest -q tests`; a bare repo-root pytest can collect generated `
 
 Validate pipeline changes safely:
 - `python -m pytest -q tests` — fixture golden gate (network-free; CI gate). The `vanessa_diving_helmet` fixture is `xfail(strict=True)` until #131 lands.
-- `python artifacts/sweep_dry_run.py` — 7-hero `local_dry_run` smoke (requires network). Uses a temp state file; NEVER reads or mutates `pipeline_state.json`, `stats/`, or `../bazaar_tracker`. See README "Validating pipeline changes safely" for full instructions.
+- `python artifacts/sweep_dry_run.py` — 7-hero `local_dry_run` smoke (requires network). Uses a temp state file; NEVER reads or mutates `pipeline_state.json`, `stats/`, or `../bazaar_coach`. See README "Validating pipeline changes safely" for full instructions.
 
 Fetch evidence for a hero. The GitHub repo is `hearn1/bazaar_coach`, but the
-local working checkout in use is the sibling directory `..\bazaar_tracker`;
+local working checkout in use is the sibling directory `..\bazaar_coach`;
 point `--catalog-dir`/`--names-file`/`--tracker-repo` at that local path:
 
 ```powershell
 python bazaar_build_enricher.py https://bazaar-builds.net/category/builds/karnok-builds/ `
   --hero Karnok --days 30 --fetch-posts `
-  --catalog-dir ..\bazaar_tracker `
-  --names-file ..\bazaar_tracker\card_cache_names.txt `
+  --catalog-dir ..\bazaar_coach `
+  --names-file ..\bazaar_coach\card_cache_names.txt `
   --output artifacts\karnok_bazaar_builds_summary.json
 ```
 
@@ -38,7 +38,7 @@ Compare an artifact against a coach catalog:
 ```powershell
 python bazaar_build_enricher.py compare `
   artifacts\karnok_bazaar_builds_summary.json `
-  ..\bazaar_tracker\karnok_builds.json `
+  ..\bazaar_coach\karnok_builds.json `
   --output artifacts\karnok_build_update_proposal.md
 ```
 
@@ -48,7 +48,7 @@ Run the automated pipeline locally:
 python -m automated_builds_pipeline.pipeline run `
   --hero Karnok `
   --state-file pipeline_state.json `
-  --tracker-repo ..\bazaar_tracker `
+  --tracker-repo ..\bazaar_coach `
   --stats-dir .\stats `
   --output-dir .\artifacts `
   --classifier-mode deterministic

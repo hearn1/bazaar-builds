@@ -732,6 +732,119 @@ def test_unhealthy_bazaardb_window_does_not_count_toward_absence_span():
     assert row["threshold_reason"] == "not_enough_windows"
 
 
+@pytest.mark.parametrize("bucket", ["carry_items", "core_items", "condition_items"])
+def test_removed_card_signal_on_commitment_bucket_is_review_only(bucket):
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Commitment Item", phase="mid", archetype="Axe", bucket=bucket)],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(signal("removed_card", "Commitment Item", signal_id="removed-commitment")),
+    )
+
+    row = row_for(evaluation, "Commitment Item")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["threshold_reason"] == "game_change_removed_card"
+    assert row["actionability"] != "item_removal_candidate"
+    assert row["signal_evidence"][0]["id"] == "removed-commitment"
+
+
+def test_renamed_card_signal_does_not_create_replacement_as_catalog_entry():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Name", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(
+            signal("renamed_card", "Old Name", signal_id="rename-1", replacement_item="New Name")
+        ),
+    )
+
+    assert "New Name" not in {row["item"] for row in evaluation.rows}
+
+
+def test_renamed_card_signal_does_not_affect_unrelated_catalog_items():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [
+            CatalogItem("Old Name", phase="mid", archetype="Axe", bucket="support_items"),
+            CatalogItem("Unrelated Item", phase="mid", archetype="Other Axe", bucket="support_items"),
+        ],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(
+            signal("renamed_card", "Old Name", signal_id="rename-1", replacement_item="New Name")
+        ),
+    )
+
+    unrelated_row = row_for(evaluation, "Unrelated Item")
+    assert unrelated_row["signal_evidence"] == []
+    assert unrelated_row["threshold_result"] == "no_change"
+
+
+def test_watchlist_signal_is_review_only():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Watched Item", phase="mid", archetype="Axe", bucket="carry_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(signal("watchlist", "Watched Item", signal_id="watch-1")),
+    )
+
+    row = row_for(evaluation, "Watched Item")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["threshold_reason"] == "game_change_watchlist"
+    assert row["actionability"] == "watchlist_review"
+    assert row["review_priority"] == "watchlist"
+    assert row["signal_evidence"][0]["id"] == "watch-1"
+
+
+def test_watchlist_signal_with_low_confidence_remains_review_only():
+    watchlist_signal = GameChangeSignal(
+        id="watch-uncertain",
+        type="watchlist",
+        item="Uncertain Item",
+        hero="Karnok",
+        effective_date=date(2026, 5, 1),
+        source_url="https://example.test/watch-uncertain",
+        note="Uncertain note.",
+        metadata={"confidence": "low", "uncertainty_note": "May have been nerfed."},
+    )
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Uncertain Item", phase="mid", archetype="Axe", bucket="carry_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(watchlist_signal),
+    )
+
+    row = row_for(evaluation, "Uncertain Item")
+    assert row["threshold_result"] == "retirement_review_candidate"
+    assert row["actionability"] == "watchlist_review"
+    assert row["signal_evidence"][0]["metadata"]["confidence"] == "low"
+    assert row["signal_evidence"][0]["metadata"]["uncertainty_note"] == "May have been nerfed."
+
+
+def test_signal_row_includes_secondary_source_disagreement_context():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Contested Item", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [
+            result("bazaardb", []),
+            result("mobalytics_meta_builds", ["Contested Item"]),
+        ],
+        game_change_signals=signals(signal("removed_card", "Contested Item", signal_id="removed-contested")),
+    )
+
+    row = row_for(evaluation, "Contested Item")
+    assert row["signal_evidence"][0]["id"] == "removed-contested"
+    assert row["disagreement"] == "secondary_present_bazaardb_absent"
+    assert row["source_presence"]["bazaardb"] == "absent"
+    assert row["source_presence"]["mobalytics_meta_builds"] == "present"
+
+
 def test_source_quality_gate_sets_support_only_when_bazaardb_absent_and_mobalytics_present():
     evaluation = evaluate_hero(
         "Karnok",

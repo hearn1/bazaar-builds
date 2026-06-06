@@ -1,0 +1,38 @@
+{
+  "source_url": "https://example.test/patch-15-1-notes",
+  "source_title": "Patch 15.1 Notes",
+  "source_kind": "patch_notes",
+  "source_accessed_at": "2026-06-01T10:00:00Z",
+  "effective_date": "2026-06-01",
+  "patch": "15.1",
+  "confidence": "high",
+  "candidates": [
+    {
+      "type": "removed_card",
+      "item": "Crystal Blade",
+      "note": "Crystal Blade was removed from the item pool in patch 15.1."
+    },
+    {
+      "type": "renamed_card",
+      "item": "Old Buckler",
+      "replacement_item": "Reinforced Shield",
+      "note": "Old Buckler was renamed to Reinforced Shield in patch 15.1."
+    },
+    {
+      "type": "watchlist",
+      "item": "Shadow Dagger",
+      "note": "Shadow Dagger stat changes may affect build viability.",
+      "uncertainty_note": "Stat changes are significant but not yet conclusive."
+    },
+    {
+      "type": "major_nerf",
+      "item": "Iron Fist",
+      "note": "Iron Fist base damage reduced significantly in patch 15.1."
+    },
+    {
+      "type": "explicit_invalidation",
+      "item": "Void Gem",
+      "note": "Void Gem explicitly invalidated for all current builds in patch 15.1."
+    }
+  ]
+}

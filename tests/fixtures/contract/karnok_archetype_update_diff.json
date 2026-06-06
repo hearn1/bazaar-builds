@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "hero": "Karnok",
+  "classification_mode": "deterministic",
+  "semantic_classification": true,
+  "classifier_provider": "deterministic",
+  "proposed_changes": {
+    "archetype_updates": [
+      {
+        "phase": "early_mid",
+        "archetype": "Axe",
+        "sample_count_latest": 1,
+        "missing_items": [
+          {
+            "item": "Honey Badger",
+            "classification": "support",
+            "llm_classification": "support",
+            "confidence": "high",
+            "llm_confidence": "high",
+            "rationale": "contract fixture",
+            "llm_rationale": "contract fixture",
+            "evidence_refs": ["fixture:contract"]
+          }
+        ]
+      }
+    ],
+    "archetype_additions": [],
+    "archetype_removal_candidates": [],
+    "item_removal_candidates": [],
+    "archetype_reshuffles": []
+  },
+  "weaker_signals": [],
+  "noise": []
+}

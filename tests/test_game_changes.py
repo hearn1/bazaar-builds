@@ -433,3 +433,123 @@ def test_global_renamed_card_full_metadata_round_trips():
     assert serialized["patch"] == "15.0"
     assert serialized["metadata"] == metadata
     assert "hero" not in serialized
+
+
+# ---- lifecycle helpers ----
+
+
+@pytest.mark.parametrize(
+    ("status", "expected_inactive"),
+    [
+        (None, False),
+        ("reviewed", False),
+        ("proposed", False),
+        ("deprecated", True),
+        ("superseded", True),
+        ("unknown_value", False),
+    ],
+)
+def test_lifecycle_is_inactive(status, expected_inactive):
+    metadata = {"status": status} if status is not None else None
+    signal = _make_signal(metadata=metadata)
+    parsed = parse_signals(_make_doc(signal))
+
+    sig = parsed.signals[0]
+    assert sig.is_inactive == expected_inactive
+
+
+def test_is_deprecated_true():
+    sig = _make_signal(metadata={"status": "deprecated"})
+    parsed = parse_signals(_make_doc(sig)).signals[0]
+    assert parsed.is_deprecated is True
+    assert parsed.is_superseded is False
+
+
+def test_is_superseded_true():
+    sig = _make_signal(metadata={"status": "superseded", "superseded_by": "other-id"})
+    parsed = parse_signals(_make_doc(sig)).signals[0]
+    assert parsed.is_superseded is True
+    assert parsed.is_deprecated is False
+
+
+def test_metadata_status_none_when_no_metadata():
+    sig = _make_signal()
+    parsed = parse_signals(_make_doc(sig)).signals[0]
+    assert parsed.metadata_status is None
+
+
+def test_superseded_by_returns_string():
+    sig = _make_signal(metadata={"status": "superseded", "superseded_by": "target-id"})
+    parsed = parse_signals(_make_doc(sig)).signals[0]
+    assert parsed.superseded_by == "target-id"
+
+
+def test_superseded_by_returns_none_when_absent():
+    sig = _make_signal(metadata={"status": "superseded"})
+    parsed = parse_signals(_make_doc(sig)).signals[0]
+    assert parsed.superseded_by is None
+
+
+def test_unknown_metadata_status_does_not_fail_parsing():
+    sig = _make_signal(metadata={"status": "some_future_value"})
+    parsed = parse_signals(_make_doc(sig))
+    assert len(parsed.signals) == 1
+    assert parsed.signals[0].metadata_status == "some_future_value"
+    assert parsed.signals[0].is_inactive is False
+
+
+def test_active_for_evaluation_excludes_inactive():
+    active = _make_signal(id="active-1")
+    dep = _make_signal(id="dep-1", metadata={"status": "deprecated"})
+    sup = _make_signal(id="sup-1", metadata={"status": "superseded", "superseded_by": "active-1"})
+    parsed = parse_signals(_make_doc(active, dep, sup))
+
+    result = parsed.active_for_evaluation()
+
+    assert [s.id for s in result.signals] == ["active-1"]
+
+
+def test_inactive_returns_only_inactive():
+    active = _make_signal(id="active-1")
+    dep = _make_signal(id="dep-1", metadata={"status": "deprecated"})
+    parsed = parse_signals(_make_doc(active, dep))
+
+    result = parsed.inactive()
+
+    assert [s.id for s in result.signals] == ["dep-1"]
+
+
+def test_active_for_evaluation_on_empty_file():
+    parsed = parse_signals({"schema_version": 1, "signals": []})
+    assert parsed.active_for_evaluation().signals == ()
+
+
+def test_deprecated_signal_parses_and_serializes_unchanged():
+    metadata = {
+        "status": "deprecated",
+        "deprecated_at": "2026-06-06",
+        "status_note": "Corrected by source author.",
+    }
+    sig = _make_signal(metadata=metadata)
+    parsed = parse_signals(_make_doc(sig)).signals[0]
+
+    assert parsed.is_deprecated is True
+    assert parsed.is_inactive is True
+    serialized = parsed.to_dict()
+    assert serialized["metadata"] == metadata
+
+
+def test_superseded_signal_parses_and_serializes_unchanged():
+    metadata = {
+        "status": "superseded",
+        "superseded_at": "2026-06-06",
+        "superseded_by": "new-signal-id",
+        "status_note": "More specific replacement added.",
+    }
+    sig = _make_signal(metadata=metadata)
+    parsed = parse_signals(_make_doc(sig)).signals[0]
+
+    assert parsed.is_superseded is True
+    assert parsed.is_inactive is True
+    serialized = parsed.to_dict()
+    assert serialized["metadata"] == metadata

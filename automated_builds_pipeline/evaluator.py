@@ -209,6 +209,7 @@ def evaluate_hero(
     catalog_item_index = _catalog_item_index(catalog_items_list)
     current = _hero_scoped_current(current, context)
     signals = game_change_signals or GameChangeSignals()
+    active_signals = signals.active_for_evaluation()
     freeze = state.freeze_status(hero, now)
     freeze_active = freeze.active
     unresolved: list[str] = []
@@ -216,7 +217,7 @@ def evaluate_hero(
         unresolved.append(f"freeze_active:{freeze.scope}:{freeze.until}")
 
     all_items = set(catalog) | _stats_items_for_context(stats, context)
-    all_items.update(signal.item for signal in signals.for_hero(hero) if signal.item in catalog)
+    all_items.update(signal.item for signal in active_signals.for_hero(hero) if signal.item in catalog)
     for source_result in current.values():
         all_items.update(item.item for item in source_result.observation.items if item.present)
 
@@ -246,7 +247,7 @@ def evaluate_hero(
                 disagreement,
                 current,
                 freeze_active,
-                signals,
+                active_signals,
                 observation_date,
             ):
                 decisions.append(signal_decision)

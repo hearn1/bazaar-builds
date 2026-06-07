@@ -845,6 +845,132 @@ def test_signal_row_includes_secondary_source_disagreement_context():
     assert row["source_presence"]["mobalytics_meta_builds"] == "present"
 
 
+def test_renamed_card_signal_suppressed_when_bazaardb_confirms_name_reused_after_effective_date():
+    # Regression: Patch 15.0 Burning Rage — renamed_card signal must not fire against a catalog
+    # entry when bazaardb (patch-scoped, healthy) confirms the name is active in the current patch.
+    burning_rage_renamed = GameChangeSignal(
+        id="burning-rage-renamed-p15",
+        type="renamed_card",
+        item="Burning Rage",
+        hero="Karnok",
+        effective_date=date(2026, 6, 3),
+        replacement_item="Burning Infernal",
+        source_url="https://example.test/patch-15-notes",
+        note="Burning Rage renamed to Burning Infernal; name reused by new Karnok skill in same patch.",
+        patch="15.0",
+    )
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Burning Rage", phase="mid", archetype="Fire Build", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", ["Burning Rage"])],
+        game_change_signals=signals(burning_rage_renamed),
+        now=datetime(2026, 6, 6, 12, tzinfo=timezone.utc),
+    )
+
+    row = row_for(evaluation, "Burning Rage")
+    assert row["threshold_result"] == "no_change"
+    assert row["signal_evidence"] == []
+
+
+def test_removed_card_signal_suppressed_when_bazaardb_confirms_name_reused_after_effective_date():
+    removed_reused = GameChangeSignal(
+        id="temporal-strike-removed",
+        type="removed_card",
+        item="Temporal Strike",
+        hero=None,
+        effective_date=date(2026, 6, 1),
+        source_url="https://example.test/patch-6-notes",
+        note="Temporal Strike retired in Patch 6.0; name later reused for a redesigned card.",
+    )
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Temporal Strike", phase="mid", archetype="Strike Build", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", ["Temporal Strike"])],
+        game_change_signals=signals(removed_reused),
+        now=datetime(2026, 6, 6, 12, tzinfo=timezone.utc),
+    )
+
+    row = row_for(evaluation, "Temporal Strike")
+    assert row["threshold_result"] == "no_change"
+    assert row["signal_evidence"] == []
+
+
+def test_renamed_card_signal_fires_when_bazaardb_shows_item_absent_after_effective_date():
+    """When bazaardb confirms the item is absent (true retirement), the signal must fire."""
+    burning_rage_renamed = GameChangeSignal(
+        id="burning-rage-renamed-p15",
+        type="renamed_card",
+        item="Burning Rage",
+        hero="Karnok",
+        effective_date=date(2026, 6, 3),
+        replacement_item="Burning Infernal",
+        source_url="https://example.test/patch-15-notes",
+        note="Burning Rage renamed to Burning Infernal.",
+        patch="15.0",
+    )
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Burning Rage", phase="mid", archetype="Fire Build", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        game_change_signals=signals(burning_rage_renamed),
+        now=datetime(2026, 6, 6, 12, tzinfo=timezone.utc),
+    )
+
+    row = row_for(evaluation, "Burning Rage")
+    assert row["threshold_reason"] == "game_change_renamed_card"
+    assert row["threshold_result"] == "remove_candidate"
+
+
+def test_renamed_card_signal_fires_when_observation_date_precedes_effective_date():
+    """A signal whose effective_date is in the future must still fire: the item is legitimately
+    present because the change has not yet taken effect."""
+    future_signal = GameChangeSignal(
+        id="future-rename",
+        type="renamed_card",
+        item="Active Item",
+        hero="Karnok",
+        effective_date=date(2026, 7, 1),
+        replacement_item="New Name",
+        source_url="https://example.test/future",
+        note="Will be renamed next patch.",
+    )
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Active Item", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", ["Active Item"])],
+        game_change_signals=signals(future_signal),
+        now=datetime(2026, 6, 6, 12, tzinfo=timezone.utc),
+    )
+
+    row = row_for(evaluation, "Active Item")
+    assert row["threshold_reason"] == "game_change_renamed_card"
+
+
+@pytest.mark.parametrize("sig_type", ["major_nerf", "watchlist"])
+def test_non_retirement_signals_fire_even_when_bazaardb_shows_item_present(sig_type):
+    """major_nerf and watchlist signals flag currently-active items; bazaardb presence must not
+    suppress them — only renamed_card and removed_card are name-reuse candidates."""
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Buffed Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", ["Buffed Support"])],
+        game_change_signals=signals(signal(sig_type, "Buffed Support")),
+        now=datetime(2026, 6, 6, 12, tzinfo=timezone.utc),
+    )
+
+    row = row_for(evaluation, "Buffed Support")
+    assert row["threshold_reason"] == f"game_change_{sig_type}"
+
+
 def test_source_quality_gate_sets_support_only_when_bazaardb_absent_and_mobalytics_present():
     evaluation = evaluate_hero(
         "Karnok",

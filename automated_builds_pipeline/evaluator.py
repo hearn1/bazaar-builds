@@ -6,7 +6,7 @@ import argparse
 import dataclasses
 import json
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Optional
 
@@ -198,7 +198,9 @@ def evaluate_hero(
     game_change_signals: Optional[GameChangeSignals] = None,
 ) -> EvaluationResult:
     state = state or CuratorState()
-    generated_at = _format_utc(now or datetime.now(timezone.utc))
+    _now = now or datetime.now(timezone.utc)
+    generated_at = _format_utc(_now)
+    observation_date = _now.date()
     current = _current_index(source_results)
     catalog_items_list = list(catalog_items)
     catalog = _catalog_index(catalog_items_list)
@@ -245,6 +247,7 @@ def evaluate_hero(
                 current,
                 freeze_active,
                 signals,
+                observation_date,
             ):
                 decisions.append(signal_decision)
                 rows.append(_row_dict(hero, signal_decision, existing, current, stats, catalog_item_index))
@@ -473,9 +476,21 @@ def _evaluate_game_change_signals(
     current: dict[str, SourceFetchResult],
     freeze_active: bool,
     signals: GameChangeSignals,
+    observation_date: Optional[date] = None,
 ) -> list[ThresholdDecision]:
     decisions: list[ThresholdDecision] = []
     for signal in signals.matching(hero=hero, item=item):
+        # Scope renamed/removed signals by effective_date: if a healthy bazaardb run
+        # confirms the item is present on or after the signal's effective_date, the name
+        # has been reused by a new card and the retirement signal must not fire.
+        # Comparison basis: signal.effective_date vs. pipeline observation_date (now.date()).
+        if (
+            signal.type in {"renamed_card", "removed_card"}
+            and disagreement.bazaardb is True
+            and observation_date is not None
+            and signal.effective_date <= observation_date
+        ):
+            continue
         action = _signal_retirement_action(signal, existing)
         if action is None:
             continue

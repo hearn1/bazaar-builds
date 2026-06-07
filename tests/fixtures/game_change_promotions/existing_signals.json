@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "signals": [
+    {
+      "id": "reviewed-2026-05-01-iron-fist-major-nerf",
+      "type": "major_nerf",
+      "item": "Iron Fist",
+      "effective_date": "2026-05-01",
+      "source_url": "https://example.test/patch-15-0-notes",
+      "note": "Iron Fist base damage reduced significantly in patch 15.0.",
+      "patch": "15.0",
+      "metadata": {
+        "status": "reviewed",
+        "curator": "hearn1",
+        "reviewed_at": "2026-05-02",
+        "confidence": "high"
+      }
+    }
+  ]
+}

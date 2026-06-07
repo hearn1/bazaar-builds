@@ -180,6 +180,79 @@ Explicit signals add source-backed review pressure. They do not replace the 30-d
 - Unhealthy or skipped BazaarDB runs do not count as absence evidence.
 - Current secondary-source presence (Mobalytics, bazaar-builds.net) still blocks stale retirement.
 
+## Promoting proposal candidates
+
+Proposal-only candidate records from `game_change_proposals` are unreviewed evidence drafts. To add records to the curated `game_changes/signals.json`, use the promotion workflow.
+
+### Workflow
+
+1. Generate proposal-only candidates from local/manual source material:
+
+   ```bash
+   python -m automated_builds_pipeline.game_change_proposals \
+     --source-file artifacts/patch_notes.md \
+     --candidate-file artifacts/manual_candidates.json \
+     --output artifacts/game_change_signal_candidates.json
+   ```
+
+2. Review candidate IDs and metadata in the output file.
+
+3. Confirm source provenance, confidence, and uncertainty notes are correct.
+
+4. Preview the promotion output for selected IDs (safe — writes only to the output path):
+
+   ```bash
+   python -m automated_builds_pipeline.game_change_promotions \
+     --candidate-file artifacts/game_change_signal_candidates.json \
+     --signals-file game_changes/signals.json \
+     --select proposed-2026-06-01-crystal-blade-removed-card \
+     --curator hearn1 \
+     --reviewed-at 2026-06-06 \
+     --output artifacts/promoted_signals_preview.json
+   ```
+
+5. Review the generated preview. Confirm it contains only the selected promoted signal plus existing curated signals, with `metadata.status: reviewed` and correct provenance.
+
+6. Write to `game_changes/signals.json` intentionally (requires `--force`):
+
+   ```bash
+   python -m automated_builds_pipeline.game_change_promotions \
+     --candidate-file artifacts/game_change_signal_candidates.json \
+     --signals-file game_changes/signals.json \
+     --select proposed-2026-06-01-crystal-blade-removed-card \
+     --curator hearn1 \
+     --reviewed-at 2026-06-06 \
+     --output game_changes/signals.json \
+     --force
+   ```
+
+7. Commit curated changes to `game_changes/signals.json` only after human review.
+
+### Promotion requirements
+
+- At least one `--select ID` is required; there is no implicit "promote all" behavior.
+- `--curator` (your GitHub username) is required.
+- `--reviewed-at` (ISO date of review) is required.
+- `--output` is required; existing files are not overwritten without `--force`.
+- Selected candidates must have `metadata.status: proposed`.
+- Selected candidates must have `metadata.confidence` (`high`, `medium`, or `low`).
+- `watchlist` type and `confidence: low` records require `metadata.uncertainty_note`.
+- Unresolved `metadata.missing_metadata` blocks promotion by default; pass `--allow-missing-metadata` to override (the field is preserved in the promoted output).
+- Duplicate signal IDs or duplicate `(type, hero, item, effective_date)` keys are rejected.
+- Final output is validated by the strict signal parser before writing.
+
+### Safety invariants
+
+The promotion workflow does not:
+
+- Fetch live URLs or scrape patch notes.
+- Call a hosted LLM.
+- Write to coach catalog files.
+- Open or update coach PRs.
+- Mutate `pipeline_state.json`.
+- Automatically promote all candidates — explicit `--select` is always required.
+- Change evaluator, applier, or retirement policy behavior.
+
 ## Minimal example
 
 ```json

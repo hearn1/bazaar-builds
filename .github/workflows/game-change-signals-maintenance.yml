@@ -1,0 +1,30 @@
+name: Game-change signal maintenance check
+
+on:
+  pull_request:
+    paths:
+      - "game_changes/signals.json"
+      - "automated_builds_pipeline/game_changes.py"
+      - "automated_builds_pipeline/game_change_maintenance.py"
+      - "tests/test_game_changes.py"
+      - "tests/test_game_change_maintenance.py"
+  workflow_dispatch:
+
+jobs:
+  maintenance-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt pytest
+
+      - name: Run targeted tests
+        run: python -m pytest -q tests/test_game_changes.py tests/test_game_change_maintenance.py
+
+      - name: Run maintenance report
+        run: python -m automated_builds_pipeline.game_change_maintenance --signals game_changes/signals.json --format markdown

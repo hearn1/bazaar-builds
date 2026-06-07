@@ -101,12 +101,16 @@ The `metadata` object is flexible. The following keys are standardized conventio
 | `source_accessed_at` | ISO 8601 date | When the curator accessed the source |
 | `confidence` | `high`, `medium`, `low` | Curator's confidence in the signal |
 | `curator` | string | GitHub username of the curator who added the record |
-| `status` | `proposed`, `reviewed`, `deprecated` | Curation lifecycle state |
+| `status` | `proposed`, `reviewed`, `deprecated`, `superseded` | Curation lifecycle state (see below) |
 | `source_excerpt` | string | Verbatim excerpt from the source (for provenance) |
 | `affected_scope` | `item`, `hero_item`, `archetype`, `global`, `unknown` | Scope of the change |
 | `old_item` | string | Original item name before a rename |
 | `new_item` | string | New item name after a rename |
 | `uncertainty_note` | string | Required for `watchlist` or low-confidence records |
+| `deprecated_at` | ISO 8601 date | Set when `status: deprecated`; records the date the signal was deprecated |
+| `superseded_at` | ISO 8601 date | Set when `status: superseded`; records the date the signal was superseded |
+| `superseded_by` | string | Signal `id` of the replacement record when `status: superseded` |
+| `status_note` | string | Human-readable reason for the lifecycle transition |
 
 ## Signal types
 
@@ -179,6 +183,86 @@ Explicit signals add source-backed review pressure. They do not replace the 30-d
 - Counted absences must span at least 30 days.
 - Unhealthy or skipped BazaarDB runs do not count as absence evidence.
 - Current secondary-source presence (Mobalytics, bazaar-builds.net) still blocks stale retirement.
+
+## Signal lifecycle
+
+### Active states
+
+| `metadata.status` | Evaluator behavior |
+|---|---|
+| missing | Active (backward compatibility) |
+| `reviewed` | Active (preferred state after curator review) |
+| `proposed` | Active at parse time, but should not appear in `signals.json` — belongs in `game_change_proposals` |
+
+### Inactive states
+
+| `metadata.status` | Evaluator behavior | Required metadata |
+|---|---|---|
+| `deprecated` | Inactive — does not drive retirement candidates | `deprecated_at`, `status_note` recommended |
+| `superseded` | Inactive — does not drive retirement candidates | `superseded_by` (required), `superseded_at`, `status_note` recommended |
+
+Inactive signals remain in `signals.json` for audit history. Do not delete them unless a curator intentionally removes historical context in a reviewed PR.
+
+### Deprecated example
+
+```json
+{
+  "metadata": {
+    "status": "deprecated",
+    "deprecated_at": "2026-06-06",
+    "status_note": "Original source was corrected; this record should no longer drive retirement review."
+  }
+}
+```
+
+### Superseded example
+
+```json
+{
+  "metadata": {
+    "status": "superseded",
+    "superseded_at": "2026-06-06",
+    "superseded_by": "removed-example-item-2026-06-07",
+    "status_note": "Replaced by a more specific source-backed signal with corrected item scope."
+  }
+}
+```
+
+`superseded_by` must be the `id` of a single signal in the same file.
+
+## Maintenance command
+
+The maintenance command validates lifecycle state without network calls or file mutation:
+
+```bash
+python -m automated_builds_pipeline.game_change_maintenance \
+  --signals game_changes/signals.json \
+  --format markdown
+```
+
+JSON output for CI or debugging:
+
+```bash
+python -m automated_builds_pipeline.game_change_maintenance \
+  --signals game_changes/signals.json \
+  --format json \
+  --output artifacts/game_change_signal_maintenance.json
+```
+
+The command reports active, deprecated, superseded, and unknown lifecycle records and detects:
+
+- Duplicate signal ids (hard error)
+- `status: superseded` without `superseded_by` (hard error)
+- `superseded_by` referencing an unknown id (hard error)
+- Self-supersession (hard error)
+- Supersession cycles (hard error)
+- Missing `deprecated_at` or `status_note` on deprecated records (warning)
+- Missing `superseded_at` on superseded records (warning)
+- Superseding record itself inactive (warning)
+- `proposed` records in the live signals file (warning)
+- Unknown `metadata.status` values (warning)
+
+Exit code 0 means no hard errors. Exit nonzero means structural errors that block safe evaluation.
 
 ## Promoting proposal candidates
 

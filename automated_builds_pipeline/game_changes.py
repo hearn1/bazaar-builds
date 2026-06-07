@@ -22,6 +22,7 @@ REQUIRED_SIGNAL_FIELDS = frozenset({"id", "type", "item", "effective_date", "sou
 OPTIONAL_SIGNAL_FIELDS = frozenset({"hero", "replacement_item", "patch", "metadata"})
 SIGNAL_FIELDS = REQUIRED_SIGNAL_FIELDS | OPTIONAL_SIGNAL_FIELDS
 DEFAULT_SIGNALS_PATH = Path(__file__).resolve().parents[1] / "game_changes" / "signals.json"
+INACTIVE_SIGNAL_STATUSES = frozenset({"deprecated", "superseded"})
 
 
 class GameChangeSignalError(ValueError):
@@ -44,6 +45,32 @@ class GameChangeSignal:
     @property
     def effective_date_iso(self) -> str:
         return self.effective_date.isoformat()
+
+    @property
+    def metadata_status(self) -> Optional[str]:
+        if not isinstance(self.metadata, dict):
+            return None
+        value = self.metadata.get("status")
+        return value if isinstance(value, str) else None
+
+    @property
+    def is_inactive(self) -> bool:
+        return self.metadata_status in INACTIVE_SIGNAL_STATUSES
+
+    @property
+    def is_deprecated(self) -> bool:
+        return self.metadata_status == "deprecated"
+
+    @property
+    def is_superseded(self) -> bool:
+        return self.metadata_status == "superseded"
+
+    @property
+    def superseded_by(self) -> Optional[str]:
+        if not isinstance(self.metadata, dict):
+            return None
+        value = self.metadata.get("superseded_by")
+        return value if isinstance(value, str) and value else None
 
     def applies_to_hero(self, hero: Optional[str]) -> bool:
         if self.hero is None:
@@ -88,6 +115,12 @@ class GameChangeSignals:
             for signal in self.signals
             if signal.matches_item(item) and (hero is None or signal.applies_to_hero(hero))
         ]
+
+    def active_for_evaluation(self) -> "GameChangeSignals":
+        return GameChangeSignals(tuple(s for s in self.signals if not s.is_inactive))
+
+    def inactive(self) -> "GameChangeSignals":
+        return GameChangeSignals(tuple(s for s in self.signals if s.is_inactive))
 
     def matching(
         self,

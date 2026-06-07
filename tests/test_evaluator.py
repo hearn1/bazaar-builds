@@ -1317,3 +1317,135 @@ def test_load_catalog_items_walks_tracker_shape(tmp_path):
     assert {item.item for item in items} == {"Battle Axe", "Bagpipes"}
     assert all(item.phase == "early_mid" for item in items)
     assert all(item.archetype == "Axe" for item in items)
+
+
+# ---- inactive signal lifecycle filtering ----
+
+
+def _inactive_signal(signal_type: str, item: str, status: str, *, signal_id: str = "inactive-sig") -> GameChangeSignal:
+    return GameChangeSignal(
+        id=signal_id,
+        type=signal_type,
+        item=item,
+        hero="Karnok",
+        effective_date=date(2026, 5, 1),
+        source_url=f"https://example.test/{signal_id}",
+        note=f"{signal_type} inactive",
+        metadata={"status": status},
+    )
+
+
+def test_deprecated_removed_card_does_not_create_remove_candidate():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        game_change_signals=signals(
+            _inactive_signal("removed_card", "Old Support", "deprecated", signal_id="dep-removed-support")
+        ),
+    )
+
+    row = row_for(evaluation, "Old Support")
+    assert row["threshold_result"] != "remove_candidate"
+    assert row["signal_evidence"] == []
+
+
+def test_superseded_removed_card_does_not_create_remove_candidate():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        game_change_signals=signals(
+            _inactive_signal("removed_card", "Old Support", "superseded", signal_id="sup-removed-support")
+        ),
+    )
+
+    row = row_for(evaluation, "Old Support")
+    assert row["threshold_result"] != "remove_candidate"
+    assert row["signal_evidence"] == []
+
+
+def test_superseded_signal_plus_active_replacement_only_active_drives_output():
+    active_sig = signal("removed_card", "Old Support", signal_id="active-removed")
+    inactive_sig = _inactive_signal("removed_card", "Old Support", "superseded", signal_id="sup-removed")
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        game_change_signals=signals(inactive_sig, active_sig),
+    )
+
+    signal_rows = [row for row in evaluation.rows if row["item"] == "Old Support" and row["signal_evidence"]]
+    assert len(signal_rows) == 1
+    assert signal_rows[0]["signal_evidence"][0]["id"] == "active-removed"
+
+
+def test_deprecated_carry_signal_does_not_create_retirement_review_candidate():
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Big Axe", phase="mid", archetype="Axe", bucket="carry_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(
+            _inactive_signal("removed_card", "Big Axe", "deprecated", signal_id="dep-carry")
+        ),
+    )
+
+    row = row_for(evaluation, "Big Axe")
+    assert row["threshold_result"] != "retirement_review_candidate"
+    assert row["signal_evidence"] == []
+
+
+def test_inactive_signal_does_not_add_item_to_all_items():
+    # An item not in catalog should not appear in evaluation output when only inactive signals reference it.
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Known Item", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [],
+        game_change_signals=signals(
+            _inactive_signal("removed_card", "Ghost Item", "deprecated", signal_id="dep-ghost")
+        ),
+    )
+
+    item_names = {row["item"] for row in evaluation.rows}
+    assert "Ghost Item" not in item_names
+
+
+def test_bazaardb_stale_absence_removal_works_with_inactive_signals_present():
+    dep = _inactive_signal("removed_card", "Old Support", "deprecated", signal_id="dep-1")
+    stats = history_with_absent_windows("Karnok", "bazaardb", "Old Support", [0])
+
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        stats,
+        [result("bazaardb", [], observed_at=observed_at_days(30))],
+        game_change_signals=signals(dep),
+    )
+
+    row = row_for(evaluation, "Old Support")
+    # BazaarDB stale absence still drives removal independently of inactive signals
+    assert row["threshold_result"] == "remove_candidate"
+
+
+def test_active_signals_freeze_behavior_unchanged():
+    freeze_state = CuratorState(hero_freezes={"karnok": FreezeWindow("2026-12-31T00:00:00Z")})
+    evaluation = evaluate_hero(
+        "Karnok",
+        [CatalogItem("Old Support", phase="mid", archetype="Axe", bucket="support_items")],
+        HeroStats(hero="Karnok"),
+        [result("bazaardb", [])],
+        freeze_state,
+        game_change_signals=signals(signal("removed_card", "Old Support", signal_id="sig-freeze")),
+        now=datetime(2026, 6, 6, 12, tzinfo=timezone.utc),
+    )
+
+    row = row_for(evaluation, "Old Support")
+    # Signal rows keep threshold_result=remove_candidate but show freeze via actionability
+    assert row["threshold_result"] == "remove_candidate"
+    assert "freeze_removals" in row["removal_blocked_by"]
+    assert row["actionability"] == "freeze_blocked"

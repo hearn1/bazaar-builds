@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from datetime import date
+from pathlib import Path
 
 import pytest
 
@@ -11,6 +12,8 @@ from automated_builds_pipeline.game_changes import (
     load_signals,
     parse_signals,
 )
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def write_signals(path, payload):
@@ -347,3 +350,86 @@ def test_for_item_matching_is_case_insensitive():
     assert len(signals.for_item("shiny sword")) == 1
     assert len(signals.for_item("SHINY SWORD")) == 1
     assert signals.for_item("Other Item") == []
+
+
+# ---- real fixture: Burning Rage → Burning Infernal (Patch 15.0) ----
+# First source-backed renamed_card in the live signals file.
+# Skills are not tracked by the evaluator, so this is parser-level only;
+# it also serves as a regression anchor for the name-reuse hazard (the
+# same patch added a new Karnok skill also called "Burning Rage").
+
+
+def test_real_signals_file_loads_burning_rage_rename():
+    signals = load_default_signals(repo_root=REPO_ROOT)
+
+    matches = signals.for_item("Burning Rage")
+    assert len(matches) == 1
+    sig = matches[0]
+    assert sig.id == "renamed-burning-rage-2026-06-03"
+    assert sig.type == "renamed_card"
+    assert sig.item == "Burning Rage"
+    assert sig.replacement_item == "Burning Infernal"
+    assert sig.effective_date == date(2026, 6, 3)
+    assert sig.patch == "15.0"
+    assert sig.hero is None
+    assert sig.source_url == "https://playthebazaar.com/patch-notes"
+
+
+def test_real_signals_burning_rage_metadata_is_complete():
+    signals = load_default_signals(repo_root=REPO_ROOT)
+    sig = signals.for_item("Burning Rage")[0]
+
+    assert sig.metadata is not None
+    assert sig.metadata["source_kind"] == "official_patch_notes"
+    assert sig.metadata["source_title"] == "Patch 15.0: Summer Sparks"
+    assert sig.metadata["confidence"] == "medium"
+    assert sig.metadata["source_excerpt"] == "Burning Rage — Renamed to Burning Infernal"
+    assert "uncertainty_note" in sig.metadata
+
+
+def test_global_renamed_card_applies_to_any_hero():
+    # Global scope (no hero) means the signal matches any hero query.
+    sig = _make_signal(type="renamed_card", replacement_item="New Name")
+    sig.pop("hero", None)
+    parsed = parse_signals(_make_doc(sig))
+
+    assert parsed.matching(hero="Karnok", item="Test Item") != []
+    assert parsed.matching(hero="Vanessa", item="Test Item") != []
+    assert parsed.matching(hero="Jules", item="Test Item") != []
+
+
+def test_global_renamed_card_full_metadata_round_trips():
+    metadata = {
+        "source_kind": "official_patch_notes",
+        "source_title": "Patch 15.0: Summer Sparks",
+        "source_published_at": "2026-06-03",
+        "source_accessed_at": "2026-06-06",
+        "confidence": "medium",
+        "curator": "hearn1",
+        "status": "proposed",
+        "source_excerpt": "Burning Rage — Renamed to Burning Infernal",
+        "affected_scope": "global",
+        "old_item": "Burning Rage",
+        "new_item": "Burning Infernal",
+        "uncertainty_note": "Name reused in same patch for a different card.",
+    }
+    signal = _make_signal(
+        type="renamed_card",
+        item="Burning Rage",
+        replacement_item="Burning Infernal",
+        patch="15.0",
+        metadata=metadata,
+    )
+    signal.pop("hero", None)
+    parsed = parse_signals(_make_doc(signal))
+
+    sig = parsed.signals[0]
+    assert sig.hero is None
+    assert sig.replacement_item == "Burning Infernal"
+    assert sig.patch == "15.0"
+    assert sig.metadata == metadata
+    serialized = sig.to_dict()
+    assert serialized["replacement_item"] == "Burning Infernal"
+    assert serialized["patch"] == "15.0"
+    assert serialized["metadata"] == metadata
+    assert "hero" not in serialized

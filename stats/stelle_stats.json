@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T13:37:52Z",
-  "generated_at": "2026-06-05T09:38:20Z",
+  "generated_at": "2026-06-12T10:03:07Z",
   "hero": "Stelle",
   "items": {
     "Abducted Cow": {
@@ -22,7 +22,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "abducted-cow"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -370,7 +370,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "balloon-engine"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -1497,7 +1497,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -1828,10 +1828,120 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Chicken Cannon",
+              "archetypes_seen": [
+                "Chicken Cannon"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Chicken Cannon (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d5dd20ef-31ad-4eb7-af8d-3a42eb3008d3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "chicken-cannon",
+                              "isShowLabel": true,
+                              "label": "Chicken Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has finally emerged as a solid contender after the latest buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/f206ba7b-5496-46fd-abe8-bca5cfebbf2d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "pogo-stick",
+                              "isShowLabel": true,
+                              "label": "Pogo Stick",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/17fe0a7a-6432-49ec-a931-9237482bc8f2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "windbreaker",
+                              "isShowLabel": true,
+                              "label": "Windbreaker",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". The combination of improved Shield scaling plus a lower Cooldown has led to new viable setups, creating a fresh take on the Shield conversion archetype.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -1929,7 +2039,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "clockwork-disc"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -2695,7 +2805,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -3149,10 +3259,161 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -3375,7 +3636,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "final-flame"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -3406,7 +3667,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "flame-jet-drone"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -3879,7 +4140,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "freefall-simulator"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -4316,7 +4577,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "grabinator"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -4500,7 +4761,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "hammer"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -5330,7 +5591,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -5784,10 +6045,161 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -6323,7 +6735,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -6588,10 +7000,98 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -6656,7 +7156,7 @@
                 "section_title": "Mid Game Pre-Pivot Pickups",
                 "slug": "joystick"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -6901,7 +7401,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -7166,10 +7666,98 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -7292,7 +7880,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "lavaroller"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -7304,7 +7892,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -7758,10 +8346,161 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -7922,7 +8661,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -8187,10 +8926,98 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -8414,7 +9241,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "marshalling-lights"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -8748,7 +9575,7 @@
                 "section_title": "Mid Game Pre-Pivot Pickups",
                 "slug": "ni-kola"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -8760,7 +9587,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -9214,10 +10041,161 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -9494,7 +10472,7 @@
                 "section_title": "Mid Game Pre-Pivot Pickups",
                 "slug": "orbital-polisher"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -9636,7 +10614,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -9901,10 +10879,98 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -10062,7 +11128,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "parts-picker"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -10074,7 +11140,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -10528,10 +11594,161 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -10953,7 +12170,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -11284,10 +12501,120 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Chicken Cannon",
+              "archetypes_seen": [
+                "Chicken Cannon"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Chicken Cannon (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d5dd20ef-31ad-4eb7-af8d-3a42eb3008d3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "chicken-cannon",
+                              "isShowLabel": true,
+                              "label": "Chicken Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has finally emerged as a solid contender after the latest buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/f206ba7b-5496-46fd-abe8-bca5cfebbf2d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "pogo-stick",
+                              "isShowLabel": true,
+                              "label": "Pogo Stick",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/17fe0a7a-6432-49ec-a931-9237482bc8f2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "windbreaker",
+                              "isShowLabel": true,
+                              "label": "Windbreaker",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". The combination of improved Shield scaling plus a lower Cooldown has led to new viable setups, creating a fresh take on the Shield conversion archetype.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -11421,7 +12748,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -11686,10 +13013,98 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Runabout",
+              "archetypes_seen": [
+                "Private Runabout"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Runabout (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/81dc5352-d5ea-4e8f-8063-3051628dc92a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-runabout",
+                              "isShowLabel": true,
+                              "label": "Private Runabout",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a fast and reliable threat thanks to its Multicast, low Cooldown, and direct access to Haste. It plays a full Flying package that can quickly ascend with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/a89a0b5d-bbbb-4818-b002-1ad0156156f7.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launch-tower",
+                              "isShowLabel": true,
+                              "label": "Launch Tower",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", meaning the CDR is enabled almost immediately. Plus best of all, you don't need to worry about any start-stop interactions.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -11863,7 +13278,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -12194,10 +13609,120 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Chicken Cannon",
+              "archetypes_seen": [
+                "Chicken Cannon"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Chicken Cannon (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d5dd20ef-31ad-4eb7-af8d-3a42eb3008d3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "chicken-cannon",
+                              "isShowLabel": true,
+                              "label": "Chicken Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has finally emerged as a solid contender after the latest buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/f206ba7b-5496-46fd-abe8-bca5cfebbf2d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "pogo-stick",
+                              "isShowLabel": true,
+                              "label": "Pogo Stick",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/17fe0a7a-6432-49ec-a931-9237482bc8f2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "windbreaker",
+                              "isShowLabel": true,
+                              "label": "Windbreaker",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". The combination of improved Shield scaling plus a lower Cooldown has led to new viable setups, creating a fresh take on the Shield conversion archetype.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -12450,7 +13975,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -12904,10 +14429,161 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -13037,7 +14713,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "rocket-boots"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -13218,7 +14894,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "salamander-pup"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -14267,7 +15943,7 @@
                 "section_title": "Mid Game Pre-Pivot Pickups",
                 "slug": "smoke-detector"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -15088,7 +16764,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -15542,10 +17218,161 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "LavaRoller",
+              "archetypes_seen": [
+                "LavaRoller"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "LavaRoller (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c486ba1a-2661-4ab6-be33-c4a5a4526e35.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lavaroller",
+                              "isShowLabel": true,
+                              "label": "LavaRoller",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " converts self-destruction into unmatchable amounts of Burn. With the recent changes to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d7cf3ee9-c62f-4832-a1cf-463a65043631.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "experimental-garage",
+                              "isShowLabel": true,
+                              "label": "Experimental Garage",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (no longer overriding your own enchantments), it now has access to a massive CDR boost without the steep drawback.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "LavaRoller Stelle",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/lavaroller-stelle-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -15614,7 +17441,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "tethers"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -15645,7 +17472,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "the-big-one"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -16410,7 +18237,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -16741,10 +18568,120 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Chicken Cannon",
+              "archetypes_seen": [
+                "Chicken Cannon"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Chicken Cannon (Stelle)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d5dd20ef-31ad-4eb7-af8d-3a42eb3008d3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "chicken-cannon",
+                              "isShowLabel": true,
+                              "label": "Chicken Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has finally emerged as a solid contender after the latest buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/f206ba7b-5496-46fd-abe8-bca5cfebbf2d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "pogo-stick",
+                              "isShowLabel": true,
+                              "label": "Pogo Stick",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/17fe0a7a-6432-49ec-a931-9237482bc8f2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "windbreaker",
+                              "isShowLabel": true,
+                              "label": "Windbreaker",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". The combination of improved Shield scaling plus a lower Cooldown has led to new viable setups, creating a fresh take on the Shield conversion archetype.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Stelle"
+              },
+              "observed_at": "2026-06-12T10:02:50Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -16825,7 +18762,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "wrench"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:50Z",
               "present": true,
               "rank": 11,
               "sample_count": 1,
@@ -16995,6 +18932,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:58Z",
         "window_id": "bazaar_builds_net:2026-W23"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:50Z",
+        "window_id": "bazaar_builds_net:2026-W24"
       }
     ],
     "bazaardb": [
@@ -17024,10 +18967,10 @@
       },
       {
         "details": [
-          "filtered 96 item(s) not owned by Stelle"
+          "expected_patch_mismatch"
         ],
-        "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:58Z",
+        "health_status": "unhealthy",
+        "observed_at": "2026-06-12T10:02:50Z",
         "window_id": "bazaardb:15.0 (Jun 3)"
       }
     ],
@@ -17045,7 +18988,7 @@
           "filtered 1 item(s) not owned by Stelle"
         ],
         "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:58Z",
+        "observed_at": "2026-06-12T10:02:50Z",
         "window_id": "mobalytics_build_articles:lavaroller-stelle-kripp"
       }
     ],
@@ -17071,6 +19014,14 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:58Z",
         "window_id": "mobalytics_meta_builds:v561"
+      },
+      {
+        "details": [
+          "filtered 1 item(s) not owned by Stelle"
+        ],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:50Z",
+        "window_id": "mobalytics_meta_builds:v562"
       }
     ]
   }

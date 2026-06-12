@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T13:37:25Z",
-  "generated_at": "2026-06-05T09:38:19Z",
+  "generated_at": "2026-06-12T10:03:14Z",
   "hero": "Jules",
   "items": {
     "Amber": {
@@ -303,7 +303,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "azakan-stew"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -393,7 +393,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "banu-leaves"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -528,7 +528,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "basket"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -835,7 +835,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "black-pepper"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -847,7 +847,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -1259,10 +1259,147 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Freezer",
+              "archetypes_seen": [
+                "Freezer"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Freezer (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Freezer combines a fast offense with continuous disruption, making it a strong and reliable archetype. The improvements to socket RNG are a huge help, as the build could previously be bricked if things didn't line up properly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Freeze Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/freeze-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -1363,7 +1500,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "blender"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -1375,7 +1512,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -1787,10 +1924,147 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Freezer",
+              "archetypes_seen": [
+                "Freezer"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Freezer (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Freezer combines a fast offense with continuous disruption, making it a strong and reliable archetype. The improvements to socket RNG are a huge help, as the build could previously be bricked if things didn't line up properly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Freeze Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/freeze-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -1813,7 +2087,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "blizzard"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -2053,7 +2327,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "bread"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -2191,7 +2465,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "bread-knife"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -2203,7 +2477,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -2720,10 +2994,182 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market",
+              "archetypes_seen": [
+                "Farmer's Market"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Farmer's Market (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/90acad0b-2154-4af1-a448-5f8dc304612e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "farmers-market",
+                              "isShowLabel": true,
+                              "label": "Farmer's Market",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " builds spam fast Food items to gain massive amounts of Regen, allowing them to convert it into raw Damage with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c25780af-ae03-4fcf-b8ea-a2bd096ec215.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "bread-knife",
+                              "isShowLabel": true,
+                              "label": "Bread Knife",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". When acquired early enough, you can also stack up a solid amount of Max Health, making them even harder to break through.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Regen Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/regen-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -2823,7 +3269,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "burrito"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -2884,7 +3330,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "butter"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -3181,7 +3627,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "chocolate-coin"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -3365,7 +3811,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "cookie-cutters"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -3396,7 +3842,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "cooler"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -3551,7 +3997,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "dishwasher"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -4336,7 +4782,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "farmers-market"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -4348,7 +4794,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -4865,10 +5311,182 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market",
+              "archetypes_seen": [
+                "Farmer's Market"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Farmer's Market (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/90acad0b-2154-4af1-a448-5f8dc304612e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "farmers-market",
+                              "isShowLabel": true,
+                              "label": "Farmer's Market",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " builds spam fast Food items to gain massive amounts of Regen, allowing them to convert it into raw Damage with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c25780af-ae03-4fcf-b8ea-a2bd096ec215.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "bread-knife",
+                              "isShowLabel": true,
+                              "label": "Bread Knife",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". When acquired early enough, you can also stack up a solid amount of Max Health, making them even harder to break through.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Regen Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/regen-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -5319,7 +5937,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "fortune-cookie"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -6515,7 +7133,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "ice-cubes"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -6527,7 +7145,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -6939,10 +7557,147 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Freezer",
+              "archetypes_seen": [
+                "Freezer"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Freezer (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Freezer combines a fast offense with continuous disruption, making it a strong and reliable archetype. The improvements to socket RNG are a huge help, as the build could previously be bricked if things didn't line up properly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Freeze Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/freeze-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -7041,7 +7796,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "ice-swan"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -7389,7 +8144,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "instant-noodles"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -7401,7 +8156,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -7729,10 +8484,119 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Spice Rack",
+              "archetypes_seen": [
+                "Spice Rack"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Spice Rack (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c400ec7f-8d7a-4845-9ab4-06bac18ef551.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "spice-rack",
+                              "isShowLabel": true,
+                              "label": "Spice Rack",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has been reworked into a powerful Burn scaling support item (despite nerfs), becoming what's essentially Jules' version of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7bbe85da-80cf-44a7-b33f-b6e7c4b4e256.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "oni-mask",
+                              "isShowLabel": true,
+                              "label": "Oni Mask",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". Combined with fast spammy Food, it gets out of hand very quickly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -7755,7 +8619,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "jambalaya"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -8015,7 +8879,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "knife-sharpener"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -8412,7 +9276,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "luau"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -8691,7 +9555,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -9019,10 +9883,119 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Spice Rack",
+              "archetypes_seen": [
+                "Spice Rack"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Spice Rack (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c400ec7f-8d7a-4845-9ab4-06bac18ef551.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "spice-rack",
+                              "isShowLabel": true,
+                              "label": "Spice Rack",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has been reworked into a powerful Burn scaling support item (despite nerfs), becoming what's essentially Jules' version of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7bbe85da-80cf-44a7-b33f-b6e7c4b4e256.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "oni-mask",
+                              "isShowLabel": true,
+                              "label": "Oni Mask",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". Combined with fast spammy Food, it gets out of hand very quickly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -9093,7 +10066,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "microwave"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -9124,7 +10097,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "mini-fridge"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -9557,7 +10530,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -10074,10 +11047,182 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market",
+              "archetypes_seen": [
+                "Farmer's Market"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Farmer's Market (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/90acad0b-2154-4af1-a448-5f8dc304612e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "farmers-market",
+                              "isShowLabel": true,
+                              "label": "Farmer's Market",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " builds spam fast Food items to gain massive amounts of Regen, allowing them to convert it into raw Damage with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c25780af-ae03-4fcf-b8ea-a2bd096ec215.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "bread-knife",
+                              "isShowLabel": true,
+                              "label": "Bread Knife",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". When acquired early enough, you can also stack up a solid amount of Max Health, making them even harder to break through.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Regen Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/regen-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -10144,7 +11289,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -10472,10 +11617,119 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Spice Rack",
+              "archetypes_seen": [
+                "Spice Rack"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Spice Rack (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c400ec7f-8d7a-4845-9ab4-06bac18ef551.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "spice-rack",
+                              "isShowLabel": true,
+                              "label": "Spice Rack",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has been reworked into a powerful Burn scaling support item (despite nerfs), becoming what's essentially Jules' version of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7bbe85da-80cf-44a7-b33f-b6e7c4b4e256.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "oni-mask",
+                              "isShowLabel": true,
+                              "label": "Oni Mask",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". Combined with fast spammy Food, it gets out of hand very quickly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -10620,7 +11874,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -11137,10 +12391,182 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market",
+              "archetypes_seen": [
+                "Farmer's Market"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Farmer's Market (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/90acad0b-2154-4af1-a448-5f8dc304612e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "farmers-market",
+                              "isShowLabel": true,
+                              "label": "Farmer's Market",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " builds spam fast Food items to gain massive amounts of Regen, allowing them to convert it into raw Damage with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c25780af-ae03-4fcf-b8ea-a2bd096ec215.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "bread-knife",
+                              "isShowLabel": true,
+                              "label": "Bread Knife",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". When acquired early enough, you can also stack up a solid amount of Max Health, making them even harder to break through.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Regen Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/regen-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -11163,7 +12589,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "pasta-maker"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -11194,7 +12620,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "pastry-cart"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -11531,7 +12957,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "pizza"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -11543,7 +12969,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -11871,10 +13297,119 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Spice Rack",
+              "archetypes_seen": [
+                "Spice Rack"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Spice Rack (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c400ec7f-8d7a-4845-9ab4-06bac18ef551.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "spice-rack",
+                              "isShowLabel": true,
+                              "label": "Spice Rack",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has been reworked into a powerful Burn scaling support item (despite nerfs), becoming what's essentially Jules' version of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7bbe85da-80cf-44a7-b33f-b6e7c4b4e256.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "oni-mask",
+                              "isShowLabel": true,
+                              "label": "Oni Mask",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". Combined with fast spammy Food, it gets out of hand very quickly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -12130,7 +13665,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "prep-station"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -12533,7 +14068,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "rice"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -12639,7 +14174,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "rocket-boots"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -13000,7 +14535,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "scorchpepper"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -13379,7 +14914,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "shatter"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -13788,7 +15323,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "slushee"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -14003,7 +15538,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "sorbet"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -14015,7 +15550,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -14427,10 +15962,147 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Freezer",
+              "archetypes_seen": [
+                "Freezer"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Freezer (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Freezer combines a fast offense with continuous disruption, making it a strong and reliable archetype. The improvements to socket RNG are a huge help, as the build could previously be bricked if things didn't line up properly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Freeze Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/freeze-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -14771,7 +16443,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -15099,10 +16771,119 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Spice Rack",
+              "archetypes_seen": [
+                "Spice Rack"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Spice Rack (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c400ec7f-8d7a-4845-9ab4-06bac18ef551.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "spice-rack",
+                              "isShowLabel": true,
+                              "label": "Spice Rack",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has been reworked into a powerful Burn scaling support item (despite nerfs), becoming what's essentially Jules' version of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7bbe85da-80cf-44a7-b33f-b6e7c4b4e256.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "oni-mask",
+                              "isShowLabel": true,
+                              "label": "Oni Mask",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". Combined with fast spammy Food, it gets out of hand very quickly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -15368,7 +17149,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "strawberries"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -15380,7 +17161,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -15897,10 +17678,182 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market",
+              "archetypes_seen": [
+                "Farmer's Market"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Farmer's Market (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/90acad0b-2154-4af1-a448-5f8dc304612e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "farmers-market",
+                              "isShowLabel": true,
+                              "label": "Farmer's Market",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " builds spam fast Food items to gain massive amounts of Regen, allowing them to convert it into raw Damage with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c25780af-ae03-4fcf-b8ea-a2bd096ec215.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "bread-knife",
+                              "isShowLabel": true,
+                              "label": "Bread Knife",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". When acquired early enough, you can also stack up a solid amount of Max Health, making them even harder to break through.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Regen Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/regen-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -16456,7 +18409,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "trail-mix"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -16780,7 +18733,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "veggie-garden"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -16915,7 +18868,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "walk-in-freezer"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:49Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -16927,7 +18880,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -17339,10 +19292,147 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Freezer",
+              "archetypes_seen": [
+                "Freezer"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Freezer (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Freezer combines a fast offense with continuous disruption, making it a strong and reliable archetype. The improvements to socket RNG are a huge help, as the build could previously be bricked if things didn't line up properly.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Freeze Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/freeze-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -17669,7 +19759,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v555",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -18186,10 +20276,182 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Farmer's Market",
+              "archetypes_seen": [
+                "Farmer's Market"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Farmer's Market (Jules)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 2,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Note: Jules builds have extremely contextual positioning due to the RNG placement of the Stoves and Coolers. Your mileage may vary.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 2,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/90acad0b-2154-4af1-a448-5f8dc304612e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "farmers-market",
+                              "isShowLabel": true,
+                              "label": "Farmer's Market",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " builds spam fast Food items to gain massive amounts of Regen, allowing them to convert it into raw Damage with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c25780af-ae03-4fcf-b8ea-a2bd096ec215.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "bread-knife",
+                              "isShowLabel": true,
+                              "label": "Bread Knife",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". When acquired early enough, you can also stack up a solid amount of Max Health, making them even harder to break through.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Regen Jules",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/regen-jules-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "textFormat": 2,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Jules"
+              },
+              "observed_at": "2026-06-12T10:02:49Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -18273,6 +20535,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:58Z",
         "window_id": "bazaar_builds_net:2026-W23"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:49Z",
+        "window_id": "bazaar_builds_net:2026-W24"
       }
     ],
     "bazaardb": [
@@ -18302,10 +20570,10 @@
       },
       {
         "details": [
-          "filtered 78 item(s) not owned by Jules"
+          "expected_patch_mismatch"
         ],
-        "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:58Z",
+        "health_status": "unhealthy",
+        "observed_at": "2026-06-12T10:02:49Z",
         "window_id": "bazaardb:15.0 (Jun 3)"
       }
     ],
@@ -18323,7 +20591,7 @@
           "filtered 2 item(s) not owned by Jules"
         ],
         "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:58Z",
+        "observed_at": "2026-06-12T10:02:49Z",
         "window_id": "mobalytics_build_articles:freeze-jules-kripp,regen-jules-kripp"
       }
     ],
@@ -18345,6 +20613,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:58Z",
         "window_id": "mobalytics_meta_builds:v561"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:49Z",
+        "window_id": "mobalytics_meta_builds:v562"
       }
     ]
   }

@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T09:57:01Z",
-  "generated_at": "2026-06-05T09:38:39Z",
+  "generated_at": "2026-06-12T10:03:04Z",
   "hero": "Pygmalien",
   "items": {
     "ATM": {
@@ -22,7 +22,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "atm"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 11,
               "sample_count": 1,
@@ -569,7 +569,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "artillery-spotter"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -852,7 +852,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "atlatl"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -1676,7 +1676,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "belt"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -1688,7 +1688,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -2709,10 +2709,214 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Square",
+              "archetypes_seen": [
+                "Square"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Square (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Square Pyg is the classic beatdown archetype that takes advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d903dda8-9c30-4325-a727-c885ad972025.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "crook",
+                              "isShowLabel": true,
+                              "label": "Crook",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "'s Damage buff during the early game. After snowballing a lead, it can work towards heavy-hitters like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9a7d5711-930a-4815-86cc-4e357680730c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lion-cane",
+                              "isShowLabel": true,
+                              "label": "Lion Cane",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6ada601b-88a5-4eaf-8813-805bd51c7f9b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "regal-blade",
+                              "isShowLabel": true,
+                              "label": "Regal Blade",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/8f61677c-aa75-4275-b8b4-3cbaca1fdcbf.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "cash-cannon",
+                              "isShowLabel": true,
+                              "label": "Cash Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to close things out.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Square Pygmalien",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/square-pygmalien-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -2874,7 +3078,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -3598,10 +3802,142 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Jet",
+              "archetypes_seen": [
+                "Private Jet"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Jet (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/e49c8ca8-36e9-4018-9d57-8d2c1e45920a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-jet",
+                              "isShowLabel": true,
+                              "label": "Private Jet",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has taken off as a reliable scaling engine for fast spammy items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/84b74f1e-0960-4c71-bb4f-d35e114250c2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "yo-yo",
+                              "isShowLabel": true,
+                              "label": "Yo-Yo",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/54c74b82-0a7d-4dab-a335-f3b0b8b2157c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "uwashiwali-bird",
+                              "isShowLabel": true,
+                              "label": "Uwashiwali Bird",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (now that it can immediately Fly itself). Since its scaling is based on Value, it can take advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/18e2e46f-6419-44b3-80fa-11b13bc7b831.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "billboard",
+                              "isShowLabel": true,
+                              "label": "Billboard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to reach even greater heights.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -4107,7 +4443,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -5128,10 +5464,214 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Square",
+              "archetypes_seen": [
+                "Square"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Square (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Square Pyg is the classic beatdown archetype that takes advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d903dda8-9c30-4325-a727-c885ad972025.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "crook",
+                              "isShowLabel": true,
+                              "label": "Crook",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "'s Damage buff during the early game. After snowballing a lead, it can work towards heavy-hitters like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9a7d5711-930a-4815-86cc-4e357680730c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lion-cane",
+                              "isShowLabel": true,
+                              "label": "Lion Cane",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6ada601b-88a5-4eaf-8813-805bd51c7f9b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "regal-blade",
+                              "isShowLabel": true,
+                              "label": "Regal Blade",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/8f61677c-aa75-4275-b8b4-3cbaca1fdcbf.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "cash-cannon",
+                              "isShowLabel": true,
+                              "label": "Cash Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to close things out.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Square Pygmalien",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/square-pygmalien-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -5465,7 +6005,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "business-card"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -5647,7 +6187,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "caltrops"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -5930,7 +6470,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -6951,10 +7491,214 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Square",
+              "archetypes_seen": [
+                "Square"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Square (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Square Pyg is the classic beatdown archetype that takes advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d903dda8-9c30-4325-a727-c885ad972025.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "crook",
+                              "isShowLabel": true,
+                              "label": "Crook",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "'s Damage buff during the early game. After snowballing a lead, it can work towards heavy-hitters like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9a7d5711-930a-4815-86cc-4e357680730c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lion-cane",
+                              "isShowLabel": true,
+                              "label": "Lion Cane",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6ada601b-88a5-4eaf-8813-805bd51c7f9b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "regal-blade",
+                              "isShowLabel": true,
+                              "label": "Regal Blade",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/8f61677c-aa75-4275-b8b4-3cbaca1fdcbf.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "cash-cannon",
+                              "isShowLabel": true,
+                              "label": "Cash Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to close things out.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Square Pygmalien",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/square-pygmalien-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -6977,7 +7721,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "cash-register"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 13,
               "sample_count": 1,
@@ -7212,7 +7956,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "chocolate-bar"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 14,
               "sample_count": 1,
@@ -7428,7 +8172,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -7759,10 +8503,76 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Hot Springs",
+              "archetypes_seen": [
+                "Private Hot Springs"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Hot Springs (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/2e0be4f0-0472-444a-a541-09f1ba464c64.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-hot-springs",
+                              "isShowLabel": true,
+                              "label": "Private Hot Springs",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a spammy Burn item that can completely lockdown the board. Its four second Freeze effect punishes any build that can't one-shot it, especially since the passive Regen can counteract opposing damage over time (while the enemy still Burns!).",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -7948,7 +8758,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "crook"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -8338,7 +9148,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "dog"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -9479,7 +10289,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "flail"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -10520,7 +11330,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "ganjo"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -10887,7 +11697,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "gramophone"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -10899,7 +11709,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -11359,10 +12169,76 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Hot Springs",
+              "archetypes_seen": [
+                "Private Hot Springs"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Hot Springs (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/2e0be4f0-0472-444a-a541-09f1ba464c64.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-hot-springs",
+                              "isShowLabel": true,
+                              "label": "Private Hot Springs",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a spammy Burn item that can completely lockdown the board. Its four second Freeze effect punishes any build that can't one-shot it, especially since the passive Regen can counteract opposing damage over time (while the enemy still Burns!).",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -11523,7 +12399,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "gumball-machine"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -11726,7 +12602,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "heavy-firepower"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -12777,7 +13653,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -13108,10 +13984,76 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Hot Springs",
+              "archetypes_seen": [
+                "Private Hot Springs"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Hot Springs (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/2e0be4f0-0472-444a-a541-09f1ba464c64.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-hot-springs",
+                              "isShowLabel": true,
+                              "label": "Private Hot Springs",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a spammy Burn item that can completely lockdown the board. Its four second Freeze effect punishes any build that can't one-shot it, especially since the passive Regen can counteract opposing damage over time (while the enemy still Burns!).",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -14160,7 +15102,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "large-appetites"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -14884,7 +15826,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "lion-cane"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -14896,7 +15838,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -15917,10 +16859,214 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Square",
+              "archetypes_seen": [
+                "Square"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Square (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Square Pyg is the classic beatdown archetype that takes advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d903dda8-9c30-4325-a727-c885ad972025.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "crook",
+                              "isShowLabel": true,
+                              "label": "Crook",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "'s Damage buff during the early game. After snowballing a lead, it can work towards heavy-hitters like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9a7d5711-930a-4815-86cc-4e357680730c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lion-cane",
+                              "isShowLabel": true,
+                              "label": "Lion Cane",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6ada601b-88a5-4eaf-8813-805bd51c7f9b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "regal-blade",
+                              "isShowLabel": true,
+                              "label": "Regal Blade",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/8f61677c-aa75-4275-b8b4-3cbaca1fdcbf.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "cash-cannon",
+                              "isShowLabel": true,
+                              "label": "Cash Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to close things out.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Square Pygmalien",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/square-pygmalien-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -15989,7 +17135,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "lumboars"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -16570,7 +17716,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -17099,10 +18245,142 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Jet",
+              "archetypes_seen": [
+                "Private Jet"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Jet (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/e49c8ca8-36e9-4018-9d57-8d2c1e45920a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-jet",
+                              "isShowLabel": true,
+                              "label": "Private Jet",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has taken off as a reliable scaling engine for fast spammy items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/84b74f1e-0960-4c71-bb4f-d35e114250c2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "yo-yo",
+                              "isShowLabel": true,
+                              "label": "Yo-Yo",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/54c74b82-0a7d-4dab-a335-f3b0b8b2157c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "uwashiwali-bird",
+                              "isShowLabel": true,
+                              "label": "Uwashiwali Bird",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (now that it can immediately Fly itself). Since its scaling is based on Value, it can take advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/18e2e46f-6419-44b3-80fa-11b13bc7b831.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "billboard",
+                              "isShowLabel": true,
+                              "label": "Billboard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to reach even greater heights.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -18918,7 +20196,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "piggles"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 16,
               "sample_count": 1,
@@ -19565,7 +20843,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "premium-piggles"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 15,
               "sample_count": 1,
@@ -19669,7 +20947,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -20000,10 +21278,76 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Hot Springs",
+              "archetypes_seen": [
+                "Private Hot Springs"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Hot Springs (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/2e0be4f0-0472-444a-a541-09f1ba464c64.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-hot-springs",
+                              "isShowLabel": true,
+                              "label": "Private Hot Springs",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a spammy Burn item that can completely lockdown the board. Its four second Freeze effect punishes any build that can't one-shot it, especially since the passive Regen can counteract opposing damage over time (while the enemy still Burns!).",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -20059,7 +21403,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -20588,10 +21932,142 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Jet",
+              "archetypes_seen": [
+                "Private Jet"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Jet (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/e49c8ca8-36e9-4018-9d57-8d2c1e45920a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-jet",
+                              "isShowLabel": true,
+                              "label": "Private Jet",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has taken off as a reliable scaling engine for fast spammy items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/84b74f1e-0960-4c71-bb4f-d35e114250c2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "yo-yo",
+                              "isShowLabel": true,
+                              "label": "Yo-Yo",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/54c74b82-0a7d-4dab-a335-f3b0b8b2157c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "uwashiwali-bird",
+                              "isShowLabel": true,
+                              "label": "Uwashiwali Bird",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (now that it can immediately Fly itself). Since its scaling is based on Value, it can take advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/18e2e46f-6419-44b3-80fa-11b13bc7b831.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "billboard",
+                              "isShowLabel": true,
+                              "label": "Billboard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to reach even greater heights.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -21202,7 +22678,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "regal-blade"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -21214,7 +22690,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -22235,10 +23711,214 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Square",
+              "archetypes_seen": [
+                "Square"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Square (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Square Pyg is the classic beatdown archetype that takes advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/d903dda8-9c30-4325-a727-c885ad972025.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "crook",
+                              "isShowLabel": true,
+                              "label": "Crook",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "'s Damage buff during the early game. After snowballing a lead, it can work towards heavy-hitters like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9a7d5711-930a-4815-86cc-4e357680730c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "lion-cane",
+                              "isShowLabel": true,
+                              "label": "Lion Cane",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6ada601b-88a5-4eaf-8813-805bd51c7f9b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "regal-blade",
+                              "isShowLabel": true,
+                              "label": "Regal Blade",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/8f61677c-aa75-4275-b8b4-3cbaca1fdcbf.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "cash-cannon",
+                              "isShowLabel": true,
+                              "label": "Cash Cannon",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to close things out.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Square Pygmalien",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/square-pygmalien-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -22372,7 +24052,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "rewards-card"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 12,
               "sample_count": 1,
@@ -23415,7 +25095,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "shadowed-cloak"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -23664,7 +25344,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "showcase"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -26436,7 +28116,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -26965,10 +28645,142 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Jet",
+              "archetypes_seen": [
+                "Private Jet"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Jet (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/e49c8ca8-36e9-4018-9d57-8d2c1e45920a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-jet",
+                              "isShowLabel": true,
+                              "label": "Private Jet",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has taken off as a reliable scaling engine for fast spammy items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/84b74f1e-0960-4c71-bb4f-d35e114250c2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "yo-yo",
+                              "isShowLabel": true,
+                              "label": "Yo-Yo",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/54c74b82-0a7d-4dab-a335-f3b0b8b2157c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "uwashiwali-bird",
+                              "isShowLabel": true,
+                              "label": "Uwashiwali Bird",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (now that it can immediately Fly itself). Since its scaling is based on Value, it can take advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/18e2e46f-6419-44b3-80fa-11b13bc7b831.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "billboard",
+                              "isShowLabel": true,
+                              "label": "Billboard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to reach even greater heights.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -27225,7 +29037,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "vending-machine"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -27647,7 +29459,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "weights"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:46Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -28202,7 +30014,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -28731,10 +30543,142 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Private Jet",
+              "archetypes_seen": [
+                "Private Jet"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Private Jet (Pygmalien)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/e49c8ca8-36e9-4018-9d57-8d2c1e45920a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "private-jet",
+                              "isShowLabel": true,
+                              "label": "Private Jet",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has taken off as a reliable scaling engine for fast spammy items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/84b74f1e-0960-4c71-bb4f-d35e114250c2.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "yo-yo",
+                              "isShowLabel": true,
+                              "label": "Yo-Yo",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/54c74b82-0a7d-4dab-a335-f3b0b8b2157c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "uwashiwali-bird",
+                              "isShowLabel": true,
+                              "label": "Uwashiwali Bird",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (now that it can immediately Fly itself). Since its scaling is based on Value, it can take advantage of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/18e2e46f-6419-44b3-80fa-11b13bc7b831.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "billboard",
+                              "isShowLabel": true,
+                              "label": "Billboard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " to reach even greater heights.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Pygmalien"
+              },
+              "observed_at": "2026-06-12T10:02:46Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -28916,6 +30860,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:56Z",
         "window_id": "bazaar_builds_net:2026-W23"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:46Z",
+        "window_id": "bazaar_builds_net:2026-W24"
       }
     ],
     "bazaardb": [
@@ -28955,10 +30905,10 @@
       },
       {
         "details": [
-          "filtered 103 item(s) not owned by Pygmalien"
+          "expected_patch_mismatch"
         ],
-        "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:56Z",
+        "health_status": "unhealthy",
+        "observed_at": "2026-06-12T10:02:46Z",
         "window_id": "bazaardb:15.0 (Jun 3)"
       }
     ],
@@ -28974,7 +30924,7 @@
       {
         "details": [],
         "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:56Z",
+        "observed_at": "2026-06-12T10:02:46Z",
         "window_id": "mobalytics_build_articles:square-pygmalien-kripp"
       }
     ],
@@ -29008,6 +30958,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:56Z",
         "window_id": "mobalytics_meta_builds:v561"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:46Z",
+        "window_id": "mobalytics_meta_builds:v562"
       }
     ]
   }

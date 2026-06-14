@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T09:56:55Z",
-  "generated_at": "2026-06-05T09:38:20Z",
+  "generated_at": "2026-06-12T10:03:08Z",
   "hero": "Karnok",
   "items": {
     "3D Printer": {
@@ -1955,7 +1955,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "bat"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 11,
               "sample_count": 1,
@@ -1986,7 +1986,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "battle-axe"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 13,
               "sample_count": 1,
@@ -2173,7 +2173,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "bear-trap"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -2609,7 +2609,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "beast-call"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 13,
               "sample_count": 1,
@@ -2640,7 +2640,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "beast-tooth"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -3252,7 +3252,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "boa-constrictor"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -4217,7 +4217,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "chains"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -4229,7 +4229,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -4720,10 +4720,120 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dual Reaver",
+              "archetypes_seen": [
+                "Dual Reaver"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dual Reaver (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7cfac919-7fc0-475e-91f4-3e869ec1f870.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dual-reaver",
+                              "isShowLabel": true,
+                              "label": "Dual Reaver",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has become a fast scaling threat after the recent buffs. With an impressive three second Cooldown at Diamond-tier, it can definitely contest opposing builds during the late game. It also slots nicely into the popular Self-Slow package, making it a relatively easy pivot when it's needed.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Self-Slow Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/self-slow-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 3,
-          "windows_seen": 3
+          "windows_observed": 4,
+          "windows_seen": 4
         }
       }
     },
@@ -5380,7 +5490,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "dryad"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -5504,7 +5614,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "dual-reaver"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -5516,7 +5626,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v557",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -5737,10 +5847,120 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dual Reaver",
+              "archetypes_seen": [
+                "Dual Reaver"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dual Reaver (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7cfac919-7fc0-475e-91f4-3e869ec1f870.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dual-reaver",
+                              "isShowLabel": true,
+                              "label": "Dual Reaver",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has become a fast scaling threat after the recent buffs. With an impressive three second Cooldown at Diamond-tier, it can definitely contest opposing builds during the late game. It also slots nicely into the popular Self-Slow package, making it a relatively easy pivot when it's needed.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Self-Slow Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/self-slow-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 2,
-          "windows_seen": 2
+          "windows_observed": 3,
+          "windows_seen": 3
         }
       }
     },
@@ -6465,7 +6685,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "fairies"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 12,
               "sample_count": 1,
@@ -6700,7 +6920,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "fairy-circle"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -6712,7 +6932,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -7197,10 +7417,120 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dual Reaver",
+              "archetypes_seen": [
+                "Dual Reaver"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dual Reaver (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7cfac919-7fc0-475e-91f4-3e869ec1f870.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dual-reaver",
+                              "isShowLabel": true,
+                              "label": "Dual Reaver",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has become a fast scaling threat after the recent buffs. With an impressive three second Cooldown at Diamond-tier, it can definitely contest opposing builds during the late game. It also slots nicely into the popular Self-Slow package, making it a relatively easy pivot when it's needed.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Self-Slow Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/self-slow-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -7774,7 +8104,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "flare"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -7786,7 +8116,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -8696,10 +9026,139 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Runic Claymore",
+              "archetypes_seen": [
+                "Runic Claymore"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Runic Claymore (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/94a184be-98f2-4a65-8334-e15deff2c082.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "runic-claymore",
+                              "isShowLabel": true,
+                              "label": "Runic Claymore",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a big buff to its Damage, making it stand out even further as Karnok's ideal late game setup. As long as you have a reliable form of sustain (Lifesteal, Restorative, Shielded), it only takes a few Crits to become essentially unkillable. That is, if they're even still alive at that point.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Max Health Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/max-health-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -9258,7 +9717,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "flying-squirrel"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -9270,7 +9729,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -10142,10 +10601,120 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dual Reaver",
+              "archetypes_seen": [
+                "Dual Reaver"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dual Reaver (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7cfac919-7fc0-475e-91f4-3e869ec1f870.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dual-reaver",
+                              "isShowLabel": true,
+                              "label": "Dual Reaver",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has become a fast scaling threat after the recent buffs. With an impressive three second Cooldown at Diamond-tier, it can definitely contest opposing builds during the late game. It also slots nicely into the popular Self-Slow package, making it a relatively easy pivot when it's needed.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Self-Slow Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/self-slow-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -10346,7 +10915,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "fogshroom"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -10358,7 +10927,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -10843,10 +11412,120 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dual Reaver",
+              "archetypes_seen": [
+                "Dual Reaver"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dual Reaver (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7cfac919-7fc0-475e-91f4-3e869ec1f870.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dual-reaver",
+                              "isShowLabel": true,
+                              "label": "Dual Reaver",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has become a fast scaling threat after the recent buffs. With an impressive three second Cooldown at Diamond-tier, it can definitely contest opposing builds during the late game. It also slots nicely into the popular Self-Slow package, making it a relatively easy pivot when it's needed.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Self-Slow Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/self-slow-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -10979,7 +11658,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "forest-cloak"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -11713,7 +12392,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "ghillie-suit"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -12321,7 +13000,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "great-eagle"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -12899,7 +13578,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "heavy-crossbow"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -13007,7 +13686,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "hidden-lake"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -13019,7 +13698,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -13473,10 +14152,139 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Runic Claymore",
+              "archetypes_seen": [
+                "Runic Claymore"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Runic Claymore (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/94a184be-98f2-4a65-8334-e15deff2c082.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "runic-claymore",
+                              "isShowLabel": true,
+                              "label": "Runic Claymore",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a big buff to its Damage, making it stand out even further as Karnok's ideal late game setup. As long as you have a reliable form of sustain (Lifesteal, Restorative, Shielded), it only takes a few Crits to become essentially unkillable. That is, if they're even still alive at that point.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Max Health Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/max-health-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -13545,7 +14353,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "honey-badger"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -13731,7 +14539,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "hunters-blind"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -13941,7 +14749,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "hunters-boots"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -14083,7 +14891,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "hunters-journal"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -14095,7 +14903,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -14549,10 +15357,139 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Runic Claymore",
+              "archetypes_seen": [
+                "Runic Claymore"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Runic Claymore (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/94a184be-98f2-4a65-8334-e15deff2c082.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "runic-claymore",
+                              "isShowLabel": true,
+                              "label": "Runic Claymore",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a big buff to its Damage, making it stand out even further as Karnok's ideal late game setup. As long as you have a reliable form of sustain (Lifesteal, Restorative, Shielded), it only takes a few Crits to become essentially unkillable. That is, if they're even still alive at that point.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Max Health Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/max-health-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -14635,7 +15572,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "hunters-pack"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -14895,7 +15832,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "hunting-hawk"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -15104,7 +16041,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "hunting-knife"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -15648,7 +16585,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "improvised-bludgeon"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -15895,7 +16832,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -16424,10 +17361,142 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Waystones",
+              "archetypes_seen": [
+                "Waystones"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Waystones (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/de82424c-91e7-41c1-8ed5-edb7408cfad3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "waystones",
+                              "isShowLabel": true,
+                              "label": "Waystones",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has become a legitimate threat post patch, utilizing the new and improved ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/77538c26-6234-4db2-8eef-3414849272e9.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "infused-arm-wraps",
+                              "isShowLabel": true,
+                              "label": "Infused Arm Wraps",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " as an efficient source of scaling. It requires few specific items to work, allowing you room to experiment to your liking. Though as usual, the Self-Slow core of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/15d84898-4217-4bc3-ae12-7bd70641e646.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "fogshroom",
+                              "isShowLabel": true,
+                              "label": "Fogshroom",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " + ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/3c265982-4144-44de-bf69-2d86c137de20.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "night-vision",
+                              "isShowLabel": true,
+                              "label": "Night Vision",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a great choice.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -18103,7 +19172,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "lifting-stones"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -18404,7 +19473,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "log-trap"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -18461,7 +19530,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "lost-blade"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -18702,7 +19771,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "makeshift-barricade"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -19122,7 +20191,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "messenger-sparrow"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -19134,7 +20203,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -20044,10 +21113,139 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Runic Claymore",
+              "archetypes_seen": [
+                "Runic Claymore"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Runic Claymore (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/94a184be-98f2-4a65-8334-e15deff2c082.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "runic-claymore",
+                              "isShowLabel": true,
+                              "label": "Runic Claymore",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a big buff to its Damage, making it stand out even further as Karnok's ideal late game setup. As long as you have a reliable form of sustain (Lifesteal, Restorative, Shielded), it only takes a few Crits to become essentially unkillable. That is, if they're even still alive at that point.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Max Health Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/max-health-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -20514,7 +21712,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "night-vision"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -20526,7 +21724,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -21011,10 +22209,120 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dual Reaver",
+              "archetypes_seen": [
+                "Dual Reaver"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dual Reaver (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/7cfac919-7fc0-475e-91f4-3e869ec1f870.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dual-reaver",
+                              "isShowLabel": true,
+                              "label": "Dual Reaver",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has become a fast scaling threat after the recent buffs. With an impressive three second Cooldown at Diamond-tier, it can definitely contest opposing builds during the late game. It also slots nicely into the popular Self-Slow package, making it a relatively easy pivot when it's needed.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Self-Slow Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/self-slow-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -23249,7 +24557,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "runed-amulet"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -23280,7 +24588,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "runed-bracelet"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -23422,7 +24730,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "runic-claymore"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -23434,7 +24742,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -23888,10 +25196,139 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Runic Claymore",
+              "archetypes_seen": [
+                "Runic Claymore"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Runic Claymore (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/94a184be-98f2-4a65-8334-e15deff2c082.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "runic-claymore",
+                              "isShowLabel": true,
+                              "label": "Runic Claymore",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a big buff to its Damage, making it stand out even further as Karnok's ideal late game setup. As long as you have a reliable form of sustain (Lifesteal, Restorative, Shielded), it only takes a few Crits to become essentially unkillable. That is, if they're even still alive at that point.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Max Health Karnok",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/max-health-karnok-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -24801,7 +26238,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "shotgun"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -25196,7 +26633,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "slowed-targets"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -25482,7 +26919,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "snowshoes"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -25952,7 +27389,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "spear"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -27187,7 +28624,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "tent"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -27909,7 +29346,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "trail-markers"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -28306,7 +29743,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "tri-net"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -28500,7 +29937,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "utility-belt"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -29368,7 +30805,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "waterskin"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -30153,7 +31590,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -30682,10 +32119,142 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Waystones",
+              "archetypes_seen": [
+                "Waystones"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Waystones (Karnok)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/de82424c-91e7-41c1-8ed5-edb7408cfad3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "waystones",
+                              "isShowLabel": true,
+                              "label": "Waystones",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has become a legitimate threat post patch, utilizing the new and improved ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/77538c26-6234-4db2-8eef-3414849272e9.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "infused-arm-wraps",
+                              "isShowLabel": true,
+                              "label": "Infused Arm Wraps",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " as an efficient source of scaling. It requires few specific items to work, allowing you room to experiment to your liking. Though as usual, the Self-Slow core of ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/15d84898-4217-4bc3-ae12-7bd70641e646.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "fogshroom",
+                              "isShowLabel": true,
+                              "label": "Fogshroom",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " + ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/3c265982-4144-44de-bf69-2d86c137de20.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "night-vision",
+                              "isShowLabel": true,
+                              "label": "Night Vision",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a great choice.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Karnok"
+              },
+              "observed_at": "2026-06-12T10:02:56Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 4,
-          "windows_seen": 4
+          "windows_observed": 5,
+          "windows_seen": 5
         }
       }
     },
@@ -31257,7 +32826,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "wolf"
               },
-              "observed_at": "2026-06-05T09:37:58Z",
+              "observed_at": "2026-06-12T10:02:56Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -32013,6 +33582,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:58Z",
         "window_id": "bazaar_builds_net:2026-W23"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:56Z",
+        "window_id": "bazaar_builds_net:2026-W24"
       }
     ],
     "bazaardb": [
@@ -32052,10 +33627,10 @@
       },
       {
         "details": [
-          "filtered 72 item(s) not owned by Karnok"
+          "expected_patch_mismatch"
         ],
-        "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:58Z",
+        "health_status": "unhealthy",
+        "observed_at": "2026-06-12T10:02:56Z",
         "window_id": "bazaardb:15.0 (Jun 3)"
       }
     ],
@@ -32073,7 +33648,7 @@
           "filtered 1 item(s) not owned by Karnok"
         ],
         "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:58Z",
+        "observed_at": "2026-06-12T10:02:56Z",
         "window_id": "mobalytics_build_articles:max-health-karnok-kripp,self-slow-karnok-kripp"
       }
     ],
@@ -32107,6 +33682,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:58Z",
         "window_id": "mobalytics_meta_builds:v561"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:56Z",
+        "window_id": "mobalytics_meta_builds:v562"
       }
     ]
   }

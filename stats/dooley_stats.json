@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T09:56:49Z",
-  "generated_at": "2026-06-05T09:38:13Z",
+  "generated_at": "2026-06-12T10:02:56Z",
   "hero": "Dooley",
   "items": {
     "3D Printer": {
@@ -50,7 +50,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "3d-printer"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -81,7 +81,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "alpha-ray"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 11,
               "sample_count": 1,
@@ -358,7 +358,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -799,10 +799,98 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Weaponized Core",
+              "archetypes_seen": [
+                "Weaponized Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Weaponized Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9131cedf-e5e7-4a23-a90e-2576048419e8.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "weaponized-core",
+                              "isShowLabel": true,
+                              "label": "Weaponized Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is the classic self-scaling machine that can reliably play from beginning to end. While its output isn't the best among the top contenders, a great way to take over the game is through disruption items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/405245d8-b81d-4015-8ed9-70e80f5eb980.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "antimatter-chamber",
+                              "isShowLabel": true,
+                              "label": "Antimatter Chamber",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -1343,7 +1431,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "blk-sp1d3r"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -1462,7 +1550,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "blu-b33tl3"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -2067,7 +2155,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "beta-ray"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -2079,7 +2167,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -3055,10 +3143,205 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -3350,7 +3633,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "blast-doors"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 11,
               "sample_count": 1,
@@ -3539,7 +3822,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "bomb-squad"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -3723,7 +4006,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "brick-buddy"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -3820,7 +4103,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "bunker"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -3832,7 +4115,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -4652,10 +4935,193 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dooltron",
+              "archetypes_seen": [
+                "Dooltron"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dooltron (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/41bc6bab-d7a6-42e4-9815-546de8640d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dooltron",
+                              "isShowLabel": true,
+                              "label": "Dooltron",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is an absolute powerhouse due to its flexibility and raw numbers. There are a wide variety of efficient engines, often taking advantage of contextual enchanted setups (with lots of Small items), or Cooldown reduced Haste spam with items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/b263ef6f-02a9-449b-b9c5-74ec0e6cbfc9.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "monitor-lizard",
+                              "isShowLabel": true,
+                              "label": "Monitor Lizard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Dooltron Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/dooltron-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Companion Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/companion-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 2,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -4890,7 +5356,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -5331,10 +5797,98 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Weaponized Core",
+              "archetypes_seen": [
+                "Weaponized Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Weaponized Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9131cedf-e5e7-4a23-a90e-2576048419e8.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "weaponized-core",
+                              "isShowLabel": true,
+                              "label": "Weaponized Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is the classic self-scaling machine that can reliably play from beginning to end. While its output isn't the best among the top contenders, a great way to take over the game is through disruption items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/405245d8-b81d-4015-8ed9-70e80f5eb980.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "antimatter-chamber",
+                              "isShowLabel": true,
+                              "label": "Antimatter Chamber",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -5569,7 +6123,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "chaff"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 13,
               "sample_count": 1,
@@ -5666,7 +6220,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "char-cole"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -5725,7 +6279,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "chemsnail"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -5844,7 +6398,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "chris-army-knife"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -5984,7 +6538,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "clawrence"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -6229,7 +6783,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "companion-core"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -6245,7 +6799,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -6686,10 +7240,98 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Weaponized Core",
+              "archetypes_seen": [
+                "Weaponized Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Weaponized Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9131cedf-e5e7-4a23-a90e-2576048419e8.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "weaponized-core",
+                              "isShowLabel": true,
+                              "label": "Weaponized Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is the classic self-scaling machine that can reliably play from beginning to end. While its output isn't the best among the top contenders, a great way to take over the game is through disruption items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/405245d8-b81d-4015-8ed9-70e80f5eb980.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "antimatter-chamber",
+                              "isShowLabel": true,
+                              "label": "Antimatter Chamber",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -6722,7 +7364,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -7698,10 +8340,205 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -7724,7 +8561,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "cooling-fan"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -7736,7 +8573,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -8712,10 +9549,205 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -8784,7 +9816,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "crypto"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -8815,7 +9847,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "dj-circuit-breaker"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -8958,7 +9990,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "dino-saddle"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -9017,7 +10049,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "dinosawer"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -9251,7 +10283,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "dooltron"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -9263,7 +10295,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -10083,10 +11115,193 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dooltron",
+              "archetypes_seen": [
+                "Dooltron"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dooltron (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/41bc6bab-d7a6-42e4-9815-546de8640d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dooltron",
+                              "isShowLabel": true,
+                              "label": "Dooltron",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is an absolute powerhouse due to its flexibility and raw numbers. There are a wide variety of efficient engines, often taking advantage of contextual enchanted setups (with lots of Small items), or Cooldown reduced Haste spam with items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/b263ef6f-02a9-449b-b9c5-74ec0e6cbfc9.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "monitor-lizard",
+                              "isShowLabel": true,
+                              "label": "Monitor Lizard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Dooltron Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/dooltron-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Companion Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/companion-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 2,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -10109,7 +11324,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "dooltron-mainframe"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -10459,7 +11674,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "duct-tape"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 14,
               "sample_count": 1,
@@ -11118,7 +12333,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "feather"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 14,
               "sample_count": 1,
@@ -11262,7 +12477,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "fiber-optics"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -11274,7 +12489,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -12250,10 +13465,205 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -12414,7 +13824,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "first-aiden"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -12641,7 +14051,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "flint-stones"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -13451,7 +14861,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -13892,10 +15302,98 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Weaponized Core",
+              "archetypes_seen": [
+                "Weaponized Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Weaponized Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9131cedf-e5e7-4a23-a90e-2576048419e8.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "weaponized-core",
+                              "isShowLabel": true,
+                              "label": "Weaponized Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is the classic self-scaling machine that can reliably play from beginning to end. While its output isn't the best among the top contenders, a great way to take over the game is through disruption items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/405245d8-b81d-4015-8ed9-70e80f5eb980.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "antimatter-chamber",
+                              "isShowLabel": true,
+                              "label": "Antimatter Chamber",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -13918,7 +15416,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "grn-w4sp"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -14339,7 +15837,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "hammlet"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -14625,7 +16123,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "hologram-projector"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 11,
               "sample_count": 1,
@@ -15217,7 +16715,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "ice-9000"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -15229,7 +16727,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -16205,10 +17703,205 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -17582,7 +19275,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "launch-pad"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 4,
               "sample_count": 1,
@@ -17701,7 +19394,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "launcher-core"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -17713,7 +19406,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -18689,10 +20382,205 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -18987,7 +20875,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "levitation-pad"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -19097,7 +20985,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -19538,10 +21426,98 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Weaponized Core",
+              "archetypes_seen": [
+                "Weaponized Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Weaponized Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9131cedf-e5e7-4a23-a90e-2576048419e8.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "weaponized-core",
+                              "isShowLabel": true,
+                              "label": "Weaponized Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is the classic self-scaling machine that can reliably play from beginning to end. While its output isn't the best among the top contenders, a great way to take over the game is through disruption items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/405245d8-b81d-4015-8ed9-70e80f5eb980.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "antimatter-chamber",
+                              "isShowLabel": true,
+                              "label": "Antimatter Chamber",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -19787,7 +21763,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "machine-learning"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 15,
               "sample_count": 1,
@@ -20223,7 +22199,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "mech-moles"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -20458,7 +22434,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "metronome"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -20470,7 +22446,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -21446,10 +23422,205 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -21472,7 +23643,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "micro-dave"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -21595,7 +23766,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "miss-isles"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -21710,7 +23881,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "monitor-lizard"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -21722,7 +23893,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -22542,10 +24713,193 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dooltron",
+              "archetypes_seen": [
+                "Dooltron"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dooltron (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/41bc6bab-d7a6-42e4-9815-546de8640d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dooltron",
+                              "isShowLabel": true,
+                              "label": "Dooltron",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is an absolute powerhouse due to its flexibility and raw numbers. There are a wide variety of efficient engines, often taking advantage of contextual enchanted setups (with lots of Small items), or Cooldown reduced Haste spam with items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/b263ef6f-02a9-449b-b9c5-74ec0e6cbfc9.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "monitor-lizard",
+                              "isShowLabel": true,
+                              "label": "Monitor Lizard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Dooltron Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/dooltron-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Companion Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/companion-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 2,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -22694,7 +25048,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "nanobot"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -22907,7 +25261,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "nitro"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -22919,7 +25273,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -23360,10 +25714,98 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Weaponized Core",
+              "archetypes_seen": [
+                "Weaponized Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Weaponized Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9131cedf-e5e7-4a23-a90e-2576048419e8.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "weaponized-core",
+                              "isShowLabel": true,
+                              "label": "Weaponized Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is the classic self-scaling machine that can reliably play from beginning to end. While its output isn't the best among the top contenders, a great way to take over the game is through disruption items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/405245d8-b81d-4015-8ed9-70e80f5eb980.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "antimatter-chamber",
+                              "isShowLabel": true,
+                              "label": "Antimatter Chamber",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -23386,7 +25828,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "nitrogen-hammer"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -23714,7 +26156,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "omega-ray"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -24069,7 +26511,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "party-float"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 1,
               "sample_count": 1,
@@ -24401,7 +26843,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "pierre-conditioner"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -24968,7 +27410,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "power-drill"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -25351,7 +27793,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "propeller-hat"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -25445,7 +27887,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "pulse-rifle"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -25506,7 +27948,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "pylon"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 8,
               "sample_count": 1,
@@ -25654,7 +28096,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "red-f1r3fly"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -25685,7 +28127,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "race-carl"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -26329,7 +28771,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "robotic-factory"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -26389,7 +28831,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "rocket-launcher"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -26747,7 +29189,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "sat-comm"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 7,
               "sample_count": 1,
@@ -26870,7 +29312,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "schematics"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 11,
               "sample_count": 1,
@@ -27027,7 +29469,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "scrap-metal"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 9,
               "sample_count": 1,
@@ -27594,7 +30036,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "shatter"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -28339,7 +30781,7 @@
                 "section_title": "Example Early Game Path",
                 "slug": "soldering-gun"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -29166,7 +31608,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "static-acceleration"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 10,
               "sample_count": 1,
@@ -29755,7 +32197,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "temporal-navigator"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 12,
               "sample_count": 1,
@@ -29849,7 +32291,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "terry-dactyl"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 17,
               "sample_count": 1,
@@ -30029,7 +32471,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "thrusters"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 6,
               "sample_count": 1,
@@ -30041,7 +32483,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -31017,10 +33459,205 @@
               "rank": 8,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -32254,7 +34891,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -32695,10 +35332,98 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Weaponized Core",
+              "archetypes_seen": [
+                "Weaponized Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Weaponized Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9131cedf-e5e7-4a23-a90e-2576048419e8.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "weaponized-core",
+                              "isShowLabel": true,
+                              "label": "Weaponized Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is the classic self-scaling machine that can reliably play from beginning to end. While its output isn't the best among the top contenders, a great way to take over the game is through disruption items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/405245d8-b81d-4015-8ed9-70e80f5eb980.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "antimatter-chamber",
+                              "isShowLabel": true,
+                              "label": "Antimatter Chamber",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -33176,7 +35901,7 @@
                 "section_title": "Example Mid Game Additions",
                 "slug": "ylw-m4nt1s"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 3,
               "sample_count": 1,
@@ -33338,7 +36063,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "z-shield"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 5,
               "sample_count": 1,
@@ -33350,7 +36075,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v561",
+          "last_seen_window": "mobalytics_meta_builds:v562",
           "per_window": [
             {
               "appearances": 1,
@@ -34170,10 +36895,193 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v561"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Dooltron",
+              "archetypes_seen": [
+                "Dooltron"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Dooltron (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/41bc6bab-d7a6-42e4-9815-546de8640d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "dooltron",
+                              "isShowLabel": true,
+                              "label": "Dooltron",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is an absolute powerhouse due to its flexibility and raw numbers. There are a wide variety of efficient engines, often taking advantage of contextual enchanted setups (with lots of Small items), or Cooldown reduced Haste spam with items like ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/b263ef6f-02a9-449b-b9c5-74ec0e6cbfc9.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "monitor-lizard",
+                              "isShowLabel": true,
+                              "label": "Monitor Lizard",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ".",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Dooltron Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/dooltron-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Companion Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/companion-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 2,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-06-12T10:02:42Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v562"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -34196,7 +37104,7 @@
                 "section_title": "End Game Build Breakdown",
                 "slug": "z-sword"
               },
-              "observed_at": "2026-06-05T09:37:56Z",
+              "observed_at": "2026-06-12T10:02:42Z",
               "present": true,
               "rank": 2,
               "sample_count": 1,
@@ -34436,6 +37344,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:56Z",
         "window_id": "bazaar_builds_net:2026-W23"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:42Z",
+        "window_id": "bazaar_builds_net:2026-W24"
       }
     ],
     "bazaardb": [
@@ -34475,10 +37389,10 @@
       },
       {
         "details": [
-          "filtered 97 item(s) not owned by Dooley"
+          "expected_patch_mismatch"
         ],
-        "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:56Z",
+        "health_status": "unhealthy",
+        "observed_at": "2026-06-12T10:02:42Z",
         "window_id": "bazaardb:15.0 (Jun 3)"
       }
     ],
@@ -34496,7 +37410,7 @@
           "filtered 1 item(s) not owned by Dooley"
         ],
         "health_status": "healthy",
-        "observed_at": "2026-06-05T09:37:56Z",
+        "observed_at": "2026-06-12T10:02:42Z",
         "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
       }
     ],
@@ -34530,6 +37444,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-05T09:37:56Z",
         "window_id": "mobalytics_meta_builds:v561"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-06-12T10:02:42Z",
+        "window_id": "mobalytics_meta_builds:v562"
       }
     ]
   }

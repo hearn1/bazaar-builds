@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T09:56:49Z",
-  "generated_at": "2026-06-12T10:02:56Z",
+  "generated_at": "2026-07-24T08:16:22Z",
   "hero": "Dooley",
   "items": {
     "3D Printer": {
@@ -66,7 +66,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -86,10 +86,29 @@
               "rank": 11,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "alpha-ray"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 11,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -894,6 +913,106 @@
         }
       }
     },
+    "Armored Core": {
+      "per_source": {
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch",
+              "archetypes_seen": [
+                "Welding Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Welding Torch (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/357d7a25-aae0-4d4f-9360-4ed1cc107962.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "welding-torch",
+                              "isShowLabel": true,
+                              "label": "Welding Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " capitalizes on the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/189575f2-cf55-44ee-a70b-362ce75c9c9e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "wallace",
+                              "isShowLabel": true,
+                              "label": "Wallace",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", converting mass amounts of Shielding into huge stacks of Burn. It's a well-rounded build with solid inevitability due to its percentage based scaling.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Athanor": {
       "per_source": {
         "bazaar_builds_net": {
@@ -1416,7 +1535,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -1436,10 +1555,29 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "blk-sp1d3r"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -2140,7 +2278,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -2160,14 +2298,33 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "beta-ray"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -3338,10 +3495,205 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -3618,7 +3970,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -3638,10 +3990,29 @@
               "rank": 11,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "blast-doors"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 11,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -4115,7 +4486,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -5118,10 +5489,98 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch",
+              "archetypes_seen": [
+                "Welding Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Welding Torch (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/357d7a25-aae0-4d4f-9360-4ed1cc107962.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "welding-torch",
+                              "isShowLabel": true,
+                              "label": "Welding Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " capitalizes on the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/189575f2-cf55-44ee-a70b-362ce75c9c9e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "wallace",
+                              "isShowLabel": true,
+                              "label": "Wallace",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", converting mass amounts of Shielding into huge stacks of Burn. It's a well-rounded build with solid inevitability due to its percentage based scaling.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -5356,7 +5815,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -5885,10 +6344,98 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Power Drill",
+              "archetypes_seen": [
+                "Power Drill"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Power Drill (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/63f124c0-f94c-4850-8522-215d2e72a815.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "power-drill",
+                              "isShowLabel": true,
+                              "label": "Power Drill",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " returns as a powerful build-around thanks to the absurd Damage scaling from ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/0860d2ef-fb1d-47a3-9373-3f1593952285.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "rampage-module",
+                              "isShowLabel": true,
+                              "label": "RAMPage Module",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". As with most Dooley builds you can play a wide range of setups, so long as fast triggers are the main priority.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -6108,7 +6655,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -6128,10 +6675,29 @@
               "rank": 13,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "chaff"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 13,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -6383,7 +6949,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -6403,10 +6969,29 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "chris-army-knife"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -7364,7 +7949,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -8535,10 +9120,205 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -8546,7 +9326,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -8566,14 +9346,33 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "cooling-fan"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -9744,10 +10543,205 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -9797,11 +10791,111 @@
         }
       }
     },
+    "Cryosphere": {
+      "per_source": {
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Power Drill",
+              "archetypes_seen": [
+                "Power Drill"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Power Drill (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/63f124c0-f94c-4850-8522-215d2e72a815.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "power-drill",
+                              "isShowLabel": true,
+                              "label": "Power Drill",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " returns as a powerful build-around thanks to the absurd Damage scaling from ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/0860d2ef-fb1d-47a3-9373-3f1593952285.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "rampage-module",
+                              "isShowLabel": true,
+                              "label": "RAMPage Module",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". As with most Dooley builds you can play a wide range of setups, so long as fast triggers are the main priority.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Crypto": {
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -9821,10 +10915,29 @@
               "rank": 8,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "crypto"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 16,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -9975,7 +11088,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -9995,10 +11108,29 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "dino-saddle"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -10034,7 +11166,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -10054,10 +11186,29 @@
               "rank": 10,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "dinosawer"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 10,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -10233,6 +11384,106 @@
           ],
           "windows_observed": 4,
           "windows_seen": 4
+        }
+      }
+    },
+    "Dooley's Scarf": {
+      "per_source": {
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Power Drill",
+              "archetypes_seen": [
+                "Power Drill"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Power Drill (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/63f124c0-f94c-4850-8522-215d2e72a815.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "power-drill",
+                              "isShowLabel": true,
+                              "label": "Power Drill",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " returns as a powerful build-around thanks to the absurd Damage scaling from ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/0860d2ef-fb1d-47a3-9373-3f1593952285.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "rampage-module",
+                              "isShowLabel": true,
+                              "label": "RAMPage Module",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". As with most Dooley builds you can play a wide range of setups, so long as fast triggers are the main priority.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -11309,7 +12560,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -11329,10 +12580,29 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "dooltron-mainframe"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 18,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -11659,7 +12929,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -11679,6 +12949,121 @@
               "rank": 14,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "duct-tape"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 14,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
+            }
+          ],
+          "windows_observed": 2,
+          "windows_seen": 2
+        },
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch",
+              "archetypes_seen": [
+                "Welding Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Welding Torch (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/357d7a25-aae0-4d4f-9360-4ed1cc107962.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "welding-torch",
+                              "isShowLabel": true,
+                              "label": "Welding Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " capitalizes on the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/189575f2-cf55-44ee-a70b-362ce75c9c9e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "wallace",
+                              "isShowLabel": true,
+                              "label": "Wallace",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", converting mass amounts of Shielding into huge stacks of Burn. It's a well-rounded build with solid inevitability due to its percentage based scaling.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
           "windows_observed": 1,
@@ -12318,7 +13703,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -12338,10 +13723,29 @@
               "rank": 14,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Common",
+                "section_title": "End Game Build Breakdown",
+                "slug": "feather"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 14,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -12462,7 +13866,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -12482,14 +13886,33 @@
               "rank": 8,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "fiber-optics"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 12,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -13660,10 +15083,98 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Power Drill",
+              "archetypes_seen": [
+                "Power Drill"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Power Drill (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/63f124c0-f94c-4850-8522-215d2e72a815.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "power-drill",
+                              "isShowLabel": true,
+                              "label": "Power Drill",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " returns as a powerful build-around thanks to the absurd Damage scaling from ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/0860d2ef-fb1d-47a3-9373-3f1593952285.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "rampage-module",
+                              "isShowLabel": true,
+                              "label": "RAMPage Module",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". As with most Dooley builds you can play a wide range of setups, so long as fast triggers are the main priority.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -14036,7 +15547,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -14056,10 +15567,29 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "flint-stones"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -15822,7 +17352,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -15842,10 +17372,29 @@
               "rank": 9,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "hammlet"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 9,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -16700,7 +18249,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -16720,14 +18269,33 @@
               "rank": 10,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "ice-9000"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 10,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -17898,10 +19466,205 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -18734,6 +20497,106 @@
         }
       }
     },
+    "Isochoric Freezer": {
+      "per_source": {
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Power Drill",
+              "archetypes_seen": [
+                "Power Drill"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Power Drill (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/63f124c0-f94c-4850-8522-215d2e72a815.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "power-drill",
+                              "isShowLabel": true,
+                              "label": "Power Drill",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " returns as a powerful build-around thanks to the absurd Damage scaling from ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/0860d2ef-fb1d-47a3-9373-3f1593952285.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "rampage-module",
+                              "isShowLabel": true,
+                              "label": "RAMPage Module",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". As with most Dooley builds you can play a wide range of setups, so long as fast triggers are the main priority.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Jellyfish": {
       "per_source": {
         "bazaardb": {
@@ -19260,7 +21123,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -19280,10 +21143,29 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "launch-pad"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -19379,7 +21261,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -19399,14 +21281,33 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "launcher-core"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -20577,10 +22478,205 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -20860,7 +22956,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -20880,10 +22976,29 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "levitation-pad"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 13,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -20985,7 +23100,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -21514,10 +23629,98 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch",
+              "archetypes_seen": [
+                "Welding Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Welding Torch (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/357d7a25-aae0-4d4f-9360-4ed1cc107962.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "welding-torch",
+                              "isShowLabel": true,
+                              "label": "Welding Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " capitalizes on the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/189575f2-cf55-44ee-a70b-362ce75c9c9e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "wallace",
+                              "isShowLabel": true,
+                              "label": "Wallace",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", converting mass amounts of Shielding into huge stacks of Burn. It's a well-rounded build with solid inevitability due to its percentage based scaling.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -21748,7 +23951,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -21768,10 +23971,29 @@
               "rank": 15,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "machine-learning"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 15,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -22419,7 +24641,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -22439,14 +24661,33 @@
               "rank": 8,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "metronome"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 12,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -23617,10 +25858,205 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -23751,7 +26187,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -23771,10 +26207,29 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "miss-isles"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 10,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -25813,7 +28268,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -25833,10 +28288,29 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "nitrogen-hammer"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -26141,7 +28615,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -26161,10 +28635,29 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "omega-ray"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -26496,7 +28989,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -26516,10 +29009,29 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "party-float"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -26828,7 +29340,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -26848,10 +29360,29 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "pierre-conditioner"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 11,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -27395,7 +29926,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -27415,6 +29946,121 @@
               "rank": 10,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "power-drill"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
+            }
+          ],
+          "windows_observed": 2,
+          "windows_seen": 2
+        },
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Power Drill",
+              "archetypes_seen": [
+                "Power Drill"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Power Drill (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/63f124c0-f94c-4850-8522-215d2e72a815.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "power-drill",
+                              "isShowLabel": true,
+                              "label": "Power Drill",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " returns as a powerful build-around thanks to the absurd Damage scaling from ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/0860d2ef-fb1d-47a3-9373-3f1593952285.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "rampage-module",
+                              "isShowLabel": true,
+                              "label": "RAMPage Module",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". As with most Dooley builds you can play a wide range of setups, so long as fast triggers are the main priority.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
           "windows_observed": 1,
@@ -27778,7 +30424,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -27798,10 +30444,29 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "propeller-hat"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -27872,7 +30537,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -27892,10 +30557,29 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "pulse-rifle"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -27982,6 +30666,106 @@
               "present": true,
               "rank": 9,
               "window_id": "bazaardb:May 7"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
+    "RAMPage Module": {
+      "per_source": {
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Power Drill",
+              "archetypes_seen": [
+                "Power Drill"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Power Drill (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/63f124c0-f94c-4850-8522-215d2e72a815.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "power-drill",
+                              "isShowLabel": true,
+                              "label": "Power Drill",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " returns as a powerful build-around thanks to the absurd Damage scaling from ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/0860d2ef-fb1d-47a3-9373-3f1593952285.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "rampage-module",
+                              "isShowLabel": true,
+                              "label": "RAMPage Module",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ". As with most Dooley builds you can play a wide range of setups, so long as fast triggers are the main priority.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
           "windows_observed": 1,
@@ -28816,7 +31600,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -28836,10 +31620,29 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "rocket-launcher"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -29174,7 +31977,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -29194,10 +31997,29 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "sat-comm"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 15,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -29297,7 +32119,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -29317,10 +32139,29 @@
               "rank": 11,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "schematics"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 14,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -29454,7 +32295,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -29474,10 +32315,29 @@
               "rank": 9,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "scrap-metal"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 16,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -30766,7 +33626,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -30786,10 +33646,29 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Early Game Path",
+                "slug": "soldering-gun"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -32182,7 +35061,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -32202,10 +35081,29 @@
               "rank": 12,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "temporal-navigator"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 15,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -32276,7 +35174,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -32296,10 +35194,29 @@
               "rank": 17,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "terry-dactyl"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 17,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -32456,7 +35373,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -32476,14 +35393,33 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "thrusters"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 9,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -33654,10 +36590,205 @@
               "rank": 8,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Launcher Core",
+              "archetypes_seen": [
+                "Launcher Core"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Launcher Core (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9fafc0a5-6675-4e17-9457-590f13354a39.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "launcher-core",
+                              "isShowLabel": true,
+                              "label": "Launcher Core",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " is a powerful enabler that can make just about anything loop incredibly fast. The most popular win conditions are usually ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/1fbbefea-2da0-46a5-b60d-dad9478ade86.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ice-9000",
+                              "isShowLabel": true,
+                              "label": "Ice 9000",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/bfb765fc-764c-4e16-aa17-0e10efda4b5b.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "nitrogen-hammer",
+                              "isShowLabel": true,
+                              "label": "Nitrogen Hammer",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", and ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c6cddb71-fa3a-43eb-8946-e71e139df8fa.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "terry-dactyl",
+                              "isShowLabel": true,
+                              "label": "Terry-Dactyl",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", but you can make anything work if you're creative enough.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": "Build Guide:",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "tag": "h4",
+                          "type": "heading",
+                          "version": 1
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "detail": 0,
+                                      "format": 0,
+                                      "mode": "normal",
+                                      "style": "",
+                                      "text": "Launcher Core Dooley",
+                                      "type": "text",
+                                      "version": 1
+                                    }
+                                  ],
+                                  "direction": "ltr",
+                                  "format": "",
+                                  "indent": 0,
+                                  "rel": null,
+                                  "target": "_blank",
+                                  "title": null,
+                                  "type": "link",
+                                  "url": "/the-bazaar/builds/launcher-core-dooley-kripp",
+                                  "version": 1
+                                }
+                              ],
+                              "direction": "ltr",
+                              "format": "",
+                              "indent": 0,
+                              "type": "listitem",
+                              "value": 1,
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "listType": "bullet",
+                          "start": 1,
+                          "tag": "ul",
+                          "type": "list",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 8,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -34666,6 +37797,106 @@
         }
       }
     },
+    "Wallace": {
+      "per_source": {
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch",
+              "archetypes_seen": [
+                "Welding Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Welding Torch (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/357d7a25-aae0-4d4f-9360-4ed1cc107962.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "welding-torch",
+                              "isShowLabel": true,
+                              "label": "Welding Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " capitalizes on the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/189575f2-cf55-44ee-a70b-362ce75c9c9e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "wallace",
+                              "isShowLabel": true,
+                              "label": "Wallace",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", converting mass amounts of Shielding into huge stacks of Burn. It's a well-rounded build with solid inevitability due to its percentage based scaling.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Wand": {
       "per_source": {
         "bazaardb": {
@@ -35427,6 +38658,106 @@
         }
       }
     },
+    "Welding Torch": {
+      "per_source": {
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Welding Torch",
+              "archetypes_seen": [
+                "Welding Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Welding Torch (Dooley)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/357d7a25-aae0-4d4f-9360-4ed1cc107962.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "welding-torch",
+                              "isShowLabel": true,
+                              "label": "Welding Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " capitalizes on the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/189575f2-cf55-44ee-a70b-362ce75c9c9e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "wallace",
+                              "isShowLabel": true,
+                              "label": "Wallace",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", converting mass amounts of Shielding into huge stacks of Burn. It's a well-rounded build with solid inevitability due to its percentage based scaling.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Dooley"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        }
+      }
+    },
     "Wild Bear": {
       "per_source": {
         "bazaardb": {
@@ -35886,7 +39217,7 @@
         },
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -35906,10 +39237,29 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "Example Mid Game Additions",
+                "slug": "ylw-m4nt1s"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -36048,7 +39398,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -36068,10 +39418,29 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "z-shield"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
@@ -37089,7 +40458,7 @@
       "per_source": {
         "mobalytics_build_articles": {
           "first_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
-          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp",
+          "last_seen_window": "mobalytics_build_articles:launcher-core-dooley-kripp",
           "per_window": [
             {
               "appearances": 1,
@@ -37109,10 +40478,29 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+            },
+            {
+              "appearances": 1,
+              "archetype": "launcher-core-dooley-kripp",
+              "archetypes_seen": [
+                "launcher-core-dooley-kripp"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "hero": "Dooley",
+                "section_title": "End Game Build Breakdown",
+                "slug": "z-sword"
+              },
+              "observed_at": "2026-07-24T08:16:11Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -37350,6 +40738,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-12T10:02:42Z",
         "window_id": "bazaar_builds_net:2026-W24"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-07-24T08:16:11Z",
+        "window_id": "bazaar_builds_net:2026-W30"
       }
     ],
     "bazaardb": [
@@ -37394,6 +40788,14 @@
         "health_status": "unhealthy",
         "observed_at": "2026-06-12T10:02:42Z",
         "window_id": "bazaardb:15.0 (Jun 3)"
+      },
+      {
+        "details": [
+          "expected_patch_mismatch"
+        ],
+        "health_status": "unhealthy",
+        "observed_at": "2026-07-24T08:16:11Z",
+        "window_id": "bazaardb:16.2 (Jul 17)"
       }
     ],
     "mobalytics_build_articles": [
@@ -37412,6 +40814,14 @@
         "health_status": "healthy",
         "observed_at": "2026-06-12T10:02:42Z",
         "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp,dooltron-dooley-kripp,companion-core-dooley-kripp"
+      },
+      {
+        "details": [
+          "filtered 1 item(s) not owned by Dooley"
+        ],
+        "health_status": "healthy",
+        "observed_at": "2026-07-24T08:16:11Z",
+        "window_id": "mobalytics_build_articles:launcher-core-dooley-kripp"
       }
     ],
     "mobalytics_meta_builds": [
@@ -37450,6 +40860,12 @@
         "health_status": "healthy",
         "observed_at": "2026-06-12T10:02:42Z",
         "window_id": "mobalytics_meta_builds:v562"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-07-24T08:16:11Z",
+        "window_id": "mobalytics_meta_builds:v577"
       }
     ]
   }

@@ -1,6 +1,6 @@
 {
   "classifier_started_at": "2026-05-18T09:56:51Z",
-  "generated_at": "2026-07-03T08:55:25Z",
+  "generated_at": "2026-07-24T08:16:25Z",
   "hero": "Mak",
   "items": {
     "Adrenal Converter": {
@@ -750,7 +750,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v542",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -848,10 +848,98 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v542"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Staff of the Moose",
+              "archetypes_seen": [
+                "Staff of the Moose"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Staff of the Moose (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c135f23d-b8b4-4aa8-9a11-b288ae05908c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "staff-of-the-moose",
+                              "isShowLabel": true,
+                              "label": "Staff of the Moose",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has a unique line of defense with its passive immunity effect, allowing Mak to hold his ground against all the aggression. When armed with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6076200d-dc08-47a2-a7d2-dfa2e484422a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ritual-dagger",
+                              "isShowLabel": true,
+                              "label": "Ritual Dagger",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " it creates an exponential form of scaling due to their combined abilities.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -2651,7 +2739,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -3180,10 +3268,98 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Eternal Torch",
+              "archetypes_seen": [
+                "Eternal Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Eternal Torch (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "eternal-torch",
+                              "isShowLabel": true,
+                              "label": "Eternal Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has one of the highest Burn outputs in the game and can be picked up and worked towards from Day 1. While it takes a bit of time to get going, it's become far easier with the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "blank-slate",
+                              "isShowLabel": true,
+                              "label": "Blank Slate",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (which can carry the early to mid game). An excellent payoff for a fairly minimal investment.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -6331,7 +6507,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -6860,10 +7036,98 @@
               "rank": 3,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Eternal Torch",
+              "archetypes_seen": [
+                "Eternal Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Eternal Torch (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "eternal-torch",
+                              "isShowLabel": true,
+                              "label": "Eternal Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has one of the highest Burn outputs in the game and can be picked up and worked towards from Day 1. While it takes a bit of time to get going, it's become far easier with the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "blank-slate",
+                              "isShowLabel": true,
+                              "label": "Blank Slate",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (which can carry the early to mid game). An excellent payoff for a fairly minimal investment.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -6988,7 +7252,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v562",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -7584,10 +7848,98 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v562"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Staff of the Moose",
+              "archetypes_seen": [
+                "Staff of the Moose"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Staff of the Moose (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c135f23d-b8b4-4aa8-9a11-b288ae05908c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "staff-of-the-moose",
+                              "isShowLabel": true,
+                              "label": "Staff of the Moose",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has a unique line of defense with its passive immunity effect, allowing Mak to hold his ground against all the aggression. When armed with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6076200d-dc08-47a2-a7d2-dfa2e484422a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ritual-dagger",
+                              "isShowLabel": true,
+                              "label": "Ritual Dagger",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " it creates an exponential form of scaling due to their combined abilities.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 3,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 5,
-          "windows_seen": 5
+          "windows_observed": 6,
+          "windows_seen": 6
         }
       }
     },
@@ -8685,7 +9037,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v542",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -8783,10 +9135,98 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v542"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Staff of the Moose",
+              "archetypes_seen": [
+                "Staff of the Moose"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Staff of the Moose (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c135f23d-b8b4-4aa8-9a11-b288ae05908c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "staff-of-the-moose",
+                              "isShowLabel": true,
+                              "label": "Staff of the Moose",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has a unique line of defense with its passive immunity effect, allowing Mak to hold his ground against all the aggression. When armed with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6076200d-dc08-47a2-a7d2-dfa2e484422a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ritual-dagger",
+                              "isShowLabel": true,
+                              "label": "Ritual Dagger",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " it creates an exponential form of scaling due to their combined abilities.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -12159,7 +12599,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -13176,10 +13616,98 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Staff of the Moose",
+              "archetypes_seen": [
+                "Staff of the Moose"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Staff of the Moose (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c135f23d-b8b4-4aa8-9a11-b288ae05908c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "staff-of-the-moose",
+                              "isShowLabel": true,
+                              "label": "Staff of the Moose",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has a unique line of defense with its passive immunity effect, allowing Mak to hold his ground against all the aggression. When armed with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6076200d-dc08-47a2-a7d2-dfa2e484422a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ritual-dagger",
+                              "isShowLabel": true,
+                              "label": "Ritual Dagger",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " it creates an exponential form of scaling due to their combined abilities.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 7,
-          "windows_seen": 7
+          "windows_observed": 8,
+          "windows_seen": 8
         }
       }
     },
@@ -15411,7 +15939,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v566",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -15500,10 +16028,98 @@
               "rank": 7,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Refractor",
+              "archetypes_seen": [
+                "Refractor"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Refractor (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/cb519fbf-1f2c-4dd1-ba9b-3dc031fd7cbe.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "refractor",
+                              "isShowLabel": true,
+                              "label": "Refractor",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a massive buff after it gained the ability to also scale from Haste triggers. This goes hand-in-hand with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c61942c5-71b4-4761-9bfa-745107aa9cc3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "smelling-salts",
+                              "isShowLabel": true,
+                              "label": "Smelling Salts",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", an item that's notoriously easy to spam due to the abundance of Slows. What was once a solid early tempo build is now a viable late game threat.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -15846,7 +16462,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -16375,10 +16991,98 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Eternal Torch",
+              "archetypes_seen": [
+                "Eternal Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Eternal Torch (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "eternal-torch",
+                              "isShowLabel": true,
+                              "label": "Eternal Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has one of the highest Burn outputs in the game and can be picked up and worked towards from Day 1. While it takes a bit of time to get going, it's become far easier with the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "blank-slate",
+                              "isShowLabel": true,
+                              "label": "Blank Slate",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (which can carry the early to mid game). An excellent payoff for a fairly minimal investment.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -21415,7 +22119,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v566",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -21504,10 +22208,98 @@
               "rank": 2,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Refractor",
+              "archetypes_seen": [
+                "Refractor"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Refractor (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/cb519fbf-1f2c-4dd1-ba9b-3dc031fd7cbe.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "refractor",
+                              "isShowLabel": true,
+                              "label": "Refractor",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a massive buff after it gained the ability to also scale from Haste triggers. This goes hand-in-hand with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c61942c5-71b4-4761-9bfa-745107aa9cc3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "smelling-salts",
+                              "isShowLabel": true,
+                              "label": "Smelling Salts",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", an item that's notoriously easy to spam due to the abundance of Slows. What was once a solid early tempo build is now a viable late game threat.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 2,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -21819,6 +22611,102 @@
           ],
           "windows_observed": 5,
           "windows_seen": 5
+        },
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Staff of the Moose",
+              "archetypes_seen": [
+                "Staff of the Moose"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Staff of the Moose (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c135f23d-b8b4-4aa8-9a11-b288ae05908c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "staff-of-the-moose",
+                              "isShowLabel": true,
+                              "label": "Staff of the Moose",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has a unique line of defense with its passive immunity effect, allowing Mak to hold his ground against all the aggression. When armed with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6076200d-dc08-47a2-a7d2-dfa2e484422a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ritual-dagger",
+                              "isShowLabel": true,
+                              "label": "Ritual Dagger",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " it creates an exponential form of scaling due to their combined abilities.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
         }
       }
     },
@@ -22914,7 +23802,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -23931,10 +24819,98 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Staff of the Moose",
+              "archetypes_seen": [
+                "Staff of the Moose"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Staff of the Moose (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c135f23d-b8b4-4aa8-9a11-b288ae05908c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "staff-of-the-moose",
+                              "isShowLabel": true,
+                              "label": "Staff of the Moose",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has a unique line of defense with its passive immunity effect, allowing Mak to hold his ground against all the aggression. When armed with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6076200d-dc08-47a2-a7d2-dfa2e484422a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ritual-dagger",
+                              "isShowLabel": true,
+                              "label": "Ritual Dagger",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " it creates an exponential form of scaling due to their combined abilities.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 7,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 7,
-          "windows_seen": 7
+          "windows_observed": 8,
+          "windows_seen": 8
         }
       }
     },
@@ -23942,7 +24918,7 @@
       "per_source": {
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v566",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -24031,10 +25007,98 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Refractor",
+              "archetypes_seen": [
+                "Refractor"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Refractor (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/cb519fbf-1f2c-4dd1-ba9b-3dc031fd7cbe.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "refractor",
+                              "isShowLabel": true,
+                              "label": "Refractor",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a massive buff after it gained the ability to also scale from Haste triggers. This goes hand-in-hand with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c61942c5-71b4-4761-9bfa-745107aa9cc3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "smelling-salts",
+                              "isShowLabel": true,
+                              "label": "Smelling Salts",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", an item that's notoriously easy to spam due to the abundance of Slows. What was once a solid early tempo build is now a viable late game threat.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -25784,7 +26848,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -26423,10 +27487,98 @@
               "rank": 4,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Eternal Torch",
+              "archetypes_seen": [
+                "Eternal Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Eternal Torch (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "eternal-torch",
+                              "isShowLabel": true,
+                              "label": "Eternal Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has one of the highest Burn outputs in the game and can be picked up and worked towards from Day 1. While it takes a bit of time to get going, it's become far easier with the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "blank-slate",
+                              "isShowLabel": true,
+                              "label": "Blank Slate",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (which can carry the early to mid game). An excellent payoff for a fairly minimal investment.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 4,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 7,
-          "windows_seen": 7
+          "windows_observed": 8,
+          "windows_seen": 8
         }
       }
     },
@@ -26677,7 +27829,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v542",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -27316,10 +28468,98 @@
               "rank": 5,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Eternal Torch",
+              "archetypes_seen": [
+                "Eternal Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Eternal Torch (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "eternal-torch",
+                              "isShowLabel": true,
+                              "label": "Eternal Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has one of the highest Burn outputs in the game and can be picked up and worked towards from Day 1. While it takes a bit of time to get going, it's become far easier with the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "blank-slate",
+                              "isShowLabel": true,
+                              "label": "Blank Slate",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (which can carry the early to mid game). An excellent payoff for a fairly minimal investment.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 5,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 7,
-          "windows_seen": 7
+          "windows_observed": 8,
+          "windows_seen": 8
         }
       }
     },
@@ -27733,7 +28973,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v566",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -27822,10 +29062,98 @@
               "rank": 6,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Refractor",
+              "archetypes_seen": [
+                "Refractor"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Refractor (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/cb519fbf-1f2c-4dd1-ba9b-3dc031fd7cbe.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "refractor",
+                              "isShowLabel": true,
+                              "label": "Refractor",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " received a massive buff after it gained the ability to also scale from Haste triggers. This goes hand-in-hand with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c61942c5-71b4-4761-9bfa-745107aa9cc3.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "smelling-salts",
+                              "isShowLabel": true,
+                              "label": "Smelling Salts",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": ", an item that's notoriously easy to spam due to the abundance of Slows. What was once a solid early tempo build is now a viable late game threat.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 1,
-          "windows_seen": 1
+          "windows_observed": 2,
+          "windows_seen": 2
         }
       }
     },
@@ -27992,6 +29320,102 @@
               "rank": 12,
               "sample_count": 1,
               "window_id": "mobalytics_build_articles:self-poison-mak-kripp,goop-flail-mak-kripp"
+            }
+          ],
+          "windows_observed": 1,
+          "windows_seen": 1
+        },
+        "mobalytics_meta_builds": {
+          "first_seen_window": "mobalytics_meta_builds:v577",
+          "last_seen_window": "mobalytics_meta_builds:v577",
+          "per_window": [
+            {
+              "appearances": 1,
+              "archetype": "Staff of the Moose",
+              "archetypes_seen": [
+                "Staff of the Moose"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Staff of the Moose (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/c135f23d-b8b4-4aa8-9a11-b288ae05908c.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "staff-of-the-moose",
+                              "isShowLabel": true,
+                              "label": "Staff of the Moose",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has a unique line of defense with its passive immunity effect, allowing Mak to hold his ground against all the aggression. When armed with ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/6076200d-dc08-47a2-a7d2-dfa2e484422a.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "ritual-dagger",
+                              "isShowLabel": true,
+                              "label": "Ritual Dagger",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " it creates an exponential form of scaling due to their combined abilities.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 6,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
           "windows_observed": 1,
@@ -28933,7 +30357,7 @@
         },
         "mobalytics_meta_builds": {
           "first_seen_window": "mobalytics_meta_builds:v554",
-          "last_seen_window": "mobalytics_meta_builds:v566",
+          "last_seen_window": "mobalytics_meta_builds:v577",
           "per_window": [
             {
               "appearances": 1,
@@ -29462,10 +30886,98 @@
               "rank": 1,
               "sample_count": 1,
               "window_id": "mobalytics_meta_builds:v566"
+            },
+            {
+              "appearances": 1,
+              "archetype": "Eternal Torch",
+              "archetypes_seen": [
+                "Eternal Torch"
+              ],
+              "evidence_refs": [],
+              "frequency": 1.0,
+              "metadata": {
+                "build_title": "Eternal Torch (Mak)",
+                "editorial_description": {
+                  "charLimit": 5000,
+                  "placeholder": null,
+                  "value": {
+                    "root": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "eternal-torch",
+                              "isShowLabel": true,
+                              "label": "Eternal Torch",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " has one of the highest Burn outputs in the game and can be picked up and worked towards from Day 1. While it takes a bit of time to get going, it's become far easier with the recent buffs to ",
+                              "type": "text",
+                              "version": 1
+                            },
+                            {
+                              "color": "#99D6FF",
+                              "display": 1,
+                              "groupId": "items",
+                              "icon": "https://cdn.mobalytics.gg/assets/bazaar/images/cards_guid/4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d.avif",
+                              "iconStyle": "square-rounded",
+                              "id": "blank-slate",
+                              "isShowLabel": true,
+                              "label": "Blank Slate",
+                              "link": "",
+                              "type": "static-data-widget",
+                              "version": 1
+                            },
+                            {
+                              "detail": 0,
+                              "format": 0,
+                              "mode": "normal",
+                              "style": "",
+                              "text": " (which can carry the early to mid game). An excellent payoff for a fairly minimal investment.",
+                              "type": "text",
+                              "version": 1
+                            }
+                          ],
+                          "direction": "ltr",
+                          "format": "",
+                          "indent": 0,
+                          "textFormat": 0,
+                          "textStyle": "",
+                          "type": "paragraph",
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "format": "",
+                      "indent": 0,
+                      "type": "root",
+                      "version": 7
+                    }
+                  }
+                },
+                "hero": "Mak"
+              },
+              "observed_at": "2026-07-24T08:16:09Z",
+              "present": true,
+              "rank": 1,
+              "sample_count": 1,
+              "window_id": "mobalytics_meta_builds:v577"
             }
           ],
-          "windows_observed": 6,
-          "windows_seen": 6
+          "windows_observed": 7,
+          "windows_seen": 7
         }
       }
     },
@@ -31461,6 +32973,12 @@
         "health_status": "healthy",
         "observed_at": "2026-07-03T08:55:07Z",
         "window_id": "bazaar_builds_net:2026-W27"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-07-24T08:16:09Z",
+        "window_id": "bazaar_builds_net:2026-W30"
       }
     ],
     "bazaardb": [
@@ -31513,17 +33031,17 @@
         "health_status": "unhealthy",
         "observed_at": "2026-07-03T08:55:07Z",
         "window_id": "bazaardb:16.0 (Hotfix Jul 3)"
+      },
+      {
+        "details": [
+          "expected_patch_mismatch"
+        ],
+        "health_status": "unhealthy",
+        "observed_at": "2026-07-24T08:16:09Z",
+        "window_id": "bazaardb:16.2 (Jul 17)"
       }
     ],
     "mobalytics_build_articles": [
-      {
-        "details": [
-          "no_article_slugs_configured"
-        ],
-        "health_status": "skipped",
-        "observed_at": "2026-05-30T21:59:56Z",
-        "window_id": "mobalytics_build_articles:skipped"
-      },
       {
         "details": [
           "filtered 1 item(s) not owned by Mak"
@@ -31537,6 +33055,14 @@
         "health_status": "healthy",
         "observed_at": "2026-07-03T08:55:07Z",
         "window_id": "mobalytics_build_articles:goop-flail-mak-kripp"
+      },
+      {
+        "details": [
+          "no_article_slugs_configured"
+        ],
+        "health_status": "skipped",
+        "observed_at": "2026-07-24T08:16:09Z",
+        "window_id": "mobalytics_build_articles:skipped"
       }
     ],
     "mobalytics_meta_builds": [
@@ -31587,6 +33113,12 @@
         "health_status": "healthy",
         "observed_at": "2026-07-03T08:55:07Z",
         "window_id": "mobalytics_meta_builds:v566"
+      },
+      {
+        "details": [],
+        "health_status": "healthy",
+        "observed_at": "2026-07-24T08:16:09Z",
+        "window_id": "mobalytics_meta_builds:v577"
       }
     ]
   }
